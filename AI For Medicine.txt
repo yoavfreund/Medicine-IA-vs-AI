@@ -1,0 +1,74 @@
+﻿Outline
+
+
+1. Not all claims regarding deep learning in medicine can be trusted.
+      Skin cancer detection (stanford paper)
+      Pneumonia detection paper solely from X-ray (Stanford)
+2.  Size of dataset is not enough, you need representative diversity.
+3. The difficulty of collecting reliable labels (interrater agreement is low for many clinical problems -- several citations. Also lack of knowledge/scientific evidence) 
+4.   The importance of saying “I don’t know” in medical practice. (medical augmentation)
+5. Levels of expertise: intern -> resident -> visiting staff
+6. Bed-side alarm system. (adaptive systems for reducing alarm fatigue?)
+7. Using ensembles of classifer to quantify uncertainty.
+
+
+
+
+Human labor (agency) quality upgrade
+
+
+The goal of this document is to present an alternative vision of the role of Machine learning in medicine.
+The prevailing vision
+In the prevailing vision, AI, specifically machine learning and deep learning, is approaching human level performance in a variety of diagnostic tasks (cite stanford skin cancer). The conclusion is that, over the short and long term, MDs will be replaced by AI. A common reaction of MDs to this prediction is that the role of an MD goes beyond making medical decisions and extends to providing human contact and empathy, which a machine can not provide. [Topol, deep medicine].
+
+
+In this paper we present an alternative vision for the role of machine learning in medicine. A role that is more modest and more achievable.
+
+
+An alternative vision
+We suggest that, for a variety of reasons presented below, the goal of performing better than the human expert might be unachievable. Instead, we suggest that the role of machine learning is to produce prediction functions that make accurate and reliable predictions most of the time, and outputs “I don’t know” (IDK) the rest of the time.  In other words, the AI handles the easy cases, while abstaining on a small but significant fraction of the cases.  In other words, the AI reduces the load on the MD, but it does not replace the MD. The MD time focuses more on cases that are in the grey area, while the AI diagnoses the clear cut cases.
+
+
+Examples: bed-side heart-attack detection, depth of anesthesia, detection of cancer in prostate biopsies.
+
+
+Comparing the prevailing and the alternative visions
+Restricting ML predictions to the easy cases benefits society in several ways:
+
+
+* Relationship between doctor and computer: The prevailing vision puts the computer in direct competition with the doctor, eventually putting the doctor out of work. Understandably, doctors do not want to contribute to a process whose end goal is to put them out of work. This reduces their willingness to partake in the crucial data collections and labeling process. On the other hand, the alternative view places the computer as an assistant, which reliably diagnoses the easy cases, freeing the doctor to devote more time for the harder cases. The end goal not to remove the doctor, but to help them better use their time.
+
+
+* Agency: Based on the diagnostics and other information, including patient history, the doctor decides whether and how to treat the patient. Such decisions can have grave consequences, potentially of life and death. Choosing the course of treatment gives doctors agency, and puts a heavy responsibility, both ethically and legally, on their shoulders.
+
+The prevailing view raises a very difficult question: in a world without doctors, who is responsible for mistakes? For example, if a computer program makes an incorrect diagnosis, resulting in a poor choice of treatment, ultimately causing harm to the patient.
+Can the diagnostics program be held to account for this mistake? Does it have the required agency? What agency will be liable in the case of a law-suite? [1]
+
+
+Compare this to our alternative vision. In our case the doctor maintains their agency. The ML program is a tool, similar to a lab test, or a report from a technician. The ML program helps identify easy negatives quickly. This reduces the workload of the doctor and allows her to devote more time to clearly sick and to borderline patients. THe division of responsibility remains unchanged, the difference is that the doctor delegates the easy negative to the ML program, and she does so because her experience and that of her colleagues she and her colleagues is that when the ML is confident in it’s prediction, it is rarely wrong.
+
+
+   * Different Diagnostics: One of the ways in which human diagnostic uncertainty is manifest when diagnosticians give significantly different diagnostics to the same data. The rate of disagreement is significant in some contexts(citations?). There are many possible causes for such disagreement, but many can be attributed to different past experience. By discussing these difficult cases doctors share their experiences and, over time, reduce the level of disagreement. 
+The data diversity problem
+Most of the work in machine learning is based on the randomized train/test experimental design. In this design the collected data is partitioned randomly into a training set and a test set (with some ratio of sizes). The training set is given as input to the learning algorithm, which uses it to generate a predictive model. The test data is used to evaluate the accuracy of the model. 
+
+
+This experimental design is sound under the assumption that the training set and the test set are drawn IID from a fixed distribution. However, this is usually not the case in practice. In practice, data is collected from a small number of hospitals (or other institutions), and the goal is to create a classifier that would give accurate predictions in hospitals that are not part of the training set. 
+Samples from different hospitals usually have significantly different distributions. This is a result of serving different populations, using different systems, different policies etc. (Hau-Tieng, please elaborate). Thus test errors of the same classifier on data from different hospitals are often significantly different, making it hard to have confidence in using the classifier in hospitals outside those where it was trained.
+
+
+Ensembles and prediction confidence
+
+
+One mitigating factor, which we hope to build on, is that not all examples are equally hard to classify, some examples are easy others are hard. Our proposal is to design classifiers that quantify the confidence of their predictions, predict when the confidence is high, and abstain when it is not.
+
+
+Consider a simple yes/no classification task .Suppose that we have data from ten hospitals, and that we train a separate classifier using the training data from each hospital. We call the ten classifiers together an ensemble. Given a new example, we compute the 10 predictions of the members of the ensemble.  If all of the predictions are the same, our confidence is high. If 5 predict “yes” and five predict “no” then we have no confidence. In between numbers carry in-between levels of confidence.
+
+
+
+
+
+
+________________
+[1] Similar issues arise whenever a computer decision, unmonitored by a human, results in death or injury to another person. An example is a driverless injuring a pedestrian.

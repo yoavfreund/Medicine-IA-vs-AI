@@ -1,0 +1,113 @@
+\documentclass[fleqn,10pt]{wlscirep}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\title{Which is best for the patient: AI or IA?}
+
+\author[1]{Yoav Freund}
+\author[2]{Hau-Tieng Wu}
+\affil[1]{UCSD, department, city, postcode, country}
+\affil[2]{Duke, department, city, postcode, country}
+
+%\keywords{Keyword1, Keyword2, Keyword3}
+
+\begin{abstract}
+The meteoric rise of AI in general and Deep Learning in particular is generating great excitement
+throughout academia and commerce, and in particular in medicine\cite{topol2019deep, wachter2015digital}. With some some high-profile claims~\cite{} that AI will soon replace humans in many medical specialties. 
+
+In this position paper we present an alternative view. We contrast {\em Artificial Intelligence} with {\em Intelligence Augmentation} and argue that the second is more likely to benefit the patient than the first. We provide evidence to this argument and present a vision in which easier decisions are delegated to computers, while the more difficult ones are handled by humans.
+
+\end{abstract}
+\begin{document}
+
+\flushbottom
+\maketitle
+
+\thispagestyle{empty}
+
+\section*{Introduction}
+A common retort is that AI will soon replace humans in medical professions. Papers in top journals describe systems 
+systems that outperform radiologists, dermatologists and pathologists. On the other hand, projects such as IBM Watson's 
+collaboration MD Anderson, which started to great fan-fair in 2013, and was shut down in 2017, present evidence that this future might not be as close.
+
+We argue 
+
+
+\section{Will deep network replace diagnosticians ?}
+
+
+In some application areas, most notably playing the game of Go, there is overwhelming evidence that NN outperform the best humans in the world. In other areas, such as machine translation, NN perform at a level approaching that of humans. Does this translate into the domain of medicine? That remains to be seen. Below we explain some reasons that this might not be the case.
+
+\subsection*{Expert labeling can be unreliable \label{sec:UnreliableExperts}}
+The difficulty of collecting "ground truth" : reliable labels:
+\begin{itemize}
+    \item Ground-truth labeling is difficult and subjective. Examples: biopsies and autopsies.
+    \item High inter-rater disagreement.
+\end{itemize}
+
+\subsection*{Data size vs. data diversity}
+The prevalent methodology for estimating the test error of a deep neural network (or any other learning algorithm) is to 
+collect a large dataset of labeled examples, split this data, at random, into a training set and a test set, train the DNN on the training set and test the result on the test set. The reported error is the error on the test set. Comparisons of the accuracy of the DNN to human accuracy are usually based on computing the test error in that way.
+
+This random train/test methodology (RTTM) is valid under the assumption that the training set and the test set are both drawn 
+from the same stationary distribution. However, the assumption rarely holds in practice. In practice, data collected in different hospitals has different distributions. Differences arise from different patient populations, different protocols, differences in the digitization instruments and many other causes. In order to estimate the true test error, the training set and the test set should be collected from {\em different} hospitals.
+
+
+For a practical classifier to be useful, it must give reliable results for 
+
+In practice, one collects training data from a small number of locations such as hospitals or clinics. The resulting classifier is then tested on a separate 
+
+On the limitation of the random partition into train vs. test.
+
+\subsection*{Replication Issues with some published results}
+Not all claims regarding deep learning in medicine can be trusted.
+
+Skin cancer detection~\cite{esteva2017dermatologist}
+
+Pneumonia detection paper solely from X-ray (Stanford)
+
+\section{When the best answer is "I don't know"}
+
+Papers in DNN research often claim that the generated neural network performs better than humans. In this section we present some of the critiques of this claim and propose the remedy of outputting "I don't know" on the harder examples.
+
+In the following subsections we discuss the important role of abstention in medical practice and the ways in which abstention can be formalized and used in machine learning.
+
+\subsection*{Medical Augmentation}
+The importance of saying “I don’t know” in medical practice. (medical augmentation)
+
+\subsection*{Expert Hierarchy in medical practice}
+Levels of expertise: intern -> resident -> visiting staff
+
+Cancer Boards
+
+Second opinions
+
+\subsection*{Reducing alarm fatigue}
+Bed-side alarm system. (adaptive systems for reducing alarm fatigue?)
+
+\subsection*{Using Ensembles}
+
+Using ensembles of classifiers to quantify uncertainty.
+
+\section{Agency, trust and adaptation}
+
+A quote from Robert Rechter's book "The digital doctor"~\ref{wachter2015digital}:
+\begin{quote}
+    Harvard psychiatrist and leadership guru Ronald Heifetz has described two types of problems: technical and adaptive. Technical problems can be solved with new tools, new practices, and conventional leadership. Baking a cake is a technical problem: follow the recipe and the results are likely to be fine. Heifetz contrasts technical problems with adaptive ones: problems that require people themselves to change. In adaptive problems, he explains, the people
+    are both the problem and the solution. Leadership, he once said, requires mobilizing and engaging people around a problem “rather than trying to anesthetize them so you can go off and solve it on your own.” 
+\end{quote}
+
+Rechter continues to say that the digitization of medicine "the Mother of All Adaptive Problems". In other words, for AI to be widely adapted, doctors and nurses ("medic" in the following) need to positively engage in its adaptation. Declaring that AI will soon replace medics, positions AI in an adversarial stance towards medics and is likely to make them more resistant to the adoption of AI technology..
+
+Moreover, as argued above, claims that AI can perform diagnosis more accurately than most medical professionals are overblown. On the other hand, if we allow the AI system to {\em abstain} from prediction on the hard cases, high accuracy on the easier cases. Using AI to classify the easy cases can reduce the work load on the doctor or nurse, and free more time to deal with the hard cases.
+
+This approach is often called IA, which stands for "Intelligence Amplification" or "Intelligence Augmentation". In this approach the role of the computer is to assist, rather than replace the human.  The medic remains the agent responsible for the treatment of the patient, the medic delegates some of the work to the IA agent, but sets a threshold on the confidence level such that when the confidence level of the agent is low, it re-engages the medic.
+
+The patient-medic relationship is strengthened, because the medic can devote more time to the more difficult cases.
+
+\section{Summary}
+
+\bibliographystyle{alpha} 
+
+\bibliography{medbib}
+
+\end{document}

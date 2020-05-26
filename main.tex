@@ -1,7 +1,7 @@
 \documentclass[fleqn,10pt]{wlscirep}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\title{Which is best for the patient: AI or IA?}
+\title{Why the digital Doctor needs to say "I don't know"}
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
@@ -10,13 +10,16 @@
 
 %\keywords{Keyword1, Keyword2, Keyword3}
 
+\iffalse
 \begin{abstract}
+
 The meteoric rise of AI in general and Deep Learning in particular is generating great excitement
 throughout academia and commerce, and in particular in medicine\cite{topol2019deep, wachter2015digital}. With some some high-profile claims~\cite{} that AI will soon replace humans in many medical specialties. 
 
 In this position paper we present an alternative view. We contrast {\em Artificial Intelligence} with {\em Intelligence Augmentation} and argue that the second is more likely to benefit the patient than the first. We provide evidence to this argument and present a vision in which easier decisions are delegated to computers, while the more difficult ones are handled by humans.
 
 \end{abstract}
+\fi
 \begin{document}
 
 \flushbottom
@@ -25,17 +28,42 @@ In this position paper we present an alternative view. We contrast {\em Artifici
 \thispagestyle{empty}
 
 \section*{Introduction}
-A common retort is that AI will soon replace humans in medical professions. Papers in top journals describe systems 
-systems that outperform radiologists, dermatologists and pathologists. On the other hand, projects such as IBM Watson's 
-collaboration MD Anderson, which started to great fan-fair in 2013, and was shut down in 2017, present evidence that this future might not be as close.
 
-We argue 
+Digital technology is causing a sea-change in all parts of the medical profession. In particular the meteoric rise of AI in general and deep learning in particular raises the possibility that doctors will be replaced computers~\cite{Mukherjee2017}. The father of deep learning, Geoff Hinton, said in 2017: "It's just completely obvious that that in ten years deep learning is going to do better than Radiologists ... They should stop training radiologists now".
+
+Other deep learning researchers provide a more nuanced perspective. Sebastian Thrun~\cite{Mukherjee2017,esteva2017dermatologist} argues that "... deep learning devices will not replace dermatologists and radiologists. They will {\em augment} professionals, offering the expertise and assistance".
+
+Using computers to augment human intelligence rather replace it, is, at the same time, both heady and boring. On the heady side, consider cyborgs whose anatomy is part human, part artificial and can with equal ease solve complex equations or write poetry. On the mundane side, think of smartphones that are quickly becoming an inseparable part of our person. 
+ 
+The idea of using computers to augment or amplify human intelligence has a very long history. The acronyms AI (Artificial intelligence) and IA (Intelligence Amplification or Intelligence Augmentation) have both become popular in the early 1960's\cite{ashby1957introduction,engelbart1962augmenting}. These days, the acronym AI is popular, while the acronym IA is not. However, Sebastian Thrun's statement indicates that the idea of Intelligence augmentation is still on people's mind. We suggest bringing it back.
+
+{\bf What would IA look like when applied to medicine?} We argue that one important ingredient is to endow AI agents with a 
+degree of humility. Specifically, to allow classifiers, such as DNNs, to say "I don't know". 
+
+\section*{Uncertainty in medical diagnostics}
+
+One of the papers that provided evidence that deep neural networks might be able to outperform humans is the work of Esteva et al~\cite{esteva2017dermatologist}. They trained a Deep neural network to classify images of skin into three categories: benign, malignant and non-cancerous. The network was then tested, along with twenty five dermatologists on images which were labeled by a pathologist analysis of the biopsy. The neural network outperformed the human dermatologist. This is, without a doubt, an impressive finding. However, it is based on a retrospective analysis, in other words, an analysis of historical data. To predict the performance of the DNN when used in a dermatology practice we need to how a dermatologist, or any other diagnosticians, arrives at their final diagnostics.
+
+Medical diagnosis is an iterative process elimination. At the start, the doctor has some basic information such as age, medication, and medical history. Based on that information and an interview with the patient, the doctor identifies some diagnostic possibilities. Based on these possibilities, the doctor orders some tests. The tests might allow the doctor to eliminate some possibilities and potentially order more tests. This process is repeated until the possibilities are sufficiently narrow that the doctor can select a treatment plan. 
+
+In most cases the correct diagnosis remains unknown. In the better cases, the outcome of the therapy is tracked and recorded. Typically, nothing is recorded.
+
+If ground-truth labels are so hard to collect, is there {\em any} way to apply machine learning to medicine?
+In the next section we propose a way in which  Machine learning can help medical communities
+share and evaluate what they know.
+
+\subsection*{Experience, committees, hard and easy cases}
+
+When a doctor is uncertain of their diagnostics, they are likely to consult another doctor, preferably one with more experience, seniority or relevant expertise. In a hospital the opinion of visiting staff would override that of a resident who would override that of an intern.
+
+Sometimes a group of diagnostician is consulted. In such a cases, ideally, there is agreement among the majority of the doctors. Otherwise, additional evidence or discussion is brought to bear until a consensus is reached.
+
+We can partition cases (examples) into {\em easy} or {\em hard} based on the distribution of opinions in the group. If  there is unanimous agreement we say that the case is very easy. 
 
 
-\section{Will deep network replace diagnosticians ?}
+Medical diagnostics is fraught with uncertainties. At the same time, often a significant fraction of the cases are diagnosed by most doctors identically, easily and confidently.
 
 
-In some application areas, most notably playing the game of Go, there is overwhelming evidence that NN outperform the best humans in the world. In other areas, such as machine translation, NN perform at a level approaching that of humans. Does this translate into the domain of medicine? That remains to be seen. Below we explain some reasons that this might not be the case.
 
 \subsection*{Expert labeling can be unreliable \label{sec:UnreliableExperts}}
 The difficulty of collecting "ground truth" : reliable labels:
@@ -51,12 +79,6 @@ collect a large dataset of labeled examples, split this data, at random, into a 
 This random train/test methodology (RTTM) is valid under the assumption that the training set and the test set are both drawn 
 from the same stationary distribution. However, the assumption rarely holds in practice. In practice, data collected in different hospitals has different distributions. Differences arise from different patient populations, different protocols, differences in the digitization instruments and many other causes. In order to estimate the true test error, the training set and the test set should be collected from {\em different} hospitals.
 
-
-For a practical classifier to be useful, it must give reliable results for 
-
-In practice, one collects training data from a small number of locations such as hospitals or clinics. The resulting classifier is then tested on a separate 
-
-On the limitation of the random partition into train vs. test.
 
 \subsection*{Replication Issues with some published results}
 Not all claims regarding deep learning in medicine can be trusted.
@@ -74,9 +96,6 @@ In the following subsections we discuss the important role of abstention in medi
 \subsection*{Medical Augmentation}
 The importance of saying “I don’t know” in medical practice. (medical augmentation)
 
-\subsection*{Expert Hierarchy in medical practice}
-Levels of expertise: intern -> resident -> visiting staff
-
 Cancer Boards
 
 Second opinions
@@ -90,13 +109,13 @@ Using ensembles of classifiers to quantify uncertainty.
 
 \section{Agency, trust and adaptation}
 
-A quote from Robert Rechter's book "The digital doctor"~\ref{wachter2015digital}:
+A quote from Robert Rechter's book "The digital doctor"~\cite{wachter2015digital}:
 \begin{quote}
     Harvard psychiatrist and leadership guru Ronald Heifetz has described two types of problems: technical and adaptive. Technical problems can be solved with new tools, new practices, and conventional leadership. Baking a cake is a technical problem: follow the recipe and the results are likely to be fine. Heifetz contrasts technical problems with adaptive ones: problems that require people themselves to change. In adaptive problems, he explains, the people
     are both the problem and the solution. Leadership, he once said, requires mobilizing and engaging people around a problem “rather than trying to anesthetize them so you can go off and solve it on your own.” 
 \end{quote}
 
-Rechter continues to say that the digitization of medicine "the Mother of All Adaptive Problems". In other words, for AI to be widely adapted, doctors and nurses ("medic" in the following) need to positively engage in its adaptation. Declaring that AI will soon replace medics, positions AI in an adversarial stance towards medics and is likely to make them more resistant to the adoption of AI technology..
+Rechter continues to say that the digitization of medicine "the Mother of All Adaptive Problems". In other words, for AI to be widely adapted, doctors and nurses ("medic" in the following) need to positively engage in its adaptation. Declaring that AI will soon replace medics, positions AI in an adversarial stance towards medics and is likely to make them more resistant to the adoption of AI technology~\cite{topol2019deep}.
 
 Moreover, as argued above, claims that AI can perform diagnosis more accurately than most medical professionals are overblown. On the other hand, if we allow the AI system to {\em abstain} from prediction on the hard cases, high accuracy on the easier cases. Using AI to classify the easy cases can reduce the work load on the doctor or nurse, and free more time to deal with the hard cases.
 

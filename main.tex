@@ -10,6 +10,10 @@
 
 %\keywords{Keyword1, Keyword2, Keyword3}
 
+\newcommand{\comment}[3]{{\color{#1} {\bf #2 :} #3}}
+%\newcommand{\comment}[3]{}  % suppress comments
+\newcommand{\hautieng}[1]{\comment{blue}{hautieng}{#1}}
+\newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
 
 
 \iffalse
@@ -55,16 +59,26 @@ In the next section we propose a way in which  Machine learning can help medical
 share and evaluate what they know.
 
 
-{\color{blue}
+\hautieng{
 [? structure the machine learning components ?]
+\yoav{Not sure what you mean here}
 
-Even if we are now able to reliably obtain ground-truth labels, the data quality itself might be another issue. Examples include commonly encountered missing value, noises, resolution, etc. But the situation could be more delicate nowadays, particularly when it gets more popular to collect as much data as possible, from any possible environments. For example, almost all possible data, including electronic health record, medical imaging, patient monitor, etc, in the hospital environment are considered. In the home-care environment, signals recorded from mobile health devices, daily diary, and others are considered. However, the data validation, calibration and standardization are often not discussed and, rather, implicitly assumed. Take the patient monitor widely used in the intensive care unit (ICU), operation room (OR), or emergency room (ER) as an example. It is now common to analyze biosignals recorded from the patient monitor to train an intelligent \cite{Johnson2016} or alarm \cite{fleischman2019emergency} system. However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. Recently, some delicate artifacts have been reported \cite{lin2019unexpected} regarding the pulse transit time that has been shown to reflect blood pressure information \cite{gesche2012continuous}. This problem should be viewed as a more complicated version of the ``heterogenous noise'' issue commonly considered in the statistical literature.
+Even if we are now able to reliably obtain ground-truth labels, the data quality itself might be another issue. Examples include commonly encountered missing value, noises, resolution, etc. 
+\yoav{I am not sure what you mean here. If the data is too noisy, then how can we get ground truth? Is that based on data that is not available to the ML but is available to the diagnostician?}
+
+But the situation could be more delicate nowadays, particularly when it gets more popular to collect as much data as possible, from any possible environments. For example, almost all possible data, including electronic health record, medical imaging, patient monitor, etc, in the hospital environment are considered. In the home-care environment, signals recorded from mobile health devices, daily diary, and others are considered. However, the data validation, calibration and standardization are often not discussed and, rather, implicitly assumed. 
+\yoav{It is not clear what is the point of this paragraph.  In general, I prefer not to use terms such as "delicate" and "subtle" which seem to imply that the authors of the paper are smarter than the reader.}
+
+Take the patient monitor widely used in the intensive care unit (ICU), operation room (OR), or emergency room (ER) as an example. It is now common to analyze biosignals recorded from the patient monitor to train an intelligent \cite{Johnson2016} or alarm \cite{fleischman2019emergency} system.
+\yoav{This sounds interesting! can you elaborate? Do these systems allow for "I don't know"}
+
+However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. 
+\yoav{Is the problem with the biosignals or with the system? Regarding black-boxes, as long as we allow the box to output I don't know when the prediction is unstable. Also, per-example explanations can be derived from the features that contribute the most from the score, assuming the learner is biased towards sparse classifiers classifier is a sparse one, such as boosting or Lasso.}
+
+Recently, some delicate artifacts have been reported \cite{lin2019unexpected} regarding the pulse transit time that has been shown to reflect blood pressure information \cite{gesche2012continuous}. This problem should be viewed as a more complicated version of the ``heterogenous noise'' issue commonly considered in the statistical literature.
+\yoav{the way this is written, it sounds off topic. Is there an aspect of automation or ML that will connect it to the article?}
+
 }
-
-
-
-
-
 
 \subsection*{On quantifying confidence}
 
@@ -97,17 +111,28 @@ The difficulty of collecting "ground truth" : reliable labels:
     \item High inter-rater disagreement.
 \end{itemize}
 
-{\color{blue}
 
+\hautieng{
 In many clinical scenarios, physicians follow protocols to make clinical decisions. Protocols are usually determined by experts supported by medical evidence. 
+
+\yoav{Is there a relationship between cases which can be diagnosed by the protocol and "easy" cases?}
 %
-A standard machine learning procedure is having labels from medical experts, and those labels come from protocols. However, due to the complexity of human body and its intricate interaction with the environment, a protocol might not cover everything, and in practice physicians need to make a decision when sitting on the ``gray area'' that is not covered by the protocol. Over this gray area, different physicians may make different decisions based on their experience or the information they have at hand. In some cases, physicians can achieve a reliable decision making, probably with sufficient clinical information \cite{mehta2011agreement} or if only the major information is needed \cite{atiya2003interobserver}. But in other cases, a low inter-rater agreement rate might happen. Take the sleep study as an example. There has been criteria for sleep stage annotation and sleep apnea event annotation by reading continuous biosignals continuously updated by the American Academy of Sleep Medicine (AASM) \cite{Iber2007,berry2012aasm}. However, it is well known that the inter-rater agreement rate of sleep stage annotation among experienced experts is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea \cite{norman2000interobserver}. This low inter-rater agreement can be found in many clinical problems \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}. A direct consequence of this low inter-rater agreement is a questionable trained ``artificial intelligence''. It is possible that we magically obtain a dataset that contains information that is sufficient for the decision making, while the information is too subtle so that it is not considered in the protocol, and we also magically obtain labels from a magical master that can see though all the information and provide the correct decision. However, by doing a simple math, we shall not count on such a magic and should come back to the protocol itself.
+A standard machine learning procedure is having labels from medical experts, and those labels come from protocols.
+\yoav{Why just from protocols? Do protocols allow for levels of confidence?}
 
-The issue underlying the inter-rater agreement is subtle. [physiological knowledge, phase transition, available information, treatment target, economic consideration]
+However, due to the complexity of human body and its intricate interaction with the environment, a protocol might not cover everything,
+\Yoav{Do you mean all patients?}
+and in practice physicians need to make a decision when sitting on the ``gray area'' that is not covered by the protocol. Over this gray area, different physicians may make different decisions based on their experience or the information they have at hand. In some cases, physicians can achieve a reliable decision making, probably with sufficient clinical information \cite{mehta2011agreement} or if only the major information is needed \cite{atiya2003interobserver}. 
+\yoav{is this with or without a protocol? What is meant here by "reliable", is it that most of the doctors agree? Or is it the accuracy as meaured against "ground truth"?  Do you have an estimate of how often ground truth is available?}
 
-}
+But in other cases, a low inter-rater agreement rate might happen. Take the sleep study as an example. There has been criteria for sleep stage annotation and sleep apnea event annotation by reading continuous biosignals continuously updated by the American Academy of Sleep Medicine (AASM) \cite{Iber2007,berry2012aasm}. However, it is well known that the inter-rater agreement rate of sleep stage annotation among experienced experts is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea \cite{norman2000interobserver}. This low inter-rater agreement can be found in many clinical problems \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}. 
+\yoav{It would be very interesting to know whether the disagreement is distributed uniformly over all of the cases: i.e. 70/30 split over all cases, or are there cases that have a 90/10 split and can be though of as "easy", while other cases have a 55/45 split and are therefor "hard"}
 
+A direct consequence of this low inter-rater agreement is a questionable trained ``artificial intelligence''. It is possible that we magically obtain a dataset that contains information that is sufficient for the decision making, while the information is too subtle so that it is not considered in the protocol, and we also magically obtain labels from a magical master that can see though all the information and provide the correct decision. However, by doing a simple math, we shall not count on such a magic and should come back to the protocol itself.
 
+The issue underlying the inter-rater agreement is subtle. [physiological knowledge, phase transition, available information, treatment target, economic consideration]}
+
+\Yoav{ Can you describe a particular interesting/illuminatinig/convincing case?}
 
 
 \subsection*{Data size vs. data diversity}

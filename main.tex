@@ -10,6 +10,8 @@
 
 %\keywords{Keyword1, Keyword2, Keyword3}
 
+
+
 \iffalse
 \begin{abstract}
 
@@ -52,11 +54,34 @@ If ground-truth labels are so hard to collect, is there {\em any} way to apply m
 In the next section we propose a way in which  Machine learning can help medical communities
 share and evaluate what they know.
 
-\subsection*{Experience, committees, hard and easy cases}
 
-When a doctor is uncertain of their diagnostics, they are likely to consult another doctor, preferably one with more experience, seniority or relevant expertise. In a hospital the opinion of visiting staff would override that of a resident who would override that of an intern.
+{\color{blue}
+[? structure the machine learning components ?]
 
-Sometimes a group of diagnostician is consulted. In such a cases, ideally, there is agreement among the majority of the doctors. Otherwise, additional evidence or discussion is brought to bear until a consensus is reached.
+Even if we are now able to reliably obtain ground-truth labels, the data quality itself might be another issue. Examples include commonly encountered missing value, noises, resolution, etc. But the situation could be more delicate nowadays, particularly when it gets more popular to collect as much data as possible, from any possible environments. For example, almost all possible data, including electronic health record, medical imaging, patient monitor, etc, in the hospital environment are considered. In the home-care environment, signals recorded from mobile health devices, daily diary, and others are considered. However, the data validation, calibration and standardization are often not discussed and, rather, implicitly assumed. Take the patient monitor widely used in the intensive care unit (ICU), operation room (OR), or emergency room (ER) as an example. It is now common to analyze biosignals recorded from the patient monitor to train an intelligent \cite{Johnson2016} or alarm \cite{fleischman2019emergency} system. However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. Recently, some delicate artifacts have been reported \cite{lin2019unexpected} regarding the pulse transit time that has been shown to reflect blood pressure information \cite{gesche2012continuous}. This problem should be viewed as a more complicated version of the ``heterogenous noise'' issue commonly considered in the statistical literature.
+}
+
+
+
+
+
+
+\subsection*{On quantifying confidence}
+
+When a doctor is uncertain of her diagnostics, she  will consult other doctors, preferably ones with more experience, seniority or relevant expertise. In a hospital setting an intern would consult a resident who would consult a visiting staff member.
+
+Sometimes, such as in cancer boards, a team of senior doctors is assembled to reach a diagnostics and a treatment plan. 
+Unless the doctors all agree from the start, a discussion ensues. In this discussion doctors present evidence and quantify the confidence of their conclusions.
+
+What does confidence measure in such cases? Consider the statement "I am confident that the patient has disease X".
+One interpretation, which we will call interpretation A is that the probability of disease X given the symptoms is close to one. Note that if one doctor is confident that the disease is X and another is confident that the disease is Y, there is no obvious way a rational discussion can resolve the difference.
+
+We propose a different interpretation of the statement. Under interpretation B, high confidence means that the probability of X is higher than the probability of Y given the symptoms {\em and given my training and experience}. In other ways, for the my diagnostics to be Y I have to ignore a large fraction of my diagnostics experience.
+
+Conditioning confidence on experience allows for a rational resolution of disagreement. statements such as
+"I have more experience than you" or "Most of my experience is with inner city children" or "I did my residency treating cases similar to this" are all legitimate argument for why my diagnosis should prevail.
+
+
 
 We can partition cases (examples) into {\em easy} or {\em hard} based on the distribution of opinions in the group. If  there is unanimous agreement we say that the case is very easy. 
 
@@ -71,6 +96,19 @@ The difficulty of collecting "ground truth" : reliable labels:
     \item Ground-truth labeling is difficult and subjective. Examples: biopsies and autopsies.
     \item High inter-rater disagreement.
 \end{itemize}
+
+{\color{blue}
+
+In many clinical scenarios, physicians follow protocols to make clinical decisions. Protocols are usually determined by experts supported by medical evidence. 
+%
+A standard machine learning procedure is having labels from medical experts, and those labels come from protocols. However, due to the complexity of human body and its intricate interaction with the environment, a protocol might not cover everything, and in practice physicians need to make a decision when sitting on the ``gray area'' that is not covered by the protocol. Over this gray area, different physicians may make different decisions based on their experience or the information they have at hand. In some cases, physicians can achieve a reliable decision making, probably with sufficient clinical information \cite{mehta2011agreement} or if only the major information is needed \cite{atiya2003interobserver}. But in other cases, a low inter-rater agreement rate might happen. Take the sleep study as an example. There has been criteria for sleep stage annotation and sleep apnea event annotation by reading continuous biosignals continuously updated by the American Academy of Sleep Medicine (AASM) \cite{Iber2007,berry2012aasm}. However, it is well known that the inter-rater agreement rate of sleep stage annotation among experienced experts is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea \cite{norman2000interobserver}. This low inter-rater agreement can be found in many clinical problems \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}. A direct consequence of this low inter-rater agreement is a questionable trained ``artificial intelligence''. It is possible that we magically obtain a dataset that contains information that is sufficient for the decision making, while the information is too subtle so that it is not considered in the protocol, and we also magically obtain labels from a magical master that can see though all the information and provide the correct decision. However, by doing a simple math, we shall not count on such a magic and should come back to the protocol itself.
+
+The issue underlying the inter-rater agreement is subtle. [physiological knowledge, phase transition, available information, treatment target, economic consideration]
+
+}
+
+
+
 
 \subsection*{Data size vs. data diversity}
 The prevalent methodology for estimating the test error of a deep neural network (or any other learning algorithm) is to 

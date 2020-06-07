@@ -1,0 +1,38 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\begin{thebibliography}{EKN{\etalchar{+}}17}
+
+\bibitem[Ash57]{ashby1957introduction}
+W~Ross Ashby.
+\newblock An introduction to cybernetics.
+\newblock 1957.
+
+\bibitem[EKN{\etalchar{+}}17]{esteva2017dermatologist}
+Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
+  Helen~M Blau, and Sebastian Thrun.
+\newblock Dermatologist-level classification of skin cancer with deep neural
+  networks.
+\newblock {\em Nature}, 542(7639):115--118, 2017.
+
+\bibitem[Eng62]{engelbart1962augmenting}
+Douglas~C Engelbart.
+\newblock Augmenting human intellect: A conceptual framework.
+\newblock {\em Menlo Park, CA}, 1962.
+
+\bibitem[Muk17]{Mukherjee2017}
+Siddhartha Mukherjee.
+\newblock A.i. versus m.d.: What happens when diagnosis is automated?
+\newblock {\em The New Yorker}, April 2017.
+
+\bibitem[Top19]{topol2019deep}
+Eric Topol.
+\newblock {\em Deep medicine: how artificial intelligence can make healthcare
+  human again}.
+\newblock Hachette UK, 2019.
+
+\bibitem[Wac15]{wachter2015digital}
+Robert~M Wachter.
+\newblock {\em The digital doctor: hope, hype, and harm at the dawn of
+  medicine's computer age}.
+\newblock McGraw-Hill Education New York, 2015.
+
+\end{thebibliography}

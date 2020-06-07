@@ -1,16 +1,24 @@
-\documentclass[fleqn,10pt]{wlscirep}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\title{Why the digital Doctor needs to say "I don't know"}
+\usepackage{color}
+\title{When the digital Doctor needs to admit\\ "I don't know"}
 
-\author[1]{Yoav Freund}
-\author[2]{Hau-Tieng Wu}
-\affil[1]{UCSD, department, city, postcode, country}
-\affil[2]{Duke, department, city, postcode, country}
+\author{Yoav Freund \and Hau-Tieng Wu}
+%\affil[1]{UCSD, department, city, postcode, country}
+%\affil[2]{Duke, department, city, postcode, country}
 
 %\keywords{Keyword1, Keyword2, Keyword3}
 
+\newcommand{\comment}[3]{{\color{#1} {\bf #2 :} #3}}
+%\newcommand{\comment}[3]{}  % suppress comments
+\newcommand{\hautieng}[1]{\comment{blue}{hautieng}{#1}}
+\newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
 
+
+\begin{document}
+
+\maketitle
 
 \begin{abstract}
 
@@ -28,12 +36,8 @@
   difficult ones are handled by humans.
 
 \end{abstract}
-\begin{document}
 
-\flushbottom
-\maketitle
-
-\thispagestyle{empty}
+%\thispagestyle{empty}
 
 \section*{Introduction}
 
@@ -73,25 +77,69 @@ one important ingredient is to endow AI agents with a degree of
 humility. Specifically, to allow classifiers, such as DNNs, to say "I
 don't know".
 
+
+\section*{Labels, ground truth and testing}
+\yoav{I think this and other technical sections should appear in a
+  separate text box.}
+
+Roughly speaking, machine learning (ML) can be divided into {\em unsupervised}
+learning and {\em supervised} learning. In both, the task of
+the learning algorith is transform a set of {\em examples} into a {\em model}. In
+unsupervised learning the examples are undifferentiated raw
+measurements. In {\em supervised} learning, which is our main concern
+here, each example consists of an {\em input} and a {\em label}. In
+the work of Esteva et al~\cite{esteva2017dermatologist} on classification of skin
+cancer the input is an image of a skin patch and the label is
+``benign'' or ``melignant''.
+
+Typically, the labels are provided by a human expert. These labels
+define the {\em ground truth} and the goal of the learning algorithm is
+to make predictions that diverge as little as possible from the ground
+truth. As discussed in the next section, ground truth is usually not
+available in regular medical practice. In this section we point out a
+problem with the ground truth use in ~\cite{esteva2017dermatologist}.
+
+Esteva et al~\cite{esteva2017dermatologist} set out to show that ML
+can performs as well as or better than expert dermatologists. This
+meant that they needed to use for ground-truth a label that is more
+objective than a dermatologist. To that end they used the diagnosis of
+a biopsy as ground truth. There is no argument that this is a better
+ground truth than the opinion of a dermatologist.
+
+The problem with this design is that under normal circumstances, patients get
+biopsied only if the dermatologist thinks there is a chance of
+melignancy. Therefor, the set of biopsied examples is biased towards
+melignancy. It is likely that using a classifier trained in this way
+on an unfiltered stream of patients will increase the number of
+patients unnecessarily getting a biopsy.
+
 \section*{Uncertainty in medicine}
 
-In machine learning, each example has a {\em label} which defines the
-``ground truth'' for the example. In~\cite{esteva2017dermatologist}
+\yoav{The different sources of uncertainty in medical diagnosis.}
 
+\begin{itemize}
+  \item{\bf The diagnostic process of elimination}
+  \item{\bf Data Quality, Calibration, resolution} Discuss issue as
+    placement of sensors, lighting when analyzing skin lesions. Sensing back for re-testing.
+  \end{itemize}
 
-Doctors and diagnostician operate in a space of high uncertainty.
-
-\paragraph*{The diagnostic process of elimination}
-\paragraph*{Data Quality, Calibration, resolution}
-Discuss issue as placement of sensors, lighting when analyzing skin
-lesions. Sensing back for re-testing.
-\paragraph*{Protocols}
+  Hiding Uncertainty
+  \begin{itemize}
+    \item {\bf Psychological reasons} Both doctor and patient prefer
+      the projection of certitude.
+    \item {\bf Protocols}
+    \item {\bf diagnostic devices} Secrecy of the internal code limits
+      the trustworthiness of the alarms.
+    \item{\bf Alarm Fatigue}
+  \end{itemize}
+  
 
 \section*{Uncertainty in Machine Learning}
+
+\yoav{In box: uncertainty versus accuracy using ROC curves}
+  
 Committees, Agreement, Easy and Hard cases
 Our approach for distinguishing easy and hard cases.
-
-Especially with very large data: ecg for 14 says....
 
 \paragraph*{The semantics of ``I don't know''}
 Based on conforming / contradictory experience. Not on conditional
@@ -99,17 +147,22 @@ probability.
 
 
 \section*{Agency and Augmentation}
-\paragraph*{Computer aided diagnostics}
-Especially with very large data: ecg for 14 says....
+\yoav{Doctors need to adapt. Why would doctors prefer to adapt than to
+  resist? What is the migration path for augmentation in medicine?}
+\begin{itemize}
+\item{\bf Computer aided diagnostics}
+  Especially with very large data: ecg for 14 says.... \\
+  ~\\
 
 Pathology.
 
-\paragraph*{Dissemination of expertise}
+\item {\bf Dissemination of expertise}
 Computers, trained by experts, can help novices.  Serves a function
 similar to score-cards.
 
 Teaching young diagnostics
-\paragraph*{Confidence, Trust and adoption of technology}
+\item { \bf Confidence, Trust and adoption of technology}
+\end{itemize}
 
 \section*{Summary}
 

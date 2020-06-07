@@ -2,7 +2,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{color}
-\title{When the digital Doctor needs to admit\\ "I don't know"}
+\title{When the digital Doctor should admit\\ "I don't know"}
 
 \author{Yoav Freund \and Hau-Tieng Wu}
 %\affil[1]{UCSD, department, city, postcode, country}
@@ -115,15 +115,14 @@ patients unnecessarily getting a biopsy.
 
 \section*{Uncertainty in medicine}
 
-\yoav{The different sources of uncertainty in medical diagnosis.}
-
+{\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
   \item{\bf The diagnostic process of elimination}
   \item{\bf Data Quality, Calibration, resolution} Discuss issue as
     placement of sensors, lighting when analyzing skin lesions. Sensing back for re-testing.
   \end{itemize}
 
-  Hiding Uncertainty
+ {\bf Hiding Uncertainty}
   \begin{itemize}
     \item {\bf Psychological reasons} Both doctor and patient prefer
       the projection of certitude.
@@ -132,19 +131,42 @@ patients unnecessarily getting a biopsy.
       the trustworthiness of the alarms.
     \item{\bf Alarm Fatigue}
   \end{itemize}
-  
 
+  {\bf Quantifying Confidence} With experience comes confidence. In
+  other words, diagnostic options that contradict the accumulated
+  experience are eliminated.
+  
+  {\bf confidence through aggregation}
+  \begin{itemize}
+    \item A good way to increase diagnostic certainty is to solicit
+      the experience of a diverse group of doctors.
+    \item If there is a clear majority for one diagnostic outcome,
+      then the overall confidence in the diagnostics is high.
+    \item This certainty is very different from the the conditional.
+      probability of the disease given the diagnostic. The first is
+      akin to saying: 95\% of the dermatologists would give the same
+      diagnostics. The second defines the probability that, if we had
+      access to ground truth, then 95\% of the patients that recieve
+      this diagnostics have the corresponding condition.
+    \end{itemize}
+    
 \section*{Uncertainty in Machine Learning}
 
+One can define ``confidence'' in machine learning. The definition follows a
+similar logic to the one used for human diagnosticians in the previous
+section. The yardstick by which we measure confidence of predicting a
+label is ``how much do alternative labels contradict previous
+experience?''.
+More formally, we ask how much do we need to change the training data
+so that it supports an alternative label.
+
 \yoav{In box: uncertainty versus accuracy using ROC curves}
-  
-Committees, Agreement, Easy and Hard cases
-Our approach for distinguishing easy and hard cases.
 
-\paragraph*{The semantics of ``I don't know''}
-Based on conforming / contradictory experience. Not on conditional
-probability.
-
+\begin{itemize}
+  \item Bootstrap samples.
+  \item Samples from different hospitals.
+  \item Easy and hard cases.
+  \end{itemize}
 
 \section*{Agency and Augmentation}
 \yoav{Doctors need to adapt. Why would doctors prefer to adapt than to

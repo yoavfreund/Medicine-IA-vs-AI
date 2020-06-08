@@ -1,0 +1,31 @@
+\begin{thebibliography}{4}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Mukherjee(2017)]{Mukherjee2017}
+Siddhartha Mukherjee.
+\newblock A.i. versus m.d.: What happens when diagnosis is automated?
+\newblock \emph{The New Yorker}, April 2017.
+
+\bibitem[Esteva et~al.(2017)Esteva, Kuprel, Novoa, Ko, Swetter, Blau, and
+  Thrun]{esteva2017dermatologist}
+Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
+  Helen~M Blau, and Sebastian Thrun.
+\newblock Dermatologist-level classification of skin cancer with deep neural
+  networks.
+\newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, 2017.
+
+\bibitem[Ashby(1957)]{ashby1957introduction}
+W~Ross Ashby.
+\newblock An introduction to cybernetics.
+\newblock 1957.
+
+\bibitem[Engelbart(1962)]{engelbart1962augmenting}
+Douglas~C Engelbart.
+\newblock Augmenting human intellect: A conceptual framework.
+\newblock \emph{Menlo Park, CA}, 1962.
+
+\end{thebibliography}

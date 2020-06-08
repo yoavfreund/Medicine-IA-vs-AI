@@ -1,12 +1,25 @@
-\documentclass[10pt]{article}
+\documentclass[9pt,twocolumn,twoside]{pnas-new}
+% \documentclass[10pt]{article}
+\templatetype{pnasresearcharticle} % Choose template 
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} %= Template for a one-column mathematics article
+% {pnasinvited} %= Template for a PNAS invited submission
+
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{color}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+
 \title{When the digital Doctor should admit\\ "I don't know"}
 
-\author{Yoav Freund \and Hau-Tieng Wu}
-%\affil[1]{UCSD, department, city, postcode, country}
-%\affil[2]{Duke, department, city, postcode, country}
+\author[1]{Yoav Freund}
+\author[2]{Hau-Tieng Wu}
+\affil[1]{UCSD, department, city, postcode, country}
+\affil[2]{Duke, department, city, postcode, country}
+
+%\significancestatement{Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the significance statement is to explain the relevance of the work in broad context to a broad readership. The significance statement appears in the paper itself and is required for all research papers.}
 
 %\keywords{Keyword1, Keyword2, Keyword3}
 
@@ -14,11 +27,6 @@
 %\newcommand{\comment}[3]{}  % suppress comments
 \newcommand{\hautieng}[1]{\comment{blue}{hautieng}{#1}}
 \newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
-
-
-\begin{document}
-
-\maketitle
 
 \begin{abstract}
 
@@ -37,8 +45,12 @@
 
 \end{abstract}
 
-%\thispagestyle{empty}
+\begin{document}
 
+\maketitle
+
+\thispagestyle{firststyle}
+  
 \section*{Introduction}
 
 Digital technology is causing a sea-change in all parts of the medical
@@ -81,6 +93,15 @@ don't know".
 \section*{Labels, ground truth and testing}
 \yoav{I think this and other technical sections should appear in a
   separate text box.}
+
+%\begin{wrapfigure}{L}{0.5\textwidth}
+\noindent
+\fbox{\begin{minipage}{0.44\textwidth}
+ the quick brown fox jumps right over the lazy dog. the quick brown fox 
+  jumps right over the lazy dog.
+\end{minipage}
+}
+%\end{wrapfigure}
 
 Roughly speaking, machine learning (ML) can be divided into {\em unsupervised}
 learning and {\em supervised} learning. In both, the task of
@@ -188,8 +209,7 @@ Teaching young diagnostics
 
 \section*{Summary}
 
-\bibliographystyle{alpha} 
-
+%\bibliographystyle{alpha} 
 \bibliography{medbib}
 
 \end{document}

@@ -1,6 +1,6 @@
-\documentclass[fleqn,10pt]{wlscirep}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\documentclass[10pt]{wlscirep}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
 \title{Why the digital Doctor needs to say "I don't know"}
 
 \author[1]{Yoav Freund}
@@ -15,8 +15,6 @@
 \newcommand{\hautieng}[1]{\comment{blue}{hautieng}{#1}}
 \newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
 
-
-\iffalse
 \begin{abstract}
 
 The meteoric rise of AI in general and Deep Learning in particular is generating great excitement
@@ -25,7 +23,7 @@ throughout academia and commerce, and in particular in medicine\cite{topol2019de
 In this position paper we present an alternative view. We contrast {\em Artificial Intelligence} with {\em Intelligence Augmentation} and argue that the second is more likely to benefit the patient than the first. We provide evidence to this argument and present a vision in which easier decisions are delegated to computers, while the more difficult ones are handled by humans.
 
 \end{abstract}
-\fi
+
 \begin{document}
 
 \flushbottom
@@ -58,11 +56,8 @@ If ground-truth labels are so hard to collect, is there {\em any} way to apply m
 In the next section we propose a way in which  Machine learning can help medical communities
 share and evaluate what they know.
 
-\Section{Background on machine learning}
+\section{Background on machine learning}
 input feature vector, output, training set, test set, ...
-
-\hautieng{
-
 
 Even if we are now able to reliably obtain ground-truth labels, the data quality itself might be another issue. Examples include commonly encountered missing value, noises, resolution, etc. 
 \yoav{This should go into a section describing reasons for saying IDK}
@@ -79,7 +74,6 @@ However, it has been long debate if the recorded biosignals are suitable for thi
 Recently, some delicate artifacts have been reported \cite{lin2019unexpected} regarding the pulse transit time that has been shown to reflect blood pressure information \cite{gesche2012continuous}. This problem should be viewed as a more complicated version of the ``heterogenous noise'' issue commonly considered in the statistical literature.
 \yoav{the way this is written, it sounds off topic. Is there an aspect of automation or ML that will connect it to the article?}
 
-}
 
 \subsection*{On quantifying confidence}
 
@@ -114,7 +108,7 @@ The difficulty of collecting "ground truth" : reliable labels:
 
 
 \hautieng{
-In many clinical scenarios, physicians follow protocols to make clinical decisions. Protocols are usually determined by experts supported by medical evidence. 
+In many clinical scenarios, physicians follow protocols to make clinical decisions. Protocols are usually determined by experts supported by medical evidence. }
 
 \yoav{Is there a relationship between cases which can be diagnosed by the protocol and "easy" cases?}
 %
@@ -122,7 +116,7 @@ A standard machine learning procedure is having labels from medical experts, and
 \yoav{Why just from protocols? Do protocols allow for levels of confidence?}
 
 However, due to the complexity of human body and its intricate interaction with the environment, a protocol might not cover everything,
-\Yoav{Do you mean all patients?}
+\yoav{Do you mean all patients?}
 and in practice physicians need to make a decision when sitting on the ``gray area'' that is not covered by the protocol. Over this gray area, different physicians may make different decisions based on their experience or the information they have at hand. In some cases, physicians can achieve a reliable decision making, probably with sufficient clinical information \cite{mehta2011agreement} or if only the major information is needed \cite{atiya2003interobserver}. 
 \yoav{is this with or without a protocol? What is meant here by "reliable", is it that most of the doctors agree? Or is it the accuracy as meaured against "ground truth"?  Do you have an estimate of how often ground truth is available?}
 
@@ -131,9 +125,9 @@ But in other cases, a low inter-rater agreement rate might happen. Take the slee
 
 A direct consequence of this low inter-rater agreement is a questionable trained ``artificial intelligence''. It is possible that we magically obtain a dataset that contains information that is sufficient for the decision making, while the information is too subtle so that it is not considered in the protocol, and we also magically obtain labels from a magical master that can see though all the information and provide the correct decision. However, by doing a simple math, we shall not count on such a magic and should come back to the protocol itself.
 
-The issue underlying the inter-rater agreement is subtle. [physiological knowledge, phase transition, available information, treatment target, economic consideration]}
+The issue underlying the inter-rater agreement is subtle. [physiological knowledge, phase transition, available information, treatment target, economic consideration
 
-\Yoav{ Can you describe a particular interesting / illuminating / convincing case?}
+\yoav{ Can you describe a particular interesting / illuminating / convincing case?}
 
 
 \subsection*{Data size vs. data diversity}

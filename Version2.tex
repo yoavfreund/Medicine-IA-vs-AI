@@ -7,26 +7,20 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{color}
-\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{mdframed}
+%\usepackage{wrapfig}
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
-
-\title{When the digital Doctor should admit\\ "I don't know"}
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
 \affil[1]{UCSD, department, city, postcode, country}
 \affil[2]{Duke, department, city, postcode, country}
 
-%\significancestatement{Authors must submit a 120-word maximum statement about the significance of their research paper written at a level understandable to an undergraduate educated scientist outside their field of speciality. The primary goal of the significance statement is to explain the relevance of the work in broad context to a broad readership. The significance statement appears in the paper itself and is required for all research papers.}
+\title{When the digital Doctor should admit\\ "I don't know"}
 
-%\keywords{Keyword1, Keyword2, Keyword3}
-
-\newcommand{\comment}[3]{{\color{#1} {\bf #2 :} #3}}
-%\newcommand{\comment}[3]{}  % suppress comments
-\newcommand{\hautieng}[1]{\comment{blue}{hautieng}{#1}}
-\newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
+\input{macros}
 
 \begin{abstract}
 
@@ -50,7 +44,7 @@
 \maketitle
 
 \thispagestyle{firststyle}
-  
+
 \section*{Introduction}
 
 Digital technology is causing a sea-change in all parts of the medical
@@ -89,45 +83,51 @@ one important ingredient is to endow AI agents with a degree of
 humility. Specifically, to allow classifiers, such as DNNs, to say "I
 don't know".
 
-
 \section*{Labels, ground truth and testing}
-\yoav{I think this and other technical sections should appear in a
-  separate text box.}
 
-%\begin{wrapfigure}{L}{0.5\textwidth}
-\noindent
-\fbox{\begin{minipage}{0.44\textwidth}
- the quick brown fox jumps right over the lazy dog. the quick brown fox 
-  jumps right over the lazy dog.
-\end{minipage}
-}
-%\end{wrapfigure}
+\ML{Supervised Learning and ground truth}{Roughly
+  speaking, machine learning (ML) can be divided into {\em
+    unsupervised} learning and {\em supervised} learning. In both, the
+  task of the learning algorith is transform a set of {\em examples}
+  into a {\em model}. In unsupervised learning the examples are
+  undifferentiated raw measurements. In {\em supervised} learning,
+  which is the focus of this article, each example consists of an {\em
+    input} and a {\em label}. Typically, the labels are provided by a
+  human expert. These labels define the {\em ground truth} and the
+  goal of the learning algorithm is to make predictions that diverge
+  as little as possible from the ground truth.}
 
-Roughly speaking, machine learning (ML) can be divided into {\em unsupervised}
-learning and {\em supervised} learning. In both, the task of
-the learning algorith is transform a set of {\em examples} into a {\em model}. In
-unsupervised learning the examples are undifferentiated raw
-measurements. In {\em supervised} learning, which is our main concern
-here, each example consists of an {\em input} and a {\em label}. In
-the work of Esteva et al~\cite{esteva2017dermatologist} on classification of skin
-cancer the input is an image of a skin patch and the label is
-``benign'' or ``melignant''.
 
-Typically, the labels are provided by a human expert. These labels
-define the {\em ground truth} and the goal of the learning algorithm is
-to make predictions that diverge as little as possible from the ground
-truth. As discussed in the next section, ground truth is usually not
-available in regular medical practice. In this section we point out a
-problem with the ground truth use in ~\cite{esteva2017dermatologist}.
+\ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
+  papers that provided evidence that deep neural networks might be
+  able to outperform humans is the work of Esteva et
+  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  network to classify images of skin into three categories: benign,
+  malignant and non-cancerous. The network was then tested, along with
+  twenty five dermatologists on images which were labeled by a
+  pathologist analysis of the biopsy. The neural network outperformed
+  the human dermatologist. This is, without a doubt, an impressive
+  finding. However, it is based on a retrospective analysis, in other
+  words, an analysis of historical data. To predict the performance of
+  the DNN when used in a dermatology practice we need to how a
+  dermatologist, or any other diagnosticians, arrives at their final
+  diagnostics.}
 
-Esteva et al~\cite{esteva2017dermatologist} set out to show that ML
-can performs as well as or better than expert dermatologists. This
-meant that they needed to use for ground-truth a label that is more
-objective than a dermatologist. To that end they used the diagnosis of
-a biopsy as ground truth. There is no argument that this is a better
-ground truth than the opinion of a dermatologist.
+In their famous work, Esteva et al. set out to show that a classifier
+trained by machine learning can performs as well as or better than
+expert dermatologists.  In this application of supervised learning
+each example consists of an input image of a skin patch and an output
+label that is ``benign'' or ``melignant''
 
-The problem with this design is that under normal circumstances, patients get
+As they wanted to compare the system to human dermatologists they
+needed a better ground truth than that provided by the dermatologists.
+To that end they used the diagnosis of a biopsy as ground truth. It is
+arguable that this label is more accurate than the one given by the
+dermatologist, even though it depends on the human judgement of the pathologist.
+
+However, even if we assume that pathologists labels are more reliable
+than dermatology labels, the requirement that each example corresponds
+to a biopsy introduces a significant bias. Under normal circumstances, patients get
 biopsied only if the dermatologist thinks there is a chance of
 melignancy. Therefor, the set of biopsied examples is biased towards
 melignancy. It is likely that using a classifier trained in this way
@@ -135,6 +135,81 @@ on an unfiltered stream of patients will increase the number of
 patients unnecessarily getting a biopsy.
 
 \section*{Uncertainty in medicine}
+
+\Medicine{Patient Monitoring}{Take the patient monitor widely used in
+  the intensive care unit (ICU), operation room (OR), or emergency
+  room (ER) as an example. It is now common to analyze biosignals
+  recorded from the patient monitor to train an intelligent
+  \cite{Johnson2016} or alarm \cite{fleischman2019emergency}
+  system. \yoav{Say a few words about what is an itelligent alarm
+    system. Does it adapt to the patient. Is this related to alarm
+    Fatigue?}
+  However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. 
+\yoav{Is the problem with the biosignals or with the system? Regarding black-boxes, as long as we allow the box to output I don't know when the prediction is unstable. Also, per-example explanations can be derived from the features that contribute the most from the score, assuming the learner is biased towards sparse classifiers classifier is a sparse one, such as boosting or Lasso.}
+}
+
+\Medicine{Blood pressure monitoring}{Recently, some delicate artifacts
+  have been reported \cite{lin2019unexpected} regarding the pulse
+  transit time that has been shown to reflect blood pressure
+  information \cite{gesche2012continuous}. This problem should be
+  viewed as a more complicated version of the ``heterogenous noise''
+  issue commonly considered in the statistical literature.  \yoav{the
+    way this is written, it sounds off topic. Is there an aspect of
+    automation or ML that will connect it to the article?}  }
+
+\Medicine{Inter-rater agreement}{in practice physicians need to make a
+  decision when sitting on the ``gray area'' that is not covered by
+  the protocol. Over this gray area, different physicians may make
+  different decisions based on their experience or the information
+  they have at hand. In some cases, physicians can achieve a reliable
+  decision making, probably with sufficient clinical information
+  \cite{mehta2011agreement} or if only the major information is needed
+  \cite{atiya2003interobserver}.
+
+  \yoav{is this with or without a protocol? What is meant here by
+    "reliable", is it that most of the doctors agree? Or is it the
+    accuracy as meaured against "ground truth"?  Do you have an
+    estimate of how often ground truth is available?}
+}
+  But in other cases, a low inter-rater agreement rate might
+  happen. Take the sleep study as an example.
+\Medicine{Sleep-Stage annotation}{  There has been criteria
+  for sleep stage annotation and sleep apnea event annotation by
+  reading continuous biosignals continuously updated by the American
+  Academy of Sleep Medicine (AASM)
+  \cite{Iber2007,berry2012aasm}. However, it is well known that the
+  inter-rater agreement rate of sleep stage annotation among
+  experienced experts is only about 76\% over normal subjects and
+  about 71\% over subjects with sleep apnea
+  \cite{norman2000interobserver}. This low inter-rater agreement can
+  be found in many clinical problems
+  \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}.
+  \yoav{It would be very interesting to know whether the disagreement
+    is distributed uniformly over all of the cases: i.e. 70/30 split
+    over all cases, or are there cases that have a 90/10 split and can
+    be though of as "easy", while other cases have a 55/45 split and
+    are therefor "hard".}
+  }
+
+  \Medicine{Inter-Rater agreement}{
+  A direct consequence of this low inter-rater agreement is a
+  questionable trained ``artificial intelligence''. It is possible
+  that we magically obtain a dataset that contains information that is
+  sufficient for the decision making, while the information is too
+  subtle so that it is not considered in the protocol, and we also
+  magically obtain labels from a magical master that can see though
+  all the information and provide the correct decision. However, by
+  doing a simple math, we shall not count on such a magic and should
+  come back to the protocol itself.
+
+  The issue underlying the inter-rater agreement is
+  subtle. [physiological knowledge, phase transition, available
+  information, treatment target, economic consideration]
+
+  \yoav{ Can you describe a particular interesting / illuminating /
+    convincing case?}
+}
+
 
 {\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
@@ -181,7 +256,9 @@ experience?''.
 More formally, we ask how much do we need to change the training data
 so that it supports an alternative label.
 
-\yoav{In box: uncertainty versus accuracy using ROC curves}
+
+
+\ML{Uncertainty vs. accurracy}{using ROC curves}
 
 \begin{itemize}
   \item Bootstrap samples.

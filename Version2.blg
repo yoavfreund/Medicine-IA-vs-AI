@@ -4,45 +4,45 @@ The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
 Warning--empty journal in ashby1957introduction
-You've used 4 entries,
+You've used 19 entries,
             2481 wiz_defined-function locations,
-            575 strings with 5017 characters,
-and the built_in function-call counts, 1325 in all, are:
-= -- 101
-> -- 66
-< -- 3
-+ -- 28
-- -- 20
-* -- 90
-:= -- 228
-add.period$ -- 12
-call.type$ -- 4
-change.case$ -- 8
-chr.to.int$ -- 4
-cite$ -- 5
-duplicate$ -- 73
-empty$ -- 123
-format.name$ -- 24
-if$ -- 267
+            680 strings with 8423 characters,
+and the built_in function-call counts, 7956 in all, are:
+= -- 607
+> -- 535
+< -- 6
++ -- 200
+- -- 162
+* -- 706
+:= -- 1334
+add.period$ -- 57
+call.type$ -- 19
+change.case$ -- 37
+chr.to.int$ -- 19
+cite$ -- 20
+duplicate$ -- 356
+empty$ -- 672
+format.name$ -- 185
+if$ -- 1617
 int.to.chr$ -- 1
-int.to.str$ -- 5
-missing$ -- 4
-newline$ -- 28
-num.names$ -- 12
-pop$ -- 36
+int.to.str$ -- 20
+missing$ -- 20
+newline$ -- 103
+num.names$ -- 57
+pop$ -- 148
 preamble$ -- 1
-purify$ -- 4
+purify$ -- 19
 quote$ -- 0
-skip$ -- 43
+skip$ -- 198
 stack$ -- 0
-substring$ -- 33
-swap$ -- 8
+substring$ -- 377
+swap$ -- 38
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 28
+type$ -- 130
 warning$ -- 1
-while$ -- 10
+while$ -- 63
 width$ -- 0
-write$ -- 55
+write$ -- 248
 (There was 1 warning)

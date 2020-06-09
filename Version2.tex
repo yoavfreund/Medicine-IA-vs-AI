@@ -62,8 +62,9 @@ Thrun~\cite{Mukherjee2017,esteva2017dermatologist} argues that
 radiologists. They will {\em augment} professionals, offering the
 expertise and assistance".
 
-Using computers to augment human intelligence rather replace it, is,
-at the same time, both heady and boring. On the heady side, consider
+\Org{Artificial Intelligence and Intelligence Augmentation}{
+Using computers to augment human intelligence rather replace it is
+both tantalizing and mundane. On the heady side, consider
 cyborgs whose anatomy is part human, part artificial and can with
 equal ease solve complex equations or write poetry. On the mundane
 side, think of smartphones that are quickly becoming an inseparable
@@ -76,11 +77,12 @@ become popular in the early
 1960's\cite{ashby1957introduction,engelbart1962augmenting}. These
 days, the acronym AI is popular, while the acronym IA is not. However,
 Sebastian Thrun's statement indicates that the idea of Intelligence
-augmentation is still on people's mind. We suggest bringing it back.
+augmentation is still on people's mind.}
 
-{\bf What would IA look like when applied to medicine?} We argue that
-one important ingredient is to endow AI agents with a degree of
-humility. Specifically, to allow classifiers, such as DNNs, to say "I
+{\bf What would IA look like when applied to medicine?} that is the
+question we aim to answer here.  We argue that an important ingredient
+of the answer is to introduce to AI agents a level of
+humility. Specifically, to design classifiers, such as DNNs, to say "I
 don't know".
 
 \section*{Labels, ground truth and testing}
@@ -166,31 +168,30 @@ patients unnecessarily getting a biopsy.
   \cite{mehta2011agreement} or if only the major information is needed
   \cite{atiya2003interobserver}.
 
-  \yoav{is this with or without a protocol? What is meant here by
-    "reliable", is it that most of the doctors agree? Or is it the
-    accuracy as meaured against "ground truth"?  Do you have an
-    estimate of how often ground truth is available?}
-}
-  But in other cases, a low inter-rater agreement rate might
-  happen. Take the sleep study as an example.
-\Medicine{Sleep-Stage annotation}{  There has been criteria
-  for sleep stage annotation and sleep apnea event annotation by
-  reading continuous biosignals continuously updated by the American
-  Academy of Sleep Medicine (AASM)
-  \cite{Iber2007,berry2012aasm}. However, it is well known that the
-  inter-rater agreement rate of sleep stage annotation among
-  experienced experts is only about 76\% over normal subjects and
-  about 71\% over subjects with sleep apnea
-  \cite{norman2000interobserver}. This low inter-rater agreement can
-  be found in many clinical problems
-  \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}.
-  \yoav{It would be very interesting to know whether the disagreement
-    is distributed uniformly over all of the cases: i.e. 70/30 split
-    over all cases, or are there cases that have a 90/10 split and can
-    be though of as "easy", while other cases have a 55/45 split and
-    are therefor "hard".}
+  \yoav{Do we need to explain that sometimes inter-rater agreement is
+    high? }}
+
+  \Medicine{Identifying sleep stages}{ The American Academy of Sleep
+    Medicine (AASM) publishes criteria for manual sleep stage
+    annotation and
+    sleep apnea detection. This annotation is based on manual analysis
+    of biosignals\cite{Iber2007,berry2012aasm}. However, it is well known
+    that the inter-rater agreement rate of sleep stage annotation
+    among experienced experts is only about 76\% over normal subjects
+    and about 71\% over subjects with sleep apnea
+    \cite{norman2000interobserver}.
   }
 
+  \Medicine{Low inter-rater agreement}{This low inter-rater agreement can
+    be found in many clinical problems
+    \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}.
+    \yoav{Please elaborate.}}
+
+    The issue underlying the inter-rater agreement is
+  subtle. [physiological knowledge, phase transition, available
+  information, treatment target, economic consideration]
+
+\iffalse
   \Medicine{Inter-Rater agreement}{
   A direct consequence of this low inter-rater agreement is a
   questionable trained ``artificial intelligence''. It is possible
@@ -202,13 +203,10 @@ patients unnecessarily getting a biopsy.
   doing a simple math, we shall not count on such a magic and should
   come back to the protocol itself.
 
-  The issue underlying the inter-rater agreement is
-  subtle. [physiological knowledge, phase transition, available
-  information, treatment target, economic consideration]
-
   \yoav{ Can you describe a particular interesting / illuminating /
     convincing case?}
 }
+\fi
 
 
 {\bf Sources of uncertainty in medical diagnosis.}

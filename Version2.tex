@@ -185,7 +185,10 @@ patients unnecessarily getting a biopsy.
   \Medicine{Low inter-rater agreement}{This low inter-rater agreement can
     be found in many clinical problems
     \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}.
-    \yoav{Please elaborate.}}
+    \yoav{Please elaborate, what are the clinical problems we are
+      discussing here?  Can we consolidate this into one box about
+      inter-rater agreements that contains a definition and examples
+    of low and high agreement}}
 
     The issue underlying the inter-rater agreement is
   subtle. [physiological knowledge, phase transition, available
@@ -264,9 +267,67 @@ so that it supports an alternative label.
   \item Easy and hard cases.
   \end{itemize}
 
-\section*{Agency and Augmentation}
-\yoav{Doctors need to adapt. Why would doctors prefer to adapt than to
-  resist? What is the migration path for augmentation in medicine?}
+  \section*{Agency and Augmentation}
+
+  Computers are already an integral part of medicine, from
+  electronical medical records to medical instrumentation to billing,
+  hospitals and cliniques cannot function without computers. By some
+  measures computers can already make better diagnosis that human
+  doctors. The question is not {\em whether} computer diagnostics will
+  become part of medical practice, the question is {\em how}.
+
+  It is not enough to describe the desired end state. 
+  In this final section we chart a {\em migration path} from the
+  current limited role of computers in diagnostics to a
+  more central role. For this to take place, caregivers must benefit
+  from the new technology. Setting the goal to be replacing human
+  doctors with machines is both unrealistic and self-defeating.
+
+  Doctors and nurses are humans, they are not diagnostic machines. The
+  personal and emotional connection between doctor and patient is
+  critical for effective treatment. A good doctor combines their
+  medical knowledge with a personal understanding of the patient to
+  choose a treatment plan and discuss it with the patient to get their
+  consent.
+
+  It is debatable whether a computer will ever be able to
+  make a meaningful emotional connection with a patient. It is quite
+  clear that such capabilities will not exist in the forseable future.
+  We refer to the ability to connect and to act in a self concious
+  way {\em agency} and separate it from {\em intelligence}. We suggest
+  that computers can augment humans in intelligence tasks and leave
+  agency to humans.
+
+  \subsection*{Easy and hard diagnoses}
+
+  As described above, diagnostics is a process of elimination. It
+  starts with a set of possible diagnoses which are gradually
+  eliminated as evidence is  gathered. As diagnoses are
+  eliminated, the benefit and risk of different treatment plans is evaluated.
+  Deciding on treatment and continually monitoring it is where the
+  doctor's agency is most important.
+
+  Our suggestion is that machine learning helps the doctor eliminate
+  diagnoses and evaluate treatment options, while leaving the the
+  decisions to the doctor.
+
+  Diagnosis vary in their difficulty. Consider a sequence of
+  patients visiting a clinic. Suppose the clinic has four doctors, two
+  trainees, and six nurses. Each patient first gets seen by a nurse,
+  then by a doctor, and possibly by a trainee. Some of patients have
+  a simple diagnosis, one that all twelve members of the clinic will
+  state with confidence. Other patients have more complex diagnosis
+  that requires the attention of a doctor. Finally, some diagnosis are
+  so complex that the doctor needs to consult other doctors and
+  possibly ask for additional tests. In other words, the clinic acts
+  as an ensemble of classifiers. Easy cases result in a unanimous
+  diagnosis, harder ones results in a clear majority, and the very
+  hardest results in disagreement which requires consultation and
+  additional tests.
+
+  The machine learning ensemble of classifiers follows a similar
+  logic. 
+
 \begin{itemize}
 \item{\bf Computer aided diagnostics}
   Especially with very large data: ecg for 14 says.... \\

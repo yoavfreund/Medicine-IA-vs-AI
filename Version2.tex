@@ -131,8 +131,8 @@ However, even if we assume that pathologists labels are more reliable
 than dermatology labels, the requirement that each example corresponds
 to a biopsy introduces a significant bias. Under normal circumstances, patients get
 biopsied only if the dermatologist thinks there is a chance of
-melignancy. Therefor, the set of biopsied examples is biased towards
-melignancy. It is likely that using a classifier trained in this way
+{\color{blue}malignancy. Therefore}, the set of biopsied examples is biased towards
+{\color{blue}malignancy}. It is likely that using a classifier trained in this way
 on an unfiltered stream of patients will increase the number of
 patients unnecessarily getting a biopsy.
 
@@ -143,56 +143,67 @@ patients unnecessarily getting a biopsy.
   room (ER) as an example. It is now common to analyze biosignals
   recorded from the patient monitor to train an intelligent
   \cite{Johnson2016} or alarm \cite{fleischman2019emergency}
-  system. \yoav{Say a few words about what is an itelligent alarm
+  system. {\color{blue}A patient monitor is an integrated system equipped with various bio-sensors that record, display and distribute different biometrics, ranging from vital signs like heart rate, oxygen saturation, blood pressure, and high-frequency waveforms like electrocardiogram, respiratory signal, arterial blood pressure. It is typically used in hospitals and clinics to closely monitor patients for a high quality patient care. Usually, a patient monitor comes with an alarm system that alerts clinicians life-threating clinical events, like asystole, ventricular fibrillation, or an intubated patient disconnects from the ventilator, among many others. However, usually such system is not adapted to the patient, and a lot of false alarms lead to one major healthcare concern called {\em alarm fatigue} (or alarm overload) (cite ECRI 2020). In addition to solving this alarm fatigue issue, there have been soaring research interests in developing an intelligent diagnostic system from taking as much waveform signals as possible into account. 
+  } \yoav{Say a few words about what is an itelligent alarm
     system. Does it adapt to the patient. Is this related to alarm
     Fatigue?}
-  However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. 
+  However, it has been long debate if the recorded biosignals are suitable for this purpose, due to its ``blackbox'' nature \cite{Feldman2006,Shelley2016,Cannesson2016}. {\color{blue}See below for an example.}
 \yoav{Is the problem with the biosignals or with the system? Regarding black-boxes, as long as we allow the box to output I don't know when the prediction is unstable. Also, per-example explanations can be derived from the features that contribute the most from the score, assuming the learner is biased towards sparse classifiers classifier is a sparse one, such as boosting or Lasso.}
 }
 
-\Medicine{Blood pressure monitoring}{Recently, some delicate artifacts
+\Medicine{Blood pressure monitoring}{
+{\color{blue}To appreciate the ``black box'' issue, let us look at this example.}
+Recently, some delicate artifacts
   have been reported \cite{lin2019unexpected} regarding the pulse
-  transit time that has been shown to reflect blood pressure
-  information \cite{gesche2012continuous}. This problem should be
-  viewed as a more complicated version of the ``heterogenous noise''
-  issue commonly considered in the statistical literature.  \yoav{the
+  transit time {\color{blue} (PTT) analysis. PTT is defined to be the phase latency between the cycles in the electrocardiogram and the photoplethysmogram. It} has been shown that {\color{blue}PTT contains rich information abotu the} blood pressure \cite{gesche2012continuous}. {\color{blue}It is thus natural to include it to an intelligent system, by learning how it is related to clinical outcomes, to more closely monitor the hemodynamics. However, it was unintentionally found that in some patient monitors, the PTT is contaminated by a sawtooth artifact. Such artifacts might confuse the intelligent system, and lead to unpredictable uncertainties.} \yoav{the
     way this is written, it sounds off topic. Is there an aspect of
     automation or ML that will connect it to the article?}  }
 
-\Medicine{Inter-rater agreement}{in practice physicians need to make a
-  decision when sitting on the ``gray area'' that is not covered by
-  the protocol. Over this gray area, different physicians may make
-  different decisions based on their experience or the information
-  they have at hand. In some cases, physicians can achieve a reliable
+\Medicine{Inter-rater agreement}{
+{\color{blue}Decision making in clinics is not only a science, but also an art. It is a science since it should be based on a the best available knowledge and evidence about the individual patients \cite{}. This scientific approach is propagandized as the ``evidence-based medicine'' \cite{}. Based on the evidence, medical guidelines and protocols could be established. The healthcare personnels could make better medical decisions based on the protocols and hence provide a better quality of medical care. However, decision making is still an art in many scenarios. Human body is complicated, and it is clearly that unless we have an access to its design book, the protocol we establish could have gaps. When facing these gaps, physicians will make the decision based on the available information, his experience, or even make a guess. As a result, while} in some cases, physicians can achieve a reliable
   decision making, probably with sufficient clinical information
   \cite{mehta2011agreement} or if only the major information is needed
-  \cite{atiya2003interobserver}.
+  \cite{atiya2003interobserver}, {\color{blue} in many other cases, the decision making might not be consistent. This inconsistency is usually understood as the inter-rater agreement, and the degree of inconsistency depends on the situations. For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.}
 
   \yoav{Do we need to explain that sometimes inter-rater agreement is
     high? }}
 
-  \Medicine{Identifying sleep stages}{ The American Academy of Sleep
+  \Medicine{Identifying sleep stages}{{\color{blue}Even with sufficient information, it is not guaranteed that the inter-rater agreement rate will be high.} The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage
     annotation and
     sleep apnea detection. This annotation is based on manual analysis
-    of biosignals\cite{Iber2007,berry2012aasm}. However, it is well known
+    of biosignals \cite{Iber2007,berry2012aasm}. However, it is well known
     that the inter-rater agreement rate of sleep stage annotation
     among experienced experts is only about 76\% over normal subjects
     and about 71\% over subjects with sleep apnea
-    \cite{norman2000interobserver}.
+    \cite{norman2000interobserver}. {\color{blue}Among many reasons, the one that is directly related to the intelligent system development is how the criteria are ``described''. For example, if the delta wave occupies more than 20\% of a given 30-second epoch of the electroencephalogram during sleep, that 30-second epoch is defined to be in the N3 stage. 20\% of a given 30-second epoch is 6 seconds. What about if the delta wave occupies 5.99-, or 6.01-seconds? What about if the delta wave sustains for 10 seconds, but it is divided into two consecutive 30-second epochs? } {\color{blue}In short,} physicians need to make a
+  decision when sitting on the ``gray area'' that is not covered by
+  the protocol. Over this gray area, different physicians may make
+  different decisions based on their experience or the information
+  they have at hand. 
   }
 
-  \Medicine{Low inter-rater agreement}{This low inter-rater agreement can
-    be found in many clinical problems
-    \cite{brosnan2015modest,venhola2003interobserver,moncada2011reading}.
+  \Medicine{Low inter-rater agreement}{  
+  {\color{blue}In many other situations, low inter-rater agreement can
+    be found in many clinical problems. Sometimes, the low agreement comes from the ``extrapolation error''; that is, when we apply the developed protocol to the population different from the population that we collect the evidence for the protocol \cite{brosnan2015modest}. 
+    In other situation, the variability among subjects is so big that it limits the development of a more quantitative protocol \cite{venhola2003interobserver}. In some situations, when the needed information is missing, it is challenging to make a differential diagnosis
+    \cite{moncada2011reading}.
+    
+    Thus, depending on the problem, sometimes human experts' labels are uncertain, and it is not clear which one is ``correct'', or even how to define ``correct''. This uncertainty piles on another layer of challenge when we train the intelligent system.
+    }
+    
     \yoav{Please elaborate, what are the clinical problems we are
       discussing here?  Can we consolidate this into one box about
       inter-rater agreements that contains a definition and examples
     of low and high agreement}}
 
-    The issue underlying the inter-rater agreement is
-  subtle. [physiological knowledge, phase transition, available
-  information, treatment target, economic consideration]
+   {\color{blue} In short, the issue underlying the inter-rater agreement is
+  subtle. It ranges from the limited physiological knowledge, protocol definition, available
+  information, treatment target, economic consideration, etc. A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable. 
+  
+Should we trust such a questionable intelligent system? Is there anything useful from such system? To answer this question, we should not forget that physicians also make mistakes. Depending on the problems, and the population of physicians under consideration, the agreement rate varies. Usually, intern doctors know the least, while a senior attending knows the most. We trust a senior expert more, but it does not mean that we do not trust a junior intern doctor. The boundary of trust or not is ``simple'', if you can know how sure the physician is. It is clearly challenging to know how sure the physician is. But when we train an intelligent system, we can easily quantify how sure the system is about a question -- usually it is the score calculated by the system from the input data. In a binary classification problem, the higher or the lower the score is, the more certain the system is about the answer to the input data. When the score is in the middle, we could interpret that the system is {\em not sure} about the answer to the input data, or {\em it doesn't know}.
+
+  }
 
 \iffalse
   \Medicine{Inter-Rater agreement}{

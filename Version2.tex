@@ -138,53 +138,89 @@ patients unnecessarily getting a biopsy.
 
 \section*{Uncertainty in medicine}
 
-%
+Medicine is rife with risk and uncertainty. An incorrect diagnosis or
+treatment can cost the patient his life and the doctor her license.
+
+Uncertainty has many causes, we discuss some of those below.
+
+\iffalse
+and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
+
 It is certainly expected that physicians can achieve a reliable
   decision making, probably with sufficient clinical information
   \cite{mehta2011agreement} or if only the major information is needed
-  \cite{atiya2003interobserver}. However, in many cases, the quality of decision making might be jeopardized due to various reasons, among which the uncertainty in medicine is non-negligible.
-  %  
-  There are many resources, and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
+  \cite{atiya2003interobserver}. However, in many cases, the quality
+  of decision making might be jeopardized due to various reasons,
+  among which the uncertainty in medicine is non-negligible.
+\fi  
 
+\Medicine{Patient monitoring and alarm fatigue}{ A patient monitor is
+  a bedside system equipped with various bio-sensors that record,
+  display and distribute different biometrics, ranging from vital
+  signs such as heart rate, oxygen saturation and blood pressure, to
+  high-frequency waveforms such as electrocardiogram, respiratory
+  signal and arterial blood pressure. Monitors are typically used in hospitals
+  and clinics to closely monitor patients at risk.
+  Most patient monitors come with an alarm system that
+  alerts clinicians life-threating clinical events, such as asystole,
+  ventricular fibrillation, or an intubated patient being disconnected from
+  the ventilator. However, such systems often suffer from a high rate
+  of false alarms, which causes the medical staff to ignore the
+  alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm
+  overload) is a major problem in hospital care
+  \cite{cvach2012monitor,brief2019top}.
 
-
-
-
-
-
-%This consequence has been well appreciated in the medical science society. For example, in the medical record abstraction study \cite{gianinazzi2015intra} or medical image study \cite{galinovic2014visual}.
-
-\yoav{Please explain citation: \cite{Johnson2016} \cite{fleischman2019emergency}}
-\Medicine{Data Quality, Calibration and Validation}{
-  Patient monitor is an integrated system equipped with various bio-sensors that record, display and distribute different biometrics, ranging from vital signs like heart rate, oxygen saturation, blood pressure, and high-frequency waveforms like electrocardiogram, respiratory signal, arterial blood pressure. It is typically used in hospitals and clinics to closely monitor patients for a high quality patient care. Usually, a patient monitor comes with an alarm system that alerts clinicians life-threating clinical events, like asystole, ventricular fibrillation, or an intubated patient disconnects from the ventilator, among many others. However, usually such system is not adapted to the patient, and a lot of false alarms lead to one major healthcare concern called {\em alarm fatigue} (or alarm overload) \cite{cvach2012monitor,brief2019top}. In addition to solving this alarm fatigue issue by taking as much information from available signals as possible into account \cite{behar2013ecg,bai2016sequence,zong2016practical,winters2018technological,hu2019algorithm}, there have been soaring research interests in developing intelligent systems. The usual goal of the intelligent system is providing complimentary information for physicians to make clinical decision \cite{Johnson2016,komorowski2018artificial}, predicting possible complications \cite{huddar2016predicting,meyer2018machine}, among others. 
+\iffalse %Should probably move to uncertainty in ML
+  In addition to
+  solving this alarm fatigue issue by taking as much information from
+  available signals as possible into account
+  \cite{behar2013ecg,bai2016sequence,zong2016practical,winters2018technological,hu2019algorithm},
+  there have been soaring research interests in developing intelligent
+  systems. The usual goal of the intelligent system is providing
+  complimentary information for physicians to make clinical decision
+  \cite{Johnson2016,komorowski2018artificial}, predicting possible
+  complications \cite{huddar2016predicting,meyer2018machine}, among
+  others.
+  \fi
   
-  \yoav{Say a few words about what is an itelligent alarm
-    system. Does it adapt to the patient. Is this related to alarm
-    Fatigue?}
+  \yoav{What is the point of this paragraph?\\
+    It is plausible that utilizing as much data as possible from the
+    patient monitor could drive medical innovation and improve the
+    healthcare. However, in this setup, besides the obvious data
+    quality issue, like noise, the data calibration and validation
+    issues are often less discussed. Due to its proprietary nature,
+    researchers usually cannot calibrate or validate the recorded
+    signals but assume the high data quality. As a result, it has been
+    a long debate if the recorded biosignals are suitable for
+    scientific research
+    \cite{Ruskin2005,Feldman2006,Shelley2016,Cannesson2016}. Without a
+    proper calibration or validation, it is even possible that the
+    more data massively collected without proper calibration and
+    validation, the more biased the developed intelligent system will
+    be.}}
+
+
+\yoav{PTT seems to me to be too much in the weeds for this popular
+  article In \cite{lin2019unexpected}, some delicate artifacts have
+  been reported regarding the pulse transit time (PTT) analysis. {\bf
+    What is PTT and why is it important?} PTT is defined to be the
+  phase latency between the cycles in the electrocardiogram and the
+  photoplethysmogram. It has been shown that PTT contains rich
+  information about the blood pressure \cite{gesche2012continuous}. It
+  is thus natural to include it to an intelligent system, by learning
+  how it is related to clinical outcomes, to more closely monitor the
+  hemodynamics. However, it was unintentionally found that in {\em
+    some} patient monitors, the PTT is contaminated by a sawtooth
+  artifact that {\em might} come from some hardware manufacture
+  procedure.  Since such non-physiological artifact is not universal,
+  the usual statistical tools like variable selection cannot help. As
+  a result, the intelligent system might be confused and lead to
+  unpredictable uncertainties.  }
+
+\yoav{I think the following should be partitioned into two blocks:
+  ``Protocols and their limitations'' and ``Inter-rater agreement and
+  disagreement''}
   
-\yoav{Is the problem with the biosignals or with the system? Regarding black-boxes, as long as we allow the box to output I don't know when the prediction is unstable. Also, per-example explanations can be derived from the features that contribute the most from the score, assuming the learner is biased towards sparse classifiers classifier is a sparse one, such as boosting or Lasso.}
-
-
-It is plausible that utilizing as much data as possible from the patient monitor could drive medical innovation and improve the healthcare. However, in this setup, besides the obvious data quality issue, like noise, the data calibration and validation issues are often less discussed. Due to its proprietary nature, researchers usually cannot calibrate or validate the recorded signals but assume the high data quality. As a result, it has been a long debate if the recorded biosignals are suitable for scientific research \cite{Ruskin2005,Feldman2006,Shelley2016,Cannesson2016}. Without a proper calibration or validation, it is even possible that the more data massively collected without proper calibration and validation, the more biased the developed intelligent system will be.
-
-\yoav{I believe the common interpretation of a "black-box model" is a model that relates to the system we are trying to predict only in the input/output sense. A clear-box system is one where the internal variable relate to measurable quantities. A clear-box system might still have parameters that need to be calibrated, noise issues etc.
-I would prefer to use black box in the narrow sense, and separately from calibration, noise, or artifacts.}
-
-
-To appreciate this potential trouble, take a recent finding as an example. In \cite{lin2019unexpected}, some delicate artifacts
-  have been reported regarding the pulse
-  transit time (PTT) analysis. PTT is defined to be the phase latency between the cycles in the electrocardiogram and the photoplethysmogram. It has been shown that PTT contains rich information about the blood pressure \cite{gesche2012continuous}. It is thus natural to include it to an intelligent system, by learning how it is related to clinical outcomes, to more closely monitor the hemodynamics. However, it was unintentionally found that in {\em some} patient monitors, the PTT is contaminated by a sawtooth artifact that {\em might} come from some hardware manufacture procedure.  Since such non-physiological artifact is not universal, the usual statistical tools like variable selection cannot help. As a result, the intelligent system might be confused and lead to unpredictable uncertainties. 
-  
-  \yoav{the
-    way this is written, it sounds off topic. Is there an aspect of
-    automation or ML that will connect it to the article?}  
-    
-    
-    +lighting when analyzing skin lesions. Sensing back for re-testing
-    }
-
-
-
   \Medicine{Protocol limitation}{
   The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage
@@ -205,51 +241,108 @@ To appreciate this potential trouble, take a recent finding as an example. In \c
 
   }
 
+  \ML{Quantification of inter-rater agreement rate}{+Cohen's kappa,
+    \yoav{Introduce Hoen kappa. Instead of mathematical definition, I
+      would interpret some specific values: the value that
+      corressponds to perfect agreement for positive perfect agreement
+      for negative, the values that corresond to random-level
+      agreement for positive and negative, etc.}}
 
 
-\ML{Quantification of inter-rater agreement rate}{+Cohen's kappa}
-
-
-  \Medicine{Knowledge gap}{  
+  \Medicine{Bladder and sphincster diagnosis}{  
   Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
 %  
   The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 
-    %
-    Unsurprisingly, this fundamental issue has led to a significant inter-rater disagreement \cite{venhola2003interobserver,dudley2018interrater}. Without further quantification, this issue also hampered the standardization of the nomenclature and protocol. A clear consequence is that the generalization and application of urodynamic studies is limited, not to mention establishing a reliable intelligent system.
-   %
 
-    
-        
-    \yoav{Please elaborate, what are the clinical problems we are
-      discussing here?  Can we consolidate this into one box about
-      inter-rater agreements that contains a definition and examples
-    of low and high agreement}}
+  Unsurprisingly, this fundamental issue has led to a significant
+  inter-rater disagreement
+  \cite{venhola2003interobserver,dudley2018interrater}.
+
+    \yoav{What are the cohen-kappa numbers}
+  }
 
 
-Medical uncertainty, and its low inter-rater agreement consequence, can
-    be found in many other clinical problems. For example, the low agreement might come from the ``extrapolation error''; that is, when we apply the developed protocol to the population different from the population that we collect the evidence for the protocol \cite{brosnan2015modest}. 
-    In other situation, the variability among subjects is so big that it limits the development of a more quantitative protocol \cite{venhola2003interobserver}. In some situations, when the needed information is missing, it is challenging to make a differential diagnosis
-    \cite{moncada2011reading}. 
-%In short, the issue underlying the medical uncertainty is  subtle. In addition to the above-mentioned reasons, it might come from the limited available  information, treatment target, economic consideration, etc. 
+  Medical uncertainty as manifest low inter-rater agreement
+  consequence, can be found in many clinical problems (see blocks on
+  ...)For example, the low agreement might come from the
+  ``extrapolation error''; that is, when we apply the developed
+  protocol to the population different from the population that we
+  collect the evidence for the protocol \cite{brosnan2015modest}.  In
+  other situation, the variability among subjects is so big that it
+  limits the development of a more quantitative protocol
+  \cite{venhola2003interobserver}. In some situations, when the needed
+  information is missing, it is challenging to make a differential
+  diagnosis \cite{moncada2011reading}.
+
   A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable. 
 %  
 It is clear that such intelligent system is questionable and might raise concerns. Recently, various regulations in this regard have been proposed \cite{price2014black,ford2016privacy}.
 
 \hautieng{should we jump into GDPR?}
+\yoav{what is GDPR?}
 
-Now, suppose we are able to eliminate all challenges from data calibration and validation issues, and we can provide as much information as possible to train the intelligence system. Even under this assumption, it is clear that the system still suffers from the protocol limitation or knowledge gap issues. Can such system be useful in clinics? To answer this question, we should not forget that physicians also follow the same protocol and have knowledge gaps. Depending on the clinical problems, and the experience of physicians under consideration, the agreement rate varies. Usually, intern doctors know the least, while a senior attending knows the most. It is natural that we trust a senior expert more, but it does not mean that we do not trust a junior intern doctor. The boundary of trust or not depends on the problem, and how sure the physicians know the answer. 
+Now, suppose we are able to eliminate all challenges from data
+calibration and validation issues, and we can provide as much
+information as possible to train the intelligence system. Even under
+this assumption, it is clear that the system still suffers from the
+protocol limitation or knowledge gap issues. Can such system be useful
+in clinics? To answer this question, we should not forget that
+physicians also follow the same protocol and have knowledge
+gaps. Depending on the clinical problems, and the experience of
+physicians under consideration, the agreement rate varies. Usually,
+intern doctors know the least, while a senior attending knows the
+most. It is natural that we trust a senior expert more, but it does
+not mean that we do not trust a junior intern doctor.
+
+\iffalse %move to uncertainty in ML
+The boundary of trust or not depends on the problem, and how sure the physicians know the answer. 
 %
-It is clearly challenging to evaluate how sure the physician is. But when we train an intelligent system, we can easily quantify how sure the system is about a question -- usually it is the score calculated by the system from the input data. In a binary classification problem, the higher or the lower the score is, the more certain the system is about the answer to the input data. When the score is in the middle, we could interpret that the system is {\em not sure} about the answer to the input data, or {\em it doesn't know} (IDK).
+It is clearly challenging to evaluate how sure the physician is. But
+when we train an intelligent system, we can easily quantify how sure
+the system is about a question -- usually it is the score calculated
+by the system from the input data. In a binary classification problem,
+the higher or the lower the score is, the more certain the system is
+about the answer to the input data. When the score is in the middle,
+we could interpret that the system is {\em not sure} about the answer
+to the input data, or {\em it doesn't know} (IDK).
+\fi
 
-We shall elaborate IDK a bit from the medical decision making process \cite{vordermark2019introduction}. Roughly speaking, there are two main approaches, including recognition and elimination. From the algorithmic perspective, recognition approach could be understood as ``pattern matching''. If the problem we face can be fit into a pattern we are familiar with, or we can easily make a decision without pursuing alternatives or seeking extra advice or finding more evidence, we could view it as matching a pattern. On the other hand, the diagnostic process of elimination is different. Usually, the problem is ill-defined or ambiguous, or require further research and/or evidence. Usually physicians need to eliminate cases from all possibilities, and might need extra support. To make a decision based on elimination, slow thinking with focused attention is critical \cite{michel2020thinking}. This process is like taking a math examination, it takes time and effort, and it is exhaustive. In the every end, depending on the physician experience, he/she might end up with multiple possibilities. He/she could either guess and proceed, or say IDK and consult a higher level experts or discuss with other experts.
-An intelligent system could be extremely helpful for this purpose. An intelligent system could help carefully and slowly eliminate possible choices, and if it end up in a gray zone with multiple possibilities, it says IDK. This would dramatically help physicians daily practice. 
+We consider the management of uncertainty from the medical decision making process
+point of view\cite{vordermark2019introduction}.
+Following the ``thinking fast, thinking slow'' dualism Kahaneman and
+Tversky, it is generally agreed that
+two distinct mental processes are involved in choosing a diagnosis.
+Recognition is a fast, typically non-verbal, mental process in which
+the doctor identifies a pattern in the symptoms and instinctively
+makes a diagnosyis. On the other hand, elimination is a slow
+deliberative process through which the doctor methodically eliminates
+diagnostic possibilities.
+ To make a decision based
+on elimination, slow thinking with focused attention is critical
+\cite{michel2020thinking}. This process is like taking a math
+examination, it takes time and effort, and it is exhaustive. In the
+every end, depending on the physician experience, he/she might end up
+with multiple possibilities. He/she could either guess and proceed, or
+say IDK and consult a higher level experts or discuss with other
+experts.
+\yoav{I like the last paragraph very much, it makes a lot of
+  sense. I downloaded the vordermark book. I found a lot of good
+  stuff. But I did not find anything about doctors consulting each
+  other, majorities, concensus etc. It would be very relevant to find
+  information both about how decision are made in today's hospital,
+  and how they {\em should} be made to combine the best of fast and
+  slow thinking. All of this before saying anything about using ML}
+
+\iffalse % should me moved to uncertainty in ML
+An intelligent system could be extremely helpful for this
+purpose. An intelligent system could help carefully and slowly
+eliminate possible choices, and if it end up in a gray zone with
+multiple possibilities, it says IDK. This would dramatically help
+physicians daily practice.
 
 %https://books.google.com.tw/books?id=ciK3DwAAQBAJ&pg=PA112&lpg=PA112&dq=medical+decision+making+elimination+process&source=bl&ots=Lx-GW2HLWZ&sig=ACfU3U0VNZNnBfSC6TpAZ1jvSsCkV8Rmjg&hl=en&sa=X&ved=2ahUKEwioypCxv4PqAhW1LqYKHbM0BG0Q6AEwCnoECAkQAQ#v=onepage&q=medical%20decision%20making%20elimination%20process&f=false
+\fi
 
-
-
-
-\iffalse
   \Medicine{Inter-Rater agreement}{
   A direct consequence of this low inter-rater agreement is a
   questionable trained ``artificial intelligence''. It is possible
@@ -282,7 +375,6 @@ An intelligent system could be extremely helpful for this purpose. An intelligen
       the trustworthiness of the alarms.--done
     \item{\bf Alarm Fatigue}--done
   \end{itemize}
-\fi
 
 %{\bf Psychological reasons} Both doctor and patient prefer
 

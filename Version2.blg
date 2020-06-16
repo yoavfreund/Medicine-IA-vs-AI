@@ -4,45 +4,47 @@ The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
 Warning--empty journal in ashby1957introduction
-You've used 19 entries,
+Warning--empty journal in brief2019top
+Warning--can't use both volume and number fields in michel2020thinking
+You've used 36 entries,
             2481 wiz_defined-function locations,
-            680 strings with 8423 characters,
-and the built_in function-call counts, 7956 in all, are:
-= -- 607
-> -- 535
-< -- 6
-+ -- 200
-- -- 162
-* -- 706
-:= -- 1334
-add.period$ -- 57
-call.type$ -- 19
-change.case$ -- 37
-chr.to.int$ -- 19
-cite$ -- 20
-duplicate$ -- 356
-empty$ -- 672
-format.name$ -- 185
-if$ -- 1617
+            786 strings with 12238 characters,
+and the built_in function-call counts, 15435 in all, are:
+= -- 1199
+> -- 1018
+< -- 16
++ -- 382
+- -- 310
+* -- 1356
+:= -- 2573
+add.period$ -- 117
+call.type$ -- 36
+change.case$ -- 70
+chr.to.int$ -- 36
+cite$ -- 39
+duplicate$ -- 690
+empty$ -- 1303
+format.name$ -- 354
+if$ -- 3156
 int.to.chr$ -- 1
-int.to.str$ -- 20
-missing$ -- 20
-newline$ -- 103
-num.names$ -- 57
-pop$ -- 148
+int.to.str$ -- 37
+missing$ -- 38
+newline$ -- 196
+num.names$ -- 108
+pop$ -- 271
 preamble$ -- 1
-purify$ -- 19
+purify$ -- 36
 quote$ -- 0
-skip$ -- 198
+skip$ -- 389
 stack$ -- 0
-substring$ -- 377
-swap$ -- 38
-text.length$ -- 0
+substring$ -- 760
+swap$ -- 83
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 130
-warning$ -- 1
-while$ -- 63
+type$ -- 246
+warning$ -- 3
+while$ -- 125
 width$ -- 0
-write$ -- 248
-(There was 1 warning)
+write$ -- 484
+(There were 3 warnings)

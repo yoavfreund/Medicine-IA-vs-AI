@@ -12,6 +12,7 @@
 %\usepackage{wrapfig}
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
+\usepackage{graphicx}
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
@@ -294,19 +295,6 @@ intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
 
-\iffalse %move to uncertainty in ML
-The boundary of trust or not depends on the problem, and how sure the physicians know the answer. 
-%
-It is clearly challenging to evaluate how sure the physician is. But
-when we train an intelligent system, we can easily quantify how sure
-the system is about a question -- usually it is the score calculated
-by the system from the input data. In a binary classification problem,
-the higher or the lower the score is, the more certain the system is
-about the answer to the input data. When the score is in the middle,
-we could interpret that the system is {\em not sure} about the answer
-to the input data, or {\em it doesn't know} (IDK).
-\fi
-
 We consider the management of uncertainty from the medical decision making process
 point of view\cite{vordermark2019introduction}.
 Following the ``thinking fast, thinking slow'' dualism Kahaneman and
@@ -412,80 +400,99 @@ so that it supports an alternative label.
   \item Easy and hard cases.
   \end{itemize}
 
-  \section*{Agency and Augmentation}
+  \section*{Human decisions and Intelligence augmentation}
 
-  Computers are already an integral part of medicine, from
+  Computers are an integral part of medical practice. From
   electronical medical records to medical instrumentation to billing,
   hospitals and cliniques cannot function without computers. By some
   measures computers can already make better diagnosis that human
   doctors. The question is not {\em whether} computer diagnostics will
   become part of medical practice, the question is {\em how}.
 
-  It is not enough to describe the desired end state. 
-  In this final section we chart a {\em migration path} from the
-  current limited role of computers in diagnostics to a
-  more central role. For this to take place, caregivers must benefit
-  from the new technology. Setting the goal to be replacing human
-  doctors with machines is both unrealistic and self-defeating.
+  Some claim that human doctors and nurses are heading to extinction,
+  following the fate of manufactoring jobs and bank cashiers.  Our prediction is
+  that computers will change the nature of medical work, but that it
+  will increase, rather than decrease, the number of healthcare
+  workers, especially in the care of chronic disease and aging.
 
-  Doctors and nurses are humans, they are not diagnostic machines. The
-  personal and emotional connection between doctor and patient is
-  critical for effective treatment. A good doctor combines their
-  medical knowledge with a personal understanding of the patient to
-  choose a treatment plan and discuss it with the patient to get their
-  consent.
+  We believe computers {\em can} perform accurate diagnosis for cases where
+  different doctors are likely to agree. In other cases which are
+  diagnostic gray area the computer will output ``I don't know'' and
+  transfer the responsibility to the doctor. In most cases, the doctor
+  cannot say ``I don't know'' because she is responsible for the
+  patients health. On the other hand, resolving the diagnostic
+  question is not her only choice. She can consult another doctor or
+  the literature, ask for additional tests, or decide on a treatment
+  based on available information. Deciding between these options requires much
+  more than diagnostic information. It involves understanding the
+  patient's emotional, mental and financial state, the patient's
+  support system, the strengths and weaknesses of the hospital in
+  which this is taking place etc.
 
-  It is debatable whether a computer will ever be able to
-  make a meaningful emotional connection with a patient. It is quite
-  clear that such capabilities will not exist in the forseable future.
-  We refer to the ability to connect and to act in a self concious
-  way {\em agency} and separate it from {\em intelligence}. We suggest
-  that computers can augment humans in intelligence tasks and leave
-  agency to humans.
+  Over time, computers will be able to take into consideration more
+  and more of this complex information. However, for the forseable
+  future, it is unlikely that computers will be given the
+  responsibility to make medical {\em decisions}. Computers
+  will take on much of the diagnostics and alarm tasks, improving the
+  accuracy and timeliness of the doctors actions. Computers will
+  output IDK in gray areas and will leave the decision making to the
+  human doctor. Giving the computer the authority to make decisions
+  currently done by human doctors will deprive the patient the human
+  attention of the doctor.
 
-  \subsection*{Easy and hard diagnoses}
+  Some of the digitization of the medicine has come between patients
+  and doctors. The need to record all activity into EMR system require
+  doctors to spend more time at the keyboard, reducing the amount of
+  time of physical examination an discussion. We believe that IA can
+  move medicine in the opposite direction, letting the computer make
+  the common noncontroversial diagnostics and giving the patient more
+  time to interact with the patient.
 
-  As described above, diagnostics is a process of elimination. It
-  starts with a set of possible diagnoses which are gradually
-  eliminated as evidence is  gathered. As diagnoses are
-  eliminated, the benefit and risk of different treatment plans is evaluated.
-  Deciding on treatment and continually monitoring it is where the
-  doctor's agency is most important.
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=3in]{figures/RedYellowGreen.pdf}
+\end{center}
+\end{figure}
 
-  Our suggestion is that machine learning helps the doctor eliminate
-  diagnoses and evaluate treatment options, while leaving the the
-  decisions to the doctor.
+  For IA technology to be widely adopted, the nurses and doctors that
+  use them should experience an improvement in their practice. Suppose
+  that the display of the diagnostics computer uses a three color code
+  for each . Green indicates a confident
+  negative diagnostic, red corresponds to a confident positive
+  diagnosis. Finally, yellow corresponds to IDK, meaning that the
+  computer cannot confirm or reject the diagnostic outcome.
 
-  Diagnosis vary in their difficulty. Consider a sequence of
-  patients visiting a clinic. Suppose the clinic has four doctors, two
-  trainees, and six nurses. Each patient first gets seen by a nurse,
-  then by a doctor, and possibly by a trainee. Some of patients have
-  a simple diagnosis, one that all twelve members of the clinic will
-  state with confidence. Other patients have more complex diagnosis
-  that requires the attention of a doctor. Finally, some diagnosis are
-  so complex that the doctor needs to consult other doctors and
-  possibly ask for additional tests. In other words, the clinic acts
-  as an ensemble of classifiers. Easy cases result in a unanimous
-  diagnosis, harder ones results in a clear majority, and the very
-  hardest results in disagreement which requires consultation and
-  additional tests.
+  The thresholds which define the three ranges .... 
 
-  The machine learning ensemble of classifiers follows a similar
-  logic. 
 
+  
+  We finish this section with a few application areas which seem ready
+  for applications of IA.
+  
 \begin{itemize}
-\item{\bf Computer aided diagnostics}
-  Especially with very large data: ecg for 14 says.... \\
-  ~\\
+\item{\bf Computer aided diagnostics for large-scale data}\\
+  Medical imaging devices such at digital X-ray, CT, EMR and scanning
+  microscope generate many gigabytes of data for each
+  patient. Radiologists and pathologists spend their days analyzing
+  these images to diagnose the patient. The large size and high
+  resolution of the images on the one hand, and the time limitation on
+  the analyst on the other imply that the analyst has to quickly
+  narrow down the suspicious region, increase the chance of missing
+  dangerous abonormalities.
 
-Pathology.
+  IA can help the pathologist by suggesting locations in the high
+  resolution image that might contain cancer nodules~\cite{}.
 
+  directing her attention to the
+  parts of the image that are 
+
+\item{\bf Adaptive Patient montors}
+  
 \item {\bf Dissemination of expertise}
 Computers, trained by experts, can help novices.  Serves a function
 similar to score-cards.
 
 Teaching young diagnostics
-\item { \bf Confidence, Trust and adoption of technology}
 \end{itemize}
 
 \section*{Summary}

@@ -154,73 +154,20 @@ It is certainly expected that physicians can achieve a reliable
   among which the uncertainty in medicine is non-negligible.
 \fi  
 
-\Medicine{Patient monitoring and alarm fatigue}{ A patient monitor is
-  a bedside system equipped with various bio-sensors that record,
+\Medicine{Uncertainty due to signal Quality}{Medical devices use a variety of bio-sensors that record,
   display and distribute different biometrics, ranging from vital
   signs such as heart rate, oxygen saturation and blood pressure, to
-  high-frequency waveforms such as electrocardiogram, respiratory
-  signal and arterial blood pressure. Monitors are typically used in hospitals
-  and clinics to closely monitor patients at risk.
-  Most patient monitors come with an alarm system that
-  alerts clinicians life-threating clinical events, such as asystole,
-  ventricular fibrillation, or an intubated patient being disconnected from
-  the ventilator. However, such systems often suffer from a high rate
-  of false alarms, which causes the medical staff to ignore the
+  high-frequency waveforms such as ECG, EEG, respiratory
+  signal and arterial blood pressure.
+These signals suffer from variety of problems and artifacts, some of which depend on the patient. Reducing these problem often requires a human expert. In some cases such as EEG removal of artifacts is still an open problem~\cite{}.
+
+Patient monitors are bedside devices that monitor patients at risk, freeing the medical staff to attend to the patients that need care at the moment. 
+However, Patient monitors suffer from signal quality issues and tend to generate false alarms at a high rate. These cause the medical staff to ignore the
   alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm
   overload) is a major problem in hospital care
   \cite{cvach2012monitor,brief2019top}.
+}
 
-\iffalse %Should probably move to uncertainty in ML
-  In addition to
-  solving this alarm fatigue issue by taking as much information from
-  available signals as possible into account
-  \cite{behar2013ecg,bai2016sequence,zong2016practical,winters2018technological,hu2019algorithm},
-  there have been soaring research interests in developing intelligent
-  systems. The usual goal of the intelligent system is providing
-  complimentary information for physicians to make clinical decision
-  \cite{Johnson2016,komorowski2018artificial}, predicting possible
-  complications \cite{huddar2016predicting,meyer2018machine}, among
-  others.
-  \fi
-  
-  \yoav{What is the point of this paragraph?\\
-    It is plausible that utilizing as much data as possible from the
-    patient monitor could drive medical innovation and improve the
-    healthcare. However, in this setup, besides the obvious data
-    quality issue, like noise, the data calibration and validation
-    issues are often less discussed. Due to its proprietary nature,
-    researchers usually cannot calibrate or validate the recorded
-    signals but assume the high data quality. As a result, it has been
-    a long debate if the recorded biosignals are suitable for
-    scientific research
-    \cite{Ruskin2005,Feldman2006,Shelley2016,Cannesson2016}. Without a
-    proper calibration or validation, it is even possible that the
-    more data massively collected without proper calibration and
-    validation, the more biased the developed intelligent system will
-    be.}}
-
-
-\yoav{PTT seems to me to be too much in the weeds for this popular
-  article In \cite{lin2019unexpected}, some delicate artifacts have
-  been reported regarding the pulse transit time (PTT) analysis. {\bf
-    What is PTT and why is it important?} PTT is defined to be the
-  phase latency between the cycles in the electrocardiogram and the
-  photoplethysmogram. It has been shown that PTT contains rich
-  information about the blood pressure \cite{gesche2012continuous}. It
-  is thus natural to include it to an intelligent system, by learning
-  how it is related to clinical outcomes, to more closely monitor the
-  hemodynamics. However, it was unintentionally found that in {\em
-    some} patient monitors, the PTT is contaminated by a sawtooth
-  artifact that {\em might} come from some hardware manufacture
-  procedure.  Since such non-physiological artifact is not universal,
-  the usual statistical tools like variable selection cannot help. As
-  a result, the intelligent system might be confused and lead to
-  unpredictable uncertainties.  }
-
-\yoav{I think the following should be partitioned into two blocks:
-  ``Protocols and their limitations'' and ``Inter-rater agreement and
-  disagreement''}
-  
   \Medicine{Protocol limitation}{
   The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage

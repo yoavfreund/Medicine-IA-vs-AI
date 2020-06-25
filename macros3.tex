@@ -1,0 +1,21 @@
+\newcommand{\comment}[3]{{\color{#1} {\bf #2 :} #3}}
+%\newcommand{\comment}[3]{}  % suppress comments
+\newcommand{\hautieng}[1]{\comment{blue}{Hautieng}{#1}}
+\newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
+
+\newcommand{\block}[1]{
+  \InsertBoxR{0}{
+    \small\setlength\fboxsep{10pt}\setlength\fboxrule{1pt}
+    \fcolorbox{IndianRed3}{AntiqueWhite1!30}{\begin{minipage}{3.1in}
+        \invisiblesection{\textit{Side Bar}}
+        \begin{minipage}{2.1in}
+          #1
+        \end{minipage}
+      }
+    }[10]
+  }
+
+
+\newcommand{\Medicine}[2]{\block{Medicine}{#1}{#2}}
+\newcommand{\ML}[2]{\block{ML}{#1}{#2}}
+\newcommand{\Org}[2]{\block{Org}{#1}{#2}}

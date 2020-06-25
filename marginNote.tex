@@ -1,0 +1,47 @@
+\documentclass[dvipsnames]{article}
+\usepackage[lmargin=2.5cm,textwidth=13cm,marginparwidth=5cm]{geometry}
+\usepackage[many]{tcolorbox}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+
+\newtcolorbox{story}[1][]{
+  width=\textwidth,
+  fonttitle=\bfseries,
+  breakable,
+  fonttitle=\bfseries\color{Brown},
+  colframe=Melon,
+  colback=Melon!10
+  #1}
+
+\newcounter{mynote}
+\newtcolorbox[use counter=mynote]
+  {mynote}[1][]
+  {title=Note~\thetcbcounter,
+   width=4cm,
+   left=0pt,
+   right=0pt,
+   fonttitle=\bfseries,
+   coltitle=black,
+   colframe=ForestGreen!40,
+   colback=ForestGreen!10,
+   #1
+}    
+
+\newcommand\StoryNote[3][]{%
+     \begin{wrapfigure}{r}{4cm}
+      \begin{mynote}[label=#3]
+        #2
+      \end{mynote}%
+      \end{wrapfigure}%
+}
+
+\begin{document}
+\lipsum*[2] As we can see in notes~\ref{testa} and \ref{testb}...
+\begin{story}
+\StoryNote{Some text here to illustrate the box for the notes.}{testa}
+\lipsum[1]
+\StoryNote{Some text here to illustrate the box for the notes.}{testb}
+\lipsum[3]
+\end{story}
+
+\end{document}

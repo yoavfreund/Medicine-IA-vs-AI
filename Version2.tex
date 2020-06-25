@@ -1,27 +1,43 @@
-\documentclass[9pt,twocolumn,twoside]{pnas-new}
-% \documentclass[10pt]{article}
-\templatetype{pnasresearcharticle} % Choose template 
-% {pnasresearcharticle} = Template for a two-column research article
-% {pnasmathematics} %= Template for a one-column mathematics article
-% {pnasinvited} %= Template for a PNAS invited submission
+\documentclass[11pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{float}
+\usepackage{lipsum} % for dummy text only
+% \usepackage[alpine,misc]{ifsym}
+\textheight=9.0in
+\pagestyle{empty}
+\setlength{\tabcolsep}{0in}
+\usepackage{hyperref}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor}
+% \usepackage{xcolor}
 \usepackage{mdframed}
-%\usepackage{wrapfig}
-\usepackage{multicol}
-\setlength{\columnsep}{1cm}
-\usepackage{graphicx}
+\usepackage{wrapfig}
+% \usepackage{multicol}
+% \setlength{\columnsep}{1cm}
+ \usepackage{graphicx}
 
-\author[1]{Yoav Freund}
-\author[2]{Hau-Tieng Wu}
-\affil[1]{UCSD, department, city, postcode, country}
-\affil[2]{Duke, department, city, postcode, country}
+\newcommand\invisiblesection[1]{%
+  \refstepcounter{section}%
+  \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+  \sectionmark{#1}}
+
+ \input{insbox}
+ \usepackage[x11names]{xcolor}
+
+ 
+% \author[1]{Yoav Freund}
+% \author[2]{Hau-Tieng Wu}
+% \affil[1]{UCSD, department, city, postcode, country}
+% \affil[2]{Duke, department, city, postcode, country}
+
+\input{macros}
 
 \title{When the digital Doctor should admit\\ "I don't know"}
 
-\input{macros}
+\begin{document}
+
+\maketitle
 
 \begin{abstract}
 
@@ -39,12 +55,6 @@
   difficult ones are handled by humans.
 
 \end{abstract}
-
-\begin{document}
-
-\maketitle
-
-\thispagestyle{firststyle}
 
 \section*{Introduction}
 
@@ -197,16 +207,29 @@ However, Patient monitors suffer from signal quality issues and tend to generate
       agreement for positive and negative, etc.}}
 
 
-  \Medicine{Bladder and sphincster diagnosis}{  
-  Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
+  \Medicine{Bladder and sphincster diagnosis}{ Urodynamic studies
+    provide the best bladder and sphincter functional data for
+    urologists to decide how to treat patients at risk for renal
+    damage \cite{abrams2003describing}.  While it has been extensively
+    studied and applied in clinics, the main issue that plagues this
+    field of urodynamics is the lack of precise definition of a
+    detrusor contraction or overactive contraction
+    \cite{abrams2003describing}.
 %  
-  The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 
+    The lack of a well defined definition is due to the lack of
+    quantitative study from the pathophysiological perspective, so the
+    definition is still based on ``expert opinion''. For example,
+    usually an overactive contraction represents itself as a ``bump''
+    in the detrusor pressure signal. However, what is the breath and
+    height of a bump should we call it an overactive contraction? How
+    to distinguish a true overactive contraction from an artifact?
+    While there have been several reference information, like
+    abdominal pressure, that could help us identify artifacts, but it
+    can only explain a small portion of them.
 
   Unsurprisingly, this fundamental issue has led to a significant
   inter-rater disagreement
   \cite{venhola2003interobserver,dudley2018interrater}.
-
-    \yoav{What are the cohen-kappa numbers}
   }
 
 
@@ -242,16 +265,33 @@ intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
 
+
+\Medicine{Recognition vs. Elimination in Medical diagnosis}{In general, diagnosis is
+  performed by comparing observed symptoms to past experience. Roughly
+  speaking there are two ways to make this comparison: {\em
+    recognition} and {\em elimination}.  Recognition is a fast,
+  typically non-verbal, mental process in which the doctor identifies
+  a pattern in the symptoms and instinctively makes a diagnosis. On
+  the other hand, elimination is a slow deliberative process through
+  which the doctor methodically eliminates diagnostic possibilities.
+
+  Recognition is a faster than elimination, but is more error
+  prone. Recognition tends to ``lock on'' to a aparticular diagnosis and
+  ignore aternative diagnoses. Elimination is a processes that starts
+  with all possible diagnoses and iteratively reduces them. Ideally
+  this process of elimination ends up with a single
+  diagnosis. However, there might be more than one diagnosis left. In
+  that case, additional test might be needed to eliminate all but one
+  of the diagnosis.
+ }
+
+\iffalse
 We consider the management of uncertainty from the medical decision making process
 point of view\cite{vordermark2019introduction}.
 Following the ``thinking fast, thinking slow'' dualism Kahaneman and
 Tversky, it is generally agreed that
 two distinct mental processes are involved in choosing a diagnosis.
-Recognition is a fast, typically non-verbal, mental process in which
-the doctor identifies a pattern in the symptoms and instinctively
-makes a diagnosyis. On the other hand, elimination is a slow
-deliberative process through which the doctor methodically eliminates
-diagnostic possibilities.
+
  To make a decision based
 on elimination, slow thinking with focused attention is critical
 \cite{michel2020thinking}. This process is like taking a math
@@ -260,22 +300,14 @@ every end, depending on the physician experience, he/she might end up
 with multiple possibilities. He/she could either guess and proceed, or
 say IDK and consult a higher level experts or discuss with other
 experts.
-\yoav{I like the last paragraph very much, it makes a lot of
-  sense. I downloaded the vordermark book. I found a lot of good
-  stuff. But I did not find anything about doctors consulting each
-  other, majorities, concensus etc. It would be very relevant to find
-  information both about how decision are made in today's hospital,
-  and how they {\em should} be made to combine the best of fast and
-  slow thinking. All of this before saying anything about using ML}
 
-\iffalse % should me moved to uncertainty in ML
+% should me moved to uncertainty in ML
 An intelligent system could be extremely helpful for this
 purpose. An intelligent system could help carefully and slowly
 eliminate possible choices, and if it end up in a gray zone with
 multiple possibilities, it says IDK. This would dramatically help
 physicians daily practice.
 
-%https://books.google.com.tw/books?id=ciK3DwAAQBAJ&pg=PA112&lpg=PA112&dq=medical+decision+making+elimination+process&source=bl&ots=Lx-GW2HLWZ&sig=ACfU3U0VNZNnBfSC6TpAZ1jvSsCkV8Rmjg&hl=en&sa=X&ved=2ahUKEwioypCxv4PqAhW1LqYKHbM0BG0Q6AEwCnoECAkQAQ#v=onepage&q=medical%20decision%20making%20elimination%20process&f=false
 \fi
 
   \Medicine{Inter-Rater agreement}{
@@ -311,11 +343,24 @@ physicians daily practice.
     \item{\bf Alarm Fatigue}--done
   \end{itemize}
 
-%{\bf Psychological reasons} Both doctor and patient prefer
-
-How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
-  experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
-      then the overall confidence in that diagnostics is high. While this voting procedure might be guarantee the optimal outcome, it eliminates the uncertainly during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
+  How to quantify IDK? We should discuss how to quantify the
+  confidence, or certainty, a physician has when making a
+  decision. Clearly, experience leads to confidence. With more
+  experience aggregated, diagnostic options that contradict the
+  accumulated experience are eliminated, and hence more problems that
+  need to be handled by the elimination process can be handled by the
+  recognition process. However, facing our complicated human body, it
+  is almost not possible for any single physician to aggregate all
+  necessary experience to be confident about anything, so IDK is still
+  an option. A practical and simple way to increase diagnostic
+  certainty is to solicit the experience of a diverse group of doctors
+  via discussion. If there is a clear majority for one diagnostic
+  outcome, then the overall confidence in that diagnostics is
+  high. While this voting procedure might be guarantee the optimal
+  outcome, it eliminates the uncertainly during the whole
+  procedure. With this certain procedure, even if the outcome is
+  negative, it can be traced back and accumulate evidence and
+  experience.
 %
 
 \ML{Certainty and conditional probability}{

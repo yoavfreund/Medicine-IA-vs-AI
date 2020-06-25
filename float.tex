@@ -1,0 +1,55 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{float}
+\usepackage{lipsum} % for dummy text only
+% \usepackage[alpine,misc]{ifsym}
+\textheight=9.0in
+\pagestyle{empty}
+\setlength{\tabcolsep}{0in}
+\usepackage{hyperref}
+
+    \newcommand\invisiblesection[1]{%
+    \refstepcounter{section}%
+    \addcontentsline{toc}{section}{\protect\numberline{\thesection}#1}%
+    \sectionmark{#1}}
+
+    \input{insbox}
+    \usepackage[x11names]{xcolor}
+
+    \begin{document}
+
+    {\Huge Title}\\
+    \textit{\small subtitle}
+
+    \pagebreak[1]
+    \section*{Section 1}
+
+    \InsertBoxR{0}{
+    \footnotesize\setlength\fboxsep{10pt}\setlength\fboxrule{1pt}
+    \fcolorbox{IndianRed3}{AntiqueWhite1!30}{\begin{minipage}{2.1in}
+    \invisiblesection{\textit{Side Bar}}
+    \subsubsection*{AI vs IA}
+    %
+      {Using computers to augment human intelligence rather replace it is
+      both tantalizing and mundane. On the heady side, consider
+      cyborgs whose anatomy is part human, part artificial and can with
+      equal ease solve complex equations or write poetry. On the mundane
+      side, think of smartphones that are quickly becoming an inseparable
+      part of our person.
+       The idea of using computers to augment or amplify human intelligence
+      has a very long history. The acronyms AI (Artificial intelligence) and
+      IA (Intelligence Amplification or Intelligence Augmentation) have both
+      become popular in the early
+      1960's\cite{ashby1957introduction,engelbart1962augmenting}. These
+      days, the acronym AI is popular, while the acronym IA is not. However,
+      Sebastian Thrun's statement indicates that the idea of Intelligence
+      augmentation is still on people's mind.}
+    \end{minipage}}
+    }[10]
+    \lipsum[1-4]
+
+    \pagebreak[1]
+    \section*{Section 2}
+
+    \lipsum[1-4]
+    \end{document} 

@@ -3,13 +3,16 @@
 \newcommand{\hautieng}[1]{\comment{blue}{Hautieng}{#1}}
 \newcommand{\yoav}[1]{\comment{red}{Yoav}{#1}}
 
-\mdfsetup{middlelinecolor=blue, middlelinewidth=2pt,backgroundcolor=blue!10, roundcorner=10pt, nobreak=true}
+\mdfsetup{middlelinecolor=blue, middlelinewidth=2pt, backgroundcolor=blue!10, roundcorner=10pt}
 
 \mdfdefinestyle{Medicine}{middlelinecolor=red, middlelinewidth=2pt, backgroundcolor=red!10, roundcorner=10pt}
 \mdfdefinestyle{ML}{middlelinecolor=green, middlelinewidth=2pt, backgroundcolor=green!10, roundcorner=10pt}
 \mdfdefinestyle{Org}{middlelinecolor=blue, middlelinewidth=2pt, backgroundcolor=blue!10, roundcorner=10pt}
 
-\newcommand{\block}[3]{\begin{mdframed}[style=#1]\begin{minipage}{\bf #2}\\ #3 \end{minipage} \end{mdframed}}
+\newcommand{\block}[3]{
+  \begin{wrapfigure}[25]{r}[34pt]{10cm}
+    \begin{mdframed}[style=#1]{\footnotesize{\bf #2}\\ #3} \end{mdframed}
+  \end{wrapfigure}}
 \newcommand{\Medicine}[2]{\block{Medicine}{#1}{#2}}
 \newcommand{\ML}[2]{\block{ML}{#1}{#2}}
 \newcommand{\Org}[2]{\block{Org}{#1}{#2}}

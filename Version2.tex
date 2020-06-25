@@ -232,6 +232,17 @@ not mean that we do not trust a junior intern doctor.
 
 We consider the management of uncertainty from the medical decision making process
 point of view\cite{vordermark2019introduction}.
+  \Medicine{Inter-Rater agreement}{
+  A direct consequence of this low inter-rater agreement is a
+  questionable trained ``artificial intelligence''. It is possible
+  that we magically obtain a dataset that contains information that is
+  sufficient for the decision making, while the information is too
+  subtle so that it is not considered in the protocol, and we also
+  magically obtain labels from a magical master that can see though
+  all the information and provide the correct decision. However, by
+  doing a simple math, we shall not count on such a magic and should
+  come back to the protocol itself.
+}
 Following the ``thinking fast, thinking slow'' dualism Kahaneman and
 Tversky, it is generally agreed that
 two distinct mental processes are involved in choosing a diagnosis.
@@ -262,26 +273,7 @@ purpose. An intelligent system could help carefully and slowly
 eliminate possible choices, and if it end up in a gray zone with
 multiple possibilities, it says IDK. This would dramatically help
 physicians daily practice.
-
-%https://books.google.com.tw/books?id=ciK3DwAAQBAJ&pg=PA112&lpg=PA112&dq=medical+decision+making+elimination+process&source=bl&ots=Lx-GW2HLWZ&sig=ACfU3U0VNZNnBfSC6TpAZ1jvSsCkV8Rmjg&hl=en&sa=X&ved=2ahUKEwioypCxv4PqAhW1LqYKHbM0BG0Q6AEwCnoECAkQAQ#v=onepage&q=medical%20decision%20making%20elimination%20process&f=false
 \fi
-
-  \Medicine{Inter-Rater agreement}{
-  A direct consequence of this low inter-rater agreement is a
-  questionable trained ``artificial intelligence''. It is possible
-  that we magically obtain a dataset that contains information that is
-  sufficient for the decision making, while the information is too
-  subtle so that it is not considered in the protocol, and we also
-  magically obtain labels from a magical master that can see though
-  all the information and provide the correct decision. However, by
-  doing a simple math, we shall not count on such a magic and should
-  come back to the protocol itself.
-
-  \yoav{ Can you describe a particular interesting / illuminating /
-    convincing case?}
-}
-
-
 
 {\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
@@ -301,20 +293,18 @@ physicians daily practice.
 
 %{\bf Psychological reasons} Both doctor and patient prefer
 
-How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
-  experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
-      then the overall confidence in that diagnostics is high. While this voting procedure might be guarantee the optimal outcome, it eliminates the uncertainly during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
-%
-
+How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. 
 \ML{Certainty and conditional probability}{
 This certainty is very different from the the conditional probability of the disease given the diagnostic. The first is
       akin to saying: 95\% of the dermatologists would give the same
       diagnostics. The second defines the probability that, if we had
       access to ground truth, then 95\% of the patients that receive
       this diagnostics have the corresponding condition.
- }  
+}  
+Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
+  experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
+      then the overall confidence in that diagnostics is high. While this voting procedure might be guarantee the optimal outcome, it eliminates the uncertainly during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
 
-    
 \section*{Uncertainty in Machine Learning}
 
 One can define ``confidence'' in machine learning. The definition follows a
@@ -324,10 +314,7 @@ label is ``how much do alternative labels contradict previous
 experience?''.
 More formally, we ask how much do we need to change the training data
 so that it supports an alternative label.
-
-
-
-\ML{Uncertainty vs. accurracy}{using ROC curves}
+%\ML{Uncertainty vs. accurracy}{using ROC curves}
 
 \begin{itemize}
   \item Bootstrap samples.

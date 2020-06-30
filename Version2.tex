@@ -163,13 +163,20 @@ pathologist.
 
 Leaving aside the question of the reliability of the
 pathologists. There is another, more fundamental problem. The data
-used was collected from the records of past patients, not in a
-controlled study. Under normal protocol, patients get
-biopsied only if the dermatologist thinks there is a chance of
-{\bf malignancy}, the set of biopsied examples is biased towards
+in the experiment was {\em retrospective}, i.e. it was collected from
+the records of past patients. Normally, patients get
+biopsied only if the dermatologist thinks there is a significant chance of
+{\bf malignancy}, the set of biopsied examples is therefor biased towards
 {\bf malignancy}. It is likely that using a classifier trained in this way
 on an unfiltered stream of patients will increase the number of
 patients unnecessarily getting a biopsy.
+
+Generating an unbiased sample would require a controlled experiment in
+which a sample of patients is chosen and each of these patients gets
+diagnosed using both a biopsy and an image of the skin.
+
+Moreover, as we elaborate on in the next section, ground truth is
+rarely available, all we can go on are the diagnostics of human diagnosticians.
 
 \section{Uncertainty in medicine}
 

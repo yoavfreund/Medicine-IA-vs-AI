@@ -46,20 +46,26 @@
 
 %\thispagestyle{firststyle}
 
-Digital technology is causing a sea-change in all parts of the medical
-profession. In particular the meteoric rise of AI in general and deep
+Digital technology is causing a sea-change in Medicine.
+In particular the meteoric rise of AI in general and deep
 learning in particular raises the possibility that doctors will be
 replaced computers~\cite{Mukherjee2017}. The father of deep learning,
 Geoff Hinton, said in 2017: "It's just completely obvious that that in
 ten years deep learning is going to do better than Radiologists
 ... They should stop training radiologists now".
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Org{Artificial Intelligence and Intelligence Augmentation}{
-Using computers to augment human intelligence rather replace it is
-both tantalizing and mundane. On the heady side, consider
+The driving question of AI is: ``are machines capable of behaving in a
+way that is indistinguishable by humans''. Achieving this goal implies
+that humans can be {\em replaced} by machines. 
+
+Using computers to {\em augment} humans rather replace them is
+both tantalizing and utterly mundane. On the heady side, consider
 cyborgs whose anatomy is part human, part artificial and can with
 equal ease solve complex equations or write poetry. On the mundane
-side, think of smartphones that are quickly becoming an inseparable
-part of our person.
+side, ubquitous technologies such as the smart phone abd google search
+are ways in which our capabilities are augmented by computers. 
  
 The idea of using computers to augment or amplify human intelligence
 has a very long history. The acronyms AI (Artificial intelligence) and
@@ -68,25 +74,60 @@ become popular in the early
 1960's\cite{ashby1957introduction,engelbart1962augmenting}. These
 days, the acronym AI is popular, while the acronym IA is not. However,
 Sebastian Thrun's statement indicates that the idea of Intelligence
-augmentation is still on people's mind.}
+augmentation is still on some people's mind.}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Other deep learning researchers provide a more nuanced
-perspective. Sebastian
-Thrun~\cite{Mukherjee2017,esteva2017dermatologist} argues that
-"... deep learning devices will not replace dermatologists and
+Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist} , another
+authority in deep learning gives a more nuanced perspective: argues
+that "... deep learning devices will not replace dermatologists and
 radiologists. They will {\em augment} professionals, offering the
-expertise and assistance". {\bf What would IA look like when applied to medicine?} that is the
-question we aim to answer here.  We argue that an important ingredient
-of the answer is to introduce to AI agents a level of
-humility. Specifically, to design classifiers, such as DNNs, to say "I
-don't know".
+expertise and assistance". Artificial Intelligence (AI) and
+Intelligence Augmentation (IA) have been competing ideologies for
+decades. (see inset) Currently, AI is much more in Vogue IA.  We
+present an argument that, in high risk domains, and in particular in
+medicine, IA is the better approach.
 
-\section*{Labels, ground truth and testing}
-In their famous work, Esteva et al. set out to show that a classifier
-trained by machine learning can performs as well as or better than
-expert dermatologists.  In this application of supervised learning
-each example consists of an input image of a skin patch and an output
-label that is ``benign'' or ``melignant''
+Our approach is based on the observation that the level of attention
+paid to a patient varies greatly. At the high end, a patient in
+surgery or in the Intensive Care Unit (ICU) has the full attention of
+several doctors and nurses. At the low end, an elderly person who
+might be suffring from early onset dementia might be visited by a
+nurse or home aid once a day or less. (please correct!)
+
+Rather than replacing doctors or nurses, we suggest that IA can free
+the staff from simple and repetitive tasks and allow them to devote
+their time to more complex decisions and to prsonal interaction with
+the patient.
+
+Central to our approach is a quantification of {\em prediction confidence}. Such
+quantification is needed so that a patient monitor can sound an alarm
+when a patient is having a heart attack, but create only few false
+alarms. Similarly, it is needed when a diagnostics assistant can
+eliminate some diagnostic possibilities but not all of them.
+
+We equate low prediction confidence with saying ``I don't know''. The
+interaction between the IA agent and the doctor is based on this
+ability. When diagnosis is done by elimination, saying ``I don't
+know'' the agent can narrow the set of possible diagnosis without
+reducing it to a single diagnosis. It is then the doctor to decide how
+to proceed, whether to perform more tests, or whether to choose a treatment.
+
+The rest of the article is organized as follows. In
+Section~\ref{sec:ground-truth}
+
+\section{Ground truth, train and test error}
+\label{sec:ground-truth}
+
+In a highly cited paper in the journal
+Science~\cite{esteva2017dermatologist} provides evidence supporting
+the claim that computers can diagnose skin cancer as well or better than board
+certified dermatologists (see insert).
+% In this application of
+% supervised learning (see insert) each example consists of an input
+% image of a skin patch and an output label that is ``benign'' or
+% ``melignant''. Each of the Dermatologists was asked to make the
+% diagnostics and the DNN was trained to score all patches from ``least
+% likely'' to ``most likely'' to be melignant.
 \ML{Supervised Learning and ground truth}{Roughly
   speaking, machine learning (ML) can be divided into {\em
     unsupervised} learning and {\em supervised} learning. In both, the
@@ -98,12 +139,6 @@ label that is ``benign'' or ``melignant''
   human expert. These labels define the {\em ground truth} and the
   goal of the learning algorithm is to make predictions that diverge
   as little as possible from the ground truth.}
-
-As they wanted to compare the system to human dermatologists they
-needed a better ground truth than that provided by the dermatologists.
-To that end they used the diagnosis of a biopsy as ground truth. It is
-arguable that this label is more accurate than the one given by the
-dermatologist, even though it depends on the human judgement of the pathologist.
 \ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
   papers that provided evidence that deep neural networks might be
   able to outperform humans is the work of Esteva et
@@ -118,16 +153,25 @@ dermatologist, even though it depends on the human judgement of the pathologist.
   the DNN when used in a dermatology practice we need to how a
   dermatologist, or any other diagnosticians, arrives at their final
   diagnostics.}
-However, even if we assume that pathologists labels are more reliable
-than dermatology labels, the requirement that each example corresponds
-to a biopsy introduces a significant bias. Under normal circumstances, patients get
+Not surprisingly, each dermatologist gave a different diagnosis.  As
+the goal was to to compare the performance of the DNN to that of the
+dermatologists they needed a independent source of {\em ground truth}.
+To that end they used the diagnosis of a biopsy as ground truth. It is
+arguable that this label is more accurate than the one given by the
+dermatologist, even though it too depends on the human judgement of the
+pathologist.
+
+Leaving aside the question of the reliability of the
+pathologists. There is another, more fundamental problem. The data
+used was collected from the records of past patients, not in a
+controlled study. Under normal protocol, patients get
 biopsied only if the dermatologist thinks there is a chance of
-{\color{blue}malignancy. Therefore}, the set of biopsied examples is biased towards
-{\color{blue}malignancy}. It is likely that using a classifier trained in this way
+{\bf malignancy}, the set of biopsied examples is biased towards
+{\bf malignancy}. It is likely that using a classifier trained in this way
 on an unfiltered stream of patients will increase the number of
 patients unnecessarily getting a biopsy.
 
-\section*{Uncertainty in medicine}
+\section{Uncertainty in medicine}
 
 Medicine is rife with risk and uncertainty. An incorrect diagnosis or
 treatment can cost the patient his life and the doctor her license.
@@ -305,7 +349,7 @@ Clearly, experience leads to confidence. With more experience aggregated, diagno
   experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
       then the overall confidence in that diagnostics is high. While this voting procedure might be guarantee the optimal outcome, it eliminates the uncertainly during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
 
-\section*{Uncertainty in Machine Learning}
+\section{Uncertainty in Machine Learning}
 
 One can define ``confidence'' in machine learning. The definition follows a
 similar logic to the one used for human diagnosticians in the previous
@@ -322,7 +366,7 @@ so that it supports an alternative label.
   \item Easy and hard cases.
   \end{itemize}
 
-  \section*{Human decisions and Intelligence augmentation}
+  \section{Human decisions and Intelligence augmentation}
 
   Computers are an integral part of medical practice. From
   electronical medical records to medical instrumentation to billing,
@@ -417,7 +461,7 @@ similar to score-cards.
 Teaching young diagnostics
 \end{itemize}
 
-\section*{Summary}
+\section{Summary}
 
 %\bibliographystyle{alpha} 
 \bibliography{medbib}

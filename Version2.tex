@@ -184,6 +184,8 @@ Medicine is rife with risk and uncertainty. An incorrect diagnosis or
 treatment can cost the patient his life and the doctor her license.
 
 Uncertainty has many causes, we discuss some of those below.
+
+
 \iffalse
 and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
 
@@ -244,8 +246,6 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   Unsurprisingly, this fundamental issue has led to a significant
   inter-rater disagreement
   \cite{venhola2003interobserver,dudley2018interrater}.
-
-    \yoav{What are the cohen-kappa numbers}
   }
 
 
@@ -280,10 +280,8 @@ physicians under consideration, the agreement rate varies. Usually,
 intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
-
-We consider the management of uncertainty from the medical decision making process
-point of view\cite{vordermark2019introduction}.
-  \Medicine{Inter-Rater agreement}{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\Medicine{Inter-Rater agreement}{
   A direct consequence of this low inter-rater agreement is a
   questionable trained ``artificial intelligence''. It is possible
   that we magically obtain a dataset that contains information that is
@@ -294,31 +292,45 @@ point of view\cite{vordermark2019introduction}.
   doing a simple math, we shall not count on such a magic and should
   come back to the protocol itself.
 }
-Following the ``thinking fast, thinking slow'' dualism Kahaneman and
-Tversky, it is generally agreed that
-two distinct mental processes are involved in choosing a diagnosis.
-Recognition is a fast, typically non-verbal, mental process in which
-the doctor identifies a pattern in the symptoms and instinctively
-makes a diagnosyis. On the other hand, elimination is a slow
-deliberative process through which the doctor methodically eliminates
-diagnostic possibilities.
- To make a decision based
-on elimination, slow thinking with focused attention is critical
-\cite{michel2020thinking}. This process is like taking a math
-examination, it takes time and effort, and it is exhaustive. In the
-every end, depending on the physician experience, he/she might end up
-with multiple possibilities. He/she could either guess and proceed, or
-say IDK and consult a higher level experts or discuss with other
-experts.
-\yoav{I like the last paragraph very much, it makes a lot of
-  sense. I downloaded the vordermark book. I found a lot of good
-  stuff. But I did not find anything about doctors consulting each
-  other, majorities, concensus etc. It would be very relevant to find
-  information both about how decision are made in today's hospital,
-  and how they {\em should} be made to combine the best of fast and
-  slow thinking. All of this before saying anything about using ML}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\iffalse % should me moved to uncertainty in ML
+\subsubsection*{Managing uncertainty in medicine}
+Medical diagnosis is often uncertain or inconclusive, on the other
+hand, A doctor responsible for a patient's health has to make
+decisions in spite of this uncertainty. If the uncertainty present a
+sufficiently small risk, the doctor can choose a treatment. Otherwise
+the doctor might consult other doctors, a medical journal or a book. 
+
+To better understand the process and the possible place of AI in it,
+we turn to the Kahaneman's~\cite{} ``Thinking Fast Thinking Slow'' and
+to Vordermark book on medical decision
+making~\cite{vordermark2019introduction}.
+
+Medical diagnosis can be divided into two main types: {\em
+  recognition} and {\em elimination}. Recognition is a fast mental
+process that is mostly unconcious where the one correct diagnosis reveals
+itself in the doctors mind. Recognition does not lend itself to verbal
+description and is therefor hard to debate or document. As it
+typically points to a single diagnosis there is a danger that the
+recognized diagnosis will hide other possible diagnoses.
+Elimination, on the other hand, is a slow deliberate process where the
+doctor starts with all possible diagnoses and gradually eliminates
+impossible ones based on patient history, examination and test
+results. As Elimination is delibirative, it is easier to discuss and
+document it.
+
+All medical decision making is based on experience, in which we
+include medical cases as well as knowledge learned from lectures 
+Both recognition and elimination depend on past experience, if we
+include in past experience 
+
+IA can aid the doctor both in Recognition and in Elimination. 
+
+\iffalse
+To make a decision based
+on elimination, slow thinking with focused attention is critical
+\cite{michel2020thinking}. 
+
 An intelligent system could be extremely helpful for this
 purpose. An intelligent system could help carefully and slowly
 eliminate possible choices, and if it end up in a gray zone with

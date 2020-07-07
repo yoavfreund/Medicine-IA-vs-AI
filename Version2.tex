@@ -7,7 +7,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor}
+\usepackage{xcolor,ulem}
 \usepackage{mdframed}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -196,18 +196,21 @@ It is certainly expected that physicians can achieve a reliable
   of decision making might be jeopardized due to various reasons,
   among which the uncertainty in medicine is non-negligible.
 \fi  
-\Medicine{Uncertainty due to signal Quality}{Medical devices use a variety of bio-sensors that record,
+\Medicine{Uncertainty due to signal quality}{Medical devices use a variety of bio-sensors that record,
   display and distribute different biometrics, ranging from vital
-  signs such as heart rate, oxygen saturation and blood pressure, to
+  signs such as heart rate, oxygen saturation{\color{red}, temperature} and blood pressure, to
   high-frequency waveforms such as ECG, EEG, respiratory
   signal and arterial blood pressure.
-These signals suffer from variety of problems and artifacts, some of which depend on the patient. Reducing these problem often requires a human expert. In some cases such as EEG removal of artifacts is still an open problem~\cite{}.
+\sout{suffer from variety of problems} {\color{red}usually suffer from artifacts and other signal quality problems,} some of which depend on the patient. \sout{Reducing these problem often requires} In some cases, these problems can be easily handled by a human expert. In some cases such as {\color{red}artifact removal of EEG is still an active research problem~\cite{islam2016methods}}.
 
-Patient monitors are bedside devices that monitor patients at risk, freeing the medical staff to attend to the patients that need care at the moment. 
-However, Patient monitors suffer from signal quality issues and tend to generate false alarms at a high rate. These cause the medical staff to ignore the
-  alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm
-  overload) is a major problem in hospital care
-  \cite{cvach2012monitor,brief2019top}.
+Patient monitors are bedside {\color{red}medical} devices that monitor patients at risk, freeing the medical staff to attend to the patients that need care at the moment. 
+However, Patient monitors suffer from signal quality issues and tend to generate false alarms at a high rate. These cause the medical staff to ignore the alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm overload) is a major problem in hospital care \cite{cvach2012monitor,brief2019top}.
+  
+{\color{red} Another common source of signal quality issue is how the sensor is placed. While there have been several standards, ranging from the well-known ECG systems \cite{} and EEG systems \cite{} to recently smart clothing system for telemedicine \cite{nesenbergs2016architecture}, it is not always possible to achieve a precise sensor placement for biomedical signal collection due to various reasons. This uncertainty might be tolerable for some clinical applications; for example, an imprecise ECG sensor placement might not impact the identification of some types of arrhythmia from the ECG signal, like atrial fibrillation. However, this uncertainty might cause troubles in other applications; for example,  
+}
+  
+  
+  
 }
 
   \Medicine{Protocol limitation}{
@@ -230,12 +233,7 @@ However, Patient monitors suffer from signal quality issues and tend to generate
 
   }
 
-  \ML{Quantification of inter-rater agreement rate}{+Cohen's kappa,
-    \yoav{Introduce Hoen kappa. Instead of mathematical definition, I
-      would interpret some specific values: the value that
-      corressponds to perfect agreement for positive perfect agreement
-      for negative, the values that corresond to random-level
-      agreement for positive and negative, etc.}}
+  \ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
 
 
   \Medicine{Bladder and sphincster diagnosis}{  
@@ -265,8 +263,6 @@ However, Patient monitors suffer from signal quality issues and tend to generate
 %  
 It is clear that such intelligent system is questionable and might raise concerns. Recently, various regulations in this regard have been proposed \cite{price2014black,ford2016privacy}.
 
-\hautieng{should we jump into GDPR?}
-\yoav{what is GDPR?}
 
 Now, suppose we are able to eliminate all challenges from data
 calibration and validation issues, and we can provide as much
@@ -302,7 +298,7 @@ sufficiently small risk, the doctor can choose a treatment. Otherwise
 the doctor might consult other doctors, a medical journal or a book. 
 
 To better understand the process and the possible place of AI in it,
-we turn to the Kahaneman's~\cite{} ``Thinking Fast Thinking Slow'' and
+we turn to the Kahaneman's~\cite{kahneman2011thinking} ``Thinking Fast Thinking Slow'' and
 to Vordermark book on medical decision
 making~\cite{vordermark2019introduction}.
 

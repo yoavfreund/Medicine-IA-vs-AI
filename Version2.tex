@@ -175,6 +175,8 @@ Generating an unbiased sample would require a controlled experiment in
 which a sample of patients is chosen and each of these patients gets
 diagnosed using both a biopsy and an image of the skin.
 
+\yoav{Do you have other examples of using NN for medical diagnostics?}
+
 Moreover, as we elaborate on in the next section, ground truth is
 rarely available, all we can go on are the diagnostics of human diagnosticians.
 
@@ -214,6 +216,7 @@ However, Patient monitors suffer from signal quality issues and tend to generate
 }
 
   \Medicine{Protocol limitation}{
+  \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer.}
   The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage
     and
@@ -230,8 +233,7 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   
     
   %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
-
-  }
+}
 
   \ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
 

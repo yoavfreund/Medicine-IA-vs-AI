@@ -185,7 +185,13 @@ rarely available, all we can go on are the diagnostics of human diagnosticians.
 Medicine is rife with risk and uncertainty. An incorrect diagnosis or
 treatment can cost the patient his life and the doctor her license.
 
-Uncertainty has many causes, we discuss some of those below.
+\yoav{
+In an ideal world, medical decisions are all based on universal knowledge inferred from controlled randomized studies and therefor each diagnosis has an indisputable correct diagnosis. However, in reality, much of medical knowledge is based on experience, either direct personal experience or experienced relayed through lectures, books and articles. This has two important consequences, first, the "correct" answer is usually not available. Second, a concensus opinion among several doctors is more reliable than the opinion of a single doctor.
+
+Uncertainty has many causes, here we describe three broad types: signal quality, Knowledge gap and protocol limitation. .... to be discussed
+
+Also, what about availability and price of diagnostic equipment? What about small hospitals that don't have equipment 
+}
 
 
 \iffalse
@@ -216,7 +222,7 @@ However, Patient monitors suffer from signal quality issues and tend to generate
 }
 
   \Medicine{Protocol limitation}{
-  \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer.}
+  \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}
   The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage
     and
@@ -230,15 +236,17 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   decision based on their experience or the information
   they have at hand, and this leads to medical uncertainties, and hence the inter-rater, or even intra-rater disagreement.  
   
+  \yoav{can we add some specific $\kappa$ values related to specific diagnostics?}
   
     
   %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
 }
 
   \ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
+ 
 
-
-  \Medicine{Bladder and sphincster diagnosis}{  
+  \Medicine{knowledge gap}{ 
+  \yoav{is this an example of uncertainty because of knowledge gap? Wouldn't it be better to use something better known such as Covid-19?}
   Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
 %  
   The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 

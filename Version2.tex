@@ -64,7 +64,7 @@ Using computers to {\em augment} humans rather replace them is
 both tantalizing and utterly mundane. On the heady side, consider
 cyborgs whose anatomy is part human, part artificial and can with
 equal ease solve complex equations or write poetry. On the mundane
-side, ubquitous technologies such as the smart phone abd google search
+side, ubiquitous technologies such as the smart phone abd google search
 are ways in which our capabilities are augmented by computers. 
  
 The idea of using computers to augment or amplify human intelligence
@@ -182,18 +182,37 @@ rarely available, all we can go on are the diagnostics of human diagnosticians.
 
 \section{Uncertainty in medicine}
 
-Medicine is rife with risk and uncertainty. An incorrect diagnosis or
-treatment can cost the patient his life and the doctor her license.
-
 \yoav{
-In an ideal world, medical decisions are all based on universal knowledge inferred from controlled randomized studies and therefor each diagnosis has an indisputable correct diagnosis. However, in reality, much of medical knowledge is based on experience, either direct personal experience or experienced relayed through lectures, books and articles. This has two important consequences, first, the "correct" answer is usually not available. Second, a concensus opinion among several doctors is more reliable than the opinion of a single doctor.
 
-Uncertainty has many causes, here we describe three broad types: signal quality, Knowledge gap and protocol limitation. .... to be discussed
+Deep learning  is based on {\em supervised learning}, sometimes
+called {\em input-output} learning~\cite{ng2016artificial,topol2019deep}.
+Under this fomulation the only quantity of interest is the error on a
+held-out or test set.
 
-Also, what about availability and price of diagnostic equipment? What about small hospitals that don't have equipment 
+Medical diagnostics is very different from supervised learning. It is
+a {\em process} of eliminating possibilities
+until the set of possibilities is sufficiently narrow so that
+treatment can be chosen. The ground truth, as in the ``correct
+diagnostics'' is almost never revealed, even in hindsite.
+
+When a new patient arrives at a clinique, all diagnostics are
+possible. After a physical exam and talking with the patient, many
+possibilities are eliminated. In {\em simple} cases, this is enough
+for the doctor to confidently choose a treatment. In increasingly more complex
+cases, the doctor might ask for multiple tests and visits, refer the
+patient to a specialist, consult colleagues, journals and books
+etc. In most cases this process of narrowing will lead to a treatment
+plan. Ideally, followup visits and tests will confirm that the patient
+is recovering. In most cases, all that we can know about the patient
+is whether or not they recovered. This is a far cry from knowing what
+was their correct diagnostics when they first cam in the door.
+
+For the digital doctor to be effective, it should incorporate this
+notion of uncertainty. It needs to correctly classify the easiest cases
+and out ``I don't know'' on the hardest cases. Before describing how
+this might be achieved, lets consider some of the many sources of
+uncertainty in medical diagnostics.
 }
-
-
 \iffalse
 and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
 

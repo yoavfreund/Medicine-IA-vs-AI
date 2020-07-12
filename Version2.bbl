@@ -1,4 +1,4 @@
-\begin{thebibliography}{36}
+\begin{thebibliography}{23}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,14 +10,6 @@ Siddhartha Mukherjee.
 \newblock A.i. versus m.d.: What happens when diagnosis is automated?
 \newblock \emph{The New Yorker}, April 2017.
 
-\bibitem[Esteva et~al.(2017)Esteva, Kuprel, Novoa, Ko, Swetter, Blau, and
-  Thrun]{esteva2017dermatologist}
-Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
-  Helen~M Blau, and Sebastian Thrun.
-\newblock Dermatologist-level classification of skin cancer with deep neural
-  networks.
-\newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, 2017.
-
 \bibitem[Ashby(1957)]{ashby1957introduction}
 W~Ross Ashby.
 \newblock An introduction to cybernetics.
@@ -28,38 +20,30 @@ Douglas~C Engelbart.
 \newblock Augmenting human intellect: A conceptual framework.
 \newblock \emph{Menlo Park, CA}, 1962.
 
-\bibitem[Mehta et~al.(2011)Mehta, Granton, Lapinsky, Newton, Bandayrel, Little,
-  Siau, Cook, Ayers, Singer, et~al.]{mehta2011agreement}
-Sangeeta Mehta, John Granton, Stephen~E Lapinsky, Gary Newton, Kristofer
-  Bandayrel, Anjuli Little, Chuin Siau, Deborah~J Cook, Dieter Ayers, Joel
-  Singer, et~al.
-\newblock Agreement in electrocardiogram interpretation in patients with septic
-  shock.
-\newblock \emph{Critical care medicine}, 39\penalty0 (9):\penalty0 2080--2086,
-  2011.
+\bibitem[Esteva et~al.(2017)Esteva, Kuprel, Novoa, Ko, Swetter, Blau, and
+  Thrun]{esteva2017dermatologist}
+Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
+  Helen~M Blau, and Sebastian Thrun.
+\newblock Dermatologist-level classification of skin cancer with deep neural
+  networks.
+\newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, 2017.
 
-\bibitem[Atiya et~al.(2003)Atiya, Kurth, Berger, Buring, and
-  Kase]{atiya2003interobserver}
-Monika Atiya, Tobias Kurth, Klaus Berger, Julie~E Buring, and Carlos~S Kase.
-\newblock Interobserver agreement in the classification of stroke in the
-  women’s health study.
-\newblock \emph{Stroke}, 34\penalty0 (2):\penalty0 565--567, 2003.
+\bibitem[Ng(2016)]{ng2016artificial}
+Andrew Ng.
+\newblock What artificial intelligence can and can’t do right now.
+\newblock \emph{Harvard Business Review}, 9, 2016.
 
-\bibitem[Johnson et~al.(2016)Johnson, Ghassemi, Nemati, Niehaus, Clifton, and
-  Clifford]{Johnson2016}
-Alistair E~W Johnson, Mohammad~M. Ghassemi, Shamim Nemati, Katherine~E.
-  Niehaus, David Clifton, and Gari~D. Clifford.
-\newblock {Machine Learning and Decision Support in Critical Care}.
-\newblock \emph{Proceedings of the IEEE}, 104\penalty0 (2):\penalty0 444--466,
-  2016.
+\bibitem[Topol(2019)]{topol2019deep}
+Eric Topol.
+\newblock \emph{Deep medicine: how artificial intelligence can make healthcare
+  human again}.
+\newblock Hachette UK, 2019.
 
-\bibitem[Fleischman et~al.(2019)Fleischman, Ciliberto, Rozanski, Parwani, and
-  Bernstein]{fleischman2019emergency}
-William Fleischman, Bethany Ciliberto, Nicole Rozanski, Vivek Parwani, and
-  Steven~L Bernstein.
-\newblock Emergency department monitor alarms rarely change clinical
-  management: An observational study.
-\newblock \emph{The American journal of emergency medicine}, 2019.
+\bibitem[Islam et~al.(2016)Islam, Rastegarnia, and Yang]{islam2016methods}
+Md~Kafiul Islam, Amir Rastegarnia, and Zhi Yang.
+\newblock Methods for artifact detection and removal from scalp eeg: A review.
+\newblock \emph{Neurophysiologie Clinique/Clinical Neurophysiology},
+  46\penalty0 (4-5):\penalty0 287--305, 2016.
 
 \bibitem[Cvach(2012)]{cvach2012monitor}
 Maria Cvach.
@@ -75,115 +59,12 @@ EXECUTIVE BRIEF.
   \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
 \newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
 
-\bibitem[Behar et~al.(2013)Behar, Oster, Li, and Clifford]{behar2013ecg}
-Joachim Behar, Julien Oster, Qiao Li, and Gari~D Clifford.
-\newblock Ecg signal quality during arrhythmia and its application to false
-  alarm reduction.
-\newblock \emph{IEEE transactions on biomedical engineering}, 60\penalty0
-  (6):\penalty0 1660--1666, 2013.
-\newblock alarm fatigue prevention for arrhythmia.
-
-\bibitem[Bai et~al.(2016)Bai, Do, Ding, Palacios, Shahriari, Pelter, Boyle,
-  Fidler, and Hu]{bai2016sequence}
-Yong Bai, Duc Do, Quan Ding, Jorge~Arroyo Palacios, Yalda Shahriari, Michele~M
-  Pelter, Noel Boyle, Richard Fidler, and Xiao Hu.
-\newblock Is the sequence of superalarm triggers more predictive than sequence
-  of the currently utilized patient monitor alarms?
-\newblock \emph{IEEE Transactions on Biomedical Engineering}, 64\penalty0
-  (5):\penalty0 1023--1032, 2016.
-\newblock a new alarm system called superalarm to avoid alarm fatigue.
-
-\bibitem[Zong et~al.(2016)Zong, Nielsen, Gross, Brea, and
-  Frassica]{zong2016practical}
-Wei Zong, Larry Nielsen, Brian Gross, Juan Brea, and Joseph Frassica.
-\newblock A practical algorithm to reduce false critical ecg alarms using
-  arterial blood pressure and/or photoplethysmogram waveforms.
-\newblock \emph{Physiological measurement}, 37\penalty0 (8):\penalty0 1355,
-  2016.
-
-\bibitem[Winters et~al.(2018)Winters, Cvach, Bonafide, Hu, Konkani, O’Connor,
-  Rothschild, Selby, Pelter, McLean, et~al.]{winters2018technological}
-Bradford~D Winters, Maria~M Cvach, Christopher~P Bonafide, Xiao Hu, Avinash
-  Konkani, Michael~F O’Connor, Jeffrey~M Rothschild, Nicholas~M Selby,
-  Michele~M Pelter, Barbara McLean, et~al.
-\newblock Technological distractions (part 2): a summary of approaches to
-  manage clinical alarms with intent to reduce alarm fatigue.
-\newblock \emph{Critical care medicine}, 46\penalty0 (1):\penalty0 130--137,
-  2018.
-
-\bibitem[Hu(2019)]{hu2019algorithm}
-Xiao Hu.
-\newblock An algorithm strategy for precise patient monitoring in a connected
-  healthcare enterprise.
-\newblock \emph{NPJ digital medicine}, 2\penalty0 (1):\penalty0 1--5, 2019.
-
-\bibitem[Komorowski et~al.(2018)Komorowski, Celi, Badawi, Gordon, and
-  Faisal]{komorowski2018artificial}
-Matthieu Komorowski, Leo~A Celi, Omar Badawi, Anthony~C Gordon, and A~Aldo
-  Faisal.
-\newblock The artificial intelligence clinician learns optimal treatment
-  strategies for sepsis in intensive care.
-\newblock \emph{Nature medicine}, 24\penalty0 (11):\penalty0 1716--1720, 2018.
-\newblock sepsis treatment via AI.
-
-\bibitem[Huddar et~al.(2016)Huddar, Desiraju, Rajan, Bhattacharya, Roy, and
-  Reddy]{huddar2016predicting}
-Vijay Huddar, Bapu~Koundinya Desiraju, Vaibhav Rajan, Sakyajit Bhattacharya,
-  Shourya Roy, and Chandan~K Reddy.
-\newblock Predicting complications in critical care using heterogeneous
-  clinical data.
-\newblock \emph{IEEE Access}, 4:\penalty0 7988--8001, 2016.
-\newblock ML for complication prediction in ICU.
-
-\bibitem[Meyer et~al.(2018)Meyer, Zverinski, Pfahringer, Kempfert, Kuehne,
-  S{\"u}ndermann, Stamm, Hofmann, Falk, and Eickhoff]{meyer2018machine}
-Alexander Meyer, Dina Zverinski, Boris Pfahringer, J{\"o}rg Kempfert, Titus
-  Kuehne, Simon~H S{\"u}ndermann, Christof Stamm, Thomas Hofmann, Volkmar Falk,
-  and Carsten Eickhoff.
-\newblock Machine learning for real-time prediction of complications in
-  critical care: a retrospective study.
-\newblock \emph{The Lancet Respiratory Medicine}, 6\penalty0 (12):\penalty0
-  905--914, 2018.
-\newblock ML for complication prediction in ICU.
-
-\bibitem[Ruskin and Shelley(2005)]{Ruskin2005}
-Keith~J. Ruskin and Kirk~H. Shelley.
-\newblock {Patent medicine and the "black box"}.
-\newblock \emph{Anesthesia and Analgesia}, 100\penalty0 (5):\penalty0
-  1361--1362, 2005.
-\newblock ISSN 00032999.
-
-\bibitem[Feldman(2006)]{Feldman2006}
-Jeffrey~M. Feldman.
-\newblock {Can clinical monitors be used as scientific instruments?}
-\newblock \emph{Anesthesia and Analgesia}, 103\penalty0 (5):\penalty0
-  1071--1072, 2006.
-
-\bibitem[Shelley and Barker(2016)]{Shelley2016}
-Kirk~H. Shelley and Steven~J. Barker.
-\newblock {Disclosures, what is necessary and sufficient?}
-\newblock \emph{Anesthesia and Analgesia}, 122\penalty0 (2):\penalty0 307--308,
-  2016.
-
-\bibitem[Cannesson and Shafer(2016)]{Cannesson2016}
-Maxime Cannesson and Steven~L. Shafer.
-\newblock {All boxes are black}.
-\newblock \emph{Anesthesia and Analgesia}, 122\penalty0 (2):\penalty0 309--317,
-  2016.
-
-\bibitem[Lin et~al.(2019)Lin, Lo, Lin, Frasch, and Wu]{lin2019unexpected}
-Yu-Ting Lin, Yu-Lun Lo, Chen-Yun Lin, Martin~G Frasch, and Hau-Tieng Wu.
-\newblock Unexpected sawtooth artifact in beat-to-beat pulse transit time
-  measured from patient monitor data.
-\newblock \emph{PloS one}, 14\penalty0 (9), 2019.
-
-\bibitem[Gesche et~al.(2012)Gesche, Grosskurth, K{\"u}chler, and
-  Patzak]{gesche2012continuous}
-Heiko Gesche, Detlef Grosskurth, Gert K{\"u}chler, and Andreas Patzak.
-\newblock Continuous blood pressure measurement by using the pulse transit
-  time: comparison to a cuff-based method.
-\newblock \emph{European journal of applied physiology}, 112\penalty0
-  (1):\penalty0 309--315, 2012.
+\bibitem[Nesenbergs(2016)]{nesenbergs2016architecture}
+Krisjanis Nesenbergs.
+\newblock Architecture of smart clothing for standardized wearable sensor
+  systems.
+\newblock \emph{IEEE Instrumentation \& Measurement Magazine}, 19\penalty0
+  (5):\penalty0 36--64, 2016.
 
 \bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
 C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
@@ -204,6 +85,12 @@ Robert~G Norman, Ivan Pal, Chip Stewart, Joyce~A Walsleben, and David~M
 \newblock Interobserver agreement among sleep scorers from different centers in
   a large dataset.
 \newblock \emph{Sleep}, 23\penalty0 (7):\penalty0 901--908, 2000.
+
+\bibitem[McHugh(2012)]{mchugh2012interrater}
+Mary~L McHugh.
+\newblock Interrater reliability: the kappa statistic.
+\newblock \emph{Biochemia medica: Biochemia medica}, 22\penalty0 (3):\penalty0
+  276--282, 2012.
 
 \bibitem[Abrams(2003)]{abrams2003describing}
 Paul Abrams.
@@ -257,16 +144,15 @@ Roger~Allan Ford, W~Price, and II~Nicholson.
 \newblock Privacy and accountability in black-box medicine.
 \newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
 
+\bibitem[Kahneman(2011)]{kahneman2011thinking}
+Daniel Kahneman.
+\newblock \emph{Thinking, fast and slow}.
+\newblock Macmillan, 2011.
+
 \bibitem[Vordermark~II(2019)]{vordermark2019introduction}
 Jonathan~S Vordermark~II.
 \newblock \emph{An Introduction to Medical Decision-Making: Practical Insights
   and Approaches}.
 \newblock Springer Nature, 2019.
-
-\bibitem[Michel(2020)]{michel2020thinking}
-Jeffrey~B Michel.
-\newblock Thinking fast and slow in medicine.
-\newblock In \emph{Baylor University Medical Center Proceedings}, volume~33,
-  pages 123--125. Taylor \& Francis, 2020.
 
 \end{thebibliography}

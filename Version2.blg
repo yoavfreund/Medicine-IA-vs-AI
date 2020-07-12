@@ -3,48 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
+Warning--I didn't find a database entry for ""
 Warning--empty journal in ashby1957introduction
 Warning--empty journal in brief2019top
-Warning--can't use both volume and number fields in michel2020thinking
-You've used 36 entries,
+You've used 23 entries,
             2481 wiz_defined-function locations,
-            786 strings with 12238 characters,
-and the built_in function-call counts, 15435 in all, are:
-= -- 1199
-> -- 1018
-< -- 16
-+ -- 382
-- -- 310
-* -- 1356
-:= -- 2573
-add.period$ -- 117
-call.type$ -- 36
-change.case$ -- 70
-chr.to.int$ -- 36
-cite$ -- 39
-duplicate$ -- 690
-empty$ -- 1303
-format.name$ -- 354
-if$ -- 3156
+            695 strings with 8504 characters,
+and the built_in function-call counts, 8434 in all, are:
+= -- 672
+> -- 453
+< -- 13
++ -- 182
+- -- 136
+* -- 657
+:= -- 1397
+add.period$ -- 71
+call.type$ -- 23
+change.case$ -- 42
+chr.to.int$ -- 23
+cite$ -- 25
+duplicate$ -- 432
+empty$ -- 781
+format.name$ -- 161
+if$ -- 1743
 int.to.chr$ -- 1
-int.to.str$ -- 37
-missing$ -- 38
-newline$ -- 196
-num.names$ -- 108
-pop$ -- 271
+int.to.str$ -- 24
+missing$ -- 27
+newline$ -- 125
+num.names$ -- 69
+pop$ -- 191
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 23
 quote$ -- 0
-skip$ -- 389
+skip$ -- 241
 stack$ -- 0
-substring$ -- 760
-swap$ -- 83
-text.length$ -- 2
+substring$ -- 354
+swap$ -- 45
+text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 246
-warning$ -- 3
-while$ -- 125
+type$ -- 149
+warning$ -- 2
+while$ -- 71
 width$ -- 0
-write$ -- 484
+write$ -- 300
 (There were 3 warnings)

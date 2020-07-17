@@ -192,11 +192,11 @@ held-out or test set.
 Medical diagnostics is very different from supervised learning. It is
 a {\em process} of eliminating possibilities
 until the set of possibilities is sufficiently narrow so that
-treatment can be chosen. The ground truth, as in the ``correct
-diagnostics'' is almost never revealed, even in hindsite.
+treatment can be chosen. \sout{The ground truth, as in the ``correct
+diagnostics'' is almost never revealed}, {\color{blue}Even if it is possible, the ground truth is usually harder to obtain than the ``correct diagnostics'',} even in {\color{blue}hindsight}.
 
 When a new patient arrives at a clinique, all diagnostics are
-possible. After a physical exam and talking with the patient, many
+possible. After a {\color{blue}series of tests and} physical exams and talking with the patient, many
 possibilities are eliminated. In {\em simple} cases, this is enough
 for the doctor to confidently choose a treatment. In increasingly more complex
 cases, the doctor might ask for multiple tests and visits, refer the
@@ -205,7 +205,7 @@ etc. In most cases this process of narrowing will lead to a treatment
 plan. Ideally, followup visits and tests will confirm that the patient
 is recovering. In most cases, all that we can know about the patient
 is whether or not they recovered. This is a far cry from knowing what
-was their correct diagnostics when they first cam in the door.
+was their correct diagnostics when they first came in the door.
 
 For the digital doctor to be effective, it should incorporate this
 notion of uncertainty. It needs to correctly classify the easiest cases
@@ -233,7 +233,7 @@ It is certainly expected that physicians can achieve a reliable
 Patient monitors are bedside {\color{red}medical} devices that monitor patients at risk, freeing the medical staff to attend to the patients that need care at the moment. 
 However, Patient monitors suffer from signal quality issues and tend to generate false alarms at a high rate. These cause the medical staff to ignore the alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm overload) is a major problem in hospital care \cite{cvach2012monitor,brief2019top}.
   
-{\color{red} Another common source of signal quality issue is how the sensor is placed. While there have been several standards, ranging from the well-known ECG systems \cite{} and EEG systems \cite{} to recently smart clothing system for telemedicine \cite{nesenbergs2016architecture}, it is not always possible to achieve a precise sensor placement for biomedical signal collection due to various reasons. This uncertainty might be tolerable for some clinical applications; for example, an imprecise ECG sensor placement might not impact the identification of some types of arrhythmia from the ECG signal, like atrial fibrillation. However, this uncertainty might cause troubles in other applications; for example,  
+{\color{red} Another common source of signal quality issue is how the sensor is placed. While there have been several standards, ranging from the well-known ECG systems \cite{goldberger2017clinical} and {\color{blue}international 10–20 EEG systems} \cite{Klem1999TheTE} to recently smart clothing system for telemedicine \cite{nesenbergs2016architecture}, it is not always possible to achieve a precise sensor placement for biomedical signal collection due to various reasons. This uncertainty might be tolerable for some clinical applications; for example, an imprecise ECG sensor placement might not impact the identification of some types of arrhythmia from the ECG signal, like atrial fibrillation. However, this uncertainty might cause troubles in other applications; {\color{blue}for example, an imprecise placement of the deep brain stimulation lead inside subthalamic nucleus might downgrade the Parkinson disease treatment outcome.} 
 }
   
   
@@ -242,6 +242,9 @@ However, Patient monitors suffer from signal quality issues and tend to generate
 
   \Medicine{Protocol limitation}{
   \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}
+  {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.} 
+  
+  
   The American Academy of Sleep
     Medicine (AASM) publishes criteria for manual sleep stage
     and
@@ -250,10 +253,17 @@ However, Patient monitors suffer from signal quality issues and tend to generate
     %
     A detail sleep profile is critical for sleep quality enhancement, or even medical condition improvement.
     %
-    However, it is well known that even with the well established protocol, the inter-rater agreement rate of sleep stage annotation among experienced experts is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea \cite{norman2000interobserver}. Among many reasons, the one that is directly related to the intelligent system development is how the criteria are ``described'' in the protocol. For example, it is described in the protocol that if the delta wave occupies more than 20\% of a given 30-second epoch of the electroencephalogram during sleep, that 30-second epoch is defined to be the N3 stage. 20\% of a given 30-second epoch is 6 seconds. What about if the delta wave occupies 5.99-, or 6.01-seconds? What about if the delta wave sustains for 10 seconds, but it is divided into two consecutive 30-second epochs? When sitting on the ``gray area'' that is inherited from 
+    However, it is well known that even with the well established protocol, the inter-rater agreement rate of sleep stage annotation among experienced experts, {\color{blue}in terms of percentage of epoch-by-epoch agreement, is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea, while the Cohen's kappa is 65\% over normal subjects and about 59\% over subjects with sleep apnea}  \cite{norman2000interobserver}. Among many reasons, the one that is directly related to the intelligent system development is how the criteria are ``described'' in the protocol. For example, it is described in the protocol that if the delta wave occupies more than 20\% of a given 30-second epoch of the electroencephalogram during sleep, that 30-second epoch is defined to be the N3 stage. 20\% of a given 30-second epoch is 6 seconds. What about if the delta wave occupies 5.99-, or 6.01-seconds? What about if the delta wave sustains for 10 seconds, but it is divided into two consecutive 30-second epochs? When sitting on the ``gray area'' that is inherited from 
   the protocol, sleep experts need to make a
   decision based on their experience or the information
   they have at hand, and this leads to medical uncertainties, and hence the inter-rater, or even intra-rater disagreement.  
+  
+  {\color{blue}Another protocol limitation is the}
+  ``extrapolation error''; that is, when we apply the developed
+  protocol to the population different from the population that we
+  collect the evidence for the protocol \cite{brosnan2015modest}. {\color{blue}Such extrapolation error usually comes from the variability among subjects. If such variability is big, it
+  limits the development of a more quantitative protocol
+  \cite{venhola2003interobserver}, and different protocols might be needed for different situations.}
   
   \yoav{can we add some specific $\kappa$ values related to specific diagnostics?}
   
@@ -269,24 +279,21 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
 %  
   The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 
-
+%
   Unsurprisingly, this fundamental issue has led to a significant
   inter-rater disagreement
   \cite{venhola2003interobserver,dudley2018interrater}.
+  
+  {\color{blue}Another example is the famous pandemic, COVID-19 \cite{sohrabi2020world}. Back in Jan 2020, when it was first reported in China, nobody had a clue how it will generate damage to human body, not to mention how to treat a patient. All medical practices, ranging from diagnosis to treatment to vaccine were all made based on experience. For example, the quinine and remdesivir were considered potential for hospitalized patients. A lot of data could be collected, but there is a huge gap between the data and what's going on. Knowledge was quickly accumulated in the past few months. For example, we know more about hydroxychloroquine, remdesivir, and many other candidate drugs; see, for example \cite{sanders2020pharmacologic,goldman2020remdesivir}. However, due to the lack of knowledge, even if there exist some protocols, for example \cite{world2020population,world2020protocol,nakajima2020covid,awad2020perioperative} and several others, there are still many white and unknown details in the overall medical practice.} 
   }
 
 
   Medical uncertainty as manifest low inter-rater agreement
   consequence, can be found in many clinical problems (see blocks on
-  ...)For example, the low agreement might come from the
-  ``extrapolation error''; that is, when we apply the developed
-  protocol to the population different from the population that we
-  collect the evidence for the protocol \cite{brosnan2015modest}.  In
-  other situation, the variability among subjects is so big that it
-  limits the development of a more quantitative protocol
-  \cite{venhola2003interobserver}. In some situations, when the needed
+  ...) {\color{blue}Besides the above-mentioned reasons, there are more. For example,} in some situations, when the needed
   information is missing, it is challenging to make a differential
-  diagnosis \cite{moncada2011reading}.
+  diagnosis \cite{moncada2011reading}. 
+  {\color{blue}Despite the variety of reasons, the key message here is that medical uncertainty is a non-negligible fact in medicine.} 
 
   A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable. 
 %  
@@ -320,9 +327,9 @@ not mean that we do not trust a junior intern doctor.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection*{Managing uncertainty in medicine}
-Medical diagnosis is often uncertain or inconclusive, on the other
-hand, A doctor responsible for a patient's health has to make
-decisions in spite of this uncertainty. If the uncertainty present a
+Medical diagnosis is often uncertain or inconclusive. On the other
+hand, a doctor responsible for a patient's health has to make
+decisions in spite of this uncertainty. If the uncertainty presents a
 sufficiently small risk, the doctor can choose a treatment. Otherwise
 the doctor might consult other doctors, a medical journal or a book. 
 
@@ -333,10 +340,10 @@ making~\cite{vordermark2019introduction}.
 
 Medical diagnosis can be divided into two main types: {\em
   recognition} and {\em elimination}. Recognition is a fast mental
-process that is mostly unconcious where the one correct diagnosis reveals
-itself in the doctors mind. Recognition does not lend itself to verbal
-description and is therefor hard to debate or document. As it
-typically points to a single diagnosis there is a danger that the
+process that is mostly unconscious where the one correct diagnosis reveals
+itself in the doctors mind. {\color{blue}The physician matches what he/she collects from the patient to what he/she knows, and make a medical decision.} \sout{recognition does not lend itself to verbal
+description and is therefor hard to debate or document.} \hautieng{My understanding is different -- what you described is "past experience". See if you agreed with my edits} As it
+typically points to a single diagnosis, there is a danger that the
 recognized diagnosis will hide other possible diagnoses.
 Elimination, on the other hand, is a slow deliberate process where the
 doctor starts with all possible diagnoses and gradually eliminates
@@ -344,12 +351,21 @@ impossible ones based on patient history, examination and test
 results. As Elimination is delibirative, it is easier to discuss and
 document it.
 
-All medical decision making is based on experience, in which we
+\sout{All medical decision making is based on experience, in which we
 include medical cases as well as knowledge learned from lectures 
 Both recognition and elimination depend on past experience, if we
-include in past experience 
+include in past experience} 
 
-IA can aid the doctor both in Recognition and in Elimination. 
+{\color{blue}In both recognition and elimination, past experience plays a role in medical decision making. This experience is based on medical cases as well as knowledge learned from lectures or practice. Usually, it is not easy to verbally describe past experiences, and hence hard to debate or document them. It fills in the medical uncertainty not covered by protocols.
+}
+
+IA can aid the doctor both in Recognition and in Elimination. {\color{blue}On the Recognition side, an IA system equipped with a pattern recognition system would help physicians quickly identify the diagnosis or treatment, and suggest possible items that physicians might commonly miss.
+%
+On the Elimination side, an IA system could help carefully and slowly
+eliminate possible choices, so that physicians can focus on the eliminated choices and make the final decision. In both cases, the system might end up in a gray zone with
+multiple possibilities, or fail to match any pattern. In this case, it says IDK so that physicians could intervene. Thus system would dramatically help
+physicians daily practice.
+}
 
 \iffalse
 To make a decision based
@@ -391,7 +407,7 @@ This certainty is very different from the the conditional probability of the dis
 }  
 Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
   experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
-      then the overall confidence in that diagnostics is high. While this voting procedure might be guarantee the optimal outcome, it eliminates the uncertainly during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
+      then the overall confidence in that diagnostics is high. While this voting procedure might guarantee the optimal outcome, it eliminates the uncertainty during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
 
 \section{Uncertainty in Machine Learning}
 
@@ -412,22 +428,22 @@ so that it supports an alternative label.
 
   \section{Human decisions and Intelligence augmentation}
 
-  Computers are an integral part of medical practice. From
-  electronical medical records to medical instrumentation to billing,
+  Computer {\color{blue}has been} an integral part of medical practice {\color{blue}for decades}. From
+  {\color{blue}electronic} medical records (EMR) to medical instrumentation to billing,
   hospitals and cliniques cannot function without computers. By some
-  measures computers can already make better diagnosis that human
+  measures computers can already make better diagnosis than human
   doctors. The question is not {\em whether} computer diagnostics will
   become part of medical practice, the question is {\em how}.
 
   Some claim that human doctors and nurses are heading to extinction,
-  following the fate of manufactoring jobs and bank cashiers.  Our prediction is
+  following the fate of manufacturing jobs and bank cashiers.  Our prediction is
   that computers will change the nature of medical work, but that it
   will increase, rather than decrease, the number of healthcare
-  workers, especially in the care of chronic disease and aging.
+  workers, especially in the care of chronic disease and aging{\color{blue}, and exploring the nature of our complicated human body}. 
 
   We believe computers {\em can} perform accurate diagnosis for cases where
-  different doctors are likely to agree. In other cases which are
-  diagnostic gray area the computer will output ``I don't know'' and
+  different doctors are likely to agree. In other cases {\color{blue}that are in the}
+  diagnostic gray area, the computer will output ``I don't know'' and
   transfer the responsibility to the doctor. In most cases, the doctor
   cannot say ``I don't know'' because she is responsible for the
   patients health. On the other hand, resolving the diagnostic
@@ -437,23 +453,23 @@ so that it supports an alternative label.
   more than diagnostic information. It involves understanding the
   patient's emotional, mental and financial state, the patient's
   support system, the strengths and weaknesses of the hospital in
-  which this is taking place etc.
+  which this is taking place etc. {\color{blue}Such exploration and results will be fed back to the system to reduce the gray area, which is similar to training an intern doctor in the hospital.}
 
   Over time, computers will be able to take into consideration more
-  and more of this complex information. However, for the forseable
+  and more of this complex information. However, for the foreseeable
   future, it is unlikely that computers will be given the
   responsibility to make medical {\em decisions}. Computers
   will take on much of the diagnostics and alarm tasks, improving the
   accuracy and timeliness of the doctors actions. Computers will
   output IDK in gray areas and will leave the decision making to the
   human doctor. Giving the computer the authority to make decisions
-  currently done by human doctors will deprive the patient the human
-  attention of the doctor.
+  currently done by human doctors will {\color{blue}not only} deprive the patient the human
+  attention of the doctor{\color{blue}, but also put patients in risk}.
 
   Some of the digitization of the medicine has come between patients
-  and doctors. The need to record all activity into EMR system require
+  and doctors.  \sout{The need to record all activities into the EMR system requires
   doctors to spend more time at the keyboard, reducing the amount of
-  time of physical examination an discussion. We believe that IA can
+  time of physical examination an discussion}. \hautieng{I guess I know what you want to say, but to be safe, I'll do the edit here after we chat.} We believe that IA can
   move medicine in the opposite direction, letting the computer make
   the common noncontroversial diagnostics and giving the patient more
   time to interact with the patient.
@@ -465,14 +481,14 @@ so that it supports an alternative label.
 \end{figure}
 
   For IA technology to be widely adopted, the nurses and doctors that
-  use them should experience an improvement in their practice. Suppose
+  use them should experience an improvement in their practice {\color{blue}with the IA system}. Suppose
   that the display of the diagnostics computer uses a three color code
-  for each . Green indicates a confident
+  to identify {\color{blue}the pre-defined status. For example,} green indicates a confident
   negative diagnostic, red corresponds to a confident positive
   diagnosis. Finally, yellow corresponds to IDK, meaning that the
   computer cannot confirm or reject the diagnostic outcome.
 
-  The thresholds which define the three ranges .... 
+  The thresholds which define the three ranges .... \hautieng{discuss.}
 
 
   

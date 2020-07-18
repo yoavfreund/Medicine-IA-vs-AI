@@ -1,4 +1,4 @@
-\begin{thebibliography}{23}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -59,6 +59,19 @@ EXECUTIVE BRIEF.
   \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
 \newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
 
+\bibitem[Goldberger et~al.(2017)Goldberger, Goldberger, and
+  Shvilkin]{goldberger2017clinical}
+Ary~L Goldberger, Zachary~D Goldberger, and Alexei Shvilkin.
+\newblock \emph{Clinical electrocardiography: a simplified approach e-book}.
+\newblock Elsevier Health Sciences, 2017.
+
+\bibitem[Klem et~al.(1999)Klem, L{\"u}ders, Jasper, and Elger]{Klem1999TheTE}
+George~H. Klem, H.~L{\"u}ders, Herbert~H. Jasper, and Christian Elger.
+\newblock The ten-twenty electrode system of the international federation. the
+  international federation of clinical neurophysiology.
+\newblock \emph{Electroencephalography and clinical neurophysiology.
+  Supplement}, 52:\penalty0 3--6, 1999.
+
 \bibitem[Nesenbergs(2016)]{nesenbergs2016architecture}
 Krisjanis Nesenbergs.
 \newblock Architecture of smart clothing for standardized wearable sensor
@@ -86,6 +99,23 @@ Robert~G Norman, Ivan Pal, Chip Stewart, Joyce~A Walsleben, and David~M
   a large dataset.
 \newblock \emph{Sleep}, 23\penalty0 (7):\penalty0 901--908, 2000.
 
+\bibitem[Brosnan et~al.(2015)Brosnan, La~Gerche, Kumar, Lo, Kalman, and
+  Prior]{brosnan2015modest}
+Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
+  David Prior.
+\newblock Modest agreement in ecg interpretation limits the application of ecg
+  screening in young athletes.
+\newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
+
+\bibitem[Venhola et~al.(2003)Venhola, Reunanen, Taskinen, Lahdes-Vasama, and
+  Uhari]{venhola2003interobserver}
+Mika Venhola, Mikko Reunanen, Seppo Taskinen, Tuija Lahdes-Vasama, and Matti
+  Uhari.
+\newblock Interobserver and intra-observer agreement in interpreting urodynamic
+  measurements in children.
+\newblock \emph{The Journal of urology}, 169\penalty0 (6):\penalty0 2344--2346,
+  2003.
+
 \bibitem[McHugh(2012)]{mchugh2012interrater}
 Mary~L McHugh.
 \newblock Interrater reliability: the kappa statistic.
@@ -98,15 +128,6 @@ Paul Abrams.
   detrusor overactivity.
 \newblock \emph{Urology}, 62\penalty0 (5):\penalty0 28--37, 2003.
 
-\bibitem[Venhola et~al.(2003)Venhola, Reunanen, Taskinen, Lahdes-Vasama, and
-  Uhari]{venhola2003interobserver}
-Mika Venhola, Mikko Reunanen, Seppo Taskinen, Tuija Lahdes-Vasama, and Matti
-  Uhari.
-\newblock Interobserver and intra-observer agreement in interpreting urodynamic
-  measurements in children.
-\newblock \emph{The Journal of urology}, 169\penalty0 (6):\penalty0 2344--2346,
-  2003.
-
 \bibitem[Dudley et~al.(2018)Dudley, Adams, Brock~III, Clayton, Joseph, Koh,
   Merguerian, Pope~IV, Routh, Thomas, et~al.]{dudley2018interrater}
 Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
@@ -117,13 +138,51 @@ Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
 \newblock \emph{The Journal of urology}, 199\penalty0 (5):\penalty0 1337--1343,
   2018.
 
-\bibitem[Brosnan et~al.(2015)Brosnan, La~Gerche, Kumar, Lo, Kalman, and
-  Prior]{brosnan2015modest}
-Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
-  David Prior.
-\newblock Modest agreement in ecg interpretation limits the application of ecg
-  screening in young athletes.
-\newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
+\bibitem[Sohrabi et~al.(2020)Sohrabi, Alsafi, O’Neill, Khan, Kerwan,
+  Al-Jabir, Iosifidis, and Agha]{sohrabi2020world}
+Catrin Sohrabi, Zaid Alsafi, Niamh O’Neill, Mehdi Khan, Ahmed Kerwan, Ahmed
+  Al-Jabir, Christos Iosifidis, and Riaz Agha.
+\newblock World health organization declares global emergency: A review of the
+  2019 novel coronavirus (covid-19).
+\newblock \emph{International Journal of Surgery}, 2020.
+
+\bibitem[Goldman et~al.(2020)Goldman, Lye, Hui, Marks, Bruno, Montejano,
+  Spinner, Galli, Ahn, Nahass, et~al.]{goldman2020remdesivir}
+Jason~D Goldman, David~CB Lye, David~S Hui, Kristen~M Marks, Raffaele Bruno,
+  Rocio Montejano, Christoph~D Spinner, Massimo Galli, Mi-Young Ahn, Ronald~G
+  Nahass, et~al.
+\newblock Remdesivir for 5 or 10 days in patients with severe covid-19.
+\newblock \emph{New England Journal of Medicine}, 2020.
+
+\bibitem[Organization et~al.(2020{\natexlab{a}})]{world2020population}
+World~Health Organization et~al.
+\newblock Population-based age-stratified seroepidemiological investigation
+  protocol for coronavirus 2019 (covid-19) infection, 26 may 2020.
+\newblock Technical report, World Health Organization, 2020{\natexlab{a}}.
+
+\bibitem[Organization et~al.(2020{\natexlab{b}})]{world2020protocol}
+World~Health Organization et~al.
+\newblock Protocol for assessment of potential risk factors for coronavirus
+  disease 2019 (covid-19) among health workers in a health care setting, 23
+  march 2020.
+\newblock Technical report, World Health Organization, 2020{\natexlab{b}}.
+
+\bibitem[Nakajima et~al.(2020)Nakajima, Kato, Yamashiro, Izumi, Takeuchi,
+  Nakajima, and Utsunomiya]{nakajima2020covid}
+Kento Nakajima, Hideaki Kato, Tsuneo Yamashiro, Toshiharu Izumi, Ichiro
+  Takeuchi, Hideaki Nakajima, and Daisuke Utsunomiya.
+\newblock Covid-19 pneumonia: infection control protocol inside computed
+  tomography suites.
+\newblock \emph{Japanese Journal of Radiology}, pages 1--3, 2020.
+
+\bibitem[Awad et~al.(2020)Awad, Rumley, Vazquez, and
+  Devine]{awad2020perioperative}
+Mohamed~E Awad, Jacob~CL Rumley, Jose~A Vazquez, and John~G Devine.
+\newblock Perioperative considerations in urgent surgical care of suspected and
+  confirmed covid-19 orthopaedic patients: Operating room protocols and
+  recommendations in the current covid-19 pandemic.
+\newblock \emph{JAAOS-Journal of the American Academy of Orthopaedic Surgeons},
+  28\penalty0 (11):\penalty0 451--463, 2020.
 
 \bibitem[Moncada et~al.(2011)Moncada, Rueda, Mac{\'\i}as, Su{\'a}rez, Ortega,
   and V{\'e}lez]{moncada2011reading}

@@ -3,48 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
+Warning--I didn't find a database entry for "sanders2020pharmacologic"
 Warning--I didn't find a database entry for ""
 Warning--empty journal in ashby1957introduction
 Warning--empty journal in brief2019top
-You've used 23 entries,
+You've used 31 entries,
             2481 wiz_defined-function locations,
-            695 strings with 8504 characters,
-and the built_in function-call counts, 8434 in all, are:
-= -- 672
-> -- 453
-< -- 13
-+ -- 182
-- -- 136
-* -- 657
-:= -- 1397
-add.period$ -- 71
-call.type$ -- 23
-change.case$ -- 42
-chr.to.int$ -- 23
-cite$ -- 25
-duplicate$ -- 432
-empty$ -- 781
-format.name$ -- 161
-if$ -- 1743
-int.to.chr$ -- 1
-int.to.str$ -- 24
-missing$ -- 27
-newline$ -- 125
-num.names$ -- 69
-pop$ -- 191
+            736 strings with 10636 characters,
+and the built_in function-call counts, 11633 in all, are:
+= -- 897
+> -- 723
+< -- 16
++ -- 281
+- -- 218
+* -- 926
+:= -- 1965
+add.period$ -- 95
+call.type$ -- 31
+change.case$ -- 59
+chr.to.int$ -- 30
+cite$ -- 33
+duplicate$ -- 577
+empty$ -- 1017
+format.name$ -- 253
+if$ -- 2390
+int.to.chr$ -- 2
+int.to.str$ -- 32
+missing$ -- 34
+newline$ -- 165
+num.names$ -- 93
+pop$ -- 256
 preamble$ -- 1
-purify$ -- 23
+purify$ -- 31
 quote$ -- 0
-skip$ -- 241
+skip$ -- 323
 stack$ -- 0
-substring$ -- 354
-swap$ -- 45
-text.length$ -- 0
+substring$ -- 420
+swap$ -- 66
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 149
+type$ -- 202
 warning$ -- 2
-while$ -- 71
+while$ -- 93
 width$ -- 0
-write$ -- 300
-(There were 3 warnings)
+write$ -- 401
+(There were 4 warnings)

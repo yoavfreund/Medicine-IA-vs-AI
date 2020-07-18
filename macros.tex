@@ -10,9 +10,24 @@
 \mdfdefinestyle{Org}{middlelinecolor=blue, middlelinewidth=2pt, backgroundcolor=blue!10, roundcorner=10pt}
 
 \newcommand{\block}[3]{
-  \begin{wrapfigure}[25]{r}[34pt]{9cm}
-    \begin{mdframed}[style=#1]{\footnotesize{\bf #2}\\ #3} \end{mdframed}
-  \end{wrapfigure}}
+  \begin{wrapfigure}{r}[34pt]{0pt}
+    \begin{minipage}[t]{8cm}
+      \begin{mdframed}[style=#1]{\footnotesize{\bf #2}\\ #3} \end{mdframed}
+    \end{minipage}
+  \end{wrapfigure}
+}
 \newcommand{\Medicine}[2]{\block{Medicine}{#1}{#2}}
 \newcommand{\ML}[2]{\block{ML}{#1}{#2}}
 \newcommand{\Org}[2]{\block{Org}{#1}{#2}}
+
+  % \begin{wrapfigure}{r}{0pt}
+  %   \begin{minipage}[t]{3cm}
+  %     % \lipsum[1]
+  %     \begin{mdframed}[style=ML]{\footnotesize{\bf Test Box}\\
+  %         Medical imaging devices such at digital X-ray, CT, EMR and scanning
+  %         microscope generate many gigabytes of data for each
+  %         patient.}
+  %     \end{mdframed}
+  %   \end{minipage}
+  %   % \includegraphics[width=3cm]{figures/RedYellowGreen.pdf}
+  % \end{wrapfigure}

@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{lipsum}
+\usepackage{wrapfig}
+\usepackage{calc}
+\usepackage{adjustbox}
+\usepackage{mdframed}
+\usepackage{xcolor,ulem}
+
+\newlength{\strutheight}
+
+\mdfsetup{middlelinecolor=blue, middlelinewidth=2pt, backgroundcolor=blue!10, roundcorner=10pt}
+
+\mdfdefinestyle{Medicine}{middlelinecolor=red, middlelinewidth=2pt, backgroundcolor=red!10, roundcorner=10pt}
+\mdfdefinestyle{ML}{middlelinecolor=green, middlelinewidth=2pt, backgroundcolor=green!10, roundcorner=10pt}
+\mdfdefinestyle{Org}{middlelinecolor=blue, middlelinewidth=2pt, backgroundcolor=blue!10, roundcorner=10pt}
+
+\begin{document}
+
+  \settoheight{\strutheight}{\strut}
+
+  foo \begin{minipage}[t]{3cm}
+ %   \lipsum[1]
+      Medical imaging devices such at digital X-ray, CT, EMR and scanning
+  microscope generate many gigabytes of data for each
+  patient. 
+      \end{minipage}
+
+bar \begin{adjustbox}{valign=T,raise=\strutheight,minipage={.85\linewidth}}
+  \begin{wrapfigure}{r}{0pt}
+    \begin{minipage}[t]{3cm}
+      % \lipsum[1]
+      \begin{mdframed}[style=ML]{\footnotesize{\bf Test Box}\\
+          Medical imaging devices such at digital X-ray, CT, EMR and scanning
+          microscope generate many gigabytes of data for each
+          patient.}
+      \end{mdframed}
+    \end{minipage}
+    % \includegraphics[width=3cm]{figures/RedYellowGreen.pdf}
+  \end{wrapfigure}
+  \strut \lipsum[2]
+\end{adjustbox}
+
+
+bar %\begin{adjustbox}{valign=T,raise=\strutheight,minipage={.85\linewidth}}
+  \begin{wrapfigure}{r}{0pt}
+    \begin{minipage}[t]{3cm}
+      % \lipsum[1]
+      \begin{mdframed}[style=ML]{\footnotesize{\bf Test Box}\\
+          Medical imaging devices such at digital X-ray, CT, EMR and scanning
+          microscope generate many gigabytes of data for each
+          patient.}
+      \end{mdframed}
+    \end{minipage}
+    % \includegraphics[width=3cm]{figures/RedYellowGreen.pdf}
+  \end{wrapfigure}
+  \strut \lipsum[2]
+%\end{adjustbox}
+
+\end{document}

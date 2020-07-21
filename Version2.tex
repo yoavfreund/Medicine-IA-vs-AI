@@ -56,9 +56,9 @@ Digital technology is causing a sea-change in Medicine.
 In particular the meteoric rise of AI in general and deep
 learning in particular raises the possibility that doctors will be
 replaced computers~\cite{Mukherjee2017}. The father of deep learning,
-Geoff Hinton, said in 2017: "It's just completely obvious that that in
+Geoff Hinton, said in 2017: ``It's just completely obvious that in
 ten years deep learning is going to do better than Radiologists
-... They should stop training radiologists now".
+... They should stop training radiologists now''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Org{Artificial Intelligence and Intelligence Augmentation}{
@@ -83,11 +83,11 @@ Sebastian Thrun's statement indicates that the idea of Intelligence
 augmentation is still on some people's mind.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist} , another
-authority in deep learning gives a more nuanced perspective: argues
-that "... deep learning devices will not replace dermatologists and
+Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist}, another
+authority in deep learning gives a more nuanced perspective, and argues
+that ``... deep learning devices will not replace dermatologists and
 radiologists. They will {\em augment} professionals, offering the
-expertise and assistance". Artificial Intelligence (AI) and
+expertise and assistance''. Artificial Intelligence (AI) and
 Intelligence Augmentation (IA) have been competing ideologies for
 decades. (see inset) Currently, AI is much more in Vogue IA.  We
 present an argument that, in high risk domains, and in particular in
@@ -96,11 +96,10 @@ medicine, IA is the better approach.
 Our approach is based on the observation that the level of attention
 paid to a patient varies greatly. At the high end, a patient in
 surgery or in the Intensive Care Unit (ICU) has the full attention of
-several doctors and nurses. At the low end, an elderly person who
-might be suffring from early onset dementia might be visited by a
-nurse or home aid once a day or less.
+several doctors and nurses. At the low end, a middle class elderly
+person living at home might be visited by a nurse once a week or even less.
 
-Rather than replacing doctors or nurses, we suggest that IA can free
+Rather than using AI to replace doctors or nurses, we suggest that IA can free
 the staff from simple and repetitive tasks and allow them to devote
 their time to more complex decisions and to prsonal interaction with
 the patient.
@@ -111,7 +110,7 @@ when a patient is having a heart attack, but create only few false
 alarms. Similarly, it is needed when a diagnostics assistant can
 eliminate some diagnostic possibilities but not all of them.
 
-We equate low prediction confidence with saying ``I don't know''. The
+We equate low prediction confidence with saying ``I don't know'' (IDK). The
 interaction between the IA agent and the doctor is based on this
 ability. When diagnosis is done by elimination, saying ``I don't
 know'' the agent can narrow the set of possible diagnosis without
@@ -137,9 +136,21 @@ certified dermatologists (see insert).
   twenty five dermatologists on images which were labeled by a
   pathologist analysis of the biopsy. The neural network outperformed
   the human dermatologist. This is, without a doubt, an impressive
-  finding, which supports the prediction that, in the near future,
-  dermatologists will be replaced by deep neural networks.}
-Not surprisingly, dermatologists gave different diagnosis to the same image.  As
+  finding. However, it is based on a retrospective analysis, in other
+  words, an analysis of historical data. To predict the performance of
+  the DNN when used in a dermatology practice we need to how a
+  dermatologist, or any other diagnosticians, arrives at their final
+  diagnostics.}  
+  
+\ML{Arrhythmia detection using Deep Neural Networks}{One of the
+  papers that provided evidence that deep neural networks might be
+  able to outperform humans is the work of Esteva et
+  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
+  the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
+  the trained DNN XXX.}
+  
+Not surprisingly, each dermatologist gave a different diagnosis.  As
 the goal was to to compare the performance of the DNN to that of the
 dermatologists they needed a independent source of {\em ground truth}.
 To that end they used the diagnosis of a biopsy as ground truth. It is
@@ -191,18 +202,35 @@ opinions of human diagnosticians.
   Medical diagnostics cannot be described as an input-output
   mapping. This is evident studies of {\em inter-rater agreement} (see
   inset). In studies of this kind multiple doctors produce diagnostics
-  based identical medical information. 
-\ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
+  based identical medical information.  \ML{Quantification of
+    inter-rater agreement rate}{A common measurement of inter-rater
+    reliability (or intra-rater reliability) for categorical
+    quantities is the Cohen's kappa coefficient, usually denoted as
+    $\kappa$. Compared with the percent agreement calculation, it
+    considers the possible agreement occurring by
+    chance. Specifically, while the percent agreement, denoted as
+    $0\leq a\leq 1$ is defined as the percent agreement among raters,
+    the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$,
+    where $0\leq c\leq 1$ is the agreement occurring byq
+    chance. Clearly, the largest $\kappa$ is $1$, which means a
+    complete agreement among raters, even under the possibility of
+    agreement by chance. If the agreement is totally by chance, that
+    is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than
+    agreement by chance, then $\kappa$ can be negative. An
+    interpretation of $\kappa$ recommended by Cohen
+    \cite{mchugh2012interrater} is that when $\kappa\leq 0$, there is
+    no agreement, when $0< \kappa\leq 0.20$ as none to slight
+    agreement, $0.2<\kappa\leq 0.40$ as fair agreement,
+    $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$
+    as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect
+    agreement. However, depending on scenarios, the meaning of
+    agreement might be different.}
 
-  
-
-
-
-  very different from supervised learning. It is
-a {\em process} of eliminating possibilities
-until the set of possibilities is sufficiently narrow so that
-treatment can be chosen. \sout{The ground truth, as in the ``correct
-diagnostics'' is almost never revealed}, {\color{blue}Even if it is possible, the ground truth is usually harder to obtain than the ``correct diagnostics'',} even in {\color{blue}hindsight}.
+%   very different from supervised learning. It is
+% a {\em process} of eliminating possibilities
+% until the set of possibilities is sufficiently narrow so that
+% treatment can be chosen. \sout{The ground truth, as in the ``correct
+% diagnostics'' is almost never revealed}, {\color{blue}Even if it is possible, the ground truth is usually harder to obtain than the ``correct diagnostics'',} even in {\color{blue}hindsight}.
 
 When a new patient arrives at a clinique, all diagnostics are
 possible. After a {\color{blue}series of tests and} physical exams and talking with the patient, many
@@ -372,7 +400,7 @@ purpose. An intelligent system could help carefully and slowly
 eliminate possible choices, and if it end up in a gray zone with
 multiple possibilities, it says IDK. This would dramatically help
 physicians daily practice.
-\fi
+
 
 {\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
@@ -389,7 +417,7 @@ physicians daily practice.
       the trustworthiness of the alarms.--done
     \item{\bf Alarm Fatigue}--done
   \end{itemize}
-
+\fi
 %{\bf Psychological reasons} Both doctor and patient prefer
 
 How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. 
@@ -471,7 +499,7 @@ so that it supports an alternative label.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=3in]{figures/RedYellowGreen.pdf}
+\includegraphics[width=3in]{figures/RedYellowGreen2.pdf}
 \end{center}
 \end{figure}
 

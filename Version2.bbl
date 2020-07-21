@@ -39,6 +39,12 @@ Eric Topol.
   human again}.
 \newblock Hachette UK, 2019.
 
+\bibitem[McHugh(2012)]{mchugh2012interrater}
+Mary~L McHugh.
+\newblock Interrater reliability: the kappa statistic.
+\newblock \emph{Biochemia medica: Biochemia medica}, 22\penalty0 (3):\penalty0
+  276--282, 2012.
+
 \bibitem[Islam et~al.(2016)Islam, Rastegarnia, and Yang]{islam2016methods}
 Md~Kafiul Islam, Amir Rastegarnia, and Zhi Yang.
 \newblock Methods for artifact detection and removal from scalp eeg: A review.
@@ -115,12 +121,6 @@ Mika Venhola, Mikko Reunanen, Seppo Taskinen, Tuija Lahdes-Vasama, and Matti
   measurements in children.
 \newblock \emph{The Journal of urology}, 169\penalty0 (6):\penalty0 2344--2346,
   2003.
-
-\bibitem[McHugh(2012)]{mchugh2012interrater}
-Mary~L McHugh.
-\newblock Interrater reliability: the kappa statistic.
-\newblock \emph{Biochemia medica: Biochemia medica}, 22\penalty0 (3):\penalty0
-  276--282, 2012.
 
 \bibitem[Abrams(2003)]{abrams2003describing}
 Paul Abrams.

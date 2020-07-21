@@ -56,9 +56,9 @@ Digital technology is causing a sea-change in Medicine.
 In particular the meteoric rise of AI in general and deep
 learning in particular raises the possibility that doctors will be
 replaced computers~\cite{Mukherjee2017}. The father of deep learning,
-Geoff Hinton, said in 2017: "It's just completely obvious that that in
+Geoff Hinton, said in 2017: ``It's just completely obvious that in
 ten years deep learning is going to do better than Radiologists
-... They should stop training radiologists now".
+... They should stop training radiologists now''.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \Org{Artificial Intelligence and Intelligence Augmentation}{
@@ -83,11 +83,11 @@ Sebastian Thrun's statement indicates that the idea of Intelligence
 augmentation is still on some people's mind.}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist} , another
-authority in deep learning gives a more nuanced perspective: argues
-that "... deep learning devices will not replace dermatologists and
+Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist}, another
+authority in deep learning gives a more nuanced perspective, and argues
+that ``... deep learning devices will not replace dermatologists and
 radiologists. They will {\em augment} professionals, offering the
-expertise and assistance". Artificial Intelligence (AI) and
+expertise and assistance''. Artificial Intelligence (AI) and
 Intelligence Augmentation (IA) have been competing ideologies for
 decades. (see inset) Currently, AI is much more in Vogue IA.  We
 present an argument that, in high risk domains, and in particular in
@@ -97,8 +97,8 @@ Our approach is based on the observation that the level of attention
 paid to a patient varies greatly. At the high end, a patient in
 surgery or in the Intensive Care Unit (ICU) has the full attention of
 several doctors and nurses. At the low end, an elderly person who
-might be suffring from early onset dementia might be visited by a
-nurse or home aid once a day or less. (please correct!)
+might be suffering from early onset dementia might be visited by a
+nurse or home aid once a day or less. (please correct!) \hautieng{The flow reads a bit discontinuous.}
 
 Rather than replacing doctors or nurses, we suggest that IA can free
 the staff from simple and repetitive tasks and allow them to devote
@@ -111,7 +111,7 @@ when a patient is having a heart attack, but create only few false
 alarms. Similarly, it is needed when a diagnostics assistant can
 eliminate some diagnostic possibilities but not all of them.
 
-We equate low prediction confidence with saying ``I don't know''. The
+We equate low prediction confidence with saying ``I don't know'' (IDK). The
 interaction between the IA agent and the doctor is based on this
 ability. When diagnosis is done by elimination, saying ``I don't
 know'' the agent can narrow the set of possible diagnosis without
@@ -145,6 +145,7 @@ certified dermatologists (see insert).
   human expert. These labels define the {\em ground truth} and the
   goal of the learning algorithm is to make predictions that diverge
   as little as possible from the ground truth.}
+  
 \ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
   papers that provided evidence that deep neural networks might be
   able to outperform humans is the work of Esteva et
@@ -158,7 +159,19 @@ certified dermatologists (see insert).
   words, an analysis of historical data. To predict the performance of
   the DNN when used in a dermatology practice we need to how a
   dermatologist, or any other diagnosticians, arrives at their final
-  diagnostics.}
+  diagnostics.}  
+  
+  
+  
+  
+\ML{Arrhythmia detection using Deep Neural Networks}{One of the
+  papers that provided evidence that deep neural networks might be
+  able to outperform humans is the work of Esteva et
+  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
+  the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
+  the trained DNN XXX.}
+  
 Not surprisingly, each dermatologist gave a different diagnosis.  As
 the goal was to to compare the performance of the DNN to that of the
 dermatologists they needed a independent source of {\em ground truth}.
@@ -372,7 +385,7 @@ purpose. An intelligent system could help carefully and slowly
 eliminate possible choices, and if it end up in a gray zone with
 multiple possibilities, it says IDK. This would dramatically help
 physicians daily practice.
-\fi
+
 
 {\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
@@ -389,7 +402,7 @@ physicians daily practice.
       the trustworthiness of the alarms.--done
     \item{\bf Alarm Fatigue}--done
   \end{itemize}
-
+\fi
 %{\bf Psychological reasons} Both doctor and patient prefer
 
 How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. 
@@ -471,7 +484,7 @@ so that it supports an alternative label.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=3in]{figures/RedYellowGreen.pdf}
+\includegraphics[width=3in]{figures/RedYellowGreen2.pdf}
 \end{center}
 \end{figure}
 

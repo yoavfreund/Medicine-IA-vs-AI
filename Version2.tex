@@ -23,7 +23,7 @@
 \affil[1]{UCSD, Computer Science, San Diego, 92093, United States}
 \affil[2]{Duke, department, city, postcode, country}
 
-\title{Sometimes the digital Doctor should admit\\ "I don't know"}
+\title{At times the digital Doctor should admit\\ "I don't know"}
 
 \input{macros}
 
@@ -104,12 +104,25 @@ the staff from simple and repetitive tasks and allow them to devote
 their time to more complex decisions and to prsonal interaction with
 the patient.
 
+\ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
+  papers that provided evidence that deep neural networks might be
+  able to outperform humans is the work of Esteva et
+  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  network to classify images of skin into three categories: benign,
+  malignant and non-cancerous. The network was then tested, along with
+  twenty five dermatologists on images which were labeled by a
+  pathologist analysis of the biopsy. The neural network outperformed
+  the human dermatologist. This is, without a doubt, an impressive
+  finding. However, it is based on a retrospective analysis, in other
+  words, an analysis of historical data. To predict the performance of
+  the DNN when used in a dermatology practice we need to how a
+  dermatologist, or any other diagnosticians, arrives at their final
+  diagnostics.}  
 Central to our approach is a quantification of {\em prediction confidence}. Such
 quantification is needed so that a patient monitor can sound an alarm
 when a patient is having a heart attack, but create only few false
 alarms. Similarly, it is needed when a diagnostics assistant can
 eliminate some diagnostic possibilities but not all of them.
-
 We equate low prediction confidence with saying ``I don't know'' (IDK). The
 interaction between the IA agent and the doctor is based on this
 ability. When diagnosis is done by elimination, saying ``I don't
@@ -126,30 +139,7 @@ to proceed, whether to perform more tests, or whether to choose a treatment.
 In a highly cited paper in the journal
 Science~\cite{esteva2017dermatologist} provides evidence supporting
 the claim that computers can diagnose skin cancer as well or better than board
-certified dermatologists (see insert).
-\ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
-  papers that provided evidence that deep neural networks might be
-  able to outperform humans is the work of Esteva et
-  al~\cite{esteva2017dermatologist}. They trained a Deep neural
-  network to classify images of skin into three categories: benign,
-  malignant and non-cancerous. The network was then tested, along with
-  twenty five dermatologists on images which were labeled by a
-  pathologist analysis of the biopsy. The neural network outperformed
-  the human dermatologist. This is, without a doubt, an impressive
-  finding. However, it is based on a retrospective analysis, in other
-  words, an analysis of historical data. To predict the performance of
-  the DNN when used in a dermatology practice we need to how a
-  dermatologist, or any other diagnosticians, arrives at their final
-  diagnostics.}  
-  
-\ML{Arrhythmia detection using Deep Neural Networks}{One of the
-  papers that provided evidence that deep neural networks might be
-  able to outperform humans is the work of Esteva et
-  al~\cite{esteva2017dermatologist}. They trained a Deep neural
-  network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
-  the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
-  the trained DNN XXX.}
-  
+certified dermatologists.
 Not surprisingly, each dermatologist gave a different diagnosis.  As
 the goal was to to compare the performance of the DNN to that of the
 dermatologists they needed a independent source of {\em ground truth}.
@@ -157,6 +147,17 @@ To that end they used the diagnosis of a biopsy as ground truth. It is
 arguable that this label is more accurate than the one given by the
 dermatologist, even though it too depends on the human judgement of the
 pathologist.
+\ML{Supervised Learning and ground truth}{Roughly speaking, machine
+  learning (ML) can be divided into {\em unsupervised} learning and
+  {\em supervised} learning. In both, the task of the learning
+  algorith is transform a set of {\em examples} into a {\em model}. In
+  unsupervised learning the examples are undifferentiated raw
+  measurements. In {\em supervised} learning, which is the focus of
+  this article, each example consists of an {\em input} and a {\em
+    label}. Typically, the labels are provided by a human
+  expert. These labels define the {\em ground truth} and the goal of
+  the learning algorithm is to make predictions that diverge as little
+  as possible from the ground truth.}
 
 Leaving aside the question of the reliability of the
 pathologists. There is another, more fundamental problem with this
@@ -171,8 +172,13 @@ image-based classifier is trained using this data. If the classifier
 is applied to skin images of undiagnosed patients it is likely to
 over-diagnose them as melignant. In practice, the result would be that
 more patients thean necessary will be biopsied.
-
-%\yoav{Do you have other examples of using NN for medical diagnostics?}
+\ML{Arrhythmia detection using Deep Neural Networks}{One of the
+  papers that provided evidence that deep neural networks might be
+  able to outperform humans is the work of Esteva et
+  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
+  the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
+  the trained DNN XXX.}
 
 As we elaborate on in the next section, in medical 
 usually not available, all that we have to go on are the
@@ -180,38 +186,37 @@ opinions of human diagnosticians.
 
 \section{Uncertainty in medicine}
 
-%\yoav{
-
   Deep learning is a special case of {\em supervised learning} (see
   inset), sometimes called {\em input-output}
   learning~\cite{ng2016artificial,topol2019deep}.
-  \ML{Supervised Learning and ground truth}{Roughly speaking, machine
-    learning (ML) can be divided into {\em unsupervised} learning and
-    {\em supervised} learning. In both, the task of the learning
-    algorith is transform a set of {\em examples} into a {\em
-      model}. In unsupervised learning the examples are
-    undifferentiated raw measurements. In {\em supervised} learning,
-    which is the focus of this article, each example consists of an
-    {\em input} and a {\em label}. Typically, the labels are provided
-    by a human expert. These labels define the {\em ground truth} and
-    the goal of the learning algorithm is to make predictions that
-    diverge as little as possible from the ground truth.}
   Under this fomulation the only quantity of interest is the error on
   a held-out or test set.
 
   Medical diagnostics cannot be described as an input-output
   mapping. This is evident studies of {\em inter-rater agreement} (see
   inset). In studies of this kind multiple doctors produce diagnostics
-  based identical medical information.  \ML{Quantification of
-    inter-rater agreement rate}{A common measurement of inter-rater
-    reliability (or intra-rater reliability) for categorical
-    quantities is the Cohen's kappa coefficient, usually denoted as
-    $\kappa$. Compared with the percent agreement calculation, it
-    considers the possible agreement occurring by
-    chance. Specifically, while the percent agreement, denoted as
-    $0\leq a\leq 1$ is defined as the percent agreement among raters,
-    the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$,
-    where $0\leq c\leq 1$ is the agreement occurring byq
+  based identical medical information.
+
+When a patient arrives at a clinique for the first time, all diagnostics are
+possible. After a {\color{blue}series of tests and} physical exams and talking with the patient, many
+possibilities are eliminated. In {\em simple} cases, this is enough
+for the doctor to confidently choose a treatment. In increasingly more complex
+cases, the doctor might ask for multiple tests and visits, refer the
+patient to a specialist, consult colleagues, journals and books
+etc. In most cases this process of narrowing will lead to a treatment
+plan. Ideally, followup visits and tests will confirm that the patient
+is recovering. In most cases, all that we can know about the patient
+is whether or not they recovered. This is a far cry from knowing what
+was their correct diagnostics when they first came in the door.
+  \Medicine{Inter-rater agreement}{A common
+    measurement of inter-rater reliability (or intra-rater
+    reliability) for categorical quantities is the Cohen's kappa
+    coefficient, usually denoted as $\kappa$. Compared with the
+    percent agreement calculation, it considers the possible agreement
+    occurring by chance. Specifically, while the percent agreement,
+    denoted as $0\leq a\leq 1$ is defined as the percent agreement
+    among raters, the Cohen's kappa is defined as the ratio of $a-c$
+    and $1-c$, where $0\leq c\leq 1$ is the agreement occurring byq
     chance. Clearly, the largest $\kappa$ is $1$, which means a
     complete agreement among raters, even under the possibility of
     agreement by chance. If the agreement is totally by chance, that
@@ -226,60 +231,66 @@ opinions of human diagnosticians.
     agreement. However, depending on scenarios, the meaning of
     agreement might be different.}
 
-%   very different from supervised learning. It is
-% a {\em process} of eliminating possibilities
-% until the set of possibilities is sufficiently narrow so that
-% treatment can be chosen. \sout{The ground truth, as in the ``correct
-% diagnostics'' is almost never revealed}, {\color{blue}Even if it is possible, the ground truth is usually harder to obtain than the ``correct diagnostics'',} even in {\color{blue}hindsight}.
-
-When a new patient arrives at a clinique, all diagnostics are
-possible. After a {\color{blue}series of tests and} physical exams and talking with the patient, many
-possibilities are eliminated. In {\em simple} cases, this is enough
-for the doctor to confidently choose a treatment. In increasingly more complex
-cases, the doctor might ask for multiple tests and visits, refer the
-patient to a specialist, consult colleagues, journals and books
-etc. In most cases this process of narrowing will lead to a treatment
-plan. Ideally, followup visits and tests will confirm that the patient
-is recovering. In most cases, all that we can know about the patient
-is whether or not they recovered. This is a far cry from knowing what
-was their correct diagnostics when they first came in the door.
-
 For the digital doctor to be effective, it should incorporate this
 notion of uncertainty. It needs to correctly classify the easiest cases
-and out ``I don't know'' on the hardest cases. Before describing how
+and output ``I don't know'' on the hardest cases. Before describing how
 this might be achieved, lets consider some of the many sources of
 uncertainty in medical diagnostics.
 
-\iffalse
-and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
+%and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
 
 It is certainly expected that physicians can achieve a reliable
-  decision making, probably with sufficient clinical information
-  \cite{mehta2011agreement} or if only the major information is needed
-  \cite{atiya2003interobserver}. However, in many cases, the quality
-  of decision making might be jeopardized due to various reasons,
-  among which the uncertainty in medicine is non-negligible.
-\fi  
-\Medicine{Uncertainty due to signal quality}{Medical devices use a variety of bio-sensors that record,
-  display and distribute different biometrics, ranging from vital
-  signs such as heart rate, oxygen saturation{\color{red}, temperature} and blood pressure, to
-  high-frequency waveforms such as ECG, EEG, respiratory
-  signal and arterial blood pressure.
-\sout{suffer from variety of problems} {\color{red}usually suffer from artifacts and other signal quality problems,} some of which depend on the patient. \sout{Reducing these problem often requires} In some cases, these problems can be easily handled by a human expert. In some cases such as {\color{red}artifact removal of EEG is still an active research problem~\cite{islam2016methods}}.
+decision making, probably with sufficient clinical information
+\cite{mehta2011agreement} or if only the major information is needed
+\cite{atiya2003interobserver}. However, in many cases, the quality of
+decision making might be jeopardized due to various reasons, among
+which the uncertainty in medicine is non-negligible.
 
-Patient monitors are bedside {\color{red}medical} devices that monitor patients at risk, freeing the medical staff to attend to the patients that need care at the moment. 
-However, Patient monitors suffer from signal quality issues and tend to generate false alarms at a high rate. These cause the medical staff to ignore the alarms, rendering them useless. This phenomenon, called {\em alarm fatigue} (or alarm overload) is a major problem in hospital care \cite{cvach2012monitor,brief2019top}.
-  
-{\color{red} Another common source of signal quality issue is how the sensor is placed. While there have been several standards, ranging from the well-known ECG systems \cite{goldberger2017clinical} and {\color{blue}international 10–20 EEG systems} \cite{Klem1999TheTE} to recently smart clothing system for telemedicine \cite{nesenbergs2016architecture}, it is not always possible to achieve a precise sensor placement for biomedical signal collection due to various reasons. This uncertainty might be tolerable for some clinical applications; for example, an imprecise ECG sensor placement might not impact the identification of some types of arrhythmia from the ECG signal, like atrial fibrillation. However, this uncertainty might cause troubles in other applications; {\color{blue}for example, an imprecise placement of the deep brain stimulation lead inside subthalamic nucleus might downgrade the Parkinson disease treatment outcome.} 
-}
-  
-  
-  
-}
+  %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
 
+
+\Medicine{Uncertainty due to signal quality}{Medical devices use a
+  variety of bio-sensors that record, display and distribute different
+  biometric signals, ranging from vital signs such as heart rate,
+  oxygen saturation, temperature and blood pressure, to high-frequency
+  waveforms such as ECG, EEG, respiratory signal and arterial blood
+  pressure. High frequency signals suffer from artifacts and other
+  signal quality problems, some of which depend on the patient. In
+  some cases, these problems can be handled by the human
+  diagnostician. In other cases such as {\color{red}artifact removal of EEG is
+    still an active research problem~\cite{islam2016methods}}.
+
+  Another common source of signal quality issue is how
+    the sensor is placed. While there have been several standards,
+    ranging from the well-known ECG systems
+    \cite{goldberger2017clinical} and {\color{blue}international 10–20
+      EEG systems} \cite{Klem1999TheTE} to recently smart clothing
+    system for telemedicine \cite{nesenbergs2016architecture}, it is
+    not always possible to achieve a precise sensor placement for
+    biomedical signal collection due to various reasons. This
+    uncertainty might be tolerable for some clinical applications; for
+    example, an imprecise ECG sensor placement might not impact the
+    identification of some types of arrhythmia from the ECG signal,
+    like atrial fibrillation. However, this uncertainty might cause
+    troubles in other applications; {\color{blue}for example, an
+      imprecise placement of the deep brain stimulation lead inside
+      subthalamic nucleus might downgrade the Parkinson disease
+      treatment outcome.}}
+\newpage
+\Medicine{Alarm fatigue}{ Patient monitors are bedside medical devices
+  that monitor patients that are at risk but currently stable, freeing
+  the medical staff to attend to the patients whose status is
+  critical.  Unfortunately, Patient monitors suffer from signal
+  quality issues and tend to generate false alarms at a high
+  rate. Over time, this can result in the staff not responding to
+  alarms, potentially resulting in great damage to the patient. This
+  phenomenon, called {\em alarm fatigue} (or alarm overload) is a
+  major problem in hospital care \cite{cvach2012monitor,brief2019top}.
+}
+\newpage
   \Medicine{Protocol limitation}{
   \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}
-  {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.} 
+  {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.}
   
   
   The American Academy of Sleep
@@ -300,15 +311,12 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   protocol to the population different from the population that we
   collect the evidence for the protocol \cite{brosnan2015modest}. {\color{blue}Such extrapolation error usually comes from the variability among subjects. If such variability is big, it
   limits the development of a more quantitative protocol
-  \cite{venhola2003interobserver}, and different protocols might be needed for different situations.}
-  
-    
-  %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
+  \cite{venhola2003interobserver}, and different protocols might be
+  needed for different situations.}
 }
+\newpage
 
- 
-
-  \Medicine{knowledge gap}{ 
+   \Medicine{knowledge gap}{ 
   \yoav{is this an example of uncertainty because of knowledge gap? Wouldn't it be better to use something better known such as Covid-19?}
   Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
 %  
@@ -321,7 +329,7 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   {\color{blue}Another example is the famous pandemic, COVID-19 \cite{sohrabi2020world}. Back in Jan 2020, when it was first reported in China, nobody had a clue how it will generate damage to human body, not to mention how to treat a patient. All medical practices, ranging from diagnosis to treatment to vaccine were all made based on experience. For example, the quinine and remdesivir were considered potential for hospitalized patients. A lot of data could be collected, but there is a huge gap between the data and what's going on. Knowledge was quickly accumulated in the past few months. For example, we know more about hydroxychloroquine, remdesivir, and many other candidate drugs; see, for example \cite{sanders2020pharmacologic,goldman2020remdesivir}. However, due to the lack of knowledge, even if there exist some protocols, for example \cite{world2020population,world2020protocol,nakajima2020covid,awad2020perioperative} and several others, there are still many white and unknown details in the overall medical practice.} 
   }
 
-
+\newpage
   Medical uncertainty as manifest low inter-rater agreement
   consequence, can be found in many clinical problems (see blocks on
   ...) {\color{blue}Besides the above-mentioned reasons, there are more. For example,} in some situations, when the needed

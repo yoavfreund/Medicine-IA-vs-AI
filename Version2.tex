@@ -20,7 +20,7 @@
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
-\affil[1]{UCSD, department, city, postcode, country}
+\affil[1]{UCSD, Computer Science, San Diego, 92093, United States}
 \affil[2]{Duke, department, city, postcode, country}
 
 \title{Sometimes the digital Doctor should admit\\ "I don't know"}
@@ -47,7 +47,7 @@
 \begin{document}
 \settoheight{\strutheight}{\strut}
 
-
+ 
 \maketitle
 
 %\thispagestyle{firststyle}
@@ -70,7 +70,7 @@ Using computers to {\em augment} humans rather replace them is
 both tantalizing and utterly mundane. On the heady side, consider
 cyborgs whose anatomy is part human, part artificial and can with
 equal ease solve complex equations or write poetry. On the mundane
-side, ubiquitous technologies such as the smart phone abd google search
+side, ubiquitous technologies such as the smart phone and google search
 are ways in which our capabilities are augmented by computers. 
  
 The idea of using computers to augment or amplify human intelligence
@@ -98,7 +98,7 @@ paid to a patient varies greatly. At the high end, a patient in
 surgery or in the Intensive Care Unit (ICU) has the full attention of
 several doctors and nurses. At the low end, an elderly person who
 might be suffring from early onset dementia might be visited by a
-nurse or home aid once a day or less. (please correct!)
+nurse or home aid once a day or less.
 
 Rather than replacing doctors or nurses, we suggest that IA can free
 the staff from simple and repetitive tasks and allow them to devote
@@ -118,8 +118,8 @@ know'' the agent can narrow the set of possible diagnosis without
 reducing it to a single diagnosis. It is then the doctor to decide how
 to proceed, whether to perform more tests, or whether to choose a treatment.
 
-The rest of the article is organized as follows. In
-Section~\ref{sec:ground-truth}
+%The rest of the article is organized as follows. In
+%Section~\ref{sec:ground-truth}
 
 \section{Ground truth, train and test error}
 \label{sec:ground-truth}
@@ -128,23 +128,6 @@ In a highly cited paper in the journal
 Science~\cite{esteva2017dermatologist} provides evidence supporting
 the claim that computers can diagnose skin cancer as well or better than board
 certified dermatologists (see insert).
-% In this application of
-% supervised learning (see insert) each example consists of an input
-% image of a skin patch and an output label that is ``benign'' or
-% ``melignant''. Each of the Dermatologists was asked to make the
-% diagnostics and the DNN was trained to score all patches from ``least
-% likely'' to ``most likely'' to be melignant.
-\ML{Supervised Learning and ground truth}{Roughly
-  speaking, machine learning (ML) can be divided into {\em
-    unsupervised} learning and {\em supervised} learning. In both, the
-  task of the learning algorith is transform a set of {\em examples}
-  into a {\em model}. In unsupervised learning the examples are
-  undifferentiated raw measurements. In {\em supervised} learning,
-  which is the focus of this article, each example consists of an {\em
-    input} and a {\em label}. Typically, the labels are provided by a
-  human expert. These labels define the {\em ground truth} and the
-  goal of the learning algorithm is to make predictions that diverge
-  as little as possible from the ground truth.}
 \ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
   papers that provided evidence that deep neural networks might be
   able to outperform humans is the work of Esteva et
@@ -154,12 +137,9 @@ certified dermatologists (see insert).
   twenty five dermatologists on images which were labeled by a
   pathologist analysis of the biopsy. The neural network outperformed
   the human dermatologist. This is, without a doubt, an impressive
-  finding. However, it is based on a retrospective analysis, in other
-  words, an analysis of historical data. To predict the performance of
-  the DNN when used in a dermatology practice we need to how a
-  dermatologist, or any other diagnosticians, arrives at their final
-  diagnostics.}
-Not surprisingly, each dermatologist gave a different diagnosis.  As
+  finding, which supports the prediction that, in the near future,
+  dermatologists will be replaced by deep neural networks.}
+Not surprisingly, dermatologists gave different diagnosis to the same image.  As
 the goal was to to compare the performance of the DNN to that of the
 dermatologists they needed a independent source of {\em ground truth}.
 To that end they used the diagnosis of a biopsy as ground truth. It is
@@ -168,34 +148,57 @@ dermatologist, even though it too depends on the human judgement of the
 pathologist.
 
 Leaving aside the question of the reliability of the
-pathologists. There is another, more fundamental problem. The data
-in the experiment was {\em retrospective}, i.e. it was collected from
-the records of past patients. Normally, patients get
-biopsied only if the dermatologist thinks there is a significant chance of
-{\bf malignancy}, the set of biopsied examples is therefor biased towards
-{\bf malignancy}. It is likely that using a classifier trained in this way
-on an unfiltered stream of patients will increase the number of
-patients unnecessarily getting a biopsy.
+pathologists. There is another, more fundamental problem with this
+experimental setup. The data in the experiment was {\em
+  retrospective}, i.e. it was collected from the records of past
+patients for which both a skin image and a biopsy were
+available. Normally, patients get biopsied only if the dermatologist
+thinks there is a significant chance of {\bf malignancy}. As a result,
+a retrospective study that is based on patients for whom a biopsy was
+taken is likely to over-represent malignant patients. Suppose an
+image-based classifier is trained using this data. If the classifier
+is applied to skin images of undiagnosed patients it is likely to
+over-diagnose them as melignant. In practice, the result would be that
+more patients thean necessary will be biopsied.
 
-Generating an unbiased sample would require a controlled experiment in
-which a sample of patients is chosen and each of these patients gets
-diagnosed using both a biopsy and an image of the skin.
+%\yoav{Do you have other examples of using NN for medical diagnostics?}
 
-\yoav{Do you have other examples of using NN for medical diagnostics?}
-
-Moreover, as we elaborate on in the next section, ground truth is
-rarely available, all we can go on are the diagnostics of human diagnosticians.
+As we elaborate on in the next section, in medical 
+usually not available, all that we have to go on are the
+opinions of human diagnosticians.
 
 \section{Uncertainty in medicine}
 
-\yoav{
+%\yoav{
 
-Deep learning  is based on {\em supervised learning}, sometimes
-called {\em input-output} learning~\cite{ng2016artificial,topol2019deep}.
-Under this fomulation the only quantity of interest is the error on a
-held-out or test set.
+  Deep learning is a special case of {\em supervised learning} (see
+  inset), sometimes called {\em input-output}
+  learning~\cite{ng2016artificial,topol2019deep}.
+  \ML{Supervised Learning and ground truth}{Roughly speaking, machine
+    learning (ML) can be divided into {\em unsupervised} learning and
+    {\em supervised} learning. In both, the task of the learning
+    algorith is transform a set of {\em examples} into a {\em
+      model}. In unsupervised learning the examples are
+    undifferentiated raw measurements. In {\em supervised} learning,
+    which is the focus of this article, each example consists of an
+    {\em input} and a {\em label}. Typically, the labels are provided
+    by a human expert. These labels define the {\em ground truth} and
+    the goal of the learning algorithm is to make predictions that
+    diverge as little as possible from the ground truth.}
+  Under this fomulation the only quantity of interest is the error on
+  a held-out or test set.
 
-Medical diagnostics is very different from supervised learning. It is
+  Medical diagnostics cannot be described as an input-output
+  mapping. This is evident studies of {\em inter-rater agreement} (see
+  inset). In studies of this kind multiple doctors produce diagnostics
+  based identical medical information. 
+\ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
+
+  
+
+
+
+  very different from supervised learning. It is
 a {\em process} of eliminating possibilities
 until the set of possibilities is sufficiently narrow so that
 treatment can be chosen. \sout{The ground truth, as in the ``correct
@@ -218,7 +221,7 @@ notion of uncertainty. It needs to correctly classify the easiest cases
 and out ``I don't know'' on the hardest cases. Before describing how
 this might be achieved, lets consider some of the many sources of
 uncertainty in medical diagnostics.
-}
+
 \iffalse
 and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
 
@@ -271,13 +274,10 @@ However, Patient monitors suffer from signal quality issues and tend to generate
   limits the development of a more quantitative protocol
   \cite{venhola2003interobserver}, and different protocols might be needed for different situations.}
   
-  \yoav{can we add some specific $\kappa$ values related to specific diagnostics?}
-  
     
   %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
 }
 
-  \ML{Quantification of inter-rater agreement rate}{A common measurement of inter-rater reliability (or intra-rater reliability) for categorical quantities is the Cohen's kappa coefficient, usually denoted as $\kappa$. Compared with the percent agreement calculation, it considers the possible agreement occurring by chance. Specifically, while the percent agreement, denoted as $0\leq a\leq 1$ is defined as the percent agreement among raters, the Cohen's kappa is defined as the ratio of $a-c$ and $1-c$, where $0\leq c\leq 1$ is the agreement occurring by chance. Clearly, the largest $\kappa$ is $1$, which means a complete agreement among raters, even under the possibility of agreement by chance. If the agreement is totally by chance, that is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than agreement by chance, then $\kappa$ can be negative. An interpretation of $\kappa$ recommended by Cohen \cite{mchugh2012interrater}  is that when $\kappa\leq 0$, there is no agreement, when $0< \kappa\leq 0.20$ as none to slight agreement, $0.2<\kappa\leq 0.40$ as fair agreement, $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$ as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect agreement. However, depending on scenarios, the meaning of agreement might be different.}
  
 
   \Medicine{knowledge gap}{ 

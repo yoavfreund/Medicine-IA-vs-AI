@@ -170,12 +170,12 @@ a retrospective study that is based on patients for whom a biopsy was
 taken is likely to over-represent malignant patients. Suppose an
 image-based classifier is trained using this data. If the classifier
 is applied to skin images of undiagnosed patients it is likely to
-over-diagnose them as melignant. In practice, the result would be that
-more patients thean necessary will be biopsied.
+over-diagnose them as malignant. In practice, the result would be that
+more patients than necessary will be biopsied.
 \ML{Arrhythmia detection using Deep Neural Networks}{One of the
   papers that provided evidence that deep neural networks might be
   able to outperform humans is the work of Esteva et
-  al~\cite{esteva2017dermatologist}. They trained a Deep neural
+  al~\cite{esteva2017dermatologist}. They trained a deep neural
   network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
   the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
   the trained DNN XXX.}
@@ -189,7 +189,7 @@ opinions of human diagnosticians.
   Deep learning is a special case of {\em supervised learning} (see
   inset), sometimes called {\em input-output}
   learning~\cite{ng2016artificial,topol2019deep}.
-  Under this fomulation the only quantity of interest is the error on
+  Under this formulation the only quantity of interest is the error on
   a held-out or test set.
 
   Medical diagnostics cannot be described as an input-output
@@ -289,7 +289,7 @@ which the uncertainty in medicine is non-negligible.
 }
 \newpage
   \Medicine{Protocol limitation}{
-  \yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}
+  \sout{\yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}}
   {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.}
   
   
@@ -317,7 +317,7 @@ which the uncertainty in medicine is non-negligible.
 \newpage
 
    \Medicine{knowledge gap}{ 
-  \yoav{is this an example of uncertainty because of knowledge gap? Wouldn't it be better to use something better known such as Covid-19?}
+  \sout{\yoav{is this an example of uncertainty because of knowledge gap? Wouldn't it be better to use something better known such as Covid-19?}}
   Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
 %  
   The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 
@@ -326,7 +326,7 @@ which the uncertainty in medicine is non-negligible.
   inter-rater disagreement
   \cite{venhola2003interobserver,dudley2018interrater}.
   
-  {\color{blue}Another example is the famous pandemic, COVID-19 \cite{sohrabi2020world}. Back in Jan 2020, when it was first reported in China, nobody had a clue how it will generate damage to human body, not to mention how to treat a patient. All medical practices, ranging from diagnosis to treatment to vaccine were all made based on experience. For example, the quinine and remdesivir were considered potential for hospitalized patients. A lot of data could be collected, but there is a huge gap between the data and what's going on. Knowledge was quickly accumulated in the past few months. For example, we know more about hydroxychloroquine, remdesivir, and many other candidate drugs; see, for example \cite{sanders2020pharmacologic,goldman2020remdesivir}. However, due to the lack of knowledge, even if there exist some protocols, for example \cite{world2020population,world2020protocol,nakajima2020covid,awad2020perioperative} and several others, there are still many white and unknown details in the overall medical practice.} 
+  {\color{blue}Another example is the ongoing pandemic, COVID-19 \cite{sohrabi2020world}, while this article is prepared. Back in Jan 2020, when it was first reported in China, nobody had a clue how it will generate damage to human body, not to mention how to treat a patient. All medical practices, ranging from diagnosis to treatment to vaccine were all made based on experience. For example, the quinine and remdesivir were considered potential for hospitalized patients. A lot of data could be collected, but there is a huge gap between the data and what's going on. Knowledge was quickly accumulated in the past few months. For example, we know more about hydroxychloroquine, remdesivir, and many other candidate drugs; see, for example \cite{sanders2020pharmacologic,goldman2020remdesivir}. However, due to the lack of knowledge, even if there exist some protocols, for example \cite{world2020population,world2020protocol,nakajima2020covid,awad2020perioperative} and several others, there are still many white and unknown details in the overall medical practice.} 
   }
 
 \newpage
@@ -498,28 +498,28 @@ so that it supports an alternative label.
   attention of the doctor{\color{blue}, but also put patients in risk}.
 
   Some of the digitization of the medicine has come between patients
-  and doctors.  \sout{The need to record all activities into the EMR system requires
-  doctors to spend more time at the keyboard, reducing the amount of
-  time of physical examination an discussion}. \hautieng{I guess I know what you want to say, but to be safe, I'll do the edit here after we chat.} We believe that IA can
+  and doctors. {\color{blue}A common impression from the learning perspective is that physicians need to record more activities and hence reduce the amount of time on interacting with patients. However, we} %\sout{The need to record all activities into the EMR system requires doctors to spend more time at the keyboard, reducing the amount of time of physical examination an discussion}. \hautieng{I guess I know what you want to say, but to be safe, I'll do the edit here after we chat.} 
+  believe that {\color{blue}a properly designed } IA {\color{blue}that knows IDK} can
   move medicine in the opposite direction, letting the computer make
   the common noncontroversial diagnostics and giving the patient more
   time to interact with the patient.
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[width=3in]{figures/RedYellowGreen2.pdf}
+\includegraphics[trim=0 100 0 200,clip,width=7in]{figures/RedYellowGreen2.pdf}
+\caption{An illustration of how an alarm system works as a radar system. The red and green pentagons indicate the danger and safe region of five indices. A set of indices inside the green pentagon is safe (shown as a green light). If any index is outside the red pentagon, the patient is surely in danger (shown as a red light). However, if any index is outside the green pentagon but inside the red pentagon, the patient is in a ``gray zone'', or marginal situation, the system might not be able to decide the situation, and will report IDK (shown as a yellow light).\label{Figure IDK light}}
 \end{center}
 \end{figure}
 
   For IA technology to be widely adopted, the nurses and doctors that
-  use them should experience an improvement in their practice {\color{blue}with the IA system}. Suppose
+  use them should experience an improvement in their practice {\color{blue}with the IA system. One example of such system is}
   that the display of the diagnostics computer uses a three color code
-  to identify {\color{blue}the pre-defined status. For example,} green indicates a confident
+  to identify {\color{blue}the pre-defined status. In this system,} green indicates a confident
   negative diagnostic, red corresponds to a confident positive
-  diagnosis. Finally, yellow corresponds to IDK, meaning that the
-  computer cannot confirm or reject the diagnostic outcome.
+  diagnosis, and yellow corresponds to IDK, meaning that the
+  computer cannot confirm or reject the diagnostic outcome. {\color{blue}See Figure \ref{Figure IDK light} for an illustration of such a system with a radar display. The thresholds that define these three ranges depend on our knowledge, and the data uncertainty and protocol issues should be taken into account. With the IA system with IDK, healthcare providers could focus their time on patients overall situation, communication for life plan, or other interactions, and intervene the medical diagnostics when the IA system says IDK.}
 
-  The thresholds which define the three ranges .... \hautieng{discuss.}
+%  The thresholds which define the three ranges .... \hautieng{discuss.}
 
 
   
@@ -535,7 +535,7 @@ so that it supports an alternative label.
   resolution of the images on the one hand, and the time limitation on
   the analyst on the other imply that the analyst has to quickly
   narrow down the suspicious region, increase the chance of missing
-  dangerous abonormalities.
+  dangerous abnormalities.
 
   IA can help the pathologist by suggesting locations in the high
   resolution image that might contain cancer nodules~\cite{}.
@@ -543,13 +543,19 @@ so that it supports an alternative label.
   directing her attention to the
   parts of the image that are 
 
-\item{\bf Adaptive Patient montors}
+\item{\bf Adaptive Patient monitors}
+
+{\color{blue}Alarm fatigue is a well known issue medical providers encounter when working with patient monitors. It is frequently named as a threat to patient safety \cite{sendelbach2013alarm,ruskin2015alarm}, and a lot of research has been carried out toward this problem \cite{cvach2012monitor,paine2016systematic,bai2016sequence,hu2019algorithm}. By further accumulating knowledge, reducing data uncertainty, and improving protocol, it is expected that the gray zone a well developed IA system has is small, and the alarm fatigue issue is alleviated since it only makes an alarm when it runs into IDK. There are many other aspects such an IA system equipped with IDK could help. Since the system knows IDK, it knows what is affirmative. When a medical decision made by a physician falls in the affirmative area, the IA system could help doubly confirm if the decision has any risk not considered by the physician. Such alarm, when sufficiently accurate, could help improve patient risk and healthcare quality. Eventually, this IA system could be evolved into a second opinion provider to healthcare providers. 
+}
+
+
   
 \item {\bf Dissemination of expertise}
-Computers, trained by experts, can help novices.  Serves a function
-similar to score-cards.
 
-Teaching young diagnostics
+Computers, trained by experts, can help novices. {\color{blue}A well-trained IA system equipped with IDK can provide confirmed answers to inexperienced physicians, and} serve a function
+similar to score-cards{\color{blue}. Moreover, it can be applied to areas with scarce health resource. The system can provide local healthcare providers knowledge they do not know, and be connected back to physicians with richer medical knowledge when it runs into IDK.
+On the high level, eventually, we can view an IA system with IDK as a medical specialist full of knowledge and do not make mistake when it knows the answer. When it encounters IDK, it will not hide it. The feedback from experienced physicians, or newly developed knowledge, could be input to decrease the gray areas, and reduce the chance of encountering IDK. Such system in the beginning behaves like an intern doctor, and teaching it is like}
+teaching young diagnostics. {\color{blue}Due to the brain capacity and physical limitation, it is impossible for a single physician to know everything in every field, and it is possible that even a very experienced physician could make a mistake. Such a well trained IA system can eventually serve as a reliable second opinion provider to experienced physicians.}
 \end{itemize}
 
 \section{Summary}

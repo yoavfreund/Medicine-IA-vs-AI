@@ -52,90 +52,62 @@
 
 %\thispagestyle{firststyle}
 
-Digital technology is causing a sea-change in Medicine.
-In particular the meteoric rise of AI in general and deep
-learning in particular raises the possibility that doctors will be
-replaced computers~\cite{Mukherjee2017}. The father of deep learning,
-Geoff Hinton, said in 2017: ``It's just completely obvious that in
-ten years deep learning is going to do better than Radiologists
-... They should stop training radiologists now''.
+The meteoric rise of AI and Deep learning raises the possibility that
+doctors will be replaced computers~\cite{Mukherjee2017}. Geoff Hinton,
+a famous deep learning researcher said in 2017: ``It's just completely
+obvious that in ten years deep learning is going to do better than
+Radiologists ... They should stop training radiologists now''.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Org{Artificial Intelligence and Intelligence Augmentation}{
-The driving question of AI is: ``are machines capable of behaving in a
-way that is indistinguishable by humans''. Achieving this goal implies
-that humans can be {\em replaced} by machines. 
+The predictions of Sebastian
+Thrun~\cite{Mukherjee2017,esteva2017dermatologist}, another leader in
+machine learning, are less disruptive: ``... deep learning devices
+will not replace dermatologists and radiologists. They will {\em
+  augment} professionals, offering the expertise and assistance''. In
+this article we argue for Thrun's prediction and explain why
+augmentation, rather than replacement, is the approach more likely to
+prevail.
 
-Using computers to {\em augment} humans rather replace them is
-both tantalizing and utterly mundane. On the heady side, consider
-cyborgs whose anatomy is part human, part artificial and can with
-equal ease solve complex equations or write poetry. On the mundane
-side, ubiquitous technologies such as the smart phone and google search
-are ways in which our capabilities are augmented by computers. 
- 
-The idea of using computers to augment or amplify human intelligence
-has a very long history. The acronyms AI (Artificial intelligence) and
-IA (Intelligence Amplification or Intelligence Augmentation) have both
-become popular in the early
-1960's\cite{ashby1957introduction,engelbart1962augmenting}. These
-days, the acronym AI is popular, while the acronym IA is not. However,
-Sebastian Thrun's statement indicates that the idea of Intelligence
-augmentation is still on some people's mind.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{AIIABox} The question of whether dermatologists will be
+replaced by computers or be empowered by computers is but a recent
+incarnation of a debate between AI (Artificial Intelligence) and IA
+(Intelligence amplification) which has a long history (see inset). To
+distinguish between AI and IA we use the terms ``AI agent'' vs. ``IA
+sidekick''. This terminology contrasts {\em agents}, which are endowed
+with {\em agency} and can take {\em actions} that effect the patient's
+health, with {\em sidekicks} which can provide advice and suggestions,
+but who are not allowed to take action.
 
-Sebastian thrun~\cite{Mukherjee2017,esteva2017dermatologist}, another
-authority in deep learning gives a more nuanced perspective, and argues
-that ``... deep learning devices will not replace dermatologists and
-radiologists. They will {\em augment} professionals, offering the
-expertise and assistance''. Artificial Intelligence (AI) and
-Intelligence Augmentation (IA) have been competing ideologies for
-decades. (see inset) Currently, AI is much more in Vogue IA.  We
-present an argument that, in high risk domains, and in particular in
-medicine, IA is the better approach.
+Replacing dermatologists with AI agents can bring cost savings,
+but is likely to lead to inferior care. One of the reasons is that it
+is hard for AI to make a human connection with the patient and thereby
+take into consideration personal, social, financial and mental factors.
 
-Our approach is based on the observation that the level of attention
-paid to a patient varies greatly. At the high end, a patient in
-surgery or in the Intensive Care Unit (ICU) has the full attention of
-several doctors and nurses. At the low end, a middle class elderly
-person living at home might be visited by a nurse once a week or even less.
+On the other hand, IA powered sidekicks IA can help the medical staff
+detect and diagnose medical problems quickly, efficiently,
+accurately. This can lead to cost savings, especially for homebound
+patients suffering from chronic diseases.
 
-Rather than using AI to replace doctors or nurses, we suggest that IA can free
-the staff from simple and repetitive tasks and allow them to devote
-their time to more complex decisions and to prsonal interaction with
-the patient.
-
-\ML{Skin cancer diagnosis using Deep Neural Networks}{One of the
-  papers that provided evidence that deep neural networks might be
-  able to outperform humans is the work of Esteva et
-  al~\cite{esteva2017dermatologist}. They trained a Deep neural
-  network to classify images of skin into three categories: benign,
-  malignant and non-cancerous. The network was then tested, along with
-  twenty five dermatologists on images which were labeled by a
-  pathologist analysis of the biopsy. The neural network outperformed
-  the human dermatologist. This is, without a doubt, an impressive
-  finding. However, it is based on a retrospective analysis, in other
-  words, an analysis of historical data. To predict the performance of
-  the DNN when used in a dermatology practice we need to how a
-  dermatologist, or any other diagnosticians, arrives at their final
-  diagnostics.}  
 Central to our approach is a quantification of {\em prediction confidence}. Such
-quantification is needed so that a patient monitor can sound an alarm
-when a patient is having a heart attack, but create only few false
-alarms. Similarly, it is needed when a diagnostics assistant can
-eliminate some diagnostic possibilities but not all of them.
-We equate low prediction confidence with saying ``I don't know'' (IDK). The
-interaction between the IA agent and the doctor is based on this
-ability. When diagnosis is done by elimination, saying ``I don't
-know'' the agent can narrow the set of possible diagnosis without
-reducing it to a single diagnosis. It is then the doctor to decide how
-to proceed, whether to perform more tests, or whether to choose a treatment.
+quantification is needed to avoid premature diagnostic conclusions,
+and to decide which additional tests or consultations might be
+needed. Consider a doctor that is asked a yes-or-no question to which
+she does not know the answer. A humble doctor might answer ``I don't
+know'' (IDK), while an overly confident might answer ``yes'' or ``no''
+based on insufficient evidence. As a consequence, the humble doctor
+would perform additional tests, ask an experts etc. while the overly
+confident doctor might choose a treatment plan based on their poorly
+supportedd answer.
 
-%The rest of the article is organized as follows. In
-%Section~\ref{sec:ground-truth}
+We suggest that the AI agent is similar to the overly-confident
+doctor, while the IA sidekick is similar to the humble doctor.
+
+In the next sections we discuss the maifestations of 
+uncertainty, or IDK, in AI, machine learning and medicine.
 
 \section{Ground truth, train and test error}
 \label{sec:ground-truth}
 
+\input{SkinCancer}
 In a highly cited paper in the journal
 Science~\cite{esteva2017dermatologist} provides evidence supporting
 the claim that computers can diagnose skin cancer as well or better than board

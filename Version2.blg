@@ -6,46 +6,47 @@ Database file #1: medbib.bib
 Warning--I didn't find a database entry for "sanders2020pharmacologic"
 Warning--I didn't find a database entry for ""
 Warning--empty journal in ashby1957introduction
+Warning--there's a number but no volume in licklider1960man
 Warning--empty journal in brief2019top
-You've used 31 entries,
+You've used 40 entries,
             2481 wiz_defined-function locations,
-            736 strings with 10636 characters,
-and the built_in function-call counts, 11633 in all, are:
-= -- 897
-> -- 723
-< -- 16
-+ -- 281
-- -- 218
-* -- 926
-:= -- 1965
-add.period$ -- 95
-call.type$ -- 31
-change.case$ -- 59
-chr.to.int$ -- 30
-cite$ -- 33
-duplicate$ -- 577
-empty$ -- 1017
-format.name$ -- 253
-if$ -- 2390
+            791 strings with 12660 characters,
+and the built_in function-call counts, 15505 in all, are:
+= -- 1205
+> -- 978
+< -- 21
++ -- 377
+- -- 296
+* -- 1272
+:= -- 2612
+add.period$ -- 123
+call.type$ -- 40
+change.case$ -- 78
+chr.to.int$ -- 39
+cite$ -- 43
+duplicate$ -- 743
+empty$ -- 1339
+format.name$ -- 344
+if$ -- 3176
 int.to.chr$ -- 2
-int.to.str$ -- 32
-missing$ -- 34
-newline$ -- 165
-num.names$ -- 93
-pop$ -- 256
+int.to.str$ -- 41
+missing$ -- 42
+newline$ -- 211
+num.names$ -- 120
+pop$ -- 318
 preamble$ -- 1
-purify$ -- 31
+purify$ -- 40
 quote$ -- 0
-skip$ -- 323
+skip$ -- 416
 stack$ -- 0
-substring$ -- 420
-swap$ -- 66
+substring$ -- 629
+swap$ -- 83
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 202
-warning$ -- 2
-while$ -- 93
+type$ -- 265
+warning$ -- 3
+while$ -- 127
 width$ -- 0
-write$ -- 401
-(There were 4 warnings)
+write$ -- 520
+(There were 5 warnings)

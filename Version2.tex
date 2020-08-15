@@ -87,53 +87,58 @@ detect and diagnose medical problems quickly, efficiently,
 accurately. This can lead to cost savings, especially for homebound
 patients suffering from chronic diseases.
 
-Central to our approach is a quantification of {\em prediction confidence}. Such
-quantification is needed to avoid premature diagnostic conclusions,
-and to decide which additional tests or consultations might be
-needed. Consider a doctor that is asked a yes-or-no question to which
-she does not know the answer. A humble doctor might answer ``I don't
-know'' (IDK), while an overly confident might answer ``yes'' or ``no''
-based on insufficient evidence. As a consequence, the humble doctor
-would perform additional tests, ask an experts etc. while the overly
-confident doctor might choose a treatment plan based on their poorly
-supportedd answer.
+Central to our approach is a quantification of {\em prediction
+  confidence}. Such quantification is needed to avoid premature
+diagnostic conclusions, and to decide which additional tests or
+consultations might be needed. Consider a doctor that is asked asked
+to diagnose a patient with complex or conflicting symptoms. A careful
+doctor will admit their uncertainty and perform additional tests or
+ask a specialist. A less careful, overly self confident doctor is
+likely give an incorrect diagnosis and choose an ineffective or even damaging
+treatment plan.
 
-We suggest that the AI agent is similar to the overly-confident
-doctor, while the IA sidekick is similar to the humble doctor.
+An AI agent, trained to be better than the human doctor, might end up
+behaving like an overly confident doctor. An IA sidekick, aware of
+it's own limitations, will give advice only when the evidence is
+strong and otherwise say ``I don't know''.
 
-In the next sections we discuss the maifestations of 
-uncertainty, or IDK, in AI, machine learning and medicine.
+In the following sections we explore these ideas in more detail. We
+start with a critique of one of the papers that claims that AI agents
+can outpeform human diagnosticians.
 
 \section{Ground truth, train and test error}
 \label{sec:ground-truth}
 
+Deep learning is a special case of {\em supervised learning} (see
+inset), sometimes called {\em input-output}
+learning~\cite{ng2016artificial,topol2019deep}.
+\input{Supervised}
+The data for supervised learning consists of a large collection
+(input,output) pairs. For medical diagnosis, the inputs is medical
+information for the patient (Heart rate, blood tests, X-ray images
+etc.) and the output is the diagnosis. This output is considered the
+``ground-truth'' and is assumed to represent the undisputed truth.
+
+Here lies the the first difficulty with applying supervised learning
+to medical diagnosis. In most real-world scenarios the diagnosis
+does not correspond to an objectively measurable fact, rather, it
+represents the conclusion drawn by a human diagnostician. We  will
+return to this issue in the following section.
+
+The other important assumption made in supervised learning is that the
+generated classifier is tested using the same distribution of examples
+as that of the training set.
+
+We now consider a study in deep neural networks which claims to show
+that DNNs can perform diagnostics as well as, or better, than human diagnosticians. 
 \input{SkinCancer}
 In a highly cited paper in the journal
 Science~\cite{esteva2017dermatologist} provides evidence supporting
 the claim that computers can diagnose skin cancer as well or better than board
 certified dermatologists.
-Not surprisingly, each dermatologist gave a different diagnosis.  As
-the goal was to to compare the performance of the DNN to that of the
-dermatologists they needed a independent source of {\em ground truth}.
-To that end they used the diagnosis of a biopsy as ground truth. It is
-arguable that this label is more accurate than the one given by the
-dermatologist, even though it too depends on the human judgement of the
-pathologist.
-\ML{Supervised Learning and ground truth}{Roughly speaking, machine
-  learning (ML) can be divided into {\em unsupervised} learning and
-  {\em supervised} learning. In both, the task of the learning
-  algorith is transform a set of {\em examples} into a {\em model}. In
-  unsupervised learning the examples are undifferentiated raw
-  measurements. In {\em supervised} learning, which is the focus of
-  this article, each example consists of an {\em input} and a {\em
-    label}. Typically, the labels are provided by a human
-  expert. These labels define the {\em ground truth} and the goal of
-  the learning algorithm is to make predictions that diverge as little
-  as possible from the ground truth.}
 
-Leaving aside the question of the reliability of the
-pathologists. There is another, more fundamental problem with this
-experimental setup. The data in the experiment was {\em
+A fundamental problem with the experiment is in the way the data was
+collected. The data used in the experiment was {\em
   retrospective}, i.e. it was collected from the records of past
 patients for which both a skin image and a biopsy were
 available. Normally, patients get biopsied only if the dermatologist
@@ -157,12 +162,6 @@ usually not available, all that we have to go on are the
 opinions of human diagnosticians.
 
 \section{Uncertainty in medicine}
-
-  Deep learning is a special case of {\em supervised learning} (see
-  inset), sometimes called {\em input-output}
-  learning~\cite{ng2016artificial,topol2019deep}.
-  Under this formulation the only quantity of interest is the error on
-  a held-out or test set.
 
   Medical diagnostics cannot be described as an input-output
   mapping. This is evident studies of {\em inter-rater agreement} (see

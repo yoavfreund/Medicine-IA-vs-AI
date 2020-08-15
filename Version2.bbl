@@ -1,4 +1,4 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{40}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -10,16 +10,6 @@ Siddhartha Mukherjee.
 \newblock A.i. versus m.d.: What happens when diagnosis is automated?
 \newblock \emph{The New Yorker}, April 2017.
 
-\bibitem[Ashby(1957)]{ashby1957introduction}
-W~Ross Ashby.
-\newblock An introduction to cybernetics.
-\newblock 1957.
-
-\bibitem[Engelbart(1962)]{engelbart1962augmenting}
-Douglas~C Engelbart.
-\newblock Augmenting human intellect: A conceptual framework.
-\newblock \emph{Menlo Park, CA}, 1962.
-
 \bibitem[Esteva et~al.(2017)Esteva, Kuprel, Novoa, Ko, Swetter, Blau, and
   Thrun]{esteva2017dermatologist}
 Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
@@ -27,6 +17,29 @@ Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
 \newblock Dermatologist-level classification of skin cancer with deep neural
   networks.
 \newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, 2017.
+
+\bibitem[Turing(1951)]{turing1951can}
+AM~Turing.
+\newblock Can digital computers think? typescript with annotations of a talk
+  broadcast on bbc third programme, 15 may.
+\newblock Technical report, AMT/B/5. In [39]. URL: http://www. turingarchive.
+  org/browse. php/B/5, 1951.
+
+\bibitem[Ashby(1957)]{ashby1957introduction}
+W~Ross Ashby.
+\newblock An introduction to cybernetics.
+\newblock 1957.
+
+\bibitem[Licklider(1960)]{licklider1960man}
+Joseph~CR Licklider.
+\newblock Man-computer symbiosis.
+\newblock \emph{IRE transactions on human factors in electronics}, \penalty0
+  (1):\penalty0 4--11, 1960.
+
+\bibitem[Engelbart(1962)]{engelbart1962augmenting}
+Douglas~C Engelbart.
+\newblock Augmenting human intellect: A conceptual framework.
+\newblock \emph{Menlo Park, CA}, 1962.
 
 \bibitem[Ng(2016)]{ng2016artificial}
 Andrew Ng.
@@ -45,25 +58,28 @@ Mary~L McHugh.
 \newblock \emph{Biochemia medica: Biochemia medica}, 22\penalty0 (3):\penalty0
   276--282, 2012.
 
+\bibitem[Mehta et~al.(2011)Mehta, Granton, Lapinsky, Newton, Bandayrel, Little,
+  Siau, Cook, Ayers, Singer, et~al.]{mehta2011agreement}
+Sangeeta Mehta, John Granton, Stephen~E Lapinsky, Gary Newton, Kristofer
+  Bandayrel, Anjuli Little, Chuin Siau, Deborah~J Cook, Dieter Ayers, Joel
+  Singer, et~al.
+\newblock Agreement in electrocardiogram interpretation in patients with septic
+  shock.
+\newblock \emph{Critical care medicine}, 39\penalty0 (9):\penalty0 2080--2086,
+  2011.
+
+\bibitem[Atiya et~al.(2003)Atiya, Kurth, Berger, Buring, and
+  Kase]{atiya2003interobserver}
+Monika Atiya, Tobias Kurth, Klaus Berger, Julie~E Buring, and Carlos~S Kase.
+\newblock Interobserver agreement in the classification of stroke in the
+  women’s health study.
+\newblock \emph{Stroke}, 34\penalty0 (2):\penalty0 565--567, 2003.
+
 \bibitem[Islam et~al.(2016)Islam, Rastegarnia, and Yang]{islam2016methods}
 Md~Kafiul Islam, Amir Rastegarnia, and Zhi Yang.
 \newblock Methods for artifact detection and removal from scalp eeg: A review.
 \newblock \emph{Neurophysiologie Clinique/Clinical Neurophysiology},
   46\penalty0 (4-5):\penalty0 287--305, 2016.
-
-\bibitem[Cvach(2012)]{cvach2012monitor}
-Maria Cvach.
-\newblock Monitor alarm fatigue: an integrative review.
-\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
-  (4):\penalty0 268--277, 2012.
-
-\bibitem[BRIEF(2020)]{brief2019top}
-EXECUTIVE BRIEF.
-\newblock Top 10 health technology hazards for 2020.
-\newblock 2020.
-\newblock URL
-  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
-\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
 
 \bibitem[Goldberger et~al.(2017)Goldberger, Goldberger, and
   Shvilkin]{goldberger2017clinical}
@@ -84,6 +100,20 @@ Krisjanis Nesenbergs.
   systems.
 \newblock \emph{IEEE Instrumentation \& Measurement Magazine}, 19\penalty0
   (5):\penalty0 36--64, 2016.
+
+\bibitem[Cvach(2012)]{cvach2012monitor}
+Maria Cvach.
+\newblock Monitor alarm fatigue: an integrative review.
+\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
+  (4):\penalty0 268--277, 2012.
+
+\bibitem[BRIEF(2020)]{brief2019top}
+EXECUTIVE BRIEF.
+\newblock Top 10 health technology hazards for 2020.
+\newblock 2020.
+\newblock URL
+  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
+\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
 
 \bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
 C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
@@ -213,5 +243,42 @@ Jonathan~S Vordermark~II.
 \newblock \emph{An Introduction to Medical Decision-Making: Practical Insights
   and Approaches}.
 \newblock Springer Nature, 2019.
+
+\bibitem[Sendelbach and Funk(2013)]{sendelbach2013alarm}
+Sue Sendelbach and Marjorie Funk.
+\newblock Alarm fatigue: a patient safety concern.
+\newblock \emph{AACN advanced critical care}, 24\penalty0 (4):\penalty0
+  378--386, 2013.
+
+\bibitem[Ruskin and Hueske-Kraus(2015)]{ruskin2015alarm}
+Keith~J Ruskin and Dirk Hueske-Kraus.
+\newblock Alarm fatigue: impacts on patient safety.
+\newblock \emph{Current Opinion in Anesthesiology}, 28\penalty0 (6):\penalty0
+  685--690, 2015.
+
+\bibitem[Paine et~al.(2016)Paine, Goel, Ely, Stave, Stemler, Zander, and
+  Bonafide]{paine2016systematic}
+Christine~Weirich Paine, Veena~V Goel, Elizabeth Ely, Christopher~D Stave,
+  Shannon Stemler, Miriam Zander, and Christopher~P Bonafide.
+\newblock Systematic review of physiologic monitor alarm characteristics and
+  pragmatic interventions to reduce alarm frequency.
+\newblock \emph{Journal of hospital medicine}, 11\penalty0 (2):\penalty0
+  136--144, 2016.
+
+\bibitem[Bai et~al.(2016)Bai, Do, Ding, Palacios, Shahriari, Pelter, Boyle,
+  Fidler, and Hu]{bai2016sequence}
+Yong Bai, Duc Do, Quan Ding, Jorge~Arroyo Palacios, Yalda Shahriari, Michele~M
+  Pelter, Noel Boyle, Richard Fidler, and Xiao Hu.
+\newblock Is the sequence of superalarm triggers more predictive than sequence
+  of the currently utilized patient monitor alarms?
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 64\penalty0
+  (5):\penalty0 1023--1032, 2016.
+\newblock a new alarm system called superalarm to avoid alarm fatigue.
+
+\bibitem[Hu(2019)]{hu2019algorithm}
+Xiao Hu.
+\newblock An algorithm strategy for precise patient monitoring in a connected
+  healthcare enterprise.
+\newblock \emph{NPJ digital medicine}, 2\penalty0 (1):\penalty0 1--5, 2019.
 
 \end{thebibliography}

@@ -106,7 +106,7 @@ In the following sections we explore these ideas in more detail. We
 start with a critique of one of the papers that claims that AI agents
 can outpeform human diagnosticians.
 
-\section{Ground truth, train and test error}
+\section{Supervised Learning and the Ground Truth}
 \label{sec:ground-truth}
 
 Deep learning is a special case of {\em supervised learning} (see
@@ -121,9 +121,9 @@ etc.) and the output is the diagnosis. This output is considered the
 
 Here lies the the first difficulty with applying supervised learning
 to medical diagnosis. In most real-world scenarios the diagnosis
-does not correspond to an objectively measurable fact, rather, it
-represents the conclusion drawn by a human diagnostician. We  will
-return to this issue in the following section.
+does is not an objectively measurable fact, rather, it
+represents the conclusion drawn by a fallible human diagnostician. We  will
+return to this issue in the next section.
 
 The other important assumption made in supervised learning is that the
 generated classifier is tested using the same distribution of examples
@@ -138,69 +138,47 @@ the claim that computers can diagnose skin cancer as well or better than board
 certified dermatologists.
 
 A fundamental problem with the experiment is in the way the data was
-collected. The data used in the experiment was {\em
-  retrospective}, i.e. it was collected from the records of past
-patients for which both a skin image and a biopsy were
-available. Normally, patients get biopsied only if the dermatologist
-thinks there is a significant chance of {\bf malignancy}. As a result,
-a retrospective study that is based on patients for whom a biopsy was
-taken is likely to over-represent malignant patients. Suppose an
-image-based classifier is trained using this data. If the classifier
-is applied to skin images of undiagnosed patients it is likely to
-over-diagnose them as malignant. In practice, the result would be that
-more patients than necessary will be biopsied.
-\ML{Arrhythmia detection using Deep Neural Networks}{One of the
-  papers that provided evidence that deep neural networks might be
-  able to outperform humans is the work of Esteva et
-  al~\cite{esteva2017dermatologist}. They trained a deep neural
-  network to classify electrocardiogram (ECG) into 12 rhythm classes. The network was then tested, along XXX. The neural network outperformed
-  the human cardiologists. This result is impressive. This work is also based on a retrospective analysis. To predict the performance of
-  the trained DNN XXX.}
+collected. The data used in the experiment was {\em retrospective},
+i.e. it was collected from the records of past patients for which both
+a skin image and a biopsy were available. Normally, patients get
+biopsied only if the dermatologist thinks there is a significant
+chance of {\bf malignancy}. As a result, a retrospective study that is
+based on patients for whom a biopsy was taken is likely to
+over-represent malignant patients and therefor be biased. If an image-based classifier
+is trained on the biased data, its performance on unbiased test data
+is likely to be worse. Specifically, when the classifier is applied to skin
+images of undiagnosed patients it is likely to over-diagnose them as
+malignant. The practical implication would be that more patients than
+necessary will be biopsied.
+%\input{Arrhythmia}
 
-As we elaborate on in the next section, in medical 
-usually not available, all that we have to go on are the
-opinions of human diagnosticians.
+As we elaborate on in the next section, in medical diagnostics the
+ground truth is usually not available, all that we have to go on are
+the opinions of human diagnosticians.
 
 \section{Uncertainty in medicine}
 
-  Medical diagnostics cannot be described as an input-output
-  mapping. This is evident studies of {\em inter-rater agreement} (see
-  inset). In studies of this kind multiple doctors produce diagnostics
-  based identical medical information.
+For the most part, it is hard to associate ground truth with medical
+diagnostics.  This is evident studies of {\em inter-rater agreement} (see
+inset). In studies of this kind multiple doctors produce diagnostics
+based identical medical information.
+\input{InterRaterAgreement}
 
-When a patient arrives at a clinique for the first time, all diagnostics are
-possible. After a {\color{blue}series of tests and} physical exams and talking with the patient, many
+In fact, diagnostics is an iterative process in which the uncertainty
+is reduced over time. To illustrate this, consider the diagnostics of
+a patient that is treated in an out-patient clinique..  When a patient
+arrives at a clinique for the first time, all diagnostics are
+possible. After a physical exam and an interview with a doctor, , many
 possibilities are eliminated. In {\em simple} cases, this is enough
-for the doctor to confidently choose a treatment. In increasingly more complex
-cases, the doctor might ask for multiple tests and visits, refer the
-patient to a specialist, consult colleagues, journals and books
-etc. In most cases this process of narrowing will lead to a treatment
-plan. Ideally, followup visits and tests will confirm that the patient
-is recovering. In most cases, all that we can know about the patient
-is whether or not they recovered. This is a far cry from knowing what
-was their correct diagnostics when they first came in the door.
-  \Medicine{Inter-rater agreement}{A common
-    measurement of inter-rater reliability (or intra-rater
-    reliability) for categorical quantities is the Cohen's kappa
-    coefficient, usually denoted as $\kappa$. Compared with the
-    percent agreement calculation, it considers the possible agreement
-    occurring by chance. Specifically, while the percent agreement,
-    denoted as $0\leq a\leq 1$ is defined as the percent agreement
-    among raters, the Cohen's kappa is defined as the ratio of $a-c$
-    and $1-c$, where $0\leq c\leq 1$ is the agreement occurring byq
-    chance. Clearly, the largest $\kappa$ is $1$, which means a
-    complete agreement among raters, even under the possibility of
-    agreement by chance. If the agreement is totally by chance, that
-    is, $c=a$, then $\kappa$ is $0$. If the agreement is worse than
-    agreement by chance, then $\kappa$ can be negative. An
-    interpretation of $\kappa$ recommended by Cohen
-    \cite{mchugh2012interrater} is that when $\kappa\leq 0$, there is
-    no agreement, when $0< \kappa\leq 0.20$ as none to slight
-    agreement, $0.2<\kappa\leq 0.40$ as fair agreement,
-    $0.4<\kappa\leq 0.60$ as moderate agreement, $0.6<\kappa\leq 0.80$
-    as substantial agreement, and $0.8<\kappa\leq 1.00$ as perfect
-    agreement. However, depending on scenarios, the meaning of
-    agreement might be different.}
+for the doctor to confidently choose a treatment. In more
+complex cases, the doctor might ask for multiple tests and visits,
+refer the patient to a specialist, consult colleagues, journals and
+books etc. In most cases this process of narrowing will lead to a
+treatment plan. Follow-up visits and tests will confirm that
+the patient is recovering. In most cases, all that we can know about
+the patient is whether or not they recovered. This is a far cry from
+knowing what was their correct diagnostics when they first came in the
+door.
 
 For the digital doctor to be effective, it should incorporate this
 notion of uncertainty. It needs to correctly classify the easiest cases

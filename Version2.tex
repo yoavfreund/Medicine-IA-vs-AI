@@ -159,34 +159,48 @@ the opinions of human diagnosticians.
 \section{Uncertainty in medicine}
 
 For the most part, it is hard to associate ground truth with medical
-diagnostics.  This is evident studies of {\em inter-rater agreement} (see
+diagnostics. This is evident studies of {\em inter-rater agreement} (see
 inset). In studies of this kind multiple doctors produce diagnostics
-based identical medical information.
+based identical medical information without communicating with each other. 
 \input{InterRaterAgreement}
 
-In fact, diagnostics is an iterative process in which the uncertainty
-is reduced over time. To illustrate this, consider the diagnostics of
-a patient that is treated in an out-patient clinique..  When a patient
-arrives at a clinique for the first time, all diagnostics are
-possible. After a physical exam and an interview with a doctor, , many
-possibilities are eliminated. In {\em simple} cases, this is enough
-for the doctor to confidently choose a treatment. In more
-complex cases, the doctor might ask for multiple tests and visits,
-refer the patient to a specialist, consult colleagues, journals and
-books etc. In most cases this process of narrowing will lead to a
-treatment plan. Follow-up visits and tests will confirm that
-the patient is recovering. In most cases, all that we can know about
-the patient is whether or not they recovered. This is a far cry from
-knowing what was their correct diagnostics when they first came in the
-door.
+In addition, diagnosis is not an input-output mapping. Rather, it
+is an iterative process which reduces uncertainty over time. To
+illustrate this, consider the diagnostics of a patient that is treated
+in an out-patient clinique..  When a patient arrives at a clinique for
+the first time, all diagnostics are possible. After a physical exam
+and an interview with a doctor, , many possibilities are
+eliminated. In {\em simple} cases, this is enough for the doctor to
+confidently choose a treatment. In more complex cases, the doctor
+might ask for multiple tests and visits, refer the patient to a
+specialist, consult colleagues, journals and books etc. To choose a
+treatment plan, the set of possible diagnostics has to be reduced
+however, it does not have to be reduced to a {\em single} diagnostics,
+as multiple diagnostics might share a treatment plan.
 
-For the digital doctor to be effective, it should incorporate this
-notion of uncertainty. It needs to correctly classify the easiest cases
-and output ``I don't know'' on the hardest cases. Before describing how
-this might be achieved, lets consider some of the many sources of
-uncertainty in medical diagnostics.
+In order to apply a supervised learning method, such as  DNN, to the
+diagnostic problem, we need to define a ground-truth label for each
+patient. But that is easier said than done. As the final output of the
+diagnostic process is a treatement plan, we would like to know what is
+the best treatment plan. Unfortunately, we can only use a single
+treatment plan to treat the patient, so the most that we might be able
+to infer is whether the chosen treatment was effective.  Even if the
+patient improved, the cause might have been unrelated to the
+treatment. It might be due to a change in diet or reduction in stress.
+Moreover, in most cases, there are few or none followup visits and as
+a result there is no data as to whether the patient has a lasting
+improvement in health.
 
-%and we elaborate data calibration/validation limitation, protocol limitation, and knowledge gap that are directly related to the intelligent system development. 
+For these reasons, we propose a different formulation of the
+problem. Rather than predicting the {\em ``correct''}
+diagnosis we predict the distribution of diagnosis across the doctors.
+This distribution represents the confidence of the prediction. In
+other words, if we predict the doctors to be unanimous, we assign to
+the prediction a high level of confidence. If, on the other hand, we
+predict that there will be as many diagnoses as there are doctors,
+then our prediction is useless. It is akin to saying ``I don't know''.
+
+\yoav{worked up to here}
 
 It is certainly expected that physicians can achieve a reliable
 decision making, probably with sufficient clinical information

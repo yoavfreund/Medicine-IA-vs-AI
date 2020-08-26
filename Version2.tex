@@ -181,7 +181,7 @@ as multiple diagnostics might share a treatment plan.
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostic problem, we need to define a ground-truth label for each
 patient. But that is easier said than done. As the final output of the
-diagnostic process is a treatement plan, we would like to know what is
+diagnostic process is a treatment plan, we would like to know what is
 the best treatment plan. Unfortunately, we can only use a single
 treatment plan to treat the patient, so the most that we might be able
 to infer is whether the chosen treatment was effective.  Even if the
@@ -237,11 +237,11 @@ Knowledge gap bla bla
 \input{KnowledgeGap}
 
 \newpage
-
 Another factor that impacts the accuracy and consistency of the
 diagnosis is the uniformity of criteria across doctors and institutions
 \input{ProtocolLimitations}
 
+\newpage
 bla bla
 \input{AlarmFatigue}
 
@@ -409,12 +409,12 @@ so that it supports an alternative label.
   the common noncontroversial diagnostics and giving the patient more
   time to interact with the patient.
 
-\begin{figure}[h]
-\begin{center}
-\includegraphics[trim=0 100 0 200,clip,width=7in]{figures/RedYellowGreen2.pdf}
-\caption{An illustration of how an alarm system works as a radar system. The red and green pentagons indicate the danger and safe region of five indices. A set of indices inside the green pentagon is safe (shown as a green light). If any index is outside the red pentagon, the patient is surely in danger (shown as a red light). However, if any index is outside the green pentagon but inside the red pentagon, the patient is in a ``gray zone'', or marginal situation, the system might not be able to decide the situation, and will report IDK (shown as a yellow light).\label{Figure IDK light}}
-\end{center}
-\end{figure}
+%\begin{figure}[h]
+%\begin{center}
+%\includegraphics[trim=0 100 0 200,clip,width=7in]{figures/RedYellowGreen2.pdf}
+%\caption{An illustration of how an alarm system works as a radar system. The red and green pentagons indicate the danger and safe region of five indices. A set of indices inside the green pentagon is safe (shown as a green light). If any index is outside the red pentagon, the patient is surely in danger (shown as a red light). However, if any index is outside the green pentagon but inside the red pentagon, the patient is in a ``gray zone'', or marginal situation, the system might not be able to decide the situation, and will report IDK (shown as a yellow light).\label{Figure IDK light}}
+%\end{center}
+%\end{figure}
 
   For IA technology to be widely adopted, the nurses and doctors that
   use them should experience an improvement in their practice {\color{blue}with the IA system. One example of such system is}
@@ -422,7 +422,8 @@ so that it supports an alternative label.
   to identify {\color{blue}the pre-defined status. In this system,} green indicates a confident
   negative diagnostic, red corresponds to a confident positive
   diagnosis, and yellow corresponds to IDK, meaning that the
-  computer cannot confirm or reject the diagnostic outcome. {\color{blue}See Figure \ref{Figure IDK light} for an illustration of such a system with a radar display. The thresholds that define these three ranges depend on our knowledge, and the data uncertainty and protocol issues should be taken into account. With the IA system with IDK, healthcare providers could focus their time on patients overall situation, communication for life plan, or other interactions, and intervene the medical diagnostics when the IA system says IDK.}
+  computer cannot confirm or reject the diagnostic outcome. {\color{blue}%See Figure \ref{Figure IDK light} for an illustration of such a system with a radar display. The thresholds that define these three ranges depend on our knowledge, and the data uncertainty and protocol issues should be taken into account. 
+  With the IA system with IDK, healthcare providers could focus their time on patients overall situation, communication for life plan, or other interactions, and intervene the medical diagnostics when the IA system says IDK.}
 
 %  The thresholds which define the three ranges .... \hautieng{discuss.}
 

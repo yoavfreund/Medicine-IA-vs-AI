@@ -23,13 +23,11 @@
 \affil[1]{UCSD, Computer Science, San Diego, 92093, United States}
 \affil[2]{Duke, department, city, postcode, country}
 
-\title{At times the digital Doctor should admit\\ "I don't know"}
+\title{You should prefer a digital Doctor that can say\\ "I don't know"}
 
 \input{macros}
 
 \begin{abstract}
-
-  %Silly change
 
   The meteoric rise of AI in general and Deep Learning in particular
   is generating great excitement throughout academia and commerce, and
@@ -193,16 +191,21 @@ Moreover, in most cases, there are few or none followup visits and as
 a result there is no data as to whether the patient has a lasting
 improvement in health.
 
-For these reasons, we propose a different formulation of the
-problem. Rather than predicting the {\em ``correct''}
-diagnosis we predict the distribution of diagnosis across the doctors.
-This distribution represents the confidence of the prediction. In
-other words, if we predict the doctors to be unanimous, we assign to
-the prediction a high level of confidence. If, on the other hand, we
-predict that there will be as many diagnoses as there are doctors,
-then our prediction is useless. It is akin to saying ``I don't know''.
-
-\yoav{worked up to here}
+We suggest a different goal for automatic diagnosis.
+Rather than predicting the {\em ``correct''}
+diagnosis we define the goal of the computer to be predicting the {\em
+  distribution} of diagnosis across doctors. In addition, we allow
+doctors to be uncertain of their own diagnosis.
+The distribution of doctors predictions represents their confidence as
+a group. In other words, by predicting that all doctors will agree on
+the diagnosis, we assign high confidence to that diagnosis. 
+If, on the other hand, we
+predict that doctors will give one (or both) of two diagnoses A and B, then
+our prediction is akin to saying ``we are confident that the prediction
+is either A or B, to know which one we will need additional
+tests''. This accurately represents our current state in the
+diagnostic process and is more useful than deciding on one diagnostic
+with insufficient evidence.
 
 It is certainly expected that physicians can achieve a reliable
 decision making, probably with sufficient clinical information
@@ -210,101 +213,51 @@ decision making, probably with sufficient clinical information
 \cite{atiya2003interobserver}. However, in many cases, the quality of
 decision making might be jeopardized due to various reasons, among
 which the uncertainty in medicine is non-negligible.
+\yoav{I find the previous paragraph unclear and confusing, We should
+  talk about it}
 
-  %For example, the inter-rater agreement rate of identifying ventricular premature contractions from a 12 leads electrocardiogram is high among well-trained cardiologists, but it will be lower if only a single lead electrocardiogram is available in the ambulatory environment.
+%Medical uncertainty as manifest by low inter-rater agreement consequence,
+%can be found in many clinical problems
+There are many causes for uncertainty in medical diagnosis. We briefly
+describe four categories of problems: {\em signal quality}, {\em knowledge gap}, the limitations of {\em
+  diagnostic protocols} and {\em alarm fatigue}.
 
 
-\Medicine{Uncertainty due to signal quality}{Medical devices use a
-  variety of bio-sensors that record, display and distribute different
-  biometric signals, ranging from vital signs such as heart rate,
-  oxygen saturation, temperature and blood pressure, to high-frequency
-  waveforms such as ECG, EEG, respiratory signal and arterial blood
-  pressure. High frequency signals suffer from artifacts and other
-  signal quality problems, some of which depend on the patient. In
-  some cases, these problems can be handled by the human
-  diagnostician. In other cases such as {\color{red}artifact removal of EEG is
-    still an active research problem~\cite{islam2016methods}}.
+By {\bf Signal Quality} we refer to the quality of the raw data
+collected for medical diagnosis. Some diagnostic measures, such
+as heart rate, blood pressure and temperature can be measured reliably
+and accurately. On the other hand, modern
+devices such as EKG, EEG, camera images, X-ray, ultra-sound and EMR
+produce vast and highly variable data. The quality of this data
+depends on may factors among them, the quality of the instruments, the
+consistency of the human operator, the build of the patient etc.
+\input{SignalQuality}
 
-  Another common source of signal quality issue is how
-    the sensor is placed. While there have been several standards,
-    ranging from the well-known ECG systems
-    \cite{goldberger2017clinical} and {\color{blue}international 10–20
-      EEG systems} \cite{Klem1999TheTE} to recently smart clothing
-    system for telemedicine \cite{nesenbergs2016architecture}, it is
-    not always possible to achieve a precise sensor placement for
-    biomedical signal collection due to various reasons. This
-    uncertainty might be tolerable for some clinical applications; for
-    example, an imprecise ECG sensor placement might not impact the
-    identification of some types of arrhythmia from the ECG signal,
-    like atrial fibrillation. However, this uncertainty might cause
-    troubles in other applications; {\color{blue}for example, an
-      imprecise placement of the deep brain stimulation lead inside
-      subthalamic nucleus might downgrade the Parkinson disease
-      treatment outcome.}}
-\newpage
-\Medicine{Alarm fatigue}{ Patient monitors are bedside medical devices
-  that monitor patients that are at risk but currently stable, freeing
-  the medical staff to attend to the patients whose status is
-  critical.  Unfortunately, Patient monitors suffer from signal
-  quality issues and tend to generate false alarms at a high
-  rate. Over time, this can result in the staff not responding to
-  alarms, potentially resulting in great damage to the patient. This
-  phenomenon, called {\em alarm fatigue} (or alarm overload) is a
-  major problem in hospital care \cite{cvach2012monitor,brief2019top}.
-}
-\newpage
-  \Medicine{Protocol limitation}{
-  \sout{\yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}}
-  {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.}
-  
-  
-  The American Academy of Sleep
-    Medicine (AASM) publishes criteria for manual sleep stage
-    and
-    sleep apnea annotation from the gold standard sleep study instrument, the polysomnogram (PSG). This annotation is based on manual analysis
-    of biosignals recorded from the PSG \cite{Iber2007,berry2012aasm}. The AASM is a protocol that has been extensively applied, with rigorous scientific support, and updated regularly according to latest evidences. 
-    %
-    A detail sleep profile is critical for sleep quality enhancement, or even medical condition improvement.
-    %
-    However, it is well known that even with the well established protocol, the inter-rater agreement rate of sleep stage annotation among experienced experts, {\color{blue}in terms of percentage of epoch-by-epoch agreement, is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea, while the Cohen's kappa is 65\% over normal subjects and about 59\% over subjects with sleep apnea}  \cite{norman2000interobserver}. Among many reasons, the one that is directly related to the intelligent system development is how the criteria are ``described'' in the protocol. For example, it is described in the protocol that if the delta wave occupies more than 20\% of a given 30-second epoch of the electroencephalogram during sleep, that 30-second epoch is defined to be the N3 stage. 20\% of a given 30-second epoch is 6 seconds. What about if the delta wave occupies 5.99-, or 6.01-seconds? What about if the delta wave sustains for 10 seconds, but it is divided into two consecutive 30-second epochs? When sitting on the ``gray area'' that is inherited from 
-  the protocol, sleep experts need to make a
-  decision based on their experience or the information
-  they have at hand, and this leads to medical uncertainties, and hence the inter-rater, or even intra-rater disagreement.  
-  
-  {\color{blue}Another protocol limitation is the}
-  ``extrapolation error''; that is, when we apply the developed
-  protocol to the population different from the population that we
-  collect the evidence for the protocol \cite{brosnan2015modest}. {\color{blue}Such extrapolation error usually comes from the variability among subjects. If such variability is big, it
-  limits the development of a more quantitative protocol
-  \cite{venhola2003interobserver}, and different protocols might be
-  needed for different situations.}
-}
-\newpage
-
-   \Medicine{knowledge gap}{ 
-  \sout{\yoav{is this an example of uncertainty because of knowledge gap? Wouldn't it be better to use something better known such as Covid-19?}}
-  Urodynamic studies provide the best bladder and sphincter functional data for urologists to decide how to treat patients at risk for renal damage \cite{abrams2003describing}.  While it has been extensively studied and applied in clinics, the main issue that plagues this field of urodynamics is the lack of precise definition of a detrusor contraction or overactive contraction \cite{abrams2003describing}.
-%  
-  The lack of a well defined definition is due to the lack of quantitative study from the pathophysiological perspective, so the definition is still based on ``expert opinion''. For example, usually an overactive contraction represents itself as a ``bump'' in the detrusor pressure signal. However, what is the breath and height of a bump should we call it an overactive contraction? How to distinguish a true overactive contraction from an artifact? While there have been several reference information, like abdominal pressure, that could help us identify artifacts, but it can only explain a small portion of them. 
-%
-  Unsurprisingly, this fundamental issue has led to a significant
-  inter-rater disagreement
-  \cite{venhola2003interobserver,dudley2018interrater}.
-  
-  {\color{blue}Another example is the ongoing pandemic, COVID-19 \cite{sohrabi2020world}, while this article is prepared. Back in Jan 2020, when it was first reported in China, nobody had a clue how it will generate damage to human body, not to mention how to treat a patient. All medical practices, ranging from diagnosis to treatment to vaccine were all made based on experience. For example, the quinine and remdesivir were considered potential for hospitalized patients. A lot of data could be collected, but there is a huge gap between the data and what's going on. Knowledge was quickly accumulated in the past few months. For example, we know more about hydroxychloroquine, remdesivir, and many other candidate drugs; see, for example \cite{sanders2020pharmacologic,goldman2020remdesivir}. However, due to the lack of knowledge, even if there exist some protocols, for example \cite{world2020population,world2020protocol,nakajima2020covid,awad2020perioperative} and several others, there are still many white and unknown details in the overall medical practice.} 
-  }
+Knowledge gap bla bla
+\input{KnowledgeGap}
 
 \newpage
-  Medical uncertainty as manifest low inter-rater agreement
-  consequence, can be found in many clinical problems (see blocks on
-  ...) {\color{blue}Besides the above-mentioned reasons, there are more. For example,} in some situations, when the needed
-  information is missing, it is challenging to make a differential
-  diagnosis \cite{moncada2011reading}. 
-  {\color{blue}Despite the variety of reasons, the key message here is that medical uncertainty is a non-negligible fact in medicine.} 
 
-  A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable. 
-%  
-It is clear that such intelligent system is questionable and might raise concerns. Recently, various regulations in this regard have been proposed \cite{price2014black,ford2016privacy}.
+Another factor that impacts the accuracy and consistency of the
+diagnosis is the uniformity of criteria across doctors and institutions
+\input{ProtocolLimitations}
+
+bla bla
+\input{AlarmFatigue}
+
+
+% {\color{blue}Besides the above-mentioned reasons, there are more. For
+%   example,} in some situations, when the needed information is
+% missing, it is challenging to make a differential diagnosis
+% \cite{moncada2011reading}.  {\color{blue}Despite the variety of
+%   reasons, the key message here is that medical uncertainty is a
+%   non-negligible fact in medicine.}
+
+%   A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable.
+   
+It is clear that such intelligent system is questionable and might
+raise concerns. Recently, various regulations in this regard have been
+proposed \cite{price2014black,ford2016privacy}.
 
 
 Now, suppose we are able to eliminate all challenges from data
@@ -319,19 +272,6 @@ physicians under consideration, the agreement rate varies. Usually,
 intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\Medicine{Inter-Rater agreement}{
-  A direct consequence of this low inter-rater agreement is a
-  questionable trained ``artificial intelligence''. It is possible
-  that we magically obtain a dataset that contains information that is
-  sufficient for the decision making, while the information is too
-  subtle so that it is not considered in the protocol, and we also
-  magically obtain labels from a magical master that can see though
-  all the information and provide the correct decision. However, by
-  doing a simple math, we shall not count on such a magic and should
-  come back to the protocol itself.
-}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection*{Managing uncertainty in medicine}
 Medical diagnosis is often uncertain or inconclusive. On the other

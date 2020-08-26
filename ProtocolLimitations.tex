@@ -1,0 +1,26 @@
+  \Medicine{Protocol limitation}{
+  \sout{\yoav{For readers that are not MD, we should explain what are protocols, how they are generated, and whether all or some of their functionality ca be taken over by a computer. Also, I would put "extrapolation error" in here}}
+  {\color{blue}According to NCI dictionaries, protocol means a detailed plan of a scientific or medical experiment, treatment, or procedure. \url{https://www.cancer.gov/publications/dictionaries/cancer-terms/def/protocol}. In clinics, it is a document that guides decision making, including criteria regarding diagnosis, management, and treatment. It exists in different areas of healthcare with different formats. In a loose sense, it could be understood as an algorithm solving a given mathematics problem. However, unlike the relationship between an algorithm and a mathematics problem, a medical protocol might not cover every situation and provide all possible solutions, and have several limitations.}
+  
+  
+  The American Academy of Sleep
+    Medicine (AASM) publishes criteria for manual sleep stage
+    and
+    sleep apnea annotation from the gold standard sleep study instrument, the polysomnogram (PSG). This annotation is based on manual analysis
+    of biosignals recorded from the PSG \cite{Iber2007,berry2012aasm}. The AASM is a protocol that has been extensively applied, with rigorous scientific support, and updated regularly according to latest evidences. 
+    %
+    A detail sleep profile is critical for sleep quality enhancement, or even medical condition improvement.
+    %
+    However, it is well known that even with the well established protocol, the inter-rater agreement rate of sleep stage annotation among experienced experts, {\color{blue}in terms of percentage of epoch-by-epoch agreement, is only about 76\% over normal subjects and about 71\% over subjects with sleep apnea, while the Cohen's kappa is 65\% over normal subjects and about 59\% over subjects with sleep apnea}  \cite{norman2000interobserver}. Among many reasons, the one that is directly related to the intelligent system development is how the criteria are ``described'' in the protocol. For example, it is described in the protocol that if the delta wave occupies more than 20\% of a given 30-second epoch of the electroencephalogram during sleep, that 30-second epoch is defined to be the N3 stage. 20\% of a given 30-second epoch is 6 seconds. What about if the delta wave occupies 5.99-, or 6.01-seconds? What about if the delta wave sustains for 10 seconds, but it is divided into two consecutive 30-second epochs? When sitting on the ``gray area'' that is inherited from 
+  the protocol, sleep experts need to make a
+  decision based on their experience or the information
+  they have at hand, and this leads to medical uncertainties, and hence the inter-rater, or even intra-rater disagreement.  
+  
+  {\color{blue}Another protocol limitation is the}
+  ``extrapolation error''; that is, when we apply the developed
+  protocol to the population different from the population that we
+  collect the evidence for the protocol \cite{brosnan2015modest}. {\color{blue}Such extrapolation error usually comes from the variability among subjects. If such variability is big, it
+  limits the development of a more quantitative protocol
+  \cite{venhola2003interobserver}, and different protocols might be
+  needed for different situations.}
+}

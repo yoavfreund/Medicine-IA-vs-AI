@@ -21,7 +21,7 @@
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
 \affil[1]{UCSD, Computer Science, San Diego, 92093, United States}
-\affil[2]{Duke, department, city, postcode, country}
+\affil[2]{Duke, Mathematics and Statistical Science, Durham, 27708, USA}
 
 \title{You should prefer a digital Doctor that can say\\ "I don't know"}
 
@@ -150,7 +150,6 @@ is likely to be worse. Specifically, when the classifier is applied to skin
 images of undiagnosed patients it is likely to over-diagnose them as
 malignant. The practical implication would be that more patients than
 necessary will be biopsied.
-%\input{Arrhythmia}
 
 As we elaborate on in the next section, in medical diagnostics the
 ground truth is usually not available, all that we have to go on are
@@ -161,7 +160,8 @@ the opinions of human diagnosticians.
 For the most part, it is hard to associate ground truth with medical
 diagnostics. This is evident studies of {\em inter-rater agreement} (see
 inset). In studies of this kind multiple doctors produce diagnostics
-based identical medical information without communicating with each other. 
+based identical medical information without communicating with each other. \input{Arrhythmia}
+
 \input{InterRaterAgreement}
 
 In addition, diagnosis is not an input-output mapping. Rather, it
@@ -171,7 +171,7 @@ in an out-patient clinique..  When a patient arrives at a clinique for
 the first time, all diagnostics are possible. After a physical exam
 and an interview with a doctor, , many possibilities are
 eliminated. In {\em simple} cases, this is enough for the doctor to
-confidently chooabelse a treatment. In more complex cases, the doctor
+confidently choose a treatment. In more complex cases, the doctor
 might ask for multiple tests and visits, refer the patient to a
 specialist, consult colleagues, journals and books etc. To choose a
 treatment plan, the set of possible diagnostics has to be reduced
@@ -207,6 +207,8 @@ tests''. This accurately represents our current state in the
 diagnostic process and is more useful than deciding on one diagnostic
 with insufficient evidence.
 
+
+\iffalse
 It is certainly expected that physicians can achieve a reliable
 decision making, probably with sufficient clinical information
 \cite{mehta2011agreement} or if only the major information is needed
@@ -215,6 +217,7 @@ decision making might be jeopardized due to various reasons, among
 which the uncertainty in medicine is non-negligible.
 \yoav{I find the previous paragraph unclear and confusing, We should
   talk about it}
+\fi
 
 %Medical uncertainty as manifest by low inter-rater agreement consequence,
 %can be found in many clinical problems
@@ -451,7 +454,7 @@ so that it supports an alternative label.
 
 \item{\bf Adaptive Patient monitors}
 
-{\color{blue}Alarm fatigue is a well known issue medical providers encounter when working with patient monitors. It is frequently named as a threat to patient safety \cite{sendelbach2013alarm,ruskin2015alarm}, and a lot of research has been carried out toward this problem \cite{cvach2012monitor,paine2016systematic,bai2016sequence,hu2019algorithm}. By further accumulating knowledge, reducing data uncertainty, and improving protocol, it is expected that the gray zone a well developed IA system has is small, and the alarm fatigue issue is alleviated since it only makes an alarm when it runs into IDK. There are many other aspects such an IA system equipped with IDK could help. Since the system knows IDK, it knows what is affirmative. When a medical decision made by a physician falls in the affirmative area, the IA system could help doubly confirm if the decision has any risk not considered by the physician. Such alarm, when sufficiently accurate, could help improve patient risk and healthcare quality. Eventually, this IA system could be evolved into a second opinion provider to healthcare providers. 
+{\color{blue} By further accumulating knowledge, reducing data uncertainty, and improving protocol, it is expected that the gray zone a well developed IA system has is small, and the alarm fatigue issue is alleviated since it only makes an alarm when it runs into IDK. There are many other aspects such an IA system equipped with IDK could help. Since the system knows IDK, it knows what is affirmative. When a medical decision made by a physician falls in the affirmative area, the IA system could help doubly confirm if the decision has any risk not considered by the physician. Such alarm, when sufficiently accurate, could help improve patient risk and healthcare quality. Eventually, this IA system could be evolved into a second opinion provider to healthcare providers. 
 }
 
 

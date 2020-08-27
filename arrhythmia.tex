@@ -1,9 +1,13 @@
 \ML{Arrhythmia detection using Deep
   Neural Networks}{One of the papers that provided evidence that deep
   neural networks might be able to outperform humans is the work of
-  Esteva et al~\cite{}. They trained a deep
-  neural network to classify electrocardiogram (ECG) into 12 rhythm
-  classes. The network was then tested, along XXX. The neural network
-  outperformed the human cardiologists. This result is
-  impressive. This work is also based on a retrospective analysis. To
-  predict the performance of the trained DNN XXX.}
+  Hannun et al~\cite{hannun2019cardiologist}. They trained a deep
+  neural network to classify single-lead electrocardiogram (ECG) into 12 rhythm
+  classes, including ten arrhythmias, normal sinus rhythm and noise. In this study, the authors prepared a homemade database consisting of single-channel ECG, and this database is much larger than the publicly available database. 
+  %
+  While it is not an easy job to identify different types of arrhythmias from a single-channel ECG signal, even for experienced cardiologists, the cardiologist consensus committee was formed to achieve a gold standard label.
+  %
+  With gold standard labels determined by a cardiologist consensus meeting, the authors showed that the DNN outperforms 6 board-certificated cardiologists outside the committee. This result is
+  impressive. The authors showed the potential of DNN in learning the unified consensus labels and emphasized the weakness of cardiologists when reading the single-channel ECG signal. 
+  %
+  However, the system is assuming that the consensus committee could correctly decide all arrhythmias from the single-channel ECG, instead of saying IDK. }

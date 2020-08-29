@@ -1,4 +1,4 @@
-\begin{thebibliography}{40}
+\begin{thebibliography}{42}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -52,28 +52,27 @@ Eric Topol.
   human again}.
 \newblock Hachette UK, 2019.
 
+\bibitem[Hannun et~al.(2019)Hannun, Rajpurkar, Haghpanahi, Tison, Bourn,
+  Turakhia, and Ng]{hannun2019cardiologist}
+Awni~Y Hannun, Pranav Rajpurkar, Masoumeh Haghpanahi, Geoffrey~H Tison, Codie
+  Bourn, Mintu~P Turakhia, and Andrew~Y Ng.
+\newblock Cardiologist-level arrhythmia detection and classification in
+  ambulatory electrocardiograms using a deep neural network.
+\newblock \emph{Nature medicine}, 25\penalty0 (1):\penalty0 65, 2019.
+
 \bibitem[McHugh(2012)]{mchugh2012interrater}
 Mary~L McHugh.
 \newblock Interrater reliability: the kappa statistic.
 \newblock \emph{Biochemia medica: Biochemia medica}, 22\penalty0 (3):\penalty0
   276--282, 2012.
 
-\bibitem[Mehta et~al.(2011)Mehta, Granton, Lapinsky, Newton, Bandayrel, Little,
-  Siau, Cook, Ayers, Singer, et~al.]{mehta2011agreement}
-Sangeeta Mehta, John Granton, Stephen~E Lapinsky, Gary Newton, Kristofer
-  Bandayrel, Anjuli Little, Chuin Siau, Deborah~J Cook, Dieter Ayers, Joel
-  Singer, et~al.
-\newblock Agreement in electrocardiogram interpretation in patients with septic
-  shock.
-\newblock \emph{Critical care medicine}, 39\penalty0 (9):\penalty0 2080--2086,
-  2011.
-
-\bibitem[Atiya et~al.(2003)Atiya, Kurth, Berger, Buring, and
-  Kase]{atiya2003interobserver}
-Monika Atiya, Tobias Kurth, Klaus Berger, Julie~E Buring, and Carlos~S Kase.
-\newblock Interobserver agreement in the classification of stroke in the
-  women’s health study.
-\newblock \emph{Stroke}, 34\penalty0 (2):\penalty0 565--567, 2003.
+\bibitem[Norman et~al.(2000)Norman, Pal, Stewart, Walsleben, and
+  Rapoport]{norman2000interobserver}
+Robert~G Norman, Ivan Pal, Chip Stewart, Joyce~A Walsleben, and David~M
+  Rapoport.
+\newblock Interobserver agreement among sleep scorers from different centers in
+  a large dataset.
+\newblock \emph{Sleep}, 23\penalty0 (7):\penalty0 901--908, 2000.
 
 \bibitem[Islam et~al.(2016)Islam, Rastegarnia, and Yang]{islam2016methods}
 Md~Kafiul Islam, Amir Rastegarnia, and Zhi Yang.
@@ -101,73 +100,6 @@ Krisjanis Nesenbergs.
 \newblock \emph{IEEE Instrumentation \& Measurement Magazine}, 19\penalty0
   (5):\penalty0 36--64, 2016.
 
-\bibitem[Cvach(2012)]{cvach2012monitor}
-Maria Cvach.
-\newblock Monitor alarm fatigue: an integrative review.
-\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
-  (4):\penalty0 268--277, 2012.
-
-\bibitem[BRIEF(2020)]{brief2019top}
-EXECUTIVE BRIEF.
-\newblock Top 10 health technology hazards for 2020.
-\newblock 2020.
-\newblock URL
-  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
-\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
-
-\bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
-C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
-\newblock \emph{The {AASM} Manual for Scoring of Sleep and Associated
-  Events-Rules: Terminology and Technical Specification}.
-\newblock American Academy of Sleep Medicine, 2007.
-
-\bibitem[Berry et~al.(2012)Berry, Budhiraja, and {et al.}]{berry2012aasm}
-R.~B. Berry, D.~G. Budhiraja, and {et al.}
-\newblock Rules for scoring respiratory events in sleep: update of the 2007
-  {AASM} manual for the scoring of sleep and associated events.
-\newblock \emph{J Clin Sleep Med}, 8\penalty0 (5):\penalty0 597--619, 2012.
-
-\bibitem[Norman et~al.(2000)Norman, Pal, Stewart, Walsleben, and
-  Rapoport]{norman2000interobserver}
-Robert~G Norman, Ivan Pal, Chip Stewart, Joyce~A Walsleben, and David~M
-  Rapoport.
-\newblock Interobserver agreement among sleep scorers from different centers in
-  a large dataset.
-\newblock \emph{Sleep}, 23\penalty0 (7):\penalty0 901--908, 2000.
-
-\bibitem[Brosnan et~al.(2015)Brosnan, La~Gerche, Kumar, Lo, Kalman, and
-  Prior]{brosnan2015modest}
-Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
-  David Prior.
-\newblock Modest agreement in ecg interpretation limits the application of ecg
-  screening in young athletes.
-\newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
-
-\bibitem[Venhola et~al.(2003)Venhola, Reunanen, Taskinen, Lahdes-Vasama, and
-  Uhari]{venhola2003interobserver}
-Mika Venhola, Mikko Reunanen, Seppo Taskinen, Tuija Lahdes-Vasama, and Matti
-  Uhari.
-\newblock Interobserver and intra-observer agreement in interpreting urodynamic
-  measurements in children.
-\newblock \emph{The Journal of urology}, 169\penalty0 (6):\penalty0 2344--2346,
-  2003.
-
-\bibitem[Abrams(2003)]{abrams2003describing}
-Paul Abrams.
-\newblock Describing bladder storage function: overactive bladder syndrome and
-  detrusor overactivity.
-\newblock \emph{Urology}, 62\penalty0 (5):\penalty0 28--37, 2003.
-
-\bibitem[Dudley et~al.(2018)Dudley, Adams, Brock~III, Clayton, Joseph, Koh,
-  Merguerian, Pope~IV, Routh, Thomas, et~al.]{dudley2018interrater}
-Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
-  Joseph, Chester~J Koh, Paul~A Merguerian, John~C Pope~IV, Jonathan~C Routh,
-  John~C Thomas, et~al.
-\newblock Interrater reliability in interpretation of neuropathic pediatric
-  urodynamic tracings: an expanded multicenter study.
-\newblock \emph{The Journal of urology}, 199\penalty0 (5):\penalty0 1337--1343,
-  2018.
-
 \bibitem[Sohrabi et~al.(2020)Sohrabi, Alsafi, O’Neill, Khan, Kerwan,
   Al-Jabir, Iosifidis, and Agha]{sohrabi2020world}
 Catrin Sohrabi, Zaid Alsafi, Niamh O’Neill, Mehdi Khan, Ahmed Kerwan, Ahmed
@@ -175,6 +107,13 @@ Catrin Sohrabi, Zaid Alsafi, Niamh O’Neill, Mehdi Khan, Ahmed Kerwan, Ahmed
 \newblock World health organization declares global emergency: A review of the
   2019 novel coronavirus (covid-19).
 \newblock \emph{International Journal of Surgery}, 2020.
+
+\bibitem[Sanders et~al.(2020)Sanders, Monogue, Jodlowski, and
+  Cutrell]{sanders2020pharmacologic}
+James~M Sanders, Marguerite~L Monogue, Tomasz~Z Jodlowski, and James~B Cutrell.
+\newblock Pharmacologic treatments for coronavirus disease 2019 (covid-19): a
+  review.
+\newblock \emph{Jama}, 323\penalty0 (18):\penalty0 1824--1836, 2020.
 
 \bibitem[Goldman et~al.(2020)Goldman, Lye, Hui, Marks, Bruno, Montejano,
   Spinner, Galli, Ahn, Nahass, et~al.]{goldman2020remdesivir}
@@ -214,35 +153,87 @@ Mohamed~E Awad, Jacob~CL Rumley, Jose~A Vazquez, and John~G Devine.
 \newblock \emph{JAAOS-Journal of the American Academy of Orthopaedic Surgeons},
   28\penalty0 (11):\penalty0 451--463, 2020.
 
-\bibitem[Moncada et~al.(2011)Moncada, Rueda, Mac{\'\i}as, Su{\'a}rez, Ortega,
-  and V{\'e}lez]{moncada2011reading}
-Diana~Carolina Moncada, Zulma~Vanessa Rueda, Antonio Mac{\'\i}as, Tatiana
-  Su{\'a}rez, H{\'e}ctor Ortega, and L{\'a}zaro~Agust{\'\i}n V{\'e}lez.
-\newblock Reading and interpretation of chest x-ray in adults with
-  community-acquired pneumonia.
-\newblock \emph{The Brazilian Journal of Infectious Diseases}, 15\penalty0
-  (6):\penalty0 540--546, 2011.
+\bibitem[Perez and Webster(1992)]{perez1992history}
+Luis~M Perez and George~D Webster.
+\newblock The history of urodynamics.
+\newblock \emph{Neurourology and Urodynamics}, 11\penalty0 (1):\penalty0 1--21,
+  1992.
 
-\bibitem[Price and Nicholson(2014)]{price2014black}
-W~Price and II~Nicholson.
-\newblock Black-box medicine.
-\newblock \emph{Harv. JL \& Tech.}, 28:\penalty0 419, 2014.
+\bibitem[Abrams(2003)]{abrams2003describing}
+Paul Abrams.
+\newblock Describing bladder storage function: overactive bladder syndrome and
+  detrusor overactivity.
+\newblock \emph{Urology}, 62\penalty0 (5):\penalty0 28--37, 2003.
 
-\bibitem[Ford et~al.(2016)Ford, Price, and Nicholson]{ford2016privacy}
-Roger~Allan Ford, W~Price, and II~Nicholson.
-\newblock Privacy and accountability in black-box medicine.
-\newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
+\bibitem[Bauer et~al.(2015)Bauer, Nijman, Drzewiecki, Sillen, and
+  Hoebeke]{bauer2015international}
+Stuart~B Bauer, Rien~JM Nijman, Beth~A Drzewiecki, Ulla Sillen, and Piet
+  Hoebeke.
+\newblock International children's continence society standardization report on
+  urodynamic studies of the lower urinary tract in children.
+\newblock \emph{Neurourology and urodynamics}, 34\penalty0 (7):\penalty0
+  640--647, 2015.
 
-\bibitem[Kahneman(2011)]{kahneman2011thinking}
-Daniel Kahneman.
-\newblock \emph{Thinking, fast and slow}.
-\newblock Macmillan, 2011.
+\bibitem[Drake et~al.(2018)Drake, Doumouchtsis, Hashim, and
+  Gammie]{drake2018fundamentals}
+Marcus~J Drake, Stergios~K Doumouchtsis, Hashim Hashim, and Andrew Gammie.
+\newblock Fundamentals of urodynamic practice, based on international
+  continence society good urodynamic practices recommendations.
+\newblock \emph{Neurourology and Urodynamics}, 37\penalty0 (S6):\penalty0
+  S50--S60, 2018.
 
-\bibitem[Vordermark~II(2019)]{vordermark2019introduction}
-Jonathan~S Vordermark~II.
-\newblock \emph{An Introduction to Medical Decision-Making: Practical Insights
-  and Approaches}.
-\newblock Springer Nature, 2019.
+\bibitem[Venhola et~al.(2003)Venhola, Reunanen, Taskinen, Lahdes-Vasama, and
+  Uhari]{venhola2003interobserver}
+Mika Venhola, Mikko Reunanen, Seppo Taskinen, Tuija Lahdes-Vasama, and Matti
+  Uhari.
+\newblock Interobserver and intra-observer agreement in interpreting urodynamic
+  measurements in children.
+\newblock \emph{The Journal of urology}, 169\penalty0 (6):\penalty0 2344--2346,
+  2003.
+
+\bibitem[Dudley et~al.(2018)Dudley, Adams, Brock~III, Clayton, Joseph, Koh,
+  Merguerian, Pope~IV, Routh, Thomas, et~al.]{dudley2018interrater}
+Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
+  Joseph, Chester~J Koh, Paul~A Merguerian, John~C Pope~IV, Jonathan~C Routh,
+  John~C Thomas, et~al.
+\newblock Interrater reliability in interpretation of neuropathic pediatric
+  urodynamic tracings: an expanded multicenter study.
+\newblock \emph{The Journal of urology}, 199\penalty0 (5):\penalty0 1337--1343,
+  2018.
+
+\bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
+C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
+\newblock \emph{The {AASM} Manual for Scoring of Sleep and Associated
+  Events-Rules: Terminology and Technical Specification}.
+\newblock American Academy of Sleep Medicine, 2007.
+
+\bibitem[Berry et~al.(2012)Berry, Budhiraja, and {et al.}]{berry2012aasm}
+R.~B. Berry, D.~G. Budhiraja, and {et al.}
+\newblock Rules for scoring respiratory events in sleep: update of the 2007
+  {AASM} manual for the scoring of sleep and associated events.
+\newblock \emph{J Clin Sleep Med}, 8\penalty0 (5):\penalty0 597--619, 2012.
+
+\bibitem[Brosnan et~al.(2015)Brosnan, La~Gerche, Kumar, Lo, Kalman, and
+  Prior]{brosnan2015modest}
+Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
+  David Prior.
+\newblock Modest agreement in ecg interpretation limits the application of ecg
+  screening in young athletes.
+\newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
+
+\bibitem[Cvach(2012)]{cvach2012monitor}
+Maria Cvach.
+\newblock Monitor alarm fatigue: an integrative review.
+\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
+  (4):\penalty0 268--277, 2012.
+
+\bibitem[BRIEF(2020)]{brief2019top}
+EXECUTIVE BRIEF.
+\newblock Top 10 health technology hazards for 2020.
+\newblock 2020.
+\newblock URL
+  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
+\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
 
 \bibitem[Sendelbach and Funk(2013)]{sendelbach2013alarm}
 Sue Sendelbach and Marjorie Funk.
@@ -280,5 +271,26 @@ Xiao Hu.
 \newblock An algorithm strategy for precise patient monitoring in a connected
   healthcare enterprise.
 \newblock \emph{NPJ digital medicine}, 2\penalty0 (1):\penalty0 1--5, 2019.
+
+\bibitem[Price and Nicholson(2014)]{price2014black}
+W~Price and II~Nicholson.
+\newblock Black-box medicine.
+\newblock \emph{Harv. JL \& Tech.}, 28:\penalty0 419, 2014.
+
+\bibitem[Ford et~al.(2016)Ford, Price, and Nicholson]{ford2016privacy}
+Roger~Allan Ford, W~Price, and II~Nicholson.
+\newblock Privacy and accountability in black-box medicine.
+\newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
+
+\bibitem[Kahneman(2011)]{kahneman2011thinking}
+Daniel Kahneman.
+\newblock \emph{Thinking, fast and slow}.
+\newblock Macmillan, 2011.
+
+\bibitem[Vordermark~II(2019)]{vordermark2019introduction}
+Jonathan~S Vordermark~II.
+\newblock \emph{An Introduction to Medical Decision-Making: Practical Insights
+  and Approaches}.
+\newblock Springer Nature, 2019.
 
 \end{thebibliography}

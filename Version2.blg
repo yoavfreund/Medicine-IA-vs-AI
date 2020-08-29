@@ -3,50 +3,57 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
-Warning--I didn't find a database entry for "sanders2020pharmacologic"
+Repeated entry---line 101 of file medbib.bib
+ : @article{hannun2019cardiologist
+ :                                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 154 of file medbib.bib
+ : @article{goldman2020remdesivir
+ :                               ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for ""
 Warning--empty journal in ashby1957introduction
 Warning--there's a number but no volume in licklider1960man
 Warning--empty journal in brief2019top
-You've used 40 entries,
+You've used 42 entries,
             2481 wiz_defined-function locations,
-            791 strings with 12660 characters,
-and the built_in function-call counts, 15505 in all, are:
-= -- 1205
-> -- 978
-< -- 21
-+ -- 377
+            803 strings with 12928 characters,
+and the built_in function-call counts, 16096 in all, are:
+= -- 1266
+> -- 984
+< -- 22
++ -- 381
 - -- 296
-* -- 1272
-:= -- 2612
-add.period$ -- 123
-call.type$ -- 40
-change.case$ -- 78
-chr.to.int$ -- 39
-cite$ -- 43
-duplicate$ -- 743
-empty$ -- 1339
-format.name$ -- 344
-if$ -- 3176
+* -- 1313
+:= -- 2697
+add.period$ -- 129
+call.type$ -- 42
+change.case$ -- 82
+chr.to.int$ -- 41
+cite$ -- 45
+duplicate$ -- 781
+empty$ -- 1407
+format.name$ -- 348
+if$ -- 3308
 int.to.chr$ -- 2
-int.to.str$ -- 41
-missing$ -- 42
-newline$ -- 211
-num.names$ -- 120
-pop$ -- 318
+int.to.str$ -- 43
+missing$ -- 44
+newline$ -- 221
+num.names$ -- 126
+pop$ -- 332
 preamble$ -- 1
-purify$ -- 40
+purify$ -- 42
 quote$ -- 0
-skip$ -- 416
+skip$ -- 438
 stack$ -- 0
-substring$ -- 629
-swap$ -- 83
+substring$ -- 655
+swap$ -- 87
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 265
+type$ -- 279
 warning$ -- 3
-while$ -- 127
+while$ -- 134
 width$ -- 0
-write$ -- 520
-(There were 5 warnings)
+write$ -- 546
+(There were 2 error messages)

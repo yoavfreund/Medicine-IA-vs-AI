@@ -1,13 +1,35 @@
 \ML{Arrhythmia detection using Deep
-  Neural Networks}{One of the papers that provided evidence that deep
-  neural networks might be able to outperform humans is the work of
+  Neural Networks}{Another paper supporting the clam that that deep
+  neural networks can outperform humans is the work of
   Hannun et al~\cite{hannun2019cardiologist}. They trained a deep
   neural network to classify single-lead electrocardiogram (ECG) into 12 rhythm
-  classes, including ten arrhythmias, normal sinus rhythm and noise. In this study, the authors prepared a homemade database consisting of single-channel ECG, and this database is much larger than the publicly available database. 
-  %
-  While it is not an easy job to identify different types of arrhythmias from a single-channel ECG signal, even for experienced cardiologists, the cardiologist consensus committee was formed to achieve a gold standard label.
-  %
-  With gold standard labels determined by a cardiologist consensus meeting, the authors showed that the DNN outperforms 6 board-certificated cardiologists outside the committee. This result is
-  impressive. The authors showed the potential of DNN in learning the unified consensus labels and emphasized the weakness of cardiologists when reading the single-channel ECG signal. 
-  %
-  However, the system is assuming that the consensus committee could correctly decide all arrhythmias from the single-channel ECG, instead of saying IDK. }
+  classes, including ten arrhythmias, normal sinus rhythm and noise.
+
+Classifying single-lead ECG recordings is a challanging task even for
+experienced cardiologists inter-rater agreement is low. Unlike~\cite{}
+there is no simple way to objectively measure ground truth. Instead,
+Hannun et al relied on a {\em concensus committee} of experienced
+cardiologists, to define ground truth. A concensus committee
+deliberates each recording until they reach a concensus
+classification. Note that this type of concensus is very different
+from perfect agreement in an inter-rater agreement study in which each
+diagnostician has to commit to a diagnosis independently, without
+communicating with others.
+
+\yoav{this seems neither here nor there}
+\st{In this study, the authors prepared a homemade database consisting
+of single-channel ECG, and this database is much larger than the
+publicly available database.}  
+
+\yoav{How many cardiologists in the committee?}
+
+With ground truth labels determined by a cardiologist consensus
+  meeting, the authors showed that the DNN outperforms 6
+  board-certificated cardiologists {\em outside the committee}.
+  While this result is impressive, it is not clear whether the success
+  can be attributable to the DNN. A different interpretation is that
+  concensus committees make classifications that are significantly different from
+  those of individual cardiologists. While it stands to reason that
+  concensus committees are {\em better} than individual cardiologists,
+  the lack of ground truth makes the last claim hard to verify.
+ }

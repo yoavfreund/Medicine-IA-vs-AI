@@ -278,7 +278,7 @@ intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
 
-\subsubsection*{Managing uncertainty in medicine}
+\section{How to augment doctors}
 Medical diagnosis is often uncertain or inconclusive. On the other
 hand, a doctor responsible for a patient's health has to make
 decisions in spite of this uncertainty. If the uncertainty presents a
@@ -359,15 +359,8 @@ label is ``how much do alternative labels contradict previous
 experience?''.
 More formally, we ask how much do we need to change the training data
 so that it supports an alternative label.
-%\ML{Uncertainty vs. accurracy}{using ROC curves}
 
-\begin{itemize}
-  \item Bootstrap samples.
-  \item Samples from different hospitals.
-  \item Easy and hard cases.
-  \end{itemize}
-
-  \section{Human decisions and Intelligence augmentation}
+\section{How to augment medical institutions}
 
   Computer {\color{blue}has been} an integral part of medical practice {\color{blue}for decades}. From
   {\color{blue}electronic} medical records (EMR) to medical instrumentation to billing,
@@ -377,11 +370,26 @@ so that it supports an alternative label.
   become part of medical practice, the question is {\em how}.
 
   Some claim that human doctors and nurses are heading to extinction,
-  following the fate of manufacturing jobs and bank cashiers.  Our prediction is
-  that computers will change the nature of medical work, but that it
-  will increase, rather than decrease, the number of healthcare
-  workers, especially in the care of chronic disease and aging{\color{blue}, and exploring the nature of our complicated human body}. 
+  following the fate of manufacturing jobs and bank cashiers.  Our
+  prediction is that computers will change the nature of medical
+  work. Our prediction is that the adaptation of IA will increase,
+  rather than decrease, the number of healthcare workers. especially
+  in the care of chronic disease and aging \st{and exploring the
+    nature of our complicated human body}.
 
+  Consider an established clinique or hospital. While every day brings
+  in new cases, it is likely that for many of these cases the
+  diagnosis is ``easy'', i.e. the same diagnosis would be given by
+  most doctors. If the IA sidekick identify a significant fraction of
+  the patients that are clearly sick or the patients that are clearly
+  ok, then it can help the staff prioratize treatment. For example,
+  patients identified in critical condition can get to see a senior
+  doctor faster, while patients that are confidently identified as
+  healthy are directed to a junior doctor or to a nurse practitioner.
+
+\yoav{Until here}
+  
+  
   We believe computers {\em can} perform accurate diagnosis for cases where
   different doctors are likely to agree. In other cases {\color{blue}that are in the}
   diagnostic gray area, the computer will output ``I don't know'' and

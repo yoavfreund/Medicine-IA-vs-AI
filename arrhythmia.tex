@@ -5,31 +5,24 @@
   neural network to classify single-lead electrocardiogram (ECG) into 12 rhythm
   classes, including ten arrhythmias, normal sinus rhythm and noise.
 
-Classifying single-lead ECG recordings is a challanging task even for
-experienced cardiologists inter-rater agreement is low. Unlike~\cite{}
-there is no simple way to objectively measure ground truth. Instead,
-Hannun et al relied on a {\em concensus committee} of experienced
-cardiologists, to define ground truth. A concensus committee
-deliberates each recording until they reach a concensus
-classification. Note that this type of concensus is very different
+Classifying single-lead ECG recordings is a challenging task even for
+experienced cardiologists inter-rater agreement is low. Unlike~\cite{esteva2017dermatologist}
+there is no simple way to objectively measure ground truth. Instead, 
+Hannun et al relied on {\em consensus committees} among cardiologists to define the ground truth on the test set.
+
+A consensus committee deliberates each recording until they reach agreement on the
+classification. Two notes are in order: first, the committee cannot say "We don't know", second, this type of consensus is very different
 from perfect agreement in an inter-rater agreement study in which each
-diagnostician has to commit to a diagnosis independently, without
+diagnostician have to commit to a diagnosis independently, without
 communicating with others.
 
-\yoav{this seems neither here nor there}
-\st{In this study, the authors prepared a homemade database consisting
-of single-channel ECG, and this database is much larger than the
-publicly available database.}  
 
-\yoav{How many cardiologists in the committee?}
-
-With ground truth labels determined by a cardiologist consensus
-  meeting, the authors showed that the DNN outperforms 6
-  board-certificated cardiologists {\em outside the committee}.
+The authors showed that the DNN outperforms 6
+  individual board-certificated cardiologists {\em outside the committee}.
   While this result is impressive, it is not clear whether the success
   can be attributable to the DNN. A different interpretation is that
-  concensus committees make classifications that are significantly different from
+  consensus committees make classifications that are significantly different from
   those of individual cardiologists. While it stands to reason that
-  concensus committees are {\em better} than individual cardiologists,
-  the lack of ground truth makes the last claim hard to verify.
- }
+  consensus committees are usually {\em better} than individual cardiologists,
+  the lack of true ground truth makes the last claim hard to verify.
+}

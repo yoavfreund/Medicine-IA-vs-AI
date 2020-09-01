@@ -2,8 +2,7 @@
 variety of bio-sensors that measure record and analyze different
   biometric signals. These signals vary in velocity from low-velocity vital signs such as heart rate,
   oxygen saturation, temperature and blood pressure, through
-  mid-velocity waveforms such as ECG, EEG, \st{respiratory signal and arterial blood
-  pressure.} to high velocity imaging such as CT, X-ray, MRI and
+  mid-velocity waveforms such as ECG, EEG to high velocity imaging such as CT, X-ray, MRI and
   scanning microscopes. Low-velocity signals such as blood
   pressure or heart rate can be directly used in diagnosis. Mid- and 
   high-velocity signals have to be interpreted before they can be used
@@ -22,43 +21,19 @@ nuisance variability from noise, limited resolution, operator error
 etc. The number and of nuisance variables is very large. In the next
 paragraph we give an example of one nuisance variable: the placement
 of ECG leads on the patient's body.
-
-\yoav{Maybe add a figure explaining how ECG sensors should be placed? {\color{blue}--I don't think this is a good idea. For physicians, this is common sense. For non-physicians, who cares. But if you really think it is critical, we can add it for sure.]}
-Also, what is the correct term? Sensor? Lead? something else? {\color{blue} -- Lead is more often used. But sensor is also fine.} }
-
-\st{In other cases such as artifact removal of EEG is
- still an active research problem}~\cite{islam2016methods}
-
   
 For ECG signals to be correctly and consistently interpreted, it is
 important that the leads be placed correctly on the patient's
 body. Several standards for placement have been published, for example, the standard 12 leads ECG system
-\cite{goldberger2017clinical}, the EASI system \cite{Dower1988}, or the Frank lead system \cite{frank1956accurate}. %and {\color{blue}international 10–20 EEG
-%systems} \cite{Klem1999TheTE} 
-\yoav{I would prefer to focus on one
-signal, i.e. ECG. {\color{blue}-- agreed. I have removed EEG.} Can we point to competing standard for lead placement
-for ECG? {\color{blue}--updated} }
-
-\st{to recently smart clothing system for telemedicine}
-\cite{nesenbergs2016architecture} \yoav{off topic {\color{blue}--okay}}
+\cite{goldberger2017clinical}, the EASI system \cite{Dower1988}, and the Frank lead system \cite{frank1956accurate}. 
 
 It is not always possible to achieve a consistent and precise sensor
 placement for biomedical signal collection due to various reasons, for example, the torso variation caused by gender, age and living styles.
-\yoav{can you list some common ones? I imagine body type, areas that
-are being treated, variation because of training .. 
-{\color{blue} -- updated}}
 
 This uncertainty might be tolerable for some clinical applications;
 for example, an imprecise ECG sensor placement might not impact the
 identification of some types of arrhythmia from the ECG signal, like
 atrial fibrillation. However, this uncertainty might cause troubles in
 identifying other types of arrhythmia, for example, premature atrial contraction.
-
-
-\st{for example, an imprecise placement of the deep brain stimulation
-      lead inside subthalamic nucleus might downgrade the Parkinson
-      disease treatment outcome.}
-
-\yoav{I would prefer to stick with ECG {\color{blue} -- agreed}}
 
 }

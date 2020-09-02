@@ -192,7 +192,8 @@ treatment. It might be due to a change in diet or reduction in stress.
 Moreover, in most cases, there are few or none followup visits and as
 a result there is no data as to whether the patient has a lasting
 improvement in health.
-
+\newpage
+\input{SignalQuality}
 We suggest a different goal for automatic diagnosis.
 Rather than predicting the {\em ``correct''}
 diagnosis we define the goal of the computer to be predicting the {\em
@@ -224,47 +225,67 @@ which the uncertainty in medicine is non-negligible.
 %Medical uncertainty as manifest by low inter-rater agreement consequence,
 %can be found in many clinical problems
 There are many causes for uncertainty in medical diagnosis. We briefly
-describe four categories of problems: {\em signal quality}, {\em knowledge gap}, the limitations of {\em
-  diagnostic protocols} and {\em alarm fatigue}.
+describe four categories of problems: {\em signal quality}, {\em
+  Patient Monitors} the {\em knowledge gap} and the limitations of {\em
+  diagnostic protocols}.
 
 
 By {\bf Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured reliably
 and accurately. On the other hand, modern
-devices such as EKG, EEG, camera images, X-ray, ultra-sound and EMR
+devices such as EKG, EEG, camera images, X-ray, ultra-sound and MRI
 produce vast and highly variable data. The quality of this data
 depends on may factors among them, the quality of the instruments, the
 consistency of the human operator, the build of the patient etc.
-\input{SignalQuality}
 
-Knowledge gap bla bla
-\input{KnowledgeGap}
+Signal quality enhancement is already an important part of imaging
+devices such as X-ray and MRI. Methods such as compressed
+sensing~\cite{} are used to reconstruct 3d images from a large number
+of noisy scans.
 
-\newpage
-Another factor that impacts the accuracy and consistency of the
-diagnosis is the uniformity of criteria across doctors and institutions
-\input{ProtocolLimitations}
-
-\newpage
-bla bla
 \input{AlarmFatigue}
+One situation where signal quality and signal variability is
+particularly problematic are Patient Monitors. The purpose of these
+devices is to continuously monitor patients vital signs and alert the
+medical staff if a dangerous situation is detected. Unfortunately, the
+false alarm rate of these devices is often high. This results in a
+phenomenon called ``alarm fatigue'' where the medical staff ignores
+the generated alarms, rendering them useless.
 
+\input{KnowledgeGap}
+Signal quality and alarm fatigue can be thought of as ``bottom up''
+causes of unccertainty. The uncertainty emanates from the medical
+devices to cause uncertainty with the medical staff.
 
-% {\color{blue}Besides the above-mentioned reasons, there are more. For
-%   example,} in some situations, when the needed information is
-% missing, it is challenging to make a differential diagnosis
-% \cite{moncada2011reading}.  {\color{blue}Despite the variety of
-%   reasons, the key message here is that medical uncertainty is a
-%   non-negligible fact in medicine.}
+Other types of uncertainty are ``top down'' in that their causes lie
+in the generation and dissemination of medical knowledge. We brifly
+describe two types of top-down uncertainty: knowledge gaps and the
+limitation of medical protocols.
 
-%   A direct consequence of the low inter-rater agreement rate is that the trained intelligent system might be questionable.
-   
+``Knowledge gap'' corresponds to limitations of scientific medical
+knowledge. This is not the limitation of a particular doctor, rather,
+it reflects the limitations of knowledge that correspond to successful
+medical trials.
+
+Even when medical knowledge exists, an individual doctor might now
+know it. The dissemination of medical knowledge starts in medical
+school and continues throughout the medical staff career. In addition,
+tools such as medical protocol are used to ensure uniformity and
+consistency between hospital and between doctors and nurses. While
+protocols are important, they suffer from some significant limitations
+as described in the inset.
+
+\newpage
+\yoav{Seems like this paragraph corresponds to an earlier organzation
+  of the paper. What are the references about? Maybe we should
+  incorporate them elsewhere?}
 It is clear that such intelligent system is questionable and might
 raise concerns. Recently, various regulations in this regard have been
 proposed \cite{price2014black,ford2016privacy}.
 
 
+\input{ProtocolLimitations}
 Now, suppose we are able to eliminate all challenges from data
 calibration and validation issues, and we can provide as much
 information as possible to train the intelligence system. Even under
@@ -277,6 +298,42 @@ physicians under consideration, the agreement rate varies. Usually,
 intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
+
+\newpage
+\section{Augmenting medicine}
+
+So far, we have discussed components: Machine learning IA, medical
+uncertainty and ways of controlling and reducing it. We now turn our
+sights to system and organizational issues, and try to answer the
+question ``why would doctors, nurses and hospitals adapt such technology''.
+
+We quote from Robert Rechter's book "The digital doctor"~\cite{wachter2015digital}:
+\begin{quote}
+  Harvard psychiatrist and leadership guru Ronald Heifetz has
+  described two types of problems: technical and adaptive. Technical
+  problems can be solved with new tools, new practices, and
+  conventional leadership. Baking a cake is a technical problem:
+  follow the recipe and the results are likely to be fine. Heifetz
+  contrasts technical problems with adaptive ones: problems that
+  require people themselves to change. In adaptive problems, he
+  explains, the people are both the problem and the
+  solution. Leadership, he once said, requires mobilizing and engaging
+  people around a problem “rather than trying to anesthetize them so
+  you can go off and solve it on your own.”
+\end{quote}
+
+Rechter continues to say that the digitization of medicine "the Mother
+of All Adaptive Problems". In other words, for AI to be widely
+adapted, doctors and nurses ("medic" in the following) need to
+positively engage in its adaptation. Declaring that AI will soon
+replace medics, positions AI in an adversarial stance towards medics
+and is likely to make them more resistant to the adoption of AI
+technology~\cite{topol2019deep}.
+
+Moreover, as argued above, claims that AI can perform diagnosis more
+accurately than most medical professionals are overblown. On the other
+hand, if we allow the IA system to output ``I don't know'' on
+the hard cases, we can achieve high accuracy on the easier cases. 
 
 \section{How to augment doctors}
 Medical diagnosis is often uncertain or inconclusive. On the other
@@ -319,7 +376,6 @@ eliminate possible choices, and if it end up in a gray zone with
 multiple possibilities, it says IDK. This would dramatically help
 physicians daily practice.
 
-
 {\bf Sources of uncertainty in medical diagnosis.}
 \begin{itemize}
   \item{\bf The diagnostic process of elimination}
@@ -335,8 +391,8 @@ physicians daily practice.
       the trustworthiness of the alarms.--done
     \item{\bf Alarm Fatigue}--done
   \end{itemize}
-\fi
 %{\bf Psychological reasons} Both doctor and patient prefer
+
 
 How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. 
 \ML{Certainty and conditional probability}{
@@ -346,6 +402,7 @@ This certainty is very different from the the conditional probability of the dis
       access to ground truth, then 95\% of the patients that receive
       this diagnostics have the corresponding condition.
 }  
+\fi
 Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
   experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
       then the overall confidence in that diagnostics is high. While this voting procedure might guarantee the optimal outcome, it eliminates the uncertainty during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
@@ -457,8 +514,6 @@ Clearly, experience leads to confidence. With more experience aggregated, diagno
 {\color{blue} By further accumulating knowledge, reducing data uncertainty, and improving protocol, it is expected that the gray zone a well developed IA system has is small, and the alarm fatigue issue is alleviated since it only makes an alarm when it runs into IDK. There are many other aspects such an IA system equipped with IDK could help. Since the system knows IDK, it knows what is affirmative. When a medical decision made by a physician falls in the affirmative area, the IA system could help doubly confirm if the decision has any risk not considered by the physician. Such alarm, when sufficiently accurate, could help improve patient risk and healthcare quality. Eventually, this IA system could be evolved into a second opinion provider to healthcare providers. 
 }
 
-
-  
 \item {\bf Dissemination of expertise}
 
 Computers, trained by experts, can help novices. {\color{blue}A well-trained IA system equipped with IDK can provide confirmed answers to inexperienced physicians, and} serve a function

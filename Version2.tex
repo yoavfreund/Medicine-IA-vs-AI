@@ -194,21 +194,6 @@ a result there is no data as to whether the patient has a lasting
 improvement in health.
 \newpage
 \input{SignalQuality}
-We suggest a different goal for automatic diagnosis.
-Rather than predicting the {\em ``correct''}
-diagnosis we define the goal of the computer to be predicting the {\em
-  distribution} of diagnosis across doctors. In addition, we allow
-doctors to be uncertain of their own diagnosis.
-The distribution of doctors predictions represents their confidence as
-a group. In other words, by predicting that all doctors will agree on
-the diagnosis, we assign high confidence to that diagnosis. 
-If, on the other hand, we
-predict that doctors will give one (or both) of two diagnoses A and B, then
-our prediction is akin to saying ``we are confident that the prediction
-is either A or B, to know which one we will need additional
-tests''. This accurately represents our current state in the
-diagnostic process and is more useful than deciding on one diagnostic
-with insufficient evidence.
 
 
 \iffalse
@@ -230,7 +215,7 @@ describe four categories of problems: {\em signal quality}, {\em
   diagnostic protocols}.
 
 
-By {\bf Signal Quality} we refer to the quality of the raw data
+By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured reliably
 and accurately. On the other hand, modern
@@ -253,30 +238,53 @@ false alarm rate of these devices is often high. This results in a
 phenomenon called ``alarm fatigue'' where the medical staff ignores
 the generated alarms, rendering them useless.
 
-\input{KnowledgeGap}
 Signal quality and alarm fatigue can be thought of as ``bottom up''
-causes of unccertainty. The uncertainty emanates from the medical
-devices to cause uncertainty with the medical staff.
+causes of uncertainty. The uncertainty originates in the medical
+devices and moves up to the medical staff.
 
-Other types of uncertainty are ``top down'' in that their causes lie
-in the generation and dissemination of medical knowledge. We brifly
+Other types of uncertainty are ``top down'' in that they originates in medical research percolates down to the medical staff.q We briefly
 describe two types of top-down uncertainty: knowledge gaps and the
 limitation of medical protocols.
 
-``Knowledge gap'' corresponds to limitations of scientific medical
+{\em ``Knowledge gap''} corresponds to limitations of scientific medical
 knowledge. This is not the limitation of a particular doctor, rather,
 it reflects the limitations of knowledge that correspond to successful
 medical trials.
 
+\input{KnowledgeGap}
 Even when medical knowledge exists, an individual doctor might now
 know it. The dissemination of medical knowledge starts in medical
 school and continues throughout the medical staff career. In addition,
-tools such as medical protocol are used to ensure uniformity and
-consistency between hospital and between doctors and nurses. While
-protocols are important, they suffer from some significant limitations
+{\em medical protocols} are used to ensure uniformity and
+consistency of treatment between hospitals, doctors and nurses. While
+protocols are an important dissemination tool, they cannot eliminate all uncertainty, 
 as described in the inset.
 
-\newpage
+\subsection{Machine Learning and uncertainty}
+
+We described some of the causes of uncertainty in medical diagnosis. There are many other such causes. {\em However} this does not mean that each and every case is difficult. In fact, the majority of cases are {\em easy} to diagnose. By "easy" we don't mean that substantial medical knowledge is unnecessary. Rather, we mean that most doctors, when presented with the same information, would come to the same conclusion. In other words, these are the cases on which inter-rater disagreement is low. \yoav{any literature to support this?}
+Hard cases are those where doctors tend to either say "I don't know" or disagree with each other. 
+
+Based on this observation we redefine the goal of machine learning. Rather than ...  
+
+
+We suggest a different goal for automatic diagnosis.
+Rather than predicting the {\em ``correct''}
+diagnosis we define the goal of the computer to be predicting the {\em
+  distribution} of diagnosis across doctors. In addition, we allow
+doctors to be uncertain of their own diagnosis.
+The distribution of doctors predictions represents their confidence as
+a group. In other words, by predicting that all doctors will agree on
+the diagnosis, we assign high confidence to that diagnosis. 
+If, on the other hand, we
+predict that doctors will give one (or both) of two diagnoses A and B, then
+our prediction is akin to saying ``we are confident that the prediction
+is either A or B, to know which one we will need additional
+tests''. This accurately represents our current state in the
+diagnostic process and is more useful than deciding on one diagnostic
+with insufficient evidence.
+
+\hline
 \yoav{Seems like this paragraph corresponds to an earlier organzation
   of the paper. What are the references about? Maybe we should
   incorporate them elsewhere?}
@@ -285,7 +293,6 @@ raise concerns. Recently, various regulations in this regard have been
 proposed \cite{price2014black,ford2016privacy}.
 
 
-\input{ProtocolLimitations}
 Now, suppose we are able to eliminate all challenges from data
 calibration and validation issues, and we can provide as much
 information as possible to train the intelligence system. Even under
@@ -298,8 +305,9 @@ physicians under consideration, the agreement rate varies. Usually,
 intern doctors know the least, while a senior attending knows the
 most. It is natural that we trust a senior expert more, but it does
 not mean that we do not trust a junior intern doctor.
+\input{ProtocolLimitations}
 
-\newpage
+%\newpage
 \section{Augmenting medicine}
 
 So far, we have discussed components: Machine learning IA, medical

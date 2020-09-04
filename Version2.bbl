@@ -1,4 +1,4 @@
-\begin{thebibliography}{42}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -74,31 +74,90 @@ Robert~G Norman, Ivan Pal, Chip Stewart, Joyce~A Walsleben, and David~M
   a large dataset.
 \newblock \emph{Sleep}, 23\penalty0 (7):\penalty0 901--908, 2000.
 
-\bibitem[Islam et~al.(2016)Islam, Rastegarnia, and Yang]{islam2016methods}
-Md~Kafiul Islam, Amir Rastegarnia, and Zhi Yang.
-\newblock Methods for artifact detection and removal from scalp eeg: A review.
-\newblock \emph{Neurophysiologie Clinique/Clinical Neurophysiology},
-  46\penalty0 (4-5):\penalty0 287--305, 2016.
-
 \bibitem[Goldberger et~al.(2017)Goldberger, Goldberger, and
   Shvilkin]{goldberger2017clinical}
 Ary~L Goldberger, Zachary~D Goldberger, and Alexei Shvilkin.
 \newblock \emph{Clinical electrocardiography: a simplified approach e-book}.
 \newblock Elsevier Health Sciences, 2017.
 
-\bibitem[Klem et~al.(1999)Klem, L{\"u}ders, Jasper, and Elger]{Klem1999TheTE}
-George~H. Klem, H.~L{\"u}ders, Herbert~H. Jasper, and Christian Elger.
-\newblock The ten-twenty electrode system of the international federation. the
-  international federation of clinical neurophysiology.
-\newblock \emph{Electroencephalography and clinical neurophysiology.
-  Supplement}, 52:\penalty0 3--6, 1999.
+\bibitem[Dower et~al.(1988)Dower, Yakush, Nazzal, Jutzy, and Ruiz]{Dower1988}
+Gordon~E. Dower, Andrew Yakush, Sami~B. Nazzal, Roy~V. Jutzy, and Cynthia~E.
+  Ruiz.
+\newblock {Deriving the 12 lead Electrocardiogram from four (EASI) Electrodes}.
+\newblock \emph{Journal of electrocardiology}, \penalty0 (S):\penalty0
+  182--187, 1988.
 
-\bibitem[Nesenbergs(2016)]{nesenbergs2016architecture}
-Krisjanis Nesenbergs.
-\newblock Architecture of smart clothing for standardized wearable sensor
-  systems.
-\newblock \emph{IEEE Instrumentation \& Measurement Magazine}, 19\penalty0
-  (5):\penalty0 36--64, 2016.
+\bibitem[Frank(1956)]{frank1956accurate}
+Ernest Frank.
+\newblock An accurate, clinically practical system for spatial
+  vectorcardiography.
+\newblock \emph{circulation}, 13\penalty0 (5):\penalty0 737--749, 1956.
+
+\bibitem[BRIEF(2020)]{brief2019top}
+EXECUTIVE BRIEF.
+\newblock Top 10 health technology hazards for 2020.
+\newblock 2020.
+\newblock URL
+  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
+\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
+
+\bibitem[Cvach(2012)]{cvach2012monitor}
+Maria Cvach.
+\newblock Monitor alarm fatigue: an integrative review.
+\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
+  (4):\penalty0 268--277, 2012.
+
+\bibitem[Paine et~al.(2016)Paine, Goel, Ely, Stave, Stemler, Zander, and
+  Bonafide]{paine2016systematic}
+Christine~Weirich Paine, Veena~V Goel, Elizabeth Ely, Christopher~D Stave,
+  Shannon Stemler, Miriam Zander, and Christopher~P Bonafide.
+\newblock Systematic review of physiologic monitor alarm characteristics and
+  pragmatic interventions to reduce alarm frequency.
+\newblock \emph{Journal of hospital medicine}, 11\penalty0 (2):\penalty0
+  136--144, 2016.
+
+\bibitem[Sendelbach and Funk(2013)]{sendelbach2013alarm}
+Sue Sendelbach and Marjorie Funk.
+\newblock Alarm fatigue: a patient safety concern.
+\newblock \emph{AACN advanced critical care}, 24\penalty0 (4):\penalty0
+  378--386, 2013.
+
+\bibitem[Ruskin and Hueske-Kraus(2015)]{ruskin2015alarm}
+Keith~J Ruskin and Dirk Hueske-Kraus.
+\newblock Alarm fatigue: impacts on patient safety.
+\newblock \emph{Current Opinion in Anesthesiology}, 28\penalty0 (6):\penalty0
+  685--690, 2015.
+
+\bibitem[Li and Clifford(2012)]{li2012signal}
+Qiao Li and Gari~D Clifford.
+\newblock Signal quality and data fusion for false alarm reduction in the
+  intensive care unit.
+\newblock \emph{Journal of electrocardiology}, 45\penalty0 (6):\penalty0
+  596--603, 2012.
+
+\bibitem[Behar et~al.(2013)Behar, Oster, Li, and Clifford]{behar2013ecg}
+Joachim Behar, Julien Oster, Qiao Li, and Gari~D Clifford.
+\newblock Ecg signal quality during arrhythmia and its application to false
+  alarm reduction.
+\newblock \emph{IEEE transactions on biomedical engineering}, 60\penalty0
+  (6):\penalty0 1660--1666, 2013.
+\newblock alarm fatigue prevention for arrhythmia.
+
+\bibitem[Bai et~al.(2016)Bai, Do, Ding, Palacios, Shahriari, Pelter, Boyle,
+  Fidler, and Hu]{bai2016sequence}
+Yong Bai, Duc Do, Quan Ding, Jorge~Arroyo Palacios, Yalda Shahriari, Michele~M
+  Pelter, Noel Boyle, Richard Fidler, and Xiao Hu.
+\newblock Is the sequence of superalarm triggers more predictive than sequence
+  of the currently utilized patient monitor alarms?
+\newblock \emph{IEEE Transactions on Biomedical Engineering}, 64\penalty0
+  (5):\penalty0 1023--1032, 2016.
+\newblock a new alarm system called superalarm to avoid alarm fatigue.
+
+\bibitem[Hu(2019)]{hu2019algorithm}
+Xiao Hu.
+\newblock An algorithm strategy for precise patient monitoring in a connected
+  healthcare enterprise.
+\newblock \emph{NPJ digital medicine}, 2\penalty0 (1):\penalty0 1--5, 2019.
 
 \bibitem[Sohrabi et~al.(2020)Sohrabi, Alsafi, O’Neill, Khan, Kerwan,
   Al-Jabir, Iosifidis, and Agha]{sohrabi2020world}
@@ -201,6 +260,16 @@ Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
 \newblock \emph{The Journal of urology}, 199\penalty0 (5):\penalty0 1337--1343,
   2018.
 
+\bibitem[Price and Nicholson(2014)]{price2014black}
+W~Price and II~Nicholson.
+\newblock Black-box medicine.
+\newblock \emph{Harv. JL \& Tech.}, 28:\penalty0 419, 2014.
+
+\bibitem[Ford et~al.(2016)Ford, Price, and Nicholson]{ford2016privacy}
+Roger~Allan Ford, W~Price, and II~Nicholson.
+\newblock Privacy and accountability in black-box medicine.
+\newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
+
 \bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
 C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
 \newblock \emph{The {AASM} Manual for Scoring of Sleep and Associated
@@ -221,66 +290,11 @@ Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
   screening in young athletes.
 \newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
 
-\bibitem[Cvach(2012)]{cvach2012monitor}
-Maria Cvach.
-\newblock Monitor alarm fatigue: an integrative review.
-\newblock \emph{Biomedical instrumentation \& technology}, 46\penalty0
-  (4):\penalty0 268--277, 2012.
-
-\bibitem[BRIEF(2020)]{brief2019top}
-EXECUTIVE BRIEF.
-\newblock Top 10 health technology hazards for 2020.
-\newblock 2020.
-\newblock URL
-  \url{https://www.ecri.org/landing-top-10-patient-safety-concerns-2020}.
-\newblock Top 10 patient safety concerns of 2020 from ECRI Institute.
-
-\bibitem[Sendelbach and Funk(2013)]{sendelbach2013alarm}
-Sue Sendelbach and Marjorie Funk.
-\newblock Alarm fatigue: a patient safety concern.
-\newblock \emph{AACN advanced critical care}, 24\penalty0 (4):\penalty0
-  378--386, 2013.
-
-\bibitem[Ruskin and Hueske-Kraus(2015)]{ruskin2015alarm}
-Keith~J Ruskin and Dirk Hueske-Kraus.
-\newblock Alarm fatigue: impacts on patient safety.
-\newblock \emph{Current Opinion in Anesthesiology}, 28\penalty0 (6):\penalty0
-  685--690, 2015.
-
-\bibitem[Paine et~al.(2016)Paine, Goel, Ely, Stave, Stemler, Zander, and
-  Bonafide]{paine2016systematic}
-Christine~Weirich Paine, Veena~V Goel, Elizabeth Ely, Christopher~D Stave,
-  Shannon Stemler, Miriam Zander, and Christopher~P Bonafide.
-\newblock Systematic review of physiologic monitor alarm characteristics and
-  pragmatic interventions to reduce alarm frequency.
-\newblock \emph{Journal of hospital medicine}, 11\penalty0 (2):\penalty0
-  136--144, 2016.
-
-\bibitem[Bai et~al.(2016)Bai, Do, Ding, Palacios, Shahriari, Pelter, Boyle,
-  Fidler, and Hu]{bai2016sequence}
-Yong Bai, Duc Do, Quan Ding, Jorge~Arroyo Palacios, Yalda Shahriari, Michele~M
-  Pelter, Noel Boyle, Richard Fidler, and Xiao Hu.
-\newblock Is the sequence of superalarm triggers more predictive than sequence
-  of the currently utilized patient monitor alarms?
-\newblock \emph{IEEE Transactions on Biomedical Engineering}, 64\penalty0
-  (5):\penalty0 1023--1032, 2016.
-\newblock a new alarm system called superalarm to avoid alarm fatigue.
-
-\bibitem[Hu(2019)]{hu2019algorithm}
-Xiao Hu.
-\newblock An algorithm strategy for precise patient monitoring in a connected
-  healthcare enterprise.
-\newblock \emph{NPJ digital medicine}, 2\penalty0 (1):\penalty0 1--5, 2019.
-
-\bibitem[Price and Nicholson(2014)]{price2014black}
-W~Price and II~Nicholson.
-\newblock Black-box medicine.
-\newblock \emph{Harv. JL \& Tech.}, 28:\penalty0 419, 2014.
-
-\bibitem[Ford et~al.(2016)Ford, Price, and Nicholson]{ford2016privacy}
-Roger~Allan Ford, W~Price, and II~Nicholson.
-\newblock Privacy and accountability in black-box medicine.
-\newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
+\bibitem[Wachter(2015)]{wachter2015digital}
+Robert~M Wachter.
+\newblock \emph{The digital doctor: hope, hype, and harm at the dawn of
+  medicine's computer age}.
+\newblock McGraw-Hill Education New York, 2015.
 
 \bibitem[Kahneman(2011)]{kahneman2011thinking}
 Daniel Kahneman.

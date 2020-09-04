@@ -257,54 +257,61 @@ know it. The dissemination of medical knowledge starts in medical
 school and continues throughout the medical staff career. In addition,
 {\em medical protocols} are used to ensure uniformity and
 consistency of treatment between hospitals, doctors and nurses. While
-protocols are an important dissemination tool, they cannot eliminate all uncertainty, 
+protocols are an important dissemination tool, they have some limitations, 
 as described in the inset.
+~\\~\\~\\~\\
 
-\subsection{Machine Learning and uncertainty}
+\subsection{Machine Learning, uncertainty and Human agency}
 
-We described some of the causes of uncertainty in medical diagnosis. There are many other such causes. {\em However} this does not mean that each and every case is difficult. In fact, the majority of cases are {\em easy} to diagnose. By "easy" we don't mean that substantial medical knowledge is unnecessary. Rather, we mean that most doctors, when presented with the same information, would come to the same conclusion. In other words, these are the cases on which inter-rater disagreement is low. \yoav{any literature to support this?}
-Hard cases are those where doctors tend to either say "I don't know" or disagree with each other. 
+We described some of the causes of uncertainty in medical
+diagnosis.  {\em However} this does
+not mean that each and every case is difficult. In fact, the majority
+of cases are {\em easy} to diagnose. By "easy" we don't mean that
+substantial medical knowledge is unnecessary. Rather, we mean that
+{\em most doctors, when presented with the same information, would come to
+the same conclusion.} In other words, these are the cases on which
+inter-rater disagreement is low. \yoav{any literature to support
+  this?}  ``Hard'' cases are those where doctors tend to either say "I
+don't know" or disagree with each other ``easy'' examples are those
+no which most doctors agree.
 
-Based on this observation we redefine the goal of machine learning. Rather than ...  
+The implication of an case being labeling as ``hard'' by an IA, is
+that the case is passed to a human doctor for making a decision. The
+doctor can proceed in a variety of ways. She can use her superior
+ability to make a diagnosis, she can order more tests, consult other
+doctors, make a treatment plan based on partial knowledge etc.
 
+Unlike AI where the goal is to immitate and ultimately replace the
+doctor, the goal for IA is to provide a diagnostic tool that can help
+the doctor. Importantly, the responsibility for the well-being of the
+patient stays squarely with the doctor. Whether the IA makes a
+prediction or outputs ``I don't know'', the final diagnosis and the
+treatment plan is the responsibility of the human doctor.
 
-We suggest a different goal for automatic diagnosis.
-Rather than predicting the {\em ``correct''}
-diagnosis we define the goal of the computer to be predicting the {\em
-  distribution} of diagnosis across doctors. In addition, we allow
-doctors to be uncertain of their own diagnosis.
-The distribution of doctors predictions represents their confidence as
-a group. In other words, by predicting that all doctors will agree on
-the diagnosis, we assign high confidence to that diagnosis. 
-If, on the other hand, we
-predict that doctors will give one (or both) of two diagnoses A and B, then
-our prediction is akin to saying ``we are confident that the prediction
-is either A or B, to know which one we will need additional
-tests''. This accurately represents our current state in the
-diagnostic process and is more useful than deciding on one diagnostic
-with insufficient evidence.
+The utility of an IA sidekick to doctor depends on many factors. Among
+them the severity of the patient's problems, the patient to doctor
+ratio, whether advice from specialists is needed and available, the
+experience and self confidence of the doctor etc. This utility is
+likely to be high for a lone general practitioner treating a patient
+in a rural area with heart problems. It is less likely to be of direct
+use in an intensive care unit of a large urban hospital where doctors
+with a wide array of specializations are available.
 
-\hline
-\yoav{Seems like this paragraph corresponds to an earlier organzation
-  of the paper. What are the references about? Maybe we should
-  incorporate them elsewhere?}
-It is clear that such intelligent system is questionable and might
-raise concerns. Recently, various regulations in this regard have been
-proposed \cite{price2014black,ford2016privacy}.
+Increasing confidence in the diagnosis by consulting more than one
+doctor and seeking agreement is common sense. Similar ideas have been
+used in machine learning algorithms such as Bagging, Random Forests, and
+Boosting. These so-called ``ensemble'' algorithms combine the outputs
+of different ``base'' learning algorithm using a majority vote.
 
+The new machine learning insight behind {\em this} paper is that, rather than
+using a simple majority vote, it is better to make a prediction only when the
+number of votes for one diagnosis is significantly larger than for the
+other dianoses. When the number of votes for two or more diagnoses are
+similar, it is better, in some contexts, to declare this a hard
+example and abstain from prediction.
 
-Now, suppose we are able to eliminate all challenges from data
-calibration and validation issues, and we can provide as much
-information as possible to train the intelligence system. Even under
-this assumption, it is clear that the system still suffers from the
-protocol limitation or knowledge gap issues. Can such system be useful
-in clinics? To answer this question, we should not forget that
-physicians also follow the same protocol and have knowledge
-gaps. Depending on the clinical problems, and the experience of
-physicians under consideration, the agreement rate varies. Usually,
-intern doctors know the least, while a senior attending knows the
-most. It is natural that we trust a senior expert more, but it does
-not mean that we do not trust a junior intern doctor.
+Price et al have studied the ethical, legal and regulatory
+aspects of using AI in medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
 \input{ProtocolLimitations}
 
 %\newpage

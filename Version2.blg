@@ -3,57 +3,63 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
-Repeated entry---line 101 of file medbib.bib
+Repeated entry---line 127 of file medbib.bib
  : @article{hannun2019cardiologist
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 154 of file medbib.bib
+Repeated entry---line 180 of file medbib.bib
  : @article{goldman2020remdesivir
  :                               ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 214 of file medbib.bib
+ : @article{Dower1988
+ :                   ,
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "ford2017regulating"
 Warning--empty journal in ashby1957introduction
 Warning--there's a number but no volume in licklider1960man
+Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
-You've used 42 entries,
+You've used 44 entries,
             2481 wiz_defined-function locations,
-            803 strings with 12928 characters,
-and the built_in function-call counts, 16096 in all, are:
-= -- 1266
-> -- 984
-< -- 22
-+ -- 381
-- -- 296
-* -- 1313
-:= -- 2697
-add.period$ -- 129
-call.type$ -- 42
-change.case$ -- 82
-chr.to.int$ -- 41
-cite$ -- 45
-duplicate$ -- 781
-empty$ -- 1407
-format.name$ -- 348
-if$ -- 3308
+            816 strings with 13178 characters,
+and the built_in function-call counts, 16896 in all, are:
+= -- 1336
+> -- 1018
+< -- 24
++ -- 395
+- -- 306
+* -- 1376
+:= -- 2821
+add.period$ -- 136
+call.type$ -- 44
+change.case$ -- 85
+chr.to.int$ -- 43
+cite$ -- 48
+duplicate$ -- 819
+empty$ -- 1484
+format.name$ -- 362
+if$ -- 3475
 int.to.chr$ -- 2
-int.to.str$ -- 43
-missing$ -- 44
-newline$ -- 221
-num.names$ -- 126
-pop$ -- 332
+int.to.str$ -- 45
+missing$ -- 47
+newline$ -- 232
+num.names$ -- 132
+pop$ -- 351
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 44
 quote$ -- 0
-skip$ -- 438
+skip$ -- 458
 stack$ -- 0
-substring$ -- 655
-swap$ -- 87
+substring$ -- 712
+swap$ -- 91
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 279
-warning$ -- 3
-while$ -- 134
+type$ -- 290
+warning$ -- 4
+while$ -- 141
 width$ -- 0
-write$ -- 546
-(There were 2 error messages)
+write$ -- 573
+(There were 3 error messages)

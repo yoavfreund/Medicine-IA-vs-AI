@@ -3,15 +3,15 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
-Repeated entry---line 127 of file medbib.bib
+Repeated entry---line 138 of file medbib.bib
  : @article{hannun2019cardiologist
  :                                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 180 of file medbib.bib
+Repeated entry---line 191 of file medbib.bib
  : @article{goldman2020remdesivir
  :                               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 214 of file medbib.bib
+Repeated entry---line 225 of file medbib.bib
  : @article{Dower1988
  :                   ,
 I'm skipping whatever remains of this entry
@@ -23,15 +23,15 @@ Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
 You've used 44 entries,
             2481 wiz_defined-function locations,
-            816 strings with 13178 characters,
-and the built_in function-call counts, 16896 in all, are:
+            815 strings with 13377 characters,
+and the built_in function-call counts, 17076 in all, are:
 = -- 1336
-> -- 1018
+> -- 1060
 < -- 24
-+ -- 395
-- -- 306
-* -- 1376
-:= -- 2821
++ -- 409
+- -- 320
+* -- 1402
+:= -- 2863
 add.period$ -- 136
 call.type$ -- 44
 change.case$ -- 85
@@ -39,8 +39,8 @@ chr.to.int$ -- 43
 cite$ -- 48
 duplicate$ -- 819
 empty$ -- 1484
-format.name$ -- 362
-if$ -- 3475
+format.name$ -- 376
+if$ -- 3503
 int.to.chr$ -- 2
 int.to.str$ -- 45
 missing$ -- 47

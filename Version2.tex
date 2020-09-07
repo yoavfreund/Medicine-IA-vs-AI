@@ -192,7 +192,6 @@ treatment. It might be due to a change in diet or reduction in stress.
 Moreover, in most cases, there are few or none followup visits and as
 a result there is no data as to whether the patient has a lasting
 improvement in health.
-\newpage
 \input{SignalQuality}
 
 
@@ -250,8 +249,8 @@ limitation of medical protocols.
 knowledge. This is not the limitation of a particular doctor, rather,
 it reflects the limitations of knowledge that correspond to successful
 medical trials.
-
 \input{KnowledgeGap}
+
 Even when medical knowledge exists, an individual doctor might now
 know it. The dissemination of medical knowledge starts in medical
 school and continues throughout the medical staff career. In addition,
@@ -259,27 +258,40 @@ school and continues throughout the medical staff career. In addition,
 consistency of treatment between hospitals, doctors and nurses. While
 protocols are an important dissemination tool, they have some limitations, 
 as described in the inset.
-~\\~\\~\\~\\
+~\\
 
-\subsection{Machine Learning, uncertainty and Human agency}
+\section{Uncertainty in machine learning}
 
-We described some of the causes of uncertainty in medical
-diagnosis.  {\em However} this does
-not mean that each and every case is difficult. In fact, the majority
-of cases are {\em easy} to diagnose. By "easy" we don't mean that
-substantial medical knowledge is unnecessary. Rather, we mean that
-{\em most doctors, when presented with the same information, would come to
-the same conclusion.} In other words, these are the cases on which
-inter-rater disagreement is low. \yoav{any literature to support
-  this?}  ``Hard'' cases are those where doctors tend to either say "I
-don't know" or disagree with each other ``easy'' examples are those
-no which most doctors agree.
+We described some of the many causes of uncertainty in medical
+diagnosis. One might conclude that the automation of diagnosis in
+diseases with high rates of inter-rater disagreement is
+impossibe. However, this is not necessarily the case. There are types
+of diagnostics for which the typical case is {\em simple}, and only a
+small fraction of the cases are {\em complex}.  We use the term
+``simple'' to mean that {\em most doctors are likely to give the same
+  diagnosis}.  In other words, these are the cases on which
+inter-rater disagreement is low. ``Complex'' cases are those where
+doctors tend to either say "I don't know" or disagree with each other.
+{\em Our proposal is that to allow IA to output ``I don't know'' on
+  the complex cases, and, in exchange, require higher levels of
+  accuracy and reliability when the IA makes a prediction.}
 
-The implication of an case being labeling as ``hard'' by an IA, is
-that the case is passed to a human doctor for making a decision. The
-doctor can proceed in a variety of ways. She can use her superior
-ability to make a diagnosis, she can order more tests, consult other
-doctors, make a treatment plan based on partial knowledge etc.
+Increasing confidence in the diagnosis by consulting more than one
+doctor and seeking agreement is common sense. Similar ideas have been
+used in machine learning algorithms such as Bagging, Random Forests, and
+Boosting\cite{}. These so-called ``ensemble'' algorithms combine the outputs
+of different ``base'' learning algorithm using a majority vote.
+
+Here, we refine the idea of taking a majority vote. We conform with
+the majority vote when the majority vote is clearly tilted towards one
+of the possible outcomes (labels, diagnoses). When two or more
+outcomes get close to the maximal number of votes, the system outputs
+the set of outcomes. This means: I predict that it is one of these
+outcomes, but I don't know which one. Similar notions of confidence
+have been suggested in~\cite{li2011knows}.
+
+%\newpage
+\section{Augmenting medicine}
 
 Unlike AI where the goal is to immitate and ultimately replace the
 doctor, the goal for IA is to provide a diagnostic tool that can help
@@ -297,25 +309,15 @@ in a rural area with heart problems. It is less likely to be of direct
 use in an intensive care unit of a large urban hospital where doctors
 with a wide array of specializations are available.
 
-Increasing confidence in the diagnosis by consulting more than one
-doctor and seeking agreement is common sense. Similar ideas have been
-used in machine learning algorithms such as Bagging, Random Forests, and
-Boosting. These so-called ``ensemble'' algorithms combine the outputs
-of different ``base'' learning algorithm using a majority vote.
-
-The new machine learning insight behind {\em this} paper is that, rather than
-using a simple majority vote, it is better to make a prediction only when the
-number of votes for one diagnosis is significantly larger than for the
-other dianoses. When the number of votes for two or more diagnoses are
-similar, it is better, in some contexts, to declare this a hard
-example and abstain from prediction.
-
 Price et al have studied the ethical, legal and regulatory
 aspects of using AI in medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
 \input{ProtocolLimitations}
 
-%\newpage
-\section{Augmenting medicine}
+The consequence of an case being labeling as ``Complex'' by an IA, is
+that the case is passed to a human doctor for making a decision. The
+doctor can proceed in a variety of ways. She can use her superior
+ability to make a diagnosis, she can order more tests, consult other
+doctors, make a treatment plan based on partial knowledge etc.
 
 So far, we have discussed components: Machine learning IA, medical
 uncertainty and ways of controlling and reducing it. We now turn our
@@ -536,8 +538,6 @@ similar to score-cards{\color{blue}. Moreover, it can be applied to areas with s
 On the high level, eventually, we can view an IA system with IDK as a medical specialist full of knowledge and do not make mistake when it knows the answer. When it encounters IDK, it will not hide it. The feedback from experienced physicians, or newly developed knowledge, could be input to decrease the gray areas, and reduce the chance of encountering IDK. Such system in the beginning behaves like an intern doctor, and teaching it is like}
 teaching young diagnostics. {\color{blue}Due to the brain capacity and physical limitation, it is impossible for a single physician to know everything in every field, and it is possible that even a very experienced physician could make a mistake. Such a well trained IA system can eventually serve as a reliable second opinion provider to experienced physicians.}
 \end{itemize}
-
-\section{Summary}
 
 %\bibliographystyle{alpha} 
 \bibliography{medbib}

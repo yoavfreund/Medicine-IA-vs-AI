@@ -339,45 +339,23 @@ the mistake, and who might lose their license to practice.
 We discuss augmenting of medicine at two levels: augmenting an
 individual caretaker, and augmenting medical institutions.
 
-\yoav{Till Here}
-
-\section{How to augment doctors}
-Moreover, as argued above, claims that AI can perform diagnosis more
-accurately than most medical professionals are overblown. On the other
-hand, if we allow the IA system to output ``I don't know'' on
-the hard cases, we can achieve high accuracy on the easier cases. 
-
-Unlike AI where the goal is to immitate and ultimately replace the
-doctor, the goal for IA is to provide a diagnostic tool that can help
-the doctor. Importantly, the responsibility for the well-being of the
-patient stays squarely with the doctor. Whether the IA makes a
-prediction or outputs ``I don't know'', the final diagnosis and the
-treatment plan is the responsibility of the human doctor.
-
-The utility of an IA sidekick to doctor depends on many factors. Among
-them the severity of the patient's problems, the patient to doctor
-ratio, whether advice from specialists is needed and available, the
-experience and self confidence of the doctor etc. This utility is
-likely to be high for a lone general practitioner treating a patient
-in a rural area with heart problems. It is less likely to be of direct
-use in an intensive care unit of a large urban hospital where doctors
-with a wide array of specializations are available.
-
-
-
-The consequence of an case being labeling as ``Complex'' by an IA, is
-that the case is passed to a human doctor for making a decision. The
-doctor can proceed in a variety of ways. She can use her superior
-ability to make a diagnosis, she can order more tests, consult other
-doctors, make a treatment plan based on partial knowledge etc.
-
+\section{Augmenting caregivers}
 
 \input{TechnicalVSAdaptive}
-Medical diagnosis is often uncertain or inconclusive. On the other
-hand, a doctor responsible for a patient's health has to make
-decisions in spite of this uncertainty. If the uncertainty presents a
-sufficiently small risk, the doctor can choose a treatment. Otherwise
-the doctor might consult other doctors, a medical journal or a book. 
+
+Seen from the care-giver point of view, an IA sidekick is a device
+that takes care of the simple cases and escalates to the care-giver
+the more complex cases. This is similar to a triage nurse who's role
+is to decide which patients the doctor should examine first, and which
+can wait longer.
+
+The threshold defining the boundary between ``simple'' and ``complex''
+depends on several factors including staffing, the rate of new cases, 
+and the expertise of the caregivers. As the ultimate responsibility
+for patients is on the shoulders of the doctor, it is the doctor that
+has to set this threshold. A cardiologist in an ICU unit might prefer never
+to use the IA, while a PCP during an epidemic might want to use the IA
+to filter out cases that are clearly healthy.
 
 To better understand the diagnostic process and the possiblities  of
 improving it using IA, we turn to the Kahaneman's~\cite{kahneman2011thinking}
@@ -386,85 +364,63 @@ decision making~\cite{vordermark2019introduction}. Acording to these authorities
 Medical diagnosis can be divided into two main types: {\em
   recognition} and {\em elimination}. Recognition is a fast mental
 process that is partially unconscious where the one correct diagnosis
-presents itself in the doctors mind. For example, a patient arriving
-in the ER from a scene of an accident can be recognized 
+presents itself in the doctors mind. For example, a doctor can often
+identify a patient as intoxicated instantanously, based on how they
+walk and talk, before any objective test has been administered.
 
-Sometimes the doctor is not able
-to explain their recognition in words, which hinders discussion and
-documentation.  As recognition typically points to a single diagnosis,
-there is a danger that the recognized diagnosis will hide other
-possible diagnoses.  Elimination, on the other hand, is a slow
-deliberate process which starts with all possible diagnoses and
-gradually eliminates unlikely ones based on patient history,
-examination and test results. As Elimination is deliberative, it is
-easier to discuss and document it.
+Sometimes the doctor is not able to explain their recognition in
+words, which hinders documentation and discussion. As recognition
+typically points to a single diagnosis, there is a danger that the
+recognized diagnosis will hide other possible diagnoses.
 
-In both recognition and elimination, past experience plays an important role. This experience is based on medical practice as well as knowledge learned from lectures or books. 
+Elimination, on the other hand, is a slow deliberate process which
+starts with all possible diagnoses and gradually eliminates unlikely
+ones based on patient history, examination and test results. As
+Elimination is deliberative, it is easier to discuss and document it.
 
-IA can aid the doctor both in Recognition and in Elimination. On the Recognition side, an IA can sift through massive data and point the diagnostician to suspicious areas.
+An IA system could help the elimination process carefully and
+systematically eliminate diagnoses. This can help the doctor stay
+aware of possibilities that are not obvious, for differential
+diagnosis.
 
-On the Elimination side, an IA system could help carefully and systematically
-eliminate diagnoses. This can help the doctor stay aware of possibilities that are not obvious, for differential diagnosis.
+While the benefits of IA to elimination based recognition are clear,
+the benefits for recognision based analysis are closer at hand.
+Pathologists, and other ``Pattern Doctors''~\cite{Topol} make heavy
+use of recognition. As the size of a typical image is typically tens
+of thousands of pixels in either dimension, an exhoustive scan of the
+whole image in full resolution is infeasibe. As the pathologist scans
+the image of a biopsy in increasing magnifications,
+specific patterns are detected and those detections in turn guide the search.
 
-
-\iffalse
-To make a decision based
-on elimination, slow thinking with focused attention is critical
-\cite{michel2020thinking}. 
-
-An intelligent system could be extremely helpful for this
-purpose. An intelligent system could help carefully and slowly
-eliminate possible choices, and if it end up in a gray zone with
-multiple possibilities, it says IDK. This would dramatically help
-physicians daily practice.
-
-{\bf Sources of uncertainty in medical diagnosis.}
-\begin{itemize}
-  \item{\bf The diagnostic process of elimination}
-  \item{\bf Data Quality, Calibration, resolution} Discuss issue as placement of sensors, .
-  \end{itemize}
-
- {\bf Hiding Uncertainty}
-  \begin{itemize}
-    \item {\bf Psychological reasons} Both doctor and patient prefer
-      the projection of certitude.
-    \item {\bf Protocols} --done
-    \item {\bf diagnostic devices} Secrecy of the internal code limits
-      the trustworthiness of the alarms.--done
-    \item{\bf Alarm Fatigue}--done
-  \end{itemize}
-%{\bf Psychological reasons} Both doctor and patient prefer
+An IA sidekick for pathology can detect the patterns that are apparent
+in high mignification and present them to the pathologist as
+annotations of the image. In this way the IA sidekick can speed the
+analysis and improve it's accuracy, while leaving the overall control
+and responsibility with the human pathologist. Computer analysis of
+pathology images is an active field of research.\cite{}
 
 
-How to quantify IDK? We should discuss how to quantify the confidence, or certainty, a physician has when making a decision. 
-\ML{Certainty and conditional probability}{
-This certainty is very different from the the conditional probability of the disease given the diagnostic. The first is
-      akin to saying: 95\% of the dermatologists would give the same
-      diagnostics. The second defines the probability that, if we had
-      access to ground truth, then 95\% of the patients that receive
-      this diagnostics have the corresponding condition.
-}  
-\fi
-Clearly, experience leads to confidence. With more experience aggregated, diagnostic options that contradict the accumulated
-  experience are eliminated, and hence more problems that need to be handled by the elimination process can be handled by the recognition process. However, facing our complicated human body, it is almost not possible for any single physician to aggregate all necessary experience to be confident about anything, so IDK is still an option. A practical and simple way to increase diagnostic certainty is to solicit the experience of a diverse group of doctors via discussion. If there is a clear majority for one diagnostic outcome,
-      then the overall confidence in that diagnostics is high. While this voting procedure might guarantee the optimal outcome, it eliminates the uncertainty during the whole procedure. With this certain procedure, even if the outcome is negative, it can be traced back and accumulate evidence and experience. 
+\section{Augmenting medical institutions}
 
-\section{How to augment medical institutions}
+In the last section we described the benefits of IA to an individual
+caregiver. We now discuss medical instutitions, such as hospitals and
+medical boards, and outline the effects that IA can have on them.
 
-  Computer {\color{blue}has been} an integral part of medical practice {\color{blue}for decades}. From
-  {\color{blue}electronic} medical records (EMR) to medical instrumentation to billing,
+  Computers have been an integral part of medical practice for decades. From
+  electronic medical records (EMR) to medical instrumentation to billing,
   hospitals and cliniques cannot function without computers. By some
   measures computers can already make better diagnosis than human
   doctors. The question is not {\em whether} computer diagnostics will
   become part of medical practice, the question is {\em how}.
 
+\yoav{Up to here}
+  
   Some claim that human doctors and nurses are heading to extinction,
   following the fate of manufacturing jobs and bank cashiers.  Our
   prediction is that computers will change the nature of medical
   work. Our prediction is that the adaptation of IA will increase,
   rather than decrease, the number of healthcare workers. especially
-  in the care of chronic disease and aging \st{and exploring the
-    nature of our complicated human body}.
+  in the care of chronic disease and aging.
 
   Consider an established clinique or hospital. While every day brings
   in new cases, it is likely that for many of these cases the

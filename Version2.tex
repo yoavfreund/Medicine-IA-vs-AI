@@ -276,22 +276,76 @@ doctors tend to either say "I don't know" or disagree with each other.
   the complex cases, and, in exchange, require higher levels of
   accuracy and reliability when the IA makes a prediction.}
 
-Increasing confidence in the diagnosis by consulting more than one
-doctor and seeking agreement is common sense. Similar ideas have been
+Increasing confidence in a diagnosis by seaking concensus among
+several doctors is common sense. A similar approach  been
 used in machine learning algorithms such as Bagging, Random Forests, and
-Boosting\cite{}. These so-called ``ensemble'' algorithms combine the outputs
-of different ``base'' learning algorithm using a majority vote.
+Boosting\cite{}. These so-called ``ensemble'' algorithms take the
+majority vote of predictions from several ``base'' learning algorithms using a majority
+vote to generate a single more reliable prediction.~\footnote{A majority is
+  used when there are only two possible labels. A more general
+  combination rule is the {\em plurality} i.e. the label that gets the
+  largest number of votes.}
 
-Here, we refine the idea of taking a majority vote. We conform with
-the majority vote when the majority vote is clearly tilted towards one
-of the possible outcomes (labels, diagnoses). When two or more
-outcomes get close to the maximal number of votes, the system outputs
-the set of outcomes. This means: I predict that it is one of these
-outcomes, but I don't know which one. Similar notions of confidence
-have been suggested in~\cite{li2011knows}.
+The majority vote always outputs one of the labels. A {\em clear
+  majority rule} for binary prediction is one which outputs +1 or -1
+if one of the classes gets {\em significantly} more votes that any of
+the others. If the number of votes for both labels are similar, the
+clear majority rule outputs ``?'' which is interpreted as ``I don't
+know''.
 
 %\newpage
 \section{Augmenting medicine}
+
+\input{ProtocolLimitations}
+The goal of this paper is to chart a path by which machine learning
+and big data can be effectively used in medicine. Our discussion
+focused on the differences betwen AI and IA and argued that IA
+defines more achievable goals.
+
+We use Ronald Heifetz classification of problems (see insight). Our
+discussion up to this point focused on {\em technical}
+problems. Technical issues can be solved by changing equipment or
+directions for it's use. In the remainder of this article we will
+concern ourselves with the much harder {\em adaptive}
+problems. Adaptive problems require changes in the perception and
+behaviour of {\em people}. In our case people are the caregivers who
+are supposed to use the new technology. The best technology is
+worthless if it is not adopted.
+
+Consider first an AI system developed with the goal of replacing the
+caregiver. Naturally, the caregiver will prefer not to use the
+system. Will the patient prefer the human caregiver or the AI system?
+The answer is anybody's guess, because such systems are not available
+yet. However, there is evidence (?) that patients choose a caretaker
+that they can trust, and trust requires a human to human connection. 
+
+Unlike AI, IA systems do not aim to replace the caregiver. Rather,
+they aim to assist the caregiver by taking care of the simple or easy
+cases. This makes the caretaker more efficient and effective, but does
+not take away the agency of the caregiver. When the IA system outputs
+``I don't know'' it explicitly passes the responsibility for the
+patient to the caregiver.
+
+Agency and responsibility are central. Medicine is not a precise
+science and incorrect decisions can result in harm or death.
+Price et al have studied the ethical, legal and regulatory
+aspects of using AI in medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
+Their conclusion is that the ultimate responsibility for the patients
+well-being is {\em always} with the human caregiver. Even if the AI
+system is known to make fewer mistakes that the average doctor, some
+mistake are unavoidable, and the question is who is responsible for
+the mistake, and who might lose their license to practice.
+
+We discuss augmenting of medicine at two levels: augmenting an
+individual caretaker, and augmenting medical institutions.
+
+\yoav{Till Here}
+
+\section{How to augment doctors}
+Moreover, as argued above, claims that AI can perform diagnosis more
+accurately than most medical professionals are overblown. On the other
+hand, if we allow the IA system to output ``I don't know'' on
+the hard cases, we can achieve high accuracy on the easier cases. 
 
 Unlike AI where the goal is to immitate and ultimately replace the
 doctor, the goal for IA is to provide a diagnostic tool that can help
@@ -309,9 +363,7 @@ in a rural area with heart problems. It is less likely to be of direct
 use in an intensive care unit of a large urban hospital where doctors
 with a wide array of specializations are available.
 
-Price et al have studied the ethical, legal and regulatory
-aspects of using AI in medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
-\input{ProtocolLimitations}
+
 
 The consequence of an case being labeling as ``Complex'' by an IA, is
 that the case is passed to a human doctor for making a decision. The
@@ -319,60 +371,33 @@ doctor can proceed in a variety of ways. She can use her superior
 ability to make a diagnosis, she can order more tests, consult other
 doctors, make a treatment plan based on partial knowledge etc.
 
-So far, we have discussed components: Machine learning IA, medical
-uncertainty and ways of controlling and reducing it. We now turn our
-sights to system and organizational issues, and try to answer the
-question ``why would doctors, nurses and hospitals adapt such technology''.
 
-We quote from Robert Rechter's book "The digital doctor"~\cite{wachter2015digital}:
-\begin{quote}
-  Harvard psychiatrist and leadership guru Ronald Heifetz has
-  described two types of problems: technical and adaptive. Technical
-  problems can be solved with new tools, new practices, and
-  conventional leadership. Baking a cake is a technical problem:
-  follow the recipe and the results are likely to be fine. Heifetz
-  contrasts technical problems with adaptive ones: problems that
-  require people themselves to change. In adaptive problems, he
-  explains, the people are both the problem and the
-  solution. Leadership, he once said, requires mobilizing and engaging
-  people around a problem “rather than trying to anesthetize them so
-  you can go off and solve it on your own.”
-\end{quote}
-
-Rechter continues to say that the digitization of medicine "the Mother
-of All Adaptive Problems". In other words, for AI to be widely
-adapted, doctors and nurses ("medic" in the following) need to
-positively engage in its adaptation. Declaring that AI will soon
-replace medics, positions AI in an adversarial stance towards medics
-and is likely to make them more resistant to the adoption of AI
-technology~\cite{topol2019deep}.
-
-Moreover, as argued above, claims that AI can perform diagnosis more
-accurately than most medical professionals are overblown. On the other
-hand, if we allow the IA system to output ``I don't know'' on
-the hard cases, we can achieve high accuracy on the easier cases. 
-
-\section{How to augment doctors}
+\input{TechnicalVSAdaptive}
 Medical diagnosis is often uncertain or inconclusive. On the other
 hand, a doctor responsible for a patient's health has to make
 decisions in spite of this uncertainty. If the uncertainty presents a
 sufficiently small risk, the doctor can choose a treatment. Otherwise
 the doctor might consult other doctors, a medical journal or a book. 
 
-To better understand the process and the possible place of AI in it,
-we turn to the Kahaneman's~\cite{kahneman2011thinking} ``Thinking Fast Thinking Slow'' and
-to Vordermark book on medical decision
-making~\cite{vordermark2019introduction}.
-
+To better understand the diagnostic process and the possiblities  of
+improving it using IA, we turn to the Kahaneman's~\cite{kahneman2011thinking}
+``Thinking Fast Thinking Slow'' and to Vordermark book on medical
+decision making~\cite{vordermark2019introduction}. Acording to these authorities,
 Medical diagnosis can be divided into two main types: {\em
   recognition} and {\em elimination}. Recognition is a fast mental
-process that is partially unconscious where the one correct diagnosis presents itself in the doctors mind.  Sometimes the doctor is not able to explain their recognition in words, which hinders discussion and documentation.  As recognition 
-typically points to a single diagnosis, there is a danger that the
-recognized diagnosis will hide other possible diagnoses.
-Elimination, on the other hand, is a slow deliberate process  which starts with all possible diagnoses and gradually eliminates
-unlikely ones based on patient history, examination and test
-results. As Elimination is deliberative, it is easier to discuss and
-document it.
+process that is partially unconscious where the one correct diagnosis
+presents itself in the doctors mind. For example, a patient arriving
+in the ER from a scene of an accident can be recognized 
+
+Sometimes the doctor is not able
+to explain their recognition in words, which hinders discussion and
+documentation.  As recognition typically points to a single diagnosis,
+there is a danger that the recognized diagnosis will hide other
+possible diagnoses.  Elimination, on the other hand, is a slow
+deliberate process which starts with all possible diagnoses and
+gradually eliminates unlikely ones based on patient history,
+examination and test results. As Elimination is deliberative, it is
+easier to discuss and document it.
 
 In both recognition and elimination, past experience plays an important role. This experience is based on medical practice as well as knowledge learned from lectures or books. 
 
@@ -451,9 +476,6 @@ Clearly, experience leads to confidence. With more experience aggregated, diagno
   doctor faster, while patients that are confidently identified as
   healthy are directed to a junior doctor or to a nurse practitioner.
 
-\yoav{Until here}
-  
-  
   We believe computers {\em can} perform accurate diagnosis for cases where
   different doctors are likely to agree. In other cases {\color{blue}that are in the}
   diagnostic gray area, the computer will output ``I don't know'' and

@@ -16,6 +16,7 @@ Repeated entry---line 225 of file medbib.bib
  :                   ,
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for ""
+Warning--I didn't find a database entry for "li2011knows"
 Warning--I didn't find a database entry for "ford2017regulating"
 Warning--empty journal in ashby1957introduction
 Warning--there's a number but no volume in licklider1960man
@@ -23,7 +24,7 @@ Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
 You've used 44 entries,
             2481 wiz_defined-function locations,
-            815 strings with 13377 characters,
+            816 strings with 13388 characters,
 and the built_in function-call counts, 17076 in all, are:
 = -- 1336
 > -- 1060

@@ -115,16 +115,16 @@ Deep learning is a special case of {\em supervised learning} (see
 inset), sometimes called {\em input-output}
 learning~\cite{ng2016artificial,topol2019deep}.
 \input{Supervised}
-The data for supervised learning consists of a large collection
-(input,output) pairs. For medical diagnosis, the inputs is medical
+The data for supervised learning consists of a large collection of
+(input, output) pairs. For medical diagnosis, {\color{red}usually} the input is medical
 information for the patient (Heart rate, blood tests, X-ray images
 etc.) and the output is the diagnosis. This output is considered the
 ``ground-truth'' and is assumed to represent the undisputed truth.
 
-Here lies the the first difficulty with applying supervised learning
+Here lies the first difficulty with applying supervised learning
 to medical diagnosis. In most real-world scenarios the diagnosis
-does is not an objectively measurable fact, rather, it
-represents the conclusion drawn by a fallible human diagnostician. We  will
+is not \sout{an objectively measurable fact} {\color{red}always perfect}; rather, it
+represents the conclusion drawn by \sout{a fallible} human diagnosticians {\color{red}that might be fallible}. We  will
 return to this issue in the next section.
 
 The other important assumption made in supervised learning is that the
@@ -135,7 +135,7 @@ We now consider a study in deep neural networks which claims to show
 that DNNs can perform diagnostics as well as, or better, than human diagnosticians. 
 \input{SkinCancer}
 In a highly cited paper in the journal
-Science~\cite{esteva2017dermatologist} provides evidence supporting
+Science~\cite{esteva2017dermatologist}, the authors provide evidence supporting
 the claim that computers can diagnose skin cancer as well or better than board
 certified dermatologists.
 
@@ -160,7 +160,7 @@ the opinions of human diagnosticians.
 \section{Uncertainty in medicine}
 
 For the most part, it is hard to associate ground truth with medical
-diagnostics. This is evident studies of {\em inter-rater agreement} (see
+diagnostics. This is evident from studies of {\em inter-rater agreement} {\color{red}[Hau-Tieng: This sentence reads strange here]} (see
 inset). In studies of this kind multiple doctors produce diagnostics
 based identical medical information without communicating with each other. \input{Arrhythmia}
 

@@ -1,28 +1,28 @@
 \Medicine{Uncertainty due to signal quality}{Medical devices use a
 variety of bio-sensors that measure record and analyze different
-  biometric signals. These signals vary in velocity from low-velocity vital signs such as heart rate,
+  biometric signals. These signals vary in velocity, {\color{red}ranging} from low-velocity vital signs such as heart rate,
   oxygen saturation, temperature and blood pressure, through
-  mid-velocity waveforms such as ECG, EEG to high velocity imaging such as CT, X-ray, MRI and
-  scanning microscopes. Low-velocity signals such as blood
-  pressure or heart rate can be directly used in diagnosis. Mid- and 
-  high-velocity signals have to be interpreted before they can be used
-  in diagnosis. We use the acronym HS to refer to mid and high
-  velocity signals that require interpretation.
+  high-velocity waveforms such as ECG and EEG {\color{red}and medical} imaging such as CT, X-ray, MRI and
+  scanning microscopes. {\color{red}Some} signals, such as blood
+  pressure or heart rate, can be directly used in diagnosis. \sout{Mid- and 
+  high-velocity} {\color{red}Some other} signals have to be interpreted before they can be used
+  in diagnosis. We use the acronym HS to refer to \sout{mid and high
+  velocity} those signals that require interpretation.
 
 Interpreting HS is a significant fraction of the work of most
-doctors. In addition, There are medical specializations such as
-Radiology and Pathology that are devoted interpreting HS. These
+doctors. In addition, There are medical \sout{specializations}{\color{red}specialties} such as
+Radiology and Pathology that are devoted to interpreting HS. These
 so-called ``Pattern Doctors'' are predicted to be the early adopters
 of AI~\cite{topol2019deep} or IA.
 HS provides critical detailed information about the patient's
 health. However, the richness of the signal can make it susceptible to
-nuisance variability from noise, limited resolution, operator error
-etc. The number and of nuisance variables is very large. In the next
+nuisance variability from noise, limited resolution, operator error,
+etc. The number of nuisance variables is very large {\color{red}and versatile}. In the next
 paragraph we give an example of one nuisance variable: the placement
 of ECG leads on the patient's body.
   
 For ECG signals to be correctly and consistently interpreted, it is
-important that the leads be placed correctly on the patient's
+important that the leads are placed correctly on the patient's
 body. Several standards for placement have been published, for example, the standard 12 leads ECG system
 \cite{goldberger2017clinical}, the EASI system \cite{Dower1988}, and the Frank lead system \cite{frank1956accurate}. 
 It is not always possible to achieve a consistent and precise sensor

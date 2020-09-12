@@ -161,35 +161,35 @@ the opinions of human diagnosticians.
 
 For the most part, it is hard to associate ground truth with medical
 diagnostics. This is evident from studies of {\em inter-rater agreement} {\color{red}[Hau-Tieng: This sentence reads strange here]} (see
-inset). In studies of this kind multiple doctors produce diagnostics
-based identical medical information without communicating with each other. \input{Arrhythmia}
+inset). In studies of this kind, multiple doctors produce diagnostics
+based on identical medical information without communicating with each other. \input{Arrhythmia}
 
 \input{InterRaterAgreement}
 
 In addition, diagnosis is not an input-output mapping. Rather, it
 is an iterative process which reduces uncertainty over time. To
 illustrate this, consider the diagnostics of a patient that is treated
-in an out-patient clinique..  When a patient arrives at a clinique for
+in an out-patient clinique.  When a patient arrives at a clinique for
 the first time, all diagnostics are possible. After a physical exam
-and an interview with a doctor, , many possibilities are
+and an interview with a doctor, many possibilities are
 eliminated. In {\em simple} cases, this is enough for the doctor to
 confidently choose a treatment. In more complex cases, the doctor
 might ask for multiple tests and visits, refer the patient to a
-specialist, consult colleagues, journals and books etc. To choose a
-treatment plan, the set of possible diagnostics has to be reduced
-however, it does not have to be reduced to a {\em single} diagnostics,
-as multiple diagnostics might share a treatment plan.
+specialist, consult colleagues, journals and books, etc. To choose a
+treatment plan, the set of possible diagnostics has to be reduced.
+However, it does not have to be reduced to a {\em single} diagnostics {\color{red}before the treatment can be started.}
+\sout{as multiple diagnostics might share a treatment plan}.
 
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostic problem, we need to define a ground-truth label for each
-patient. But that is easier said than done. As the final output of the
+patient. But that is easier said than done. If the final output of the
 diagnostic process is a treatment plan, we would like to know what is
-the best treatment plan. Unfortunately, we can only use a single
-treatment plan to treat the patient, so the most that we might be able
-to infer is whether the chosen treatment was effective.  Even if the
+the {\em best} treatment plan, since \sout{Unfortunately,} we can only use a single
+treatment plan to treat the patient. So, {\color{red}unless we have a sure diagnosis,} the most that we might be able
+to infer is whether the chosen treatment was effective. {\color{red}In some cases,} even if the
 patient improved, the cause might have been unrelated to the
 treatment. It might be due to a change in diet or reduction in stress.
-Moreover, in most cases, there are few or none followup visits and as
+Moreover, in {\color{red}some} \sout{most} cases, there are few or none followup visits and as
 a result there is no data as to whether the patient has a lasting
 improvement in health.
 \input{SignalQuality}
@@ -209,8 +209,7 @@ which the uncertainty in medicine is non-negligible.
 %Medical uncertainty as manifest by low inter-rater agreement consequence,
 %can be found in many clinical problems
 There are many causes for uncertainty in medical diagnosis. We briefly
-describe four categories of problems: {\em signal quality}, {\em
-  Patient Monitors} the {\em knowledge gap} and the limitations of {\em
+describe {\color{red}three} categories of problems: {\em signal quality}, \sout{{\em Patient Monitors}} the {\em knowledge gap} and the limitations of {\em
   diagnostic protocols}.
 
 
@@ -220,8 +219,8 @@ as heart rate, blood pressure and temperature can be measured reliably
 and accurately. On the other hand, modern
 devices such as EKG, EEG, camera images, X-ray, ultra-sound and MRI
 produce vast and highly variable data. The quality of this data
-depends on may factors among them, the quality of the instruments, the
-consistency of the human operator, the build of the patient etc.
+depends on many factors among them, including the quality of the instruments, the
+consistency of the human operator, the build of the patient, etc.
 
 Signal quality enhancement is already an important part of imaging
 devices such as X-ray and MRI. Methods such as compressed
@@ -229,29 +228,29 @@ sensing~\cite{} are used to reconstruct 3d images from a large number
 of noisy scans.
 
 \input{AlarmFatigue}
-One situation where signal quality and signal variability is
+  One situation where signal quality and signal variability is
 particularly problematic are Patient Monitors. The purpose of these
 devices is to continuously monitor patients vital signs and alert the
 medical staff if a dangerous situation is detected. Unfortunately, the
 false alarm rate of these devices is often high. This results in a
-phenomenon called ``alarm fatigue'' where the medical staff ignores
+phenomenon called ``alarm fatigue'' {\color{red}(see insert)} where the medical staff ignores
 the generated alarms, rendering them useless.
 
 Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
 devices and moves up to the medical staff.
 
-Other types of uncertainty are ``top down'' in that they originates in medical research percolates down to the medical staff.q We briefly
+Other types of uncertainty are ``top down'' in that they originates in medical research percolates down to the medical staff. We briefly
 describe two types of top-down uncertainty: knowledge gaps and the
 limitation of medical protocols.
 
 {\em ``Knowledge gap''} corresponds to limitations of scientific medical
-knowledge. This is not the limitation of a particular doctor, rather,
+knowledge. This is not the limitation of a particular doctor; rather,
 it reflects the limitations of knowledge that correspond to successful
 medical trials.
 \input{KnowledgeGap}
 
-Even when medical knowledge exists, an individual doctor might now
+Even when medical knowledge exists {\color{red}and there is no knowledge gap}, an individual doctor might {\color{red}not}
 know it. The dissemination of medical knowledge starts in medical
 school and continues throughout the medical staff career. In addition,
 {\em medical protocols} are used to ensure uniformity and
@@ -265,21 +264,21 @@ as described in the inset.
 We described some of the many causes of uncertainty in medical
 diagnosis. One might conclude that the automation of diagnosis in
 diseases with high rates of inter-rater disagreement is
-impossibe. However, this is not necessarily the case. There are types
+impossible. However, this is not necessarily the case. There are types
 of diagnostics for which the typical case is {\em simple}, and only a
 small fraction of the cases are {\em complex}.  We use the term
 ``simple'' to mean that {\em most doctors are likely to give the same
   diagnosis}.  In other words, these are the cases on which
-inter-rater disagreement is low. ``Complex'' cases are those where
+inter-rater {\em dis}agreement is low. ``Complex'' cases are those where
 doctors tend to either say "I don't know" or disagree with each other.
 {\em Our proposal is that to allow IA to output ``I don't know'' on
   the complex cases, and, in exchange, require higher levels of
   accuracy and reliability when the IA makes a prediction.}
 
-Increasing confidence in a diagnosis by seaking concensus among
-several doctors is common sense. A similar approach  been
+Increasing confidence in a diagnosis by seeking consensus among
+several doctors is a common sense. A similar approach has been
 used in machine learning algorithms such as Bagging, Random Forests, and
-Boosting\cite{}. These so-called ``ensemble'' algorithms take the
+Boosting \cite{}. These so-called ``ensemble'' algorithms take the
 majority vote of predictions from several ``base'' learning algorithms using a majority
 vote to generate a single more reliable prediction.~\footnote{A majority is
   used when there are only two possible labels. A more general
@@ -287,25 +286,25 @@ vote to generate a single more reliable prediction.~\footnote{A majority is
   largest number of votes.}
 
 The majority vote always outputs one of the labels. A {\em clear
-  majority rule} for binary prediction is one which outputs +1 or -1
-if one of the classes gets {\em significantly} more votes that any of
+  majority rule} for binary prediction is one that outputs +1 or -1,
+if one of the classes gets {\em significantly} more votes than any of
 the others. If the number of votes for both labels are similar, the
-clear majority rule outputs ``?'' which is interpreted as ``I don't
+clear majority rule {\color{red}{\em shall}} outputs ``?'' which is interpreted as ``I don't
 know''.
 
-%\newpage
+
 \section{Augmenting medicine}
 
 \input{ProtocolLimitations}
 The goal of this paper is to chart a path by which machine learning
 and big data can be effectively used in medicine. Our discussion
-focused on the differences betwen AI and IA and argued that IA
+focuses on the differences between AI and IA and we argue that IA
 defines more achievable goals.
 
 We use Ronald Heifetz classification of problems (see insight). Our
 discussion up to this point focused on {\em technical}
 problems. Technical issues can be solved by changing equipment or
-directions for it's use. In the remainder of this article we will
+directions for its use. In the remainder of this article we will
 concern ourselves with the much harder {\em adaptive}
 problems. Adaptive problems require changes in the perception and
 behaviour of {\em people}. In our case people are the caregivers who
@@ -321,32 +320,37 @@ that they can trust, and trust requires a human to human connection.
 
 Unlike AI, IA systems do not aim to replace the caregiver. Rather,
 they aim to assist the caregiver by taking care of the simple or easy
-cases. This makes the caretaker more efficient and effective, but does
+cases. This makes the caregiver more efficient and effective, but does
 not take away the agency of the caregiver. When the IA system outputs
 ``I don't know'' it explicitly passes the responsibility for the
 patient to the caregiver.
 
 Agency and responsibility are central. Medicine is not a precise
-science and incorrect decisions can result in harm or death.
-Price et al have studied the ethical, legal and regulatory
+science {\color{red}(at least so far, while it is constantly evolving)} and incorrect decisions can result in harm or death.
+Price et. al. have studied the ethical, legal and regulatory
 aspects of using AI in medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
 Their conclusion is that the ultimate responsibility for the patients
 well-being is {\em always} with the human caregiver. Even if the AI
-system is known to make fewer mistakes that the average doctor, some
-mistake are unavoidable, and the question is who is responsible for
+system is known to make fewer mistakes than the average doctor, some
+mistakes are unavoidable, and the question is who is responsible for
 the mistake, and who might lose their license to practice.
 
+<<<<<<< HEAD
 We discuss the augmentation of medicine at two levels. The effect on
 the work of individual medics, and the effect on medicine as a whole.
+=======
+We discuss augmenting medicine at two levels: augmenting an
+individual caretaker, and augmenting medical institutions.
+>>>>>>> 227ee8e360a95cb7e46af9460be78910d47060b3
 
 \section{Augmenting caregivers}
 
 \input{TechnicalVSAdaptive}
 Seen from the care-giver point of view, an IA sidekick is a
-tool that augments their diagnostic abilities, increases accuracy, and
-saves time.
+tool that augments their diagnostic abilities by increasing accuracy
+and by saving time.
 
-To better understand the diagnostic process and the possiblities  of
+To better understand the diagnostic process and the possibilities  of
 improving it using IA, we turn to the Kahaneman's~\cite{kahneman2011thinking}
 ``Thinking Fast Thinking Slow'' and to Vordermark book on medical
 decision making~\cite{vordermark2019introduction}. Acording to these authorities,
@@ -372,6 +376,20 @@ of overlooking other possible diagnoses. IA can serve as a ``note
 taker'' documenting the diagnostic process, and pointing out possible
 errors of omission. 
 
+An example of a pattern classification problem is the annotation of
+sleep. Developing such automatic system is an
+active research field from the AI perspective~\cite{?}. As discussed above,
+while the inter-rater agreement rate among experts is substantial over
+normal subjects, there is still a gap, not to mention subjects with
+sleep apnea. Existing systems, however, only affirmatively tell
+experts what the sleep stages are, without providing more
+information. Such disagreement and the affirmative annotation might
+reduce the willing of sleep experts' usage of such system. An ideal IA
+sidekick should let experts know "I don't know", where there is any
+ambiguity in the process of annotation. Suppose there are 10\% "I
+don't know" sleep stages, it could help save experts 90\% of time, and
+focus on more important issues.
+
 {\em Elimination}, unlike recognition, is a slow deliberative and
 verbal process which starts with all possible diagnoses and gradually
 eliminates unlikely ones based on patient history, examination and
@@ -382,9 +400,6 @@ An IA system could help the elimination process carefully and
 systematically eliminate diagnoses. This can help the doctor stay
 aware of possibilities that are not obvious, for differential
 diagnosis.
-
-\yoav{sleep annotation helper (what is this?)}
-
 
 
 \section{Augmenting medical institutions}

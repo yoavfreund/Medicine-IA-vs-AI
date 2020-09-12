@@ -336,73 +336,60 @@ system is known to make fewer mistakes that the average doctor, some
 mistake are unavoidable, and the question is who is responsible for
 the mistake, and who might lose their license to practice.
 
-We discuss augmenting of medicine at two levels: augmenting an
-individual caretaker, and augmenting medical institutions.
+We discuss the augmentation of medicine at two levels. The effect on
+the work of individual medics, and the effect on medicine as a whole.
 
 \section{Augmenting caregivers}
 
 \input{TechnicalVSAdaptive}
-
-Seen from the care-giver point of view, an IA sidekick is a device
-that takes care of the simple cases and escalates to the care-giver
-the more complex cases. This is similar to a triage nurse who's role
-is to decide which patients the doctor should examine first, and which
-can wait longer.
-
-The threshold defining the boundary between ``simple'' and ``complex''
-depends on several factors including staffing, the rate of new cases, 
-and the expertise of the caregivers. As the ultimate responsibility
-for patients is on the shoulders of the doctor, it is the doctor that
-has to set this threshold. A cardiologist in an ICU unit might prefer never
-to use the IA, while a PCP during an epidemic might want to use the IA
-to filter out cases that are clearly healthy.
+Seen from the care-giver point of view, an IA sidekick is a
+tool that augments their diagnostic abilities, increases accuracy, and
+saves time.
 
 To better understand the diagnostic process and the possiblities  of
 improving it using IA, we turn to the Kahaneman's~\cite{kahneman2011thinking}
 ``Thinking Fast Thinking Slow'' and to Vordermark book on medical
 decision making~\cite{vordermark2019introduction}. Acording to these authorities,
-Medical diagnosis can be divided into two main types: {\em
-  recognition} and {\em elimination}. Recognition is a fast mental
-process that is partially unconscious where the one correct diagnosis
-presents itself in the doctors mind. For example, a doctor can often
-identify a patient as intoxicated instantanously, based on how they
-walk and talk, before any objective test has been administered.
+medical diagnosis is a combination of two types of processes: {\em
+  recognition} and {\em elimination}.
 
-Sometimes the doctor is not able to explain their recognition in
-words, which hinders documentation and discussion. As recognition
-typically points to a single diagnosis, there is a danger that the
-recognized diagnosis will hide other possible diagnoses.
+{\em Recognition} is an automatic mental process where one diagnosis
+presents itself in the doctors mind as truth. Pathologists,
+Radiologsts and other ``Pattern Doctors''~\cite{Topol} make heavy use
+of recognition. Their experience allows them to quickly sift through
+large amounts of data and detect complex patterns. Pattern Doctors
+often work under great time pressure, which can cause them to miss
+important patterns. IA can help the doctor by performing a fast
+analysis of the signal and alerting the doctor to locations that might
+indicate a pathology. This improves the accuracy and speed of the
+pathologist while maintaining the responsibility of the doctor to the
+final diagnostics. 
 
-Elimination, on the other hand, is a slow deliberate process which
-starts with all possible diagnoses and gradually eliminates unlikely
-ones based on patient history, examination and test results. As
-Elimination is deliberative, it is easier to discuss and document it.
+Pattern doctors are often unable to fully explain their diagnostics.
+This hinders documenting, critiquing and teaching diagnostics. As
+recognition typically points to a single diagnosis, there is a danger
+of overlooking other possible diagnoses. IA can serve as a ``note
+taker'' documenting the diagnostic process, and pointing out possible
+errors of omission. 
+
+{\em Elimination}, unlike recognition, is a slow deliberative and
+verbal process which starts with all possible diagnoses and gradually
+eliminates unlikely ones based on patient history, examination and
+test results. As Elimination is deliberative, it is easier to discuss,
+document and teach it.
 
 An IA system could help the elimination process carefully and
 systematically eliminate diagnoses. This can help the doctor stay
 aware of possibilities that are not obvious, for differential
 diagnosis.
 
-While the benefits of IA to elimination based recognition are clear,
-the benefits for recognision based analysis are closer at hand.
-Pathologists, and other ``Pattern Doctors''~\cite{Topol} make heavy
-use of recognition. As the size of a typical image is typically tens
-of thousands of pixels in either dimension, an exhoustive scan of the
-whole image in full resolution is infeasibe. As the pathologist scans
-the image of a biopsy in increasing magnifications,
-specific patterns are detected and those detections in turn guide the search.
+\yoav{sleep annotation helper (what is this?)}
 
-+ sleep annotation helper
-
-An IA sidekick for pathology can detect the patterns that are apparent
-in high mignification and present them to the pathologist as
-annotations of the image. In this way the IA sidekick can speed the
-analysis and improve it's accuracy, while leaving the overall control
-and responsibility with the human pathologist. Computer analysis of
-pathology images is an active field of research.\cite{}
 
 
 \section{Augmenting medical institutions}
+
+
 
 In the last section we described the benefits of IA to an individual
 caregiver. We now discuss medical instutitions, such as hospitals and
@@ -415,8 +402,6 @@ medical boards, and outline the effects that IA can have on them.
   doctors. The question is not {\em whether} computer diagnostics will
   become part of medical practice, the question is {\em how}.
 
-\yoav{Up to here}
-  
   Some claim that human doctors and nurses are heading to extinction,
   following the fate of manufacturing jobs and bank cashiers.  Our
   prediction is that computers will change the nature of medical

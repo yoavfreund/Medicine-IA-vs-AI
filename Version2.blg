@@ -15,16 +15,22 @@ Repeated entry---line 225 of file medbib.bib
  : @article{Dower1988
  :                   ,
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 1018 of file medbib.bib
+ :   
+ :   url={https://www.nytimes.com/2011/02/06/business/06aging.html}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "li2011knows"
 Warning--I didn't find a database entry for "ford2017regulating"
+Warning--I didn't find a database entry for "Topol"
+Warning--I didn't find a database entry for "?"
 Warning--empty journal in ashby1957introduction
 Warning--there's a number but no volume in licklider1960man
 Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
 You've used 44 entries,
             2481 wiz_defined-function locations,
-            816 strings with 13388 characters,
+            818 strings with 13388 characters,
 and the built_in function-call counts, 17076 in all, are:
 = -- 1336
 > -- 1060
@@ -63,4 +69,4 @@ warning$ -- 4
 while$ -- 141
 width$ -- 0
 write$ -- 573
-(There were 3 error messages)
+(There were 4 error messages)

@@ -168,7 +168,7 @@ is trained on the biased data, its performance on unbiased test data
 is likely to be worse. Specifically, when the classifier is applied to skin
 images of un-diagnosed patients it is likely to over-diagnose them as
 malignant. The practical implication would be that more patients than
-necessary will be biopsied.
+necessary will be biopsied. {\color{blue}Examples of this kind include arrhythmia classification from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic retinopathy detection from retinal fundus photographs \cite{gulshan2016development}, etc.}
 
 As we elaborate on in the next section, in medical diagnostics the
 ground truth is usually not available, all that we have to go on are
@@ -322,12 +322,14 @@ Consider first an AI system developed with the goal of replacing the
 caregiver. Naturally, the caregiver will prefer not to use the
 system. Will the patient prefer the human caregiver or the AI system?
 The answer is anybody's guess, because such systems are not available
-yet. However, there is evidence (?) that patients choose a caretaker
-that they can trust, and trust requires a human to human connection. 
+yet. However, there is evidence \sout{(?)} that patients \sout{choose a caregiver
+that they can trust}
+{\color{blue}prefer human caregiver that they can trust}
+\cite{ongena2020patients}, and {\color{blue}it is argued that} trust requires a human to human connection \cite{nundy2019promoting}. 
 
 Unlike AI, IA systems do not aim to replace the caregiver. Rather,
 they aim to assist the caregiver by taking care of the simple or easy
-cases. This makes the caregiver more efficient and effective, but does
+cases, {\color{blue}or achieve the goal ``computer and human work together'' \cite{verghese2018computer}.} This makes the caregiver more efficient and effective, but does
 not take away the agency of the caregiver. When the IA system outputs
 ``I don't know'' it explicitly passes the responsibility for the
 patient to the caregiver.

@@ -120,9 +120,13 @@ can outperform human diagnosticians.
 \section{Supervised Learning and the Ground Truth}
 \label{sec:ground-truth}
 
-Deep learning is a special case of {\em supervised learning} (see
+Deep learning (DNN) is a special case of {\em supervised learning} (see
 inset), sometimes called {\em input-output}
 learning~\cite{ng2016artificial,topol2019deep}.
+
+Examples of applications of DNN to medical diagnosis include arrhythmia classification 
+from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic retinopathy detection from retinal fundus photographs \cite{gulshan2016development}, skin cancer diagnostics~\cite{esteva2017dermatologist} as well as may others.
+
 \input{Supervised}
 The data for supervised learning consists of a large collection of
 (input, output) pairs. For medical diagnosis, usually the input is medical
@@ -131,32 +135,22 @@ etc.) and the output is the diagnosis. This output is considered the
 ``ground-truth'' and is assumed to represent the undisputed truth.
 
 Here lies the first difficulty with applying supervised learning
-to medical diagnosis. In most real-world scenarios the diagnosis
-is not
-
-\yoav{I think getting this right is important}
-
-\sout{an objectively measurable fact} {\color{red}always
-  perfect}; \yoav{an incontrovertible fact?}
-
-
-rather, it represents the judgment of human diagnostician, and
-different diagnosticians can have differ in their diagnosis. We will
-return to this important issue in the next section.
+to medical diagnosis. In this context the labels correspond to 
+the judgement of human diagnosticians. However 
+different diagnosticians might give different diagnosis, in which case it is hard to assign ground truth. 
+We will return to this important issue in the next section.
 
 The other important assumption made in supervised learning is that the
 generated classifier is tested using the same distribution of examples
 as that of the training set.
 
-We now consider a study in deep neural networks which claims to show
-that DNNs can perform diagnostics as well as, or better, than human diagnosticians. 
-\input{SkinCancer}
-In a highly cited paper in the journal
-Science~\cite{esteva2017dermatologist}, the authors provide evidence supporting
-the claim that computers can diagnose skin cancer as well or better than board
-certified dermatologists.
 
-A fundamental problem with the experiment is in the way the data was
+\input{SkinCancer}
+A highly cited paper in the journal Science~\cite{esteva2017dermatologist}
+makes the claim that DNNs can perform diagnostics as well as, or better, than board
+certified dermatologists. (see inset)
+
+A fundamental problem with the experiments presented in the paper is in the way the data was
 collected. The data used in the experiment was {\em retrospective},
 i.e. it was collected from the records of past patients for which both
 a skin image and a biopsy were available. Normally, patients get
@@ -168,7 +162,7 @@ is trained on the biased data, its performance on unbiased test data
 is likely to be worse. Specifically, when the classifier is applied to skin
 images of un-diagnosed patients it is likely to over-diagnose them as
 malignant. The practical implication would be that more patients than
-necessary will be biopsied. {\color{blue}Examples of this kind include arrhythmia classification from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic retinopathy detection from retinal fundus photographs \cite{gulshan2016development}, etc.}
+necessary will be biopsied. 
 
 As we elaborate on in the next section, in medical diagnostics the
 ground truth is usually not available, all that we have to go on are
@@ -176,17 +170,13 @@ the opinions of human diagnosticians.
 
 \section{Uncertainty in medicine}
 
-\yoav{to discuss}
-
-For the most part, it is hard to associate ground truth with medical
-diagnostics. One evidence for this difficulty is that supporting {\em inter-rater
-  disagreement} is often high.
-\sout{\color{red}[Hau-Tieng: This sentence reads strange here]} (see
-inset). In studies of this kind, multiple doctors produce diagnostics
-based on identical medical information without communicating with each other. \input{Arrhythmia}
-
+\input{Arrhythmia}
+One of the methods of quantifying uncertainty in medical diagnosis is inter-rater studies.
+In studies of this kind, multiple doctors produce diagnostics
+based on identical medical information without communicating with each other. (see inset).
+Associating {\em ground Truth} with these diagnostics whose inter-rater agreement is less than perfect is challenging.
+ 
 \input{InterRaterAgreement}
-
 In addition, diagnosis is not an input-output mapping. Rather, it
 is an iterative process which reduces uncertainty over time. To
 illustrate this, consider the diagnostics of a patient that is treated
@@ -200,20 +190,16 @@ specialist, consult colleagues, journals and books, etc. To choose a
 treatment plan, the set of possible diagnostics has to be reduced.
 However, it does not have to be reduced to a {\em single} diagnostics before treatment can be started.
 
-\yoav{The next section needs to be resolved}
-
 In order to apply a supervised learning method, such as  DNN, to the
-diagnostic problem, we need to define a ground-truth label for each
-patient. But that is easier said than done. If the final output of the
-diagnostic process is a treatment plan, we would like to know what is
-the {\em best} treatment plan, since we can only use a single
-treatment plan to treat the patient. So, {\color{red}unless we have a sure diagnosis,} the most that we might be able
-to infer is whether the chosen treatment was effective. {\color{red}In some cases,} even if the
-patient improved, the cause might have been unrelated to the
+diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
+patient. However, that is easier said than done. 
+\hautieng{One way to confirm the diagnosis is conducting more specific and accurate examinations. However, this is not always an option. Another way is following up the treatment plan. However, even if we have
+the {\em best} treatment plan and the
+patient improved after the treatment, the cause might have been unrelated to the
 treatment. It might be due to a change in diet or reduction in stress.
-Moreover, in {\color{red}some} \sout{most} cases, there are few or none followup visits and as
+Moreover, in some cases, there are few or none followup visits and as
 a result there is no data as to whether the patient has a lasting
-improvement in health.
+improvement in health. It is thus not always easy to obtain the ground truth diagnosis as labels.}
 \input{SignalQuality}
 
 There are many causes for uncertainty in medical diagnosis. We briefly
@@ -329,8 +315,10 @@ that they can trust}
 
 Unlike AI, IA systems do not aim to replace the caregiver. Rather,
 they aim to assist the caregiver by taking care of the simple or easy
-cases, {\color{blue}or achieve the goal ``computer and human work together'' \cite{verghese2018computer}.} This makes the caregiver more efficient and effective, but does
-not take away the agency of the caregiver. When the IA system outputs
+cases, and deferring to the human for the more complex cases. In this way IA can 
+achieve the goal of ``computer and human work together'' \cite{verghese2018computer}. 
+This makes the caregiver more efficient and effective, but does
+not take away the agency and humanity of the caregiver. When the IA system outputs
 ``I don't know'' it explicitly passes the responsibility for the
 patient to the caregiver.
 
@@ -410,7 +398,7 @@ diagnosis.
 
 \subsection{IA and Decentralized medicine}
 
-Medicine in the {\color{blue}20'st} century{\color{blue}, up to now,} is highly centralized. Most interactions
+Medicine today is highly centralized. Most interactions
 between patient and medic occur in hospitals and clinics. These
 large facilities are expensive to build and to maintain. Traveling to
 a hospital and back in order to see a doctor for 5 minutes is highly

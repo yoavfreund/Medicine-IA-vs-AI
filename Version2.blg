@@ -3,70 +3,48 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Version2.aux
 The style file: unsrtnat.bst
 Database file #1: medbib.bib
-Repeated entry---line 138 of file medbib.bib
- : @article{hannun2019cardiologist
- :                                ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 191 of file medbib.bib
- : @article{goldman2020remdesivir
- :                               ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 225 of file medbib.bib
- : @article{Dower1988
- :                   ,
-I'm skipping whatever remains of this entry
-I was expecting a `,' or a `}'---line 1018 of file medbib.bib
- :   
- :   url={https://www.nytimes.com/2011/02/06/business/06aging.html}
-(Error may have been on previous line)
-I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for ""
-Warning--I didn't find a database entry for "ford2017regulating"
-Warning--I didn't find a database entry for "Topol"
-Warning--I didn't find a database entry for "?"
-Warning--empty journal in ashby1957introduction
-Warning--there's a number but no volume in licklider1960man
+Warning--I didn't find a database entry for "HTaddCite"
 Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
-You've used 44 entries,
+You've used 55 entries,
             2481 wiz_defined-function locations,
-            818 strings with 13388 characters,
-and the built_in function-call counts, 17076 in all, are:
-= -- 1336
-> -- 1060
-< -- 24
-+ -- 409
-- -- 320
-* -- 1402
-:= -- 2863
-add.period$ -- 136
-call.type$ -- 44
-change.case$ -- 85
-chr.to.int$ -- 43
-cite$ -- 48
-duplicate$ -- 819
-empty$ -- 1484
-format.name$ -- 376
-if$ -- 3503
+            873 strings with 15232 characters,
+and the built_in function-call counts, 21562 in all, are:
+= -- 1696
+> -- 1335
+< -- 29
++ -- 513
+- -- 402
+* -- 1789
+:= -- 3601
+add.period$ -- 170
+call.type$ -- 55
+change.case$ -- 105
+chr.to.int$ -- 54
+cite$ -- 57
+duplicate$ -- 1028
+empty$ -- 1878
+format.name$ -- 473
+if$ -- 4430
 int.to.chr$ -- 2
-int.to.str$ -- 45
-missing$ -- 47
-newline$ -- 232
-num.names$ -- 132
-pop$ -- 351
+int.to.str$ -- 56
+missing$ -- 60
+newline$ -- 288
+num.names$ -- 165
+pop$ -- 433
 preamble$ -- 1
-purify$ -- 44
+purify$ -- 55
 quote$ -- 0
-skip$ -- 458
+skip$ -- 575
 stack$ -- 0
-substring$ -- 712
-swap$ -- 91
-text.length$ -- 1
+substring$ -- 934
+swap$ -- 115
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 290
-warning$ -- 4
-while$ -- 141
+type$ -- 361
+warning$ -- 2
+while$ -- 180
 width$ -- 0
-write$ -- 573
-(There were 4 error messages)
+write$ -- 718
+(There were 3 warnings)

@@ -1,4 +1,4 @@
-\begin{thebibliography}{44}
+\begin{thebibliography}{55}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -25,15 +25,15 @@ AM~Turing.
 \newblock Technical report, AMT/B/5. In [39]. URL: http://www. turingarchive.
   org/browse. php/B/5, 1951.
 
-\bibitem[Ashby(1957)]{ashby1957introduction}
+\bibitem[Ashby(1956)]{ashby1956introduction}
 W~Ross Ashby.
 \newblock An introduction to cybernetics.
-\newblock 1957.
+\newblock \emph{chapnm and U, London}, 1956.
 
 \bibitem[Licklider(1960)]{licklider1960man}
 Joseph~CR Licklider.
 \newblock Man-computer symbiosis.
-\newblock \emph{IRE transactions on human factors in electronics}, \penalty0
+\newblock \emph{IRE transactions on human factors in electronics}, 1\penalty0
   (1):\penalty0 4--11, 1960.
 
 \bibitem[Engelbart(1962)]{engelbart1962augmenting}
@@ -41,16 +41,16 @@ Douglas~C Engelbart.
 \newblock Augmenting human intellect: A conceptual framework.
 \newblock \emph{Menlo Park, CA}, 1962.
 
-\bibitem[Ng(2016)]{ng2016artificial}
-Andrew Ng.
-\newblock What artificial intelligence can and can’t do right now.
-\newblock \emph{Harvard Business Review}, 9, 2016.
-
 \bibitem[Topol(2019)]{topol2019deep}
 Eric Topol.
 \newblock \emph{Deep medicine: how artificial intelligence can make healthcare
   human again}.
 \newblock Hachette UK, 2019.
+
+\bibitem[Ng(2016)]{ng2016artificial}
+Andrew Ng.
+\newblock What artificial intelligence can and can’t do right now.
+\newblock \emph{Harvard Business Review}, 9, 2016.
 
 \bibitem[Hannun et~al.(2019)Hannun, Rajpurkar, Haghpanahi, Tison, Bourn,
   Turakhia, and Ng]{hannun2019cardiologist}
@@ -59,6 +59,15 @@ Awni~Y Hannun, Pranav Rajpurkar, Masoumeh Haghpanahi, Geoffrey~H Tison, Codie
 \newblock Cardiologist-level arrhythmia detection and classification in
   ambulatory electrocardiograms using a deep neural network.
 \newblock \emph{Nature medicine}, 25\penalty0 (1):\penalty0 65, 2019.
+
+\bibitem[Gulshan et~al.(2016)Gulshan, Peng, Coram, Stumpe, Wu, Narayanaswamy,
+  Venugopalan, Widner, Madams, Cuadros, et~al.]{gulshan2016development}
+Varun Gulshan, Lily Peng, Marc Coram, Martin~C Stumpe, Derek Wu, Arunachalam
+  Narayanaswamy, Subhashini Venugopalan, Kasumi Widner, Tom Madams, Jorge
+  Cuadros, et~al.
+\newblock Development and validation of a deep learning algorithm for detection
+  of diabetic retinopathy in retinal fundus photographs.
+\newblock \emph{Jama}, 316\penalty0 (22):\penalty0 2402--2410, 2016.
 
 \bibitem[McHugh(2012)]{mchugh2012interrater}
 Mary~L McHugh.
@@ -92,6 +101,13 @@ Ernest Frank.
 \newblock An accurate, clinically practical system for spatial
   vectorcardiography.
 \newblock \emph{circulation}, 13\penalty0 (5):\penalty0 737--749, 1956.
+
+\bibitem[Lustig et~al.(2008)Lustig, Donoho, Santos, and
+  Pauly]{lustig2008compressed}
+Michael Lustig, David~L Donoho, Juan~M Santos, and John~M Pauly.
+\newblock Compressed sensing mri.
+\newblock \emph{IEEE signal processing magazine}, 25\penalty0 (2):\penalty0
+  72--82, 2008.
 
 \bibitem[BRIEF(2020)]{brief2019top}
 EXECUTIVE BRIEF.
@@ -263,6 +279,22 @@ Anne~G Dudley, Mark~C Adams, John~W Brock~III, Douglass~B Clayton, David~B
 \newblock \emph{The Journal of urology}, 199\penalty0 (5):\penalty0 1337--1343,
   2018.
 
+\bibitem[Breiman(1996)]{breiman1996bagging}
+Leo Breiman.
+\newblock Bagging predictors.
+\newblock \emph{Machine learning}, 24\penalty0 (2):\penalty0 123--140, 1996.
+
+\bibitem[Breiman(2001)]{breiman2001random}
+Leo Breiman.
+\newblock Random forests.
+\newblock \emph{Machine learning}, 45\penalty0 (1):\penalty0 5--32, 2001.
+
+\bibitem[Schapire and Freund(2012)]{SchapireFr2012}
+Robert~E. Schapire and Yoav Freund.
+\newblock \emph{Boosting: {Foundations} and {Algorithms}}.
+\newblock MIT Press, 2012.
+\newblock ISBN 978-0-262-01718-3.
+
 \bibitem[Iber et~al.(2007)Iber, Ancoli-Isreal, Jr., , and Quan]{Iber2007}
 C.~Iber, S.~Ancoli-Isreal, A.~Chesson Jr., , and S.~Quan.
 \newblock \emph{The {AASM} Manual for Scoring of Sleep and Associated
@@ -283,6 +315,26 @@ Maria Brosnan, Andre La~Gerche, Saurabh Kumar, Wilson Lo, Jonathan Kalman, and
   screening in young athletes.
 \newblock \emph{Heart Rhythm}, 12\penalty0 (1):\penalty0 130--136, 2015.
 
+\bibitem[Ongena et~al.(2020)Ongena, Haan, Yakar, and Kwee]{ongena2020patients}
+Yfke~P Ongena, Marieke Haan, Derya Yakar, and Thomas~C Kwee.
+\newblock Patients’ views on the implementation of artificial intelligence in
+  radiology: development and validation of a standardized questionnaire.
+\newblock \emph{European Radiology}, 30\penalty0 (2):\penalty0 1033--1040,
+  2020.
+
+\bibitem[Nundy et~al.(2019)Nundy, Montgomery, and Wachter]{nundy2019promoting}
+Shantanu Nundy, Tara Montgomery, and Robert~M Wachter.
+\newblock Promoting trust between patients and physicians in the era of
+  artificial intelligence.
+\newblock \emph{Jama}, 322\penalty0 (6):\penalty0 497--498, 2019.
+
+\bibitem[Verghese et~al.(2018)Verghese, Shah, and
+  Harrington]{verghese2018computer}
+Abraham Verghese, Nigam~H Shah, and Robert~A Harrington.
+\newblock What this computer needs is a physician: humanism and artificial
+  intelligence.
+\newblock \emph{Jama}, 319\penalty0 (1):\penalty0 19--20, 2018.
+
 \bibitem[Price and Nicholson(2014)]{price2014black}
 W~Price and II~Nicholson.
 \newblock Black-box medicine.
@@ -292,6 +344,17 @@ W~Price and II~Nicholson.
 Roger~Allan Ford, W~Price, and II~Nicholson.
 \newblock Privacy and accountability in black-box medicine.
 \newblock \emph{Mich. Telecomm. \& Tech. L. Rev.}, 23:\penalty0 1, 2016.
+
+\bibitem[Price and Nicholson(2017)]{price2017regulating}
+W~Price and II~Nicholson.
+\newblock Regulating black-box medicine.
+\newblock \emph{Mich. L. Rev.}, 116:\penalty0 421, 2017.
+
+\bibitem[Donaldson et~al.(2000)Donaldson, Corrigan, Kohn,
+  et~al.]{donaldson2000err}
+Molla~S Donaldson, Janet~M Corrigan, Linda~T Kohn, et~al.
+\newblock \emph{To err is human: building a safer health system}, volume~6.
+\newblock National Academies Press, 2000.
 
 \bibitem[Wachter(2015)]{wachter2015digital}
 Robert~M Wachter.
@@ -309,5 +372,14 @@ Jonathan~S Vordermark~II.
 \newblock \emph{An Introduction to Medical Decision-Making: Practical Insights
   and Approaches}.
 \newblock Springer Nature, 2019.
+
+\bibitem[Reid et~al.(2000)Reid, Harvey, Watson, Luqmani, Harkin, and
+  Arends]{reid2000medical}
+William~A Reid, Jen Harvey, Gordon~R Watson, Raashid Luqmani, Patrick~JR
+  Harkin, and Mark~J Arends.
+\newblock Medical student appraisal of interactive computer-assisted learning
+  programs embedded in a general pathology course.
+\newblock \emph{The Journal of pathology}, 191\penalty0 (4):\penalty0 462--465,
+  2000.
 
 \end{thebibliography}

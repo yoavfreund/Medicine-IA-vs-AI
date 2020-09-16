@@ -34,7 +34,7 @@
   The meteoric rise of AI in general and Deep Learning in particular
   is generating great excitement throughout academia and commerce, and
   in particular in medicine\cite{topol2019deep,
-    wachter2015digital}. With some some high-profile claims~\cite{}
+    wachter2015digital}. With some some high-profile claims
   that AI will soon replace humans in many medical specialties.
 
   In this position paper we present an alternative view. We contrast
@@ -80,11 +80,9 @@ health, with {\em sidekicks}, which can provide advice and suggestions,
 but who are not allowed to take an action.
 
 AI-driven surgeons are probably a ways away. AI-driven diagnosis seems
-to be much closer at hand~\cite{}. However, as we argue in this paper,
+to be much closer at hand~\cite{topol2019deep}. However, as we argue in this paper,
 IA is a more realistic, and ultimately more beneficial approach. Even
 in this restricted case.
-
-
 
 \iffalse
 Replacing dermatologists with AI agents promises cost savings.
@@ -176,31 +174,39 @@ In studies of this kind, multiple doctors produce diagnostics
 based on identical medical information without communicating with each other. (see inset).
 Associating {\em ground Truth} with these diagnostics whose inter-rater agreement is less than perfect is challenging.
  
-\input{InterRaterAgreement}
-In addition, diagnosis is not an input-output mapping. Rather, it
-is an iterative process which reduces uncertainty over time. To
-illustrate this, consider the diagnostics of a patient that is treated
-in an out-patient clinic.  When a patient arrives at a clinic for
-the first time, all diagnostics are possible. After a physical exam
-and an interview with a doctor, many possibilities are
-eliminated. In {\em simple} cases, this is enough for the doctor to
-confidently choose a treatment. In more complex cases, the doctor
-might ask for multiple tests and visits, refer the patient to a
-specialist, consult colleagues, journals and books, etc. To choose a
-treatment plan, the set of possible diagnostics has to be reduced.
-However, it does not have to be reduced to a {\em single} diagnostics before treatment can be started.
+In addition, diagnosis is not an
+input-output mapping. Rather, it is an iterative process which reduces
+uncertainty over time. To illustrate this, consider the diagnostics of
+a patient that is treated in an out-patient clinic.  When a patient
+arrives at a clinic for the first time, all diagnostics are
+possible. After a physical exam and an interview with a doctor, many
+possibilities are eliminated. In {\em simple} cases, this is enough
+for the doctor to confidently choose a treatment. In more complex
+cases, the doctor might ask for multiple tests and visits, refer the
+patient to a specialist, consult colleagues, journals and books,
+etc. To choose a treatment plan, the set of possible diagnostics has
+to be reduced.  However, it does not have to be reduced to a {\em
+  single} diagnostics before treatment can be started.
 
+{\bf Yoav's version starts here}
+
+\input{InterRaterAgreement}
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
-patient. However, that is easier said than done. 
-\hautieng{One way to confirm the diagnosis is conducting more specific and accurate examinations. However, this is not always an option. Another way is following up the treatment plan. However, even if we have
-the {\em best} treatment plan and the
-patient improved after the treatment, the cause might have been unrelated to the
-treatment. It might be due to a change in diet or reduction in stress.
-Moreover, in some cases, there are few or none followup visits and as
-a result there is no data as to whether the patient has a lasting
-improvement in health. It is thus not always easy to obtain the ground truth diagnosis as labels.}
-\input{SignalQuality}
+patient. However, that is easier said than done. Currently, most of
+the data available for machine learning is {\em observational or
+retrospective data}, in other words, data that has been collected
+during the diagnosis and treatment of patients.
+One way to confirm a diagnosis is to collect more information through
+additional examinations and tests. However the attending medic might
+judge the additional test to be necessary, in which case it will not
+appear in the observational study.
+Another way is following up on the treatment plan. However, correct
+diagnosis is only one of many factors that influence the long term
+health of the patient. Others include choice of treatment, medication
+adherence, change in diet or reduction in stress, among many others.
+
+{\bf Yoav's version ends here}
 
 There are many causes for uncertainty in medical diagnosis. We briefly
 describe three categories of problems: {\em signal quality}, the {\em
@@ -215,10 +221,10 @@ produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
 
-Signal quality enhancement is already an important part of imaging
-devices such as X-ray and MRI. Methods such as compressed
-sensing~\cite{} are used to reconstruct 3d images from a large number
-of noisy scans.
+\input{SignalQuality} Signal quality enhancement is already an
+important part of imaging devices such as X-ray and MRI. Methods such
+as compressed sensing~\cite{lustig2008compressed} are used to
+reconstruct 3d images from a large number of noisy scans.
 
 \input{AlarmFatigue}
   One situation where signal quality and signal variability is
@@ -243,13 +249,13 @@ it reflects the limitations of knowledge that correspond to successful
 medical trials.
 \input{KnowledgeGap}
 
-Even when medical knowledge exists \sout{\color{red}and there is no knowledge gap}, an individual doctor might not
-possess  it. The dissemination of medical knowledge starts in medical
-school and continues throughout the medical staff career. In addition,
-{\em medical protocols} are used to ensure uniformity and
-consistency of treatment between hospitals, doctors and nurses. While
-protocols are an important dissemination tool, they have some limitations, 
-as described in the inset.
+Even when medical knowledge exists, an individual doctor might not
+possess it. The dissemination of up to date and reliable medical
+information is far from even. One of the important information
+dissemination tools are {\em medical protocols}. Those are used to
+ensure uniformity and consistency of treatment between hospitals,
+doctors and nurses. While protocols are an important dissemination
+tool, they have some limitations, as described in the inset.
 ~\\
 
 \section{Uncertainty in machine learning}
@@ -269,14 +275,15 @@ doctors tend to either say "I don't know" or disagree with each other.
   accuracy and reliability when the IA makes a prediction.}
 
 Increasing confidence in a diagnosis by seeking consensus among
-several doctors is a common sense. A similar approach has been
-used in machine learning algorithms such as Bagging, Random Forests, and
-Boosting \cite{}. These so-called ``ensemble'' algorithms take the
-majority vote of predictions from several ``base'' learning algorithms using a majority
-vote to generate a single more reliable prediction.~\footnote{A majority is
-  used when there are only two possible labels. A more general
-  combination rule is the {\em plurality} i.e. the label that gets the
-  largest number of votes.}
+several doctors is a common sense. A similar approach has been used in
+machine learning algorithms such as Bagging~\cite{breiman1996bagging},
+Random Forests~\cite{breiman2001random}, and
+Boosting\cite{SchapireFr2012}. These so-called ``ensemble'' algorithms
+take the majority vote of predictions from several ``base'' learning
+algorithms using a majority vote to generate a single more reliable
+prediction.~\footnote{A majority is used when there are only two
+  possible labels. A more general combination rule is the {\em
+    plurality} i.e. the label that gets the largest number of votes.}
 
 The majority vote always outputs one of the labels. A {\em dominant
   majority rule} for binary prediction is one that outputs +1 or -1,
@@ -284,7 +291,6 @@ if one of the classes gets {\em significantly} more votes than any of
 the others. If the number of votes for both labels are similar, the
 dominant majority rule outputs ``?'' which is interpreted as ``I don't
 know''.
-
 
 \section{Augmenting medicine}
 
@@ -308,10 +314,9 @@ Consider first an AI system developed with the goal of replacing the
 caregiver. Naturally, the caregiver will prefer not to use the
 system. Will the patient prefer the human caregiver or the AI system?
 The answer is anybody's guess, because such systems are not available
-yet. However, there is evidence \sout{(?)} that patients \sout{choose a caregiver
-that they can trust}
-{\color{blue}prefer human caregiver that they can trust}
-\cite{ongena2020patients}, and {\color{blue}it is argued that} trust requires a human to human connection \cite{nundy2019promoting}. 
+yet. Studies show that patients trust a human caregiver more than
+technology \cite{ongena2020patients}, and that trust requires a human
+to human connection \cite{nundy2019promoting}.
 
 Unlike AI, IA systems do not aim to replace the caregiver. Rather,
 they aim to assist the caregiver by taking care of the simple or easy
@@ -322,16 +327,29 @@ not take away the agency and humanity of the caregiver. When the IA system outpu
 ``I don't know'' it explicitly passes the responsibility for the
 patient to the caregiver.
 
-Agency and responsibility are central. Today, and in the foreseeable
-future, {\color{blue}non-trivial efforts are needed to convert} medicine \sout{will not be}{\color{blue}to} a precise science. {\color{blue}Even if medicine fulfills precise science,} incorrect decisions {\color{blue}is inevitable due to human natures \cite{donaldson2000err}, and }
-can result in harm or death.  Price et. al. have studied the ethical,
+%Agency and responsibility are central to patient-caregiver
+%relationship.
+
+\yoav{
+As discussed earlier, medical cases often fall within gray areas, where
+medics differ on the correct diagnosis or the best treatment. In such
+cases the caregiver has the responsibility of making a decision even
+though the decision might be wrong. Price et. al. have studied the ethical,
 legal and regulatory aspects of using AI in
-medicine.\cite{price2014black,ford2016privacy, ford2017regulating}
+medicine.\cite{price2014black,ford2016privacy, price2017regulating}
 Their conclusion is that the ultimate responsibility for the patients
 well-being is {\em always} with the human caregiver. Even if the AI
-system is known to make fewer mistakes than the average doctor, some
-mistakes are unavoidable, and the question is who is responsible for
-the mistake, and who might lose their license to practice.
+system is known to make fewer mistakes than the average doctor,
+mistakes are unavoidable, and the question who responsible for
+the mistake, and who needs to explain their decisions and potentially lose their license to practice.
+}
+
+\yoav{ What is the main point of this paper? \cite{donaldson2000err}}
+
+\sout{
+Today, and in the foreseeable
+future, \sout {\color{blue}non-trivial efforts are needed to convert} medicine \sout{will not be}{\color{blue}to} a precise science. {\color{blue}Even if medicine fulfills precise science,} incorrect decisions {\color{blue}is inevitable due to human natures \cite{donaldson2000err}, and }
+can result in harm or death.  }
 
 We give three perspectives on the possible integration of IA with
 medicine: IA and the individual medic, the decentralization of
@@ -353,7 +371,7 @@ medical diagnosis is a combination of two types of processes: {\em
 
 {\em Recognition} is an automatic mental process where one diagnosis
 presents itself in the doctors mind as truth. Pathologists,
-Radiologist's and other ``Pattern Doctors''~\cite{Topol} make heavy use
+Radiologist's and other ``Pattern Doctors''~\cite{topol2019deep} make heavy use
 of recognition. Their experience allows them to quickly sift through
 large amounts of data and detect complex patterns. Pattern Doctors
 often work under great time pressure, which can cause them to miss
@@ -372,7 +390,7 @@ errors of omission.
 
 An example of a pattern classification problem is the annotation of
 sleep. Developing such automatic system is an
-active research field from the AI perspective~\cite{?}. As discussed above,
+active research field from the AI perspective~\cite{HTaddCite}. As discussed above,
 while the inter-rater agreement rate among experts is substantial over
 normal subjects, there is still a gap, not to mention subjects with
 sleep apnea. Existing systems, however, only affirmatively tell
@@ -410,10 +428,13 @@ virtual space without either leaving home. Moreover, diagnostic
 devices can be placed in the patients home and provide the doctor with
 vital signs.
 
-Devices exist that allow most patients to measure basic vital
-signs such as blood pressure, heart rate, {\color{blue}EKG} and temperature. More complex
-signals such as {\color{blue}polysomnogram} or ultra-sound currently require a local nurse or a
-technician{\color{blue}, and/or a local facility}.
+
+Devices exist that allow most patients to measure basic vital signs
+such as blood pressure, heart rate, {\color{blue}EKG} \yoav{Is the
+  placement of the leads something that can now be done without any
+  training?}  and temperature. More complex signals such as
+polysomnogram or ultra-sound currently require a local nurse or a
+technician and/or a local facility outside the home.
 
 IA can reduce the need for a nurse or technician in two ways. First,
 it can guide the patients in placing the sensors on his/her
@@ -423,7 +444,7 @@ Otherwise, it would output IDK and alert the remote doctor.
 
 Over-centralization is particularly problematic in long-term care.
 Seniors are often pressured to move to institutions such as
-assisted living so that they are closer to a medical staff. This {\color{blue}takes,} in
+assisted living so that they are closer to a medical staff. This \sout{\color{blue}takes,} in
 spite of significant medical, mental and financial cost of such a
 move. An approach to long term care called ``aging in
 place'' is gaining popularity around the world. IA sidekicks can help
@@ -444,15 +465,18 @@ the captured information is the ``learned model''.
 Learned models, especially those corresponding to experienced and
 successful doctors, are likely to be useful for other doctors,
 possibly at the beginning of their career. Models from many doctors,
-in many institutions, {\color{blue}can} be collected in repositories. Such models
+in many institutions, can be collected in repositories. Such models
 will have many uses, from initializing sidekicks for new doctors,
 through the integration of many models into a single better model.
 
 IA models complement other methods of medical method dissemination
 such as protocols, books, lectures and journal articles. They are
 particularly suited for training students in pattern areas. An IA can
-be used to train and test the student ability to identify known
-patterns{\color{blue}, particularly those they are sure about, and leave IDK to senior and experienced human mentors}.  Using an IA model can overcome protocol limitations such as
+be used to train and test the student ability to accurately and
+confidently identify simple patterns leave it to to senior and
+experienced human mentors to teach them how to identify more complex
+patterns \cite{reid2000medical}.
+Using an IA model can overcome protocol limitations such as
 the classification of sleep cycles described above.
 
 \section{Summary}
@@ -560,9 +584,6 @@ medical boards, and outline the effects that IA can have on them.
 
   IA can help the pathologist by suggesting locations in the high
   resolution image that might contain cancer nodules~\cite{}.
-
-  directing her attention to the
-  parts of the image that are 
 
 \item{\bf Adaptive Patient monitors}
 

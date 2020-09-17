@@ -186,25 +186,25 @@ etc. To choose a treatment plan, the set of possible diagnostics has
 to be reduced.  However, it does not have to be reduced to a {\em
   single} diagnostics before treatment can be started.
 
-{\bf Yoav's version starts here}
+%{\bf Yoav's version starts here}
 
 \input{InterRaterAgreement}
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
 patient. However, that is easier said than done. Currently, most of
 the data available for machine learning is {\em observational or
-retrospective data}, in other words, data that has been collected
+retrospective data}; that is, data has been collected
 during the diagnosis and treatment of patients.
 One way to confirm a diagnosis is to collect more information through
 additional examinations and tests. However the attending medic might
-judge the additional test to be necessary, in which case it will not
+judge the additional{\color{blue}, sometimes invasive,} test to be necessary, in which case it will not
 appear in the observational study.
 Another way is following up on the treatment plan. However, correct
 diagnosis is only one of many factors that influence the long term
 health of the patient. Others include choice of treatment, medication
 adherence, change in diet or reduction in stress, among many others.
 
-{\bf Yoav's version ends here}
+%{\bf Yoav's version ends here}
 
 There are many causes for uncertainty in medical diagnosis. We briefly
 describe three categories of problems: {\em signal quality}, the {\em
@@ -212,9 +212,9 @@ describe three categories of problems: {\em signal quality}, the {\em
 
 By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
-as heart rate, blood pressure and temperature can be measured reliably
-and accurately. On the other hand, modern
-devices such as EKG, EEG, camera images, X-ray, ultra-sound and MRI
+as heart rate, blood pressure and temperature can be measured {\color{blue}more} reliably
+and {\color{blue}consistently than other}
+devices such as EKG, EEG, camera images, X-ray, ultra-sound and MRI, {\color{blue}which might sometimes}
 produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
@@ -225,13 +225,12 @@ as compressed sensing~\cite{lustig2008compressed} are used to
 reconstruct 3d images from a large number of noisy scans.
 
 \input{AlarmFatigue}
-  One situation where signal quality and signal variability is
-particularly problematic are Patient Monitors. The purpose of these
+  One situation where signal quality and signal variability {\color{blue}cannot be neglected} is Patient Monitors. The purpose of these
 devices is to continuously monitor patients vital signs and alert the
 medical staff if a dangerous situation is detected. Unfortunately, the
 false alarm rate of these devices is often high. This results in a
 phenomenon called ``alarm fatigue'' (see insert) where the medical staff ignores
-the generated alarms, rendering them useless.
+the generated alarms, rendering them {\color{blue}less clinically useful as expected}.
 
 Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
@@ -328,7 +327,6 @@ patient to the caregiver.
 %Agency and responsibility are central to patient-caregiver
 %relationship.
 
-\yoav{
 As discussed earlier, medical cases often fall within gray areas, where
 medics differ on the correct diagnosis or the best treatment. In such
 cases the caregiver has the responsibility of making a decision even
@@ -340,7 +338,7 @@ well-being is {\em always} with the human caregiver. Even if the AI
 system is known to make fewer mistakes than the average doctor,
 mistakes are unavoidable, and the question who responsible for
 the mistake, and who needs to explain their decisions and potentially lose their license to practice.
-}
+
 
 \yoav{ What is the main point of this paper? \cite{donaldson2000err}}
 
@@ -428,9 +426,7 @@ vital signs.
 
 
 Devices exist that allow most patients to measure basic vital signs
-such as blood pressure, heart rate, {\color{blue}EKG} \yoav{Is the
-  placement of the leads something that can now be done without any
-  training?}  and temperature. More complex signals such as
+such as blood pressure, heart rate, EKG and temperature. More complex signals such as
 polysomnogram or ultra-sound currently require a local nurse or a
 technician and/or a local facility outside the home.
 

@@ -62,37 +62,24 @@ The predictions of Sebastian
 Thrun~\cite{Mukherjee2017,esteva2017dermatologist}, another leader in
 machine learning, are less disruptive: ``... deep learning devices
 will not replace dermatologists and radiologists. They will {\em
-  augment} professionals, offering the expertise and assistance''. In
-this article we argue for Thrun's prediction and explain why
-augmentation, rather than replacement, is the approach more likely to
-prevail.
-
+  augment} professionals, offering the expertise and assistance''. 
+  The term "Augmented Intelligence" appears in recent 
+  policy reports from medical associations\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human medics are seen as a desirable goal.
+  In this article we suggest how such a collaboration between human and computer might unfold in practice. Central to our approach is to allow the computer to quantify it's own uncertainty and, when appropriate, output "I don't know" (IDK).
+ 
 \input{AIIABox} The question of whether dermatologists will be
 replaced by computers or be empowered by computers is a recent
-incarnation of a debate between AI (Artificial Intelligence) and IA
-(Intelligence amplification), which has a long history (see inset). To
-distinguish between AI and IA we use the terms ``AI agent'' vs. ``IA
+incarnation of a long standing debate between AI (Artificial Intelligence) and IA
+(Intelligence amplification) (see inset). To
+distinguish between a software implementation of AI and IA we use the terms ``AI agent'' vs. ``IA
 sidekick''. This terminology contrasts {\em agents}, which are endowed
 with {\em agency} and can take {\em actions} that effect the patient's
 health, with {\em sidekicks}, which can provide advice and suggestions,
 but who are not allowed to take an action.
 
-AI-driven surgeons are probably a ways away. AI-driven diagnosis seems
-to be much closer at hand~\cite{topol2019deep}. However, as we argue in this paper,
-IA is a more realistic, and ultimately more beneficial approach. {\color{blue}We mention that
-this seemingly restricted IA is considered by American Medicine Association and other medical professional associations as the currently favorable framework, which they called ``augmented intelligence'' \cite{american2019augmented,AAD2019augmented}.}
-
-\iffalse
-Replacing dermatologists with AI agents promises cost savings.
-but is likely to lead to inferior care. One reason is that it
-is still hard for AI to make a human connection with the patient and thereby
-take into consideration personal, social, financial and mental factors{\color{red}, at least it is still challenging in the foreseeable future}.
-
-On the other hand, IA powered sidekicks can help the medical staff
-detect and diagnose medical problems quickly, efficiently, and
-accurately. This can lead to cost savings, especially for home-bound
-patients suffering from chronic diseases.
-\fi
+Of the many potential uses of AI/IA in medicine, we focus on diagnostics.
+While AI-driven surgeons are probably a ways away, AI-driven diagnosis seems
+to be much closer at hand~\cite{topol2019deep}. 
 
 Central to our argument is a quantification of {\em prediction
   confidence}. Such quantification is needed to avoid premature
@@ -121,7 +108,7 @@ inset), sometimes called {\em input-output}
 learning~\cite{ng2016artificial,topol2019deep}.
 
 Examples of applications of DNN to medical diagnosis include arrhythmia classification 
-from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic retinopathy detection from retinal fundus photographs \cite{gulshan2016development}, skin cancer diagnostics~\cite{esteva2017dermatologist} as well as may others.
+from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic retinopathy detection from retinal fundus photographs \cite{gulshan2016development}, skin cancer diagnostics~\cite{esteva2017dermatologist} as well as many others.
 
 \input{Supervised}
 The data for supervised learning consists of a large collection of
@@ -197,7 +184,7 @@ retrospective data}; that is, data has been collected
 during the diagnosis and treatment of patients.
 One way to confirm a diagnosis is to collect more information through
 additional examinations and tests. However the attending medic might
-judge the additional{\color{blue}, sometimes invasive,} test to be necessary, in which case it will not
+judge additional tests to be unnecessary, in which case the outcome of these tests will not
 appear in the observational study.
 Another way is following up on the treatment plan. However, correct
 diagnosis is only one of many factors that influence the long term
@@ -212,9 +199,9 @@ describe three categories of problems: {\em signal quality}, the {\em
 
 By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
-as heart rate, blood pressure and temperature can be measured {\color{blue}more} reliably
-and {\color{blue}consistently than other}
-devices such as EKG, EEG, camera images, X-ray, ultra-sound and MRI, {\color{blue}which might sometimes}
+as heart rate, blood pressure and temperature can be measured more reliably
+and consistently than other
+measures such as EKG, EEG, camera images, X-ray, ultra-sound and MRI, some of which might
 produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
@@ -225,12 +212,13 @@ as compressed sensing~\cite{lustig2008compressed} are used to
 reconstruct 3d images from a large number of noisy scans.
 
 \input{AlarmFatigue}
-  One situation where signal quality and signal variability {\color{blue}cannot be neglected} is Patient Monitors. The purpose of these
+  One situation where signal quality and signal variability cannot be neglected is Patient Monitors. 
+  The purpose of these
 devices is to continuously monitor patients vital signs and alert the
 medical staff if a dangerous situation is detected. Unfortunately, the
 false alarm rate of these devices is often high. This results in a
-phenomenon called ``alarm fatigue'' (see insert) where the medical staff ignores
-the generated alarms, rendering them {\color{blue}less clinically useful as expected}.
+phenomenon called ``alarm fatigue'' (see inset) where the medical staff ignores
+the generated alarms, rendering them less clinically useful than expected.
 
 Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
@@ -340,12 +328,16 @@ mistakes are unavoidable, and the question who responsible for
 the mistake, and who needs to explain their decisions and potentially lose their license to practice.
 
 
+\iffalse
+
+In this book the point is made that human error is inevitable.
 \yoav{ What is the main point of this paper? \cite{donaldson2000err}}
 
 \sout{
 Today, and in the foreseeable
 future, \sout {\color{blue}non-trivial efforts are needed to convert} medicine \sout{will not be}{\color{blue}to} a precise science. {\color{blue}Even if medicine fulfills precise science,} incorrect decisions {\color{blue}is inevitable due to human natures \cite{donaldson2000err}, and }
 can result in harm or death.  }
+\fi
 
 We give three perspectives on the possible integration of IA with
 medicine: IA and the individual medic, the decentralization of
@@ -438,7 +430,7 @@ Otherwise, it would output IDK and alert the remote doctor.
 
 Over-centralization is particularly problematic in long-term care.
 Seniors are often pressured to move to institutions such as
-assisted living so that they are closer to a medical staff. This \sout{\color{blue}takes,} in
+assisted living so that they are closer to a medical staff. This, in
 spite of significant medical, mental and financial cost of such a
 move. An approach to long term care called ``aging in
 place'' is gaining popularity around the world. IA sidekicks can help

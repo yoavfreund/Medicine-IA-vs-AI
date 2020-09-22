@@ -7,7 +7,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor,ulem}
+%\usepackage{xcolor,ulem}
 \usepackage{mdframed}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -16,7 +16,7 @@
 \usepackage{adjustbox}
 \usepackage{lipsum}
 \newlength{\strutheight}
-\usepackage{soul} % for strike-through (\st)
+%\usepackage{soul} % for strike-through (\st)
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
@@ -64,7 +64,7 @@ machine learning, are less disruptive: ``... deep learning devices
 will not replace dermatologists and radiologists. They will {\em
   augment} professionals, offering the expertise and assistance''. 
   The term "Augmented Intelligence" appears in recent 
-  policy reports from medical associations\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human medics are seen as a desirable goal.
+  policy reports from medical associations \cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human medics are seen as a desirable goal.
   In this article we suggest how such a collaboration between human and computer might unfold in practice. Central to our approach is to allow the computer to quantify it's own uncertainty and, when appropriate, output "I don't know" (IDK).
  
 \input{AIIABox} The question of whether dermatologists will be
@@ -159,6 +159,9 @@ In studies of this kind, multiple doctors produce diagnostics
 based on identical medical information without communicating with each other. (see inset).
 Associating {\em ground Truth} with these diagnostics whose inter-rater agreement is less than perfect is challenging.
  
+ 
+\input{InterRaterAgreement}
+ 
 In addition, diagnosis is not an
 input-output mapping. Rather, it is an iterative process which reduces
 uncertainty over time. To illustrate this, consider the diagnostics of
@@ -175,7 +178,6 @@ to be reduced.  However, it does not have to be reduced to a {\em
 
 %{\bf Yoav's version starts here}
 
-\input{InterRaterAgreement}
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
 patient. However, that is easier said than done. Currently, most of
@@ -197,6 +199,7 @@ There are many causes for uncertainty in medical diagnosis. We briefly
 describe three categories of problems: {\em signal quality}, the {\em
   knowledge gap} and the limitations of {\em diagnostic protocols}.
 
+\input{SignalQuality} 
 By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured more reliably
@@ -206,7 +209,7 @@ produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
 
-\input{SignalQuality} Signal quality enhancement is already an
+Signal quality enhancement is already an
 important part of imaging devices such as X-ray and MRI. Methods such
 as compressed sensing~\cite{lustig2008compressed} are used to
 reconstruct 3d images from a large number of noisy scans.
@@ -507,7 +510,7 @@ medical boards, and outline the effects that IA can have on them.
   healthy are directed to a junior doctor or to a nurse practitioner.
 
   We believe computers {\em can} perform accurate diagnosis for cases where
-  different doctors are likely to agree. In other cases {\color{blue}that are in the}
+  different doctors are likely to agree. In other cases that are in the
   diagnostic gray area, the computer will output ``I don't know'' and
   transfer the responsibility to the doctor. In most cases, the doctor
   cannot say ``I don't know'' because she is responsible for the
@@ -518,7 +521,7 @@ medical boards, and outline the effects that IA can have on them.
   more than diagnostic information. It involves understanding the
   patient's emotional, mental and financial state, the patient's
   support system, the strengths and weaknesses of the hospital in
-  which this is taking place etc. {\color{blue}Such exploration and results will be fed back to the system to reduce the gray area, which is similar to training an intern doctor in the hospital.}
+  which this is taking place etc. Such exploration and results will be fed back to the system to reduce the gray area, which is similar to training an intern doctor in the hospital.
 
   Over time, computers will be able to take into consideration more
   and more of this complex information. However, for the foreseeable
@@ -528,8 +531,8 @@ medical boards, and outline the effects that IA can have on them.
   accuracy and timeliness of the doctors actions. Computers will
   output IDK in gray areas and will leave the decision making to the
   human doctor. Giving the computer the authority to make decisions
-  currently done by human doctors will {\color{blue}not only} deprive the patient the human
-  attention of the doctor{\color{blue}, but also put patients in risk}.
+  currently done by human doctors will not only deprive the patient the human
+  attention of the doctor, but also put patients in risk.
 
   Some of the digitization of the medicine has come between patients
   and doctors. {\color{blue}A common impression from the learning

@@ -1,0 +1,36 @@
+\Medicine{Uncertainty due to signal quality}{Medical devices use a
+variety of bio-sensors that measure record and analyze different
+biometric signals. These signals vary in velocity, ranging from
+low-velocity vital signs such as heart rate, oxygen saturation,
+temperature and blood pressure, through high-velocity waveforms such
+as ECG and EEG and medical imaging such as CT, X-ray, MRI and scanning
+microscopes. Some signals, such as blood pressure or heart rate, can
+be directly used in diagnosis.  Some other signals have to be
+interpreted before they can be used in diagnosis. We use the acronym
+HS (High Speed) to refer to those signals that require interpretation.
+
+Interpreting HS is a significant fraction of the work of most
+doctors. In addition, There are medical specialties such as Radiology
+and Pathology that are devoted to interpreting HS. These so-called
+``Pattern Doctors'' are predicted to be the early adopters of
+AI~\cite{topol2019deep} or IA.  HS provides critical detailed
+information about the patient's health. However, the richness of the
+signal can make it susceptible to nuisance variability from noise,
+limited resolution, operator error, etc. The number of nuisance
+variables is very large and confounding.  In the next paragraph we
+give an example of one nuisance variable: the placement of ECG leads
+on the patient's body.
+  
+For ECG signals to be correctly and consistently interpreted, it is
+important that the leads are placed correctly on the patient's
+body. Several standards for placement have been published, for example, the standard 12 leads ECG system
+\cite{goldberger2017clinical}, the EASI system \cite{Dower1988}, and the Frank lead system \cite{frank1956accurate}. 
+It is not always possible to achieve a consistent and precise sensor
+placement for biomedical signal collection due to various reasons, for example, the torso variation caused by gender, age and living styles.
+This uncertainty might be tolerable for some clinical applications;
+for example, an imprecise ECG sensor placement might not impact the
+identification of some types of arrhythmia from the ECG signal, like
+atrial fibrillation. However, this uncertainty might cause troubles in
+identifying other types of arrhythmia, for example, premature atrial contraction.
+
+}

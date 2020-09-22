@@ -7,7 +7,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage{xcolor,ulem}
+%\usepackage{xcolor,ulem}
 \usepackage{mdframed}
 \usepackage{wrapfig}
 \usepackage{multicol}
@@ -16,7 +16,7 @@
 \usepackage{adjustbox}
 \usepackage{lipsum}
 \newlength{\strutheight}
-\usepackage{soul} % for strike-through (\st)
+%\usepackage{soul} % for strike-through (\st)
 
 \author[1]{Yoav Freund}
 \author[2]{Hau-Tieng Wu}
@@ -52,7 +52,7 @@
 
 %\thispagestyle{firststyle}
 
-The meteoric rise of AI and Deep learning raises the possibility that
+The\footnote{Version 3, Sept 9, 2020.} meteoric rise of AI and Deep learning raises the possibility that
 doctors will be replaced by computers~\cite{Mukherjee2017}. Geoff Hinton,
 a famous deep learning researcher said in 2017: ``It's just completely
 obvious that in ten years deep learning is going to do better than
@@ -64,7 +64,7 @@ machine learning, are less disruptive: ``... deep learning devices
 will not replace dermatologists and radiologists. They will {\em
   augment} professionals, offering the expertise and assistance''. 
   The term "Augmented Intelligence" appears in recent 
-  policy reports from medical associations\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human medics are seen as a desirable goal.
+  policy reports from medical associations~\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human medics are seen as a desirable goal.
   In this article we suggest how such a collaboration between human and computer might unfold in practice. Central to our approach is to allow the computer to quantify it's own uncertainty and, when appropriate, output "I don't know" (IDK).
  
 \input{AIIABox} The question of whether dermatologists will be
@@ -165,7 +165,10 @@ uncertainty over time. To illustrate this, consider the diagnostics of
 a patient that is treated in an out-patient clinic.  When a patient
 arrives at a clinic for the first time, all diagnostics are
 possible. After a physical exam and an interview with a doctor, many
-possibilities are eliminated. In {\em simple} cases, this is enough
+possibilities are eliminated.
+\input{InterRaterAgreement}
+
+In {\em simple} cases, this is enough
 for the doctor to confidently choose a treatment. In more complex
 cases, the doctor might ask for multiple tests and visits, refer the
 patient to a specialist, consult colleagues, journals and books,
@@ -173,9 +176,6 @@ etc. To choose a treatment plan, the set of possible diagnostics has
 to be reduced.  However, it does not have to be reduced to a {\em
   single} diagnostics before treatment can be started.
 
-%{\bf Yoav's version starts here}
-
-\input{InterRaterAgreement}
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
 patient. However, that is easier said than done. Currently, most of
@@ -191,8 +191,7 @@ diagnosis is only one of many factors that influence the long term
 health of the patient. Others include choice of treatment, medication
 adherence, change in diet or reduction in stress, among many others.
 
-%{\bf Yoav's version ends here}
-
+\input{SignalQuality}
 There are many causes for uncertainty in medical diagnosis. We briefly
 describe three categories of problems: {\em signal quality}, the {\em
   knowledge gap} and the limitations of {\em diagnostic protocols}.
@@ -206,19 +205,20 @@ produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
 
-\input{SignalQuality} Signal quality enhancement is already an
-important part of imaging devices such as X-ray and MRI. Methods such
-as compressed sensing~\cite{lustig2008compressed} are used to
-reconstruct 3d images from a large number of noisy scans.
-
 \input{AlarmFatigue}
-  One situation where signal quality and signal variability cannot be neglected is Patient Monitors. 
-  The purpose of these
-devices is to continuously monitor patients vital signs and alert the
-medical staff if a dangerous situation is detected. Unfortunately, the
-false alarm rate of these devices is often high. This results in a
-phenomenon called ``alarm fatigue'' (see inset) where the medical staff ignores
-the generated alarms, rendering them less clinically useful than expected.
+Signal quality enhancement is already an important part of imaging
+devices such as X-ray and MRI. Methods such as compressed
+sensing~\cite{lustig2008compressed} are used to reconstruct 3d images
+from a large number of noisy scans.
+
+One situation where signal quality and signal variability cannot be
+neglected is Patient Monitors.  The purpose of these devices is to
+continuously monitor patients vital signs and alert the medical staff
+if a dangerous situation is detected. Unfortunately, the false alarm
+rate of these devices is often high. This results in a phenomenon
+called ``alarm fatigue'' (see inset) where the medical staff ignores
+the generated alarms, rendering them less clinically useful than
+expected.
 
 Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
@@ -474,113 +474,3 @@ the classification of sleep cycles described above.
 
 \end{document}
 
-
-%%%%%%%%%%%%%
-
-
-In the last section we described the benefits of IA to an individual
-caregiver. We now discuss medical instutitions, such as hospitals and
-medical boards, and outline the effects that IA can have on them.
-
-  Computers have been an integral part of medical practice for decades. From
-  electronic medical records (EMR) to medical instrumentation to billing,
-  hospitals and cliniques cannot function without computers. By some
-  measures computers can already make better diagnosis than human
-  doctors. The question is not {\em whether} computer diagnostics will
-  become part of medical practice, the question is {\em how}.
-
-  Some claim that human doctors and nurses are heading to extinction,
-  following the fate of manufacturing jobs and bank cashiers.  Our
-  prediction is that computers will change the nature of medical
-  work. Our prediction is that the adaptation of IA will increase,
-  rather than decrease, the number of healthcare workers. especially
-  in the care of chronic disease and aging.
-
-  Consider an established clinique or hospital. While every day brings
-  in new cases, it is likely that for many of these cases the
-  diagnosis is ``easy'', i.e. the same diagnosis would be given by
-  most doctors. If the IA sidekick identify a significant fraction of
-  the patients that are clearly sick or the patients that are clearly
-  ok, then it can help the staff prioratize treatment. For example,
-  patients identified in critical condition can get to see a senior
-  doctor faster, while patients that are confidently identified as
-  healthy are directed to a junior doctor or to a nurse practitioner.
-
-  We believe computers {\em can} perform accurate diagnosis for cases where
-  different doctors are likely to agree. In other cases {\color{blue}that are in the}
-  diagnostic gray area, the computer will output ``I don't know'' and
-  transfer the responsibility to the doctor. In most cases, the doctor
-  cannot say ``I don't know'' because she is responsible for the
-  patients health. On the other hand, resolving the diagnostic
-  question is not her only choice. She can consult another doctor or
-  the literature, ask for additional tests, or decide on a treatment
-  based on available information. Deciding between these options requires much
-  more than diagnostic information. It involves understanding the
-  patient's emotional, mental and financial state, the patient's
-  support system, the strengths and weaknesses of the hospital in
-  which this is taking place etc. {\color{blue}Such exploration and results will be fed back to the system to reduce the gray area, which is similar to training an intern doctor in the hospital.}
-
-  Over time, computers will be able to take into consideration more
-  and more of this complex information. However, for the foreseeable
-  future, it is unlikely that computers will be given the
-  responsibility to make medical {\em decisions}. Computers
-  will take on much of the diagnostics and alarm tasks, improving the
-  accuracy and timeliness of the doctors actions. Computers will
-  output IDK in gray areas and will leave the decision making to the
-  human doctor. Giving the computer the authority to make decisions
-  currently done by human doctors will {\color{blue}not only} deprive the patient the human
-  attention of the doctor{\color{blue}, but also put patients in risk}.
-
-  Some of the digitization of the medicine has come between patients
-  and doctors. {\color{blue}A common impression from the learning
-    perspective is that physicians need to record more activities and
-    hence reduce the amount of time on interacting with
-    patients. However, we}
-  believe that {\color{blue}a properly designed } IA {\color{blue}that knows IDK} can
-  move medicine in the opposite direction, letting the computer make
-  the common noncontroversial diagnostics and giving the patient more
-  time to interact with the patient.
-
-
-  For IA technology to be widely adopted, the nurses and doctors that
-  use them should experience an improvement in their practice {\color{blue}with the IA system. One example of such system is}
-  that the display of the diagnostics computer uses a three color code
-  to identify {\color{blue}the pre-defined status. In this system,} green indicates a confident
-  negative diagnostic, red corresponds to a confident positive
-  diagnosis, and yellow corresponds to IDK, meaning that the
-  computer cannot confirm or reject the diagnostic outcome. {\color{blue}%See Figure \ref{Figure IDK light} for an illustration of such a system with a radar display. The thresholds that define these three ranges depend on our knowledge, and the data uncertainty and protocol issues should be taken into account. 
-  With the IA system with IDK, healthcare providers could focus their time on patients overall situation, communication for life plan, or other interactions, and intervene the medical diagnostics when the IA system says IDK.}
-
-%  The thresholds which define the three ranges .... \hautieng{discuss.}
-
-
-  
-  We finish this section with a few application areas which seem ready
-  for applications of IA.
-  
-\begin{itemize}
-\item{\bf Computer aided diagnostics for large-scale data}\\
-  Medical imaging devices such at digital X-ray, CT, EMR and scanning
-  microscope generate many gigabytes of data for each
-  patient. Radiologists and pathologists spend their days analyzing
-  these images to diagnose the patient. The large size and high
-  resolution of the images on the one hand, and the time limitation on
-  the analyst on the other imply that the analyst has to quickly
-  narrow down the suspicious region, increase the chance of missing
-  dangerous abnormalities.
-
-  IA can help the pathologist by suggesting locations in the high
-  resolution image that might contain cancer nodules~\cite{}.
-
-\item{\bf Adaptive Patient monitors}
-
-{\color{blue} By further accumulating knowledge, reducing data uncertainty, and improving protocol, it is expected that the gray zone a well developed IA system has is small, and the alarm fatigue issue is alleviated since it only makes an alarm when it runs into IDK. There are many other aspects such an IA system equipped with IDK could help. Since the system knows IDK, it knows what is affirmative. When a medical decision made by a physician falls in the affirmative area, the IA system could help doubly confirm if the decision has any risk not considered by the physician. Such alarm, when sufficiently accurate, could help improve patient risk and healthcare quality. Eventually, this IA system could be evolved into a second opinion provider to healthcare providers. 
-}
-
-\item {\bf Dissemination of expertise}
-
-Computers, trained by experts, can help novices. {\color{blue}A well-trained IA system equipped with IDK can provide confirmed answers to inexperienced physicians, and} serve a function
-similar to score-cards{\color{blue}. Moreover, it can be applied to areas with scarce health resource. The system can provide local healthcare providers knowledge they do not know, and be connected back to physicians with richer medical knowledge when it runs into IDK.
-On the high level, eventually, we can view an IA system with IDK as a medical specialist full of knowledge and do not make mistake when it knows the answer. When it encounters IDK, it will not hide it. The feedback from experienced physicians, or newly developed knowledge, could be input to decrease the gray areas, and reduce the chance of encountering IDK. Such system in the beginning behaves like an intern doctor, and teaching it is like}
-teaching young diagnostics. {\color{blue}Due to the brain capacity and physical limitation, it is impossible for a single physician to know everything in every field, and it is possible that even a very experienced physician could make a mistake. Such a well trained IA system can eventually serve as a reliable second opinion provider to experienced physicians.}
-\end{itemize}

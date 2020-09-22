@@ -6,45 +6,45 @@ Database file #1: medbib.bib
 Warning--I didn't find a database entry for "HTaddCite"
 Warning--there's a number but no volume in Dower1988
 Warning--empty journal in brief2019top
-You've used 55 entries,
+You've used 56 entries,
             2481 wiz_defined-function locations,
-            873 strings with 15232 characters,
-and the built_in function-call counts, 21562 in all, are:
-= -- 1696
-> -- 1335
-< -- 29
+            878 strings with 15536 characters,
+and the built_in function-call counts, 21761 in all, are:
+= -- 1720
+> -- 1330
+< -- 30
 + -- 513
-- -- 402
-* -- 1789
-:= -- 3601
-add.period$ -- 170
-call.type$ -- 55
-change.case$ -- 105
-chr.to.int$ -- 54
-cite$ -- 57
-duplicate$ -- 1028
-empty$ -- 1878
+- -- 400
+* -- 1786
+:= -- 3632
+add.period$ -- 173
+call.type$ -- 56
+change.case$ -- 108
+chr.to.int$ -- 55
+cite$ -- 58
+duplicate$ -- 1045
+empty$ -- 1904
 format.name$ -- 473
-if$ -- 4430
+if$ -- 4476
 int.to.chr$ -- 2
-int.to.str$ -- 56
+int.to.str$ -- 57
 missing$ -- 60
-newline$ -- 288
-num.names$ -- 165
-pop$ -- 433
+newline$ -- 293
+num.names$ -- 168
+pop$ -- 440
 preamble$ -- 1
-purify$ -- 55
+purify$ -- 56
 quote$ -- 0
-skip$ -- 575
+skip$ -- 588
 stack$ -- 0
-substring$ -- 934
-swap$ -- 115
-text.length$ -- 2
+substring$ -- 936
+swap$ -- 116
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 361
+type$ -- 371
 warning$ -- 2
-while$ -- 180
+while$ -- 182
 width$ -- 0
-write$ -- 718
+write$ -- 729
 (There were 3 warnings)

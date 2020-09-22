@@ -1,4 +1,4 @@
-\begin{thebibliography}{55}
+\begin{thebibliography}{56}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -17,6 +17,20 @@ Andre Esteva, Brett Kuprel, Roberto~A Novoa, Justin Ko, Susan~M Swetter,
 \newblock Dermatologist-level classification of skin cancer with deep neural
   networks.
 \newblock \emph{Nature}, 542\penalty0 (7639):\penalty0 115--118, 2017.
+
+\bibitem[{American Medical Association} et~al.(2019)]{american2019augmented}
+{American Medical Association} et~al.
+\newblock Augmented intelligence in healthcare.
+\newblock \emph{AMA https://www.ama-assn.
+  org/system/files/2019-08/ai-2018-board-policy-summary.pdf}, 2019.
+
+\bibitem[{American Academy of Dermatology}(2019)]{AAD2019augmented}
+{American Academy of Dermatology}.
+\newblock Position statement on augmented intelligence (aui). (approved by the
+  board of directors: May 18, 2019).
+\newblock \emph{AAD
+  https://www.aad.org/Forms/Policies/Uploads/PS/PS-Augmented\%20Intelligence.pdf
+  (Date accessed: Sep 17, 2020)}, 2019.
 
 \bibitem[Turing(1951)]{turing1951can}
 AM~Turing.
@@ -349,12 +363,6 @@ Roger~Allan Ford, W~Price, and II~Nicholson.
 W~Price and II~Nicholson.
 \newblock Regulating black-box medicine.
 \newblock \emph{Mich. L. Rev.}, 116:\penalty0 421, 2017.
-
-\bibitem[Donaldson et~al.(2000)Donaldson, Corrigan, Kohn,
-  et~al.]{donaldson2000err}
-Molla~S Donaldson, Janet~M Corrigan, Linda~T Kohn, et~al.
-\newblock \emph{To err is human: building a safer health system}, volume~6.
-\newblock National Academies Press, 2000.
 
 \bibitem[Wachter(2015)]{wachter2015digital}
 Robert~M Wachter.

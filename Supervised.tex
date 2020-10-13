@@ -4,12 +4,21 @@
   
   The task of the learning
   algorithm, in both supervised and unsupervised learning, is transforming a set of 
-  {\em examples} into a {\em model}. In
+  {\em examples} into a {\em model} \yoav{which can be used to predict
+  some aspect of new examples}. In
   unsupervised learning, the examples are unlabeled raw
   measurements. In supervised learning each example consists of an {\em input} and a {\em
     label}. Typically, the labels are provided by human
-  experts.
-These labels are viewed as the ground truth and the goal of
-  the learning algorithm is to make predictions that diverge as little
-  as possible from the ground truth.}
+  experts. \yoav{These labels define the {\em ground truth}. The goal of
+  learning is to generate a model that predicts the ground truth
+  labels. The ground truth is used twice: to learn the model and to
+  test the model. The availability of large and unbiased sets of
+  examples with their ground-truth labels is critical for successful
+  supervised learning and lack thereof can render supervised learning impossible
+
+  Typical labels in the context of machine learning for
+  medicine are Cancer/no-Cancer or diabetes/no-diabetes. In section 2
+  we explain why ground truth labels are often not available,
+  rendinging supervised learning impractical.}
+}
 

@@ -18,10 +18,12 @@
 \newlength{\strutheight}
 %\usepackage{soul} % for strike-through (\st)
 
-\author[1]{Yoav Freund}
-\author[2]{Hau-Tieng Wu}
-\affil[1]{UCSD, Computer Science, San Diego, 92093, United States}
-\affil[2]{Duke, Mathematics and Statistical Science, Durham, 27708, USA}
+\author[1]{Hau-Tieng Wu}
+\author[2]{Yoav Freund}
+
+\affil[1]{Duke, Mathematics and Statistical Science, Durham, 27708, USA}
+\affil[2]{UCSD, Computer Science, San Diego, 92093, United States. yfreund@eng.ucsd.edu}
+
 
 \title{Trusted digital doctors know their limits}
 
@@ -51,6 +53,24 @@
 \maketitle
 
 %\thispagestyle{firststyle}
+
+\section{issues to be resolved}
+
+\hautieng{As we discussed, I followed the medical journal convention and changed the author order so that you are the senior/corresponding author.}
+
+\begin{itemize}
+    \item Introduce the term "Healthcare Provider" with acronym HP, and use throughout instead of doctors nurses etc. \hautieng{I am not sure what is the best way to do it. In many places, "doctor" are clearly more precise than HP. So I leave this part to you.}
+    \item Patient compliance - how can IA help make sure that patients take their meds, don’t drink excessively etc. \hautieng{done}
+    \item Compensation: Doctors that generate quality data should own this data, distribution mechanisms should compensate the doctor for his/her contribution. \hautieng{As we discussed, this might be a bit off the topic. This is more like a regulatory issue. Let's discuss it if you have a different viewpoint.}
+    \item A few grammatical corrections:
+    -insert 2 page 2 last line “piopsies” instead of biopsies
+    -last line page 2 spelling: “therefor” (needs an e) therefore 
+    -insert page 7 we quote from Robert Rechter’s book... (53) Reference @ 53 indicates “Robert Wachter” as author. \hautieng{I am not fully sure what you want...}
+
+\end{itemize}
+
+To Highlight a change use this macro: \change{old text}{new text}
+\section{Introduction}
 
 The\footnote{Version 3, Sept 9, 2020.} meteoric rise of AI and Deep learning raises the possibility that
 doctors will be replaced by computers~\cite{Mukherjee2017}. Geoff Hinton,
@@ -120,7 +140,7 @@ etc.) and the output is the diagnosis. This output is considered the
 Here lies the first difficulty with applying supervised learning
 to medical diagnosis. In this context the labels correspond to 
 the judgement of human diagnosticians. However 
-different diagnosticians might give different diagnosis, in which case it is hard to assign ground truth. 
+different diagnosticians might give different \hautieng{diagnoses}, in which case it is hard to assign ground truth. 
 We will return to this important issue in the next section.
 
 The other important assumption made in supervised learning is that the
@@ -135,12 +155,12 @@ certified dermatologists. (see inset)
 
 A fundamental problem with the experiments presented in the paper is in the way the data was
 collected. The data used in the experiment was {\em retrospective},
-i.e. it was collected from the records of past patients for which both
+i.e., it was collected from the records of past patients for which both
 a skin image and a biopsy were available. Normally, patients get
 biopsied only if the dermatologist thinks there is a significant
 chance of {\bf malignancy}. As a result, a retrospective study that is
 based on patients for whom a biopsy was taken is likely to
-over-represent malignant patients and therefor be biased. If an image-based classifier
+over-represent malignant patients and \hautieng{therefore} be biased. If an image-based classifier
 is trained on the biased data, its performance on unbiased test data
 is likely to be worse. Specifically, when the classifier is applied to skin
 images of un-diagnosed patients it is likely to over-diagnose them as
@@ -174,7 +194,7 @@ cases, the doctor might ask for multiple tests and visits, refer the
 patient to a specialist, consult colleagues, journals and books,
 etc. To choose a treatment plan, the set of possible diagnostics has
 to be reduced.  However, it does not have to be reduced to a {\em
-  single} diagnostics before treatment can be started.
+  single} \hautieng{diagnosis} before treatment can be started.
 
 In order to apply a supervised learning method, such as  DNN, to the
 diagnostics problem, one needs to define a {\em ground-truth} diagnostic for each
@@ -200,7 +220,7 @@ By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured more reliably
 and consistently than other
-measures such as EKG, EEG, camera images, X-ray, ultra-sound and MRI, some of which might
+measures such as EKG, EEG, camera images, X-ray, \hautieng{ultrasound} and MRI, some of which might
 produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
@@ -224,7 +244,7 @@ Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
 devices and moves up to the medical staff.
 
-Other types of uncertainty are ``top down'' in that they originates in medical research percolates down to the medical staff. We briefly
+Other types of uncertainty are ``top down'' in that they \hautieng{originate} in medical research percolates down to the medical staff. We briefly
 describe two types of top-down uncertainty: knowledge gaps and the
 limitation of medical protocols.
 
@@ -255,12 +275,12 @@ small fraction of the cases are {\em complex}.  We use the term
   diagnosis}.  In other words, these are the cases on which
 inter-rater {\em dis}agreement is low. ``Complex'' cases are those where
 doctors tend to either say "I don't know" or disagree with each other.
-{\em Our proposal is that to allow IA to output ``I don't know'' on
+{\em Our proposal \hautieng{is to} allow IA to output ``I don't know'' on
   the complex cases, and, in exchange, require higher levels of
   accuracy and reliability when the IA makes a prediction.}
 
 Increasing confidence in a diagnosis by seeking consensus among
-several doctors is a common sense. A similar approach has been used in
+several doctors \hautieng{is} common sense. A similar approach has been used in
 machine learning algorithms such as Bagging~\cite{breiman1996bagging},
 Random Forests~\cite{breiman2001random}, and
 Boosting\cite{SchapireFr2012}. These so-called ``ensemble'' algorithms
@@ -268,7 +288,7 @@ take the majority vote of predictions from several ``base'' learning
 algorithms using a majority vote to generate a single more reliable
 prediction.~\footnote{A majority is used when there are only two
   possible labels. A more general combination rule is the {\em
-    plurality} i.e. the label that gets the largest number of votes.}
+    plurality} i.e., the label that gets the largest number of votes.}
 
 The majority vote always outputs one of the labels. A {\em dominant
   majority rule} for binary prediction is one that outputs +1 or -1,
@@ -285,7 +305,7 @@ and big data can be effectively used in medicine. Our discussion
 focuses on the differences between AI and IA and we argue that IA
 defines more achievable goals.
 
-We use Ronald Heifetz classification of problems (see insight). Our
+We use Ronald Heifetz classification of problems (see \hautieng{inset}). Our
 discussion up to this point focused on {\em technical}
 problems. Technical issues can be solved by changing equipment or
 directions for its use. In the remainder of this article we will
@@ -324,7 +344,7 @@ medicine.\cite{price2014black,ford2016privacy, price2017regulating}
 Their conclusion is that the ultimate responsibility for the patients
 well-being is {\em always} with the human caregiver. Even if the AI
 system is known to make fewer mistakes than the average doctor,
-mistakes are unavoidable, and the question who responsible for
+mistakes are unavoidable, and the question \hautieng{is} who \hautieng{is} responsible for
 the mistake, and who needs to explain their decisions and potentially lose their license to practice.
 
 
@@ -377,14 +397,14 @@ taker'' documenting the diagnostic process, and pointing out possible
 errors of omission. 
 
 An example of a pattern classification problem is the annotation of
-sleep. Developing such automatic system is an
+sleep. Developing such \hautieng{an} automatic system is an
 active research field from the AI perspective~\cite{HTaddCite}. As discussed above,
 while the inter-rater agreement rate among experts is substantial over
 normal subjects, there is still a gap, not to mention subjects with
 sleep apnea. Existing systems, however, only affirmatively tell
 experts what the sleep stages are, without providing more
 information. Such disagreement and the affirmative annotation might
-reduce the willing of sleep experts' usage of such system. An ideal IA
+reduce the \hautieng{willingness} of sleep experts' usage of such \hautieng{systems}. An ideal IA
 sidekick should let experts know "I don't know", where there is any
 ambiguity in the process of annotation. Suppose there are 10\% "I
 don't know" sleep stages, it could help save experts 90\% of time, and
@@ -413,20 +433,20 @@ inefficient.
 Part of the solution is telemedicine. In these days of Covid-19,
 telemedicine has gained popularity. Medic and patient can meet in a
 virtual space without either leaving home. Moreover, diagnostic
-devices can be placed in the patients home and provide the doctor with
+devices can be placed in the \hautieng{patient's} home and provide the doctor with
 vital signs.
 
 
 Devices exist that allow most patients to measure basic vital signs
 such as blood pressure, heart rate, EKG and temperature. More complex signals such as
-polysomnogram or ultra-sound currently require a local nurse or a
+polysomnogram or \hautieng{ultrasound} currently require a local nurse or a
 technician and/or a local facility outside the home.
 
 IA can reduce the need for a nurse or technician in two ways. First,
 it can guide the patients in placing the sensors on his/her
 body so as to get a good signal or image. Second, it can perform an
 initial diagnosis. If the patterns are simple, output a diagnosis.
-Otherwise, it would output IDK and alert the remote doctor.
+Otherwise, it would output IDK and alert the remote healthcare provider. \hautieng{A similar application to patient compliance is possible. An IA system can help monitor if a patient follows the order or drinks too much remotely, and warn the remote healthcare provider if the compliance is not ideal or if it cannot decide the compliance.}
 
 Over-centralization is particularly problematic in long-term care.
 Seniors are often pressured to move to institutions such as
@@ -458,8 +478,8 @@ through the integration of many models into a single better model.
 IA models complement other methods of medical method dissemination
 such as protocols, books, lectures and journal articles. They are
 particularly suited for training students in pattern areas. An IA can
-be used to train and test the student ability to accurately and
-confidently identify simple patterns leave it to to senior and
+be used to train and test the \hautieng{student's} ability to accurately and
+confidently identify simple patterns, \hautieng{and leave it} to senior and
 experienced human mentors to teach them how to identify more complex
 patterns \cite{reid2000medical}.
 Using an IA model can overcome protocol limitations such as

@@ -8,7 +8,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 %\usepackage{xcolor,ulem}
-\usepackage{mdframed}
+\usepackage{mdframed,ulem}
 \usepackage{wrapfig}
 \usepackage{multicol}
 \setlength{\columnsep}{1cm}
@@ -75,7 +75,7 @@ To Highlight a change use this macro: \change{old text}{new text}
 
 \section{Introduction}
 
-The meteoric rise of AI and Deep learning raises the possibility that
+The meteoric rise of AI \hautieng{(Artificial Intelligence)} and Deep learning raises the possibility that
 doctors will be replaced by computers~\cite{Mukherjee2017}. Geoff Hinton,
 a famous deep learning researcher said in 2017: ``It's just completely
 obvious that in ten years deep learning is going to do better than
@@ -90,9 +90,9 @@ will not replace dermatologists and radiologists. They will {\em
   policy reports from medical associations~\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human care-givers are seen as a desirable goal.
   In this article we suggest how such a collaboration between human and computer might unfold in practice. Central to our approach is to allow the computer to quantify it's own uncertainty and, when appropriate, output "I don't know" (which we will abbreviate as IDK).
  
-\input{AIIABox} The argument as to whether human healthcare providers (HP~\footnote{Our discussion applies to all healthcare providers, including Doctors, Nurse Practitioners and Nurses. To simplify the references o this group of professionals we use the acronym HP, which stands for "Healthcare Provider"}  will be replaced or empowered by computers is a recent
-incarnation of a long standing debate between AI (Artificial Intelligence) and IA
-(Intelligence amplification) (see inset).
+\input{AIIABox} The argument as to whether human healthcare providers (HP)~\footnote{Our discussion applies to all healthcare providers, including Doctors, Nurse Practitioners and Nurses. To simplify the references \hautieng{to} this group of professionals we use the acronym HP, which stands for "Healthcare Provider"}  will be replaced or empowered by computers is a recent
+incarnation of a long standing debate between \hautieng{AI}  and IA
+(Intelligence amplification) \hautieng{\sout{(see inset)}}.
 
 To distinguish between the goals of AI and IA we use the 
 terms ``AI agent'' and ``IA
@@ -116,8 +116,8 @@ treatment plan.
 
 An AI agent, expected to be better than the human HP, is more likely to 
 end up behaving like an overly confident doctor. An IA sidekick, aware of
-it's own limitations, will give advice only when the evidence is
-strong and otherwise say ``I don't know''.
+\hautieng{its} own limitations, will give advice only when the evidence is
+strong and otherwise say \hautieng{IDK \sout{``I don't know''}}.
 
 In the following sections we explore these ideas in more detail. We
 start with a critique of one of the papers that claims that AI agents
@@ -126,8 +126,8 @@ can outperform human diagnosticians.
 \section{Supervised Learning and the Ground Truth}
 \label{sec:ground-truth}
 
-Deep learning (DNN) is a special case of {\em supervised learning} (see
-inset), sometimes called {\em input-output}
+Deep learning (DNN) is a special case of {\em supervised learning} \hautieng{\sout{(see
+inset)}}, sometimes called {\em input-output}
 learning~\cite{ng2016artificial,topol2019deep}.
 
 Examples of applications of DNN to medical diagnosis include arrhythmia classification 
@@ -152,7 +152,7 @@ as that of the training set.
 
 \input{SkinCancer}
 A highly cited paper in the journal Science~\cite{esteva2017dermatologist}
-makes the claim that DNNs can perform diagnostics as well as, or better, than board certified dermatologists. (see inset)
+makes the claim that DNNs can perform diagnostics as well as, or better, than board certified dermatologists. \hautieng{\sout{(see inset)}}
 
 A fundamental problem with the experiments presented in the paper is 
 the way the data was
@@ -178,8 +178,8 @@ the opinions of human diagnosticians.
 \input{Arrhythmia}
 One of the methods of quantifying uncertainty in medical diagnosis is inter-rater studies.
 In studies of this kind, multiple doctors produce diagnostics
-based on identical medical information without communicating with each other. (see inset).
-Associating {\em ground Truth} with these diagnostics whose inter-rater agreement is less than perfect is challenging.
+based on identical medical information without communicating with each other. \hautieng{\sout{(see inset)}}.
+Associating {\em ground \hautieng{truth}} with these diagnostics whose inter-rater agreement is less than perfect is challenging.
  
 In addition, diagnosis is not an
 input-output mapping. Rather, it is an iterative process which reduces
@@ -222,7 +222,7 @@ By {\em Signal Quality} we refer to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured more reliably
 and consistently than other
-measures such as EKG, EEG, camera images, X-ray, ultrasound and MRI, some of which might
+measures such as \hautieng{electrocardiogram, electroencephalogram}, camera images, X-ray, ultrasound and MRI, some of which might
 produce vast and highly variable data. The quality of this data
 depends on many factors among them, including the quality of the instruments, the
 consistency of the human operator, the build of the patient, etc.
@@ -238,7 +238,7 @@ neglected is Patient Monitors.  The purpose of these devices is to
 continuously monitor patients vital signs and alert the medical staff
 if a dangerous situation is detected. Unfortunately, the false alarm
 rate of these devices is often high. This results in a phenomenon
-called ``alarm fatigue'' (see inset) where the medical staff ignores
+called ``alarm fatigue'' \hautieng{\sout{(see inset)}} where the medical staff ignores
 the generated alarms, rendering them less clinically useful than
 expected.
 
@@ -262,21 +262,21 @@ information is far from even. One of the important information
 dissemination tools are {\em medical protocols}. Those are used to
 ensure uniformity and consistency of treatment between hospitals,
 doctors and nurses. While protocols are an important dissemination
-tool, they have some limitations, as described in the inset.
+tool, \hautieng{they might not be always available. \sout{they have some limitations, as described in the inset.}}
 ~\\
 
 \section{Uncertainty in machine learning}
 
 We described some of the many causes of uncertainty in medical
 diagnosis. One might conclude that the automation of diagnosis in
-diseases with high rates of inter-rater disagreement is
+diseases with high \hautieng{\sout{rates of}} inter-rater disagreement \hautieng{rate} is
 impossible. However, this is not necessarily the case. There are types
 of diagnostics for which the typical case is {\em simple}, and only a
 small fraction of the cases are {\em complex}.  We use the term
 ``simple'' to mean that {\em most doctors are likely to give the same
   diagnosis}.  In other words, these are the cases on which
 inter-rater {\em dis}agreement is low. ``Complex'' cases are those where
-doctors tend to either say "I don't know" or disagree with each other.
+doctors tend to either say \hautieng{IDK \sout{"I don't know"}} or disagree with each other.
 {\em Our proposal is to allow IA to output IDK on
   the complex cases, and, in exchange, require higher levels of
   accuracy and reliability when the IA makes a prediction.}
@@ -296,8 +296,8 @@ The majority vote always outputs one of the labels. A {\em dominant
   majority rule} for binary prediction is one that outputs +1 or -1,
 if one of the classes gets {\em significantly} more votes than any of
 the others. If the number of votes for both labels are similar, the
-dominant majority rule outputs ``?'' which is interpreted as ``I don't
-know''.
+dominant majority rule outputs ``?'' which is interpreted as \hautieng{IDK \sout{``I don't
+know''}}.
 
 \section{Augmenting medicine}
 
@@ -307,7 +307,7 @@ and big data can be effectively used in medicine. Our discussion
 focuses on the differences between AI and IA and we argue that IA
 defines more achievable goals.
 
-We use Ronald Heifetz classification of problems (see inset). Our
+We use Ronald Heifetz classification of problems \hautieng{\sout{(see inset)}}. Our
 discussion up to this point focused on {\em technical}
 problems. Technical issues can be solved by changing equipment or
 directions for its use. In the remainder of this article we will
@@ -318,35 +318,35 @@ are supposed to use the new technology. The best technology is
 worthless if it is not adopted.
 
 Consider first an AI system developed with the goal of replacing the
-caregiver. Naturally, the caregiver will prefer not to use the
-system. Will the patient prefer the human caregiver or the AI system?
+caregiver. Naturally, \hautieng{HP \sout{the caregiver}} will prefer not to use the
+system. Will the patient prefer the human \hautieng{HP \sout{the caregiver}} or the AI system?
 The answer is anybody's guess, because such systems are not available
-yet. Studies show that patients trust a human caregiver more than
+yet. Studies show that patients trust a human \hautieng{HP \sout{the caregiver}} more than
 technology \cite{ongena2020patients}, and that trust requires a human
 to human connection \cite{nundy2019promoting}.
 
-Unlike AI, IA systems do not aim to replace the caregiver. Rather,
-they aim to assist the caregiver by taking care of the simple or easy
+Unlike AI, IA systems do not aim to replace \hautieng{HP \sout{the caregiver}}. Rather,
+they aim to assist \hautieng{HP \sout{the caregiver}} by taking care of the simple or easy
 cases, and deferring to the human for the more complex cases. In this way IA can 
 achieve the goal of ``computer and human work together'' \cite{verghese2018computer}. 
-This makes the caregiver more efficient and effective, but does
-not take away the agency and humanity of the caregiver. When the IA system outputs
-``I don't know'' it explicitly passes the responsibility for the
-patient to the caregiver.
+This makes \hautieng{HP \sout{the caregiver}} more efficient and effective, but does
+not take away the agency and humanity of \hautieng{HP \sout{the caregiver}}. When the IA system outputs
+\hautieng{IDK \sout{``I don't know''}} it explicitly passes the responsibility for the
+patient to \hautieng{HP \sout{the caregiver}}.
 
 %Agency and responsibility are central to patient-caregiver
 %relationship.
 
-As discussed earlier, medical cases often fall within gray areas, where
+As discussed earlier, \hautieng{challenging} medical cases often fall within gray areas, where
 medics differ on the correct diagnosis or the best treatment. In such
-cases the caregiver has the responsibility of making a decision even
+cases \hautieng{HP \sout{the caregiver}} has the responsibility of making a decision even
 though the decision might be wrong. Price et. al. have studied the ethical,
 legal and regulatory aspects of using AI in
 medicine.\cite{price2014black,ford2016privacy, price2017regulating}
 Their conclusion is that the ultimate responsibility for the patients
-well-being is {\em always} with the human caregiver. Even if the AI
-system is known to make fewer mistakes than the average doctor,
-mistakes are unavoidable, and the question is who is held responsible for
+well-being is {\em always} with the human \hautieng{HP \sout{the caregiver}}. Even if the AI
+system is known to make fewer mistakes than the average doctor \hautieng{in some well-defined tasks},
+mistakes are unavoidable, and the question is who is \hautieng{\sout{held}} responsible for
 the mistake, and who needs to explain their decisions and potentially lose their license to practice.
 
 \iffalse
@@ -381,8 +381,8 @@ medical diagnosis is a combination of two types of processes: {\em
 {\em Recognition} is an automatic mental process where one diagnosis
 presents itself in the doctors mind as truth. Pathologists,
 Radiologist's and other ``Pattern Doctors''~\cite{topol2019deep} make heavy use
-of recognition. Their experience allows them to quickly sift through
-large amounts of data and detect complex patterns. Pattern Doctors
+of recognition \hautieng{when the task is about recognizing patterns}. Their experience allows them to quickly sift through
+large amounts of data and detect complex patterns. \hautieng{\sout{Pattern}} Doctors \hautieng{handling patterns}
 often work under great time pressure, which can cause them to miss
 important patterns. IA can help the doctor by performing a fast
 analysis of the signal and alerting the doctor to locations that might
@@ -390,7 +390,7 @@ indicate a pathology. This improves the accuracy and speed of the
 pathologist while maintaining the responsibility of the doctor to the
 final diagnostics. 
 
-Pattern doctors are often unable to fully explain their diagnostics.
+Pattern doctors are often unable to fully explain \hautieng{challenging \sout{their}} diagnostics.
 This hinders documenting, critiquing and teaching diagnostics. As
 recognition typically points to a single diagnosis, there is a danger
 of overlooking other possible diagnoses. IA can serve as a ``note
@@ -400,15 +400,15 @@ errors of omission.
 An example of a pattern classification problem is the annotation of
 sleep. There is active research on using AI to automate this task
 \cite{sleepHT2020}.
-There is significant inter-rater agreement rate among experts for 
-{\em normal subjects}, it is still far from perfect. Agreement drops significantly for abnormal subjects with subjects with sleep apnea   ... . 
+There is \hautieng{non-trivial \sout{significant}} inter-rater agreement rate among experts\hautieng{, even} for 
+{\em normal subjects}\hautieng{\sout{, it is still far from perfect}}. Agreement drops significantly for abnormal subjects with \hautieng{\sout{subjects with}} sleep apnea. 
 Existing systems, however, output the identified sleep stages, 
 without providing any measure of confidence. Providing a measure of confidence allows the HP to concentrate on the complex parts of the signal, while delegating the easy pars to IA sidekick. We believe that such division of labor will increase the likelihood that the HP would use the IA system.
 
 An ideal IA
-sidekick should let experts know "I don't know", where there is any
-ambiguity in the process of annotation. Suppose there are 10\% "I
-don't know" sleep stages, it could help save experts 90\% of time, and
+sidekick should let experts know \hautieng{IDK \sout{"I don't know"}}, where there is any
+ambiguity in the process of annotation. Suppose there are 10\% \hautieng{IDK \sout{"I
+don't know"}} sleep stages, it could help save experts 90\% of time, and
 focus on more important issues.
 
 {\em Elimination}, unlike recognition, is a slow deliberative and
@@ -439,7 +439,7 @@ vital signs.
 
 
 Devices exist that allow most patients to measure basic vital signs
-such as blood pressure, heart rate, EKG and temperature. More complex signals such as
+such as blood pressure, heart rate, and temperature. More complex signals such as
 polysomnogram or ultrasound currently require a local nurse or a
 technician and/or a local facility outside the home.
 
@@ -455,7 +455,7 @@ Over-centralization is particularly problematic in long-term care.
 Seniors are often pressured to move to institutions such as
 assisted living so that they are closer to a medical staff. This, in
 spite of significant medical, mental and financial cost of such a
-move. An approach to long term care called ``aging in
+move\hautieng{, an} approach to long term care called ``aging in
 place'' is gaining popularity around the world. IA sidekicks can help
 seniors perform tasks without taking away their agency.
 
@@ -463,8 +463,8 @@ seniors perform tasks without taking away their agency.
 \subsection{IA and knowledge dissemination}
 
 Through machine learning, IA sidekicks can adapt, over time, to the
-medic using them. This is particularly true for pattern doctors
-performing analysis of complex signals. Initially, the sidekick will
+medic using them. This is particularly true for \hautieng{\sout{pattern}} doctors \hautieng{that
+perform pattern} analysis of complex signals. Initially, the sidekick will
 use some standard set of parameters which gives reasonable performance on
 typical signals. Over time, the sidekick will learn to imitate the
 doctor that is using it. At this point the sidekick captured some of
@@ -480,9 +480,9 @@ through the integration of many models into a single better model.
 
 IA models complement other methods of medical method dissemination
 such as protocols, books, lectures and journal articles. Such models might have the advantage of capturing pattern recognition methods
-which are often hard to describe in words. Training a cancer detection model is likely to require less effort and be more effective than writing a journal article that explains the same. \cite{reid2000medical}.
+which are often hard to describe in words. \hautieng{\sout{Training} Implementing} a cancer detection model \hautieng{for the training purpose} is likely to require less effort and be more effective than writing a \hautieng{tutorial \sout{journal article}} that explains the same \cite{reid2000medical}.
 
-These models are likely to agree with each other on the easy cases, but are likely to disagree on the harder cases. By comparing the outputs of models trained by multiple experts on can distinguish the easy cases, on which a confident prediction can be made, from the harder cases, on which the diagnosis is IDK, and the doctor needs to use additional tests to arrive at a reliable diagnosis.
+These models are likely to agree with each other on the easy cases, but are likely to disagree on the harder cases. By comparing the outputs of models trained by multiple experts \hautieng{one} can distinguish the easy cases, on which a confident prediction can be made, from the harder cases, on which the diagnosis is IDK, and the doctor needs to use additional tests to arrive at a reliable diagnosis.
 
 \section{About the Authors}
 \input{Authors}

@@ -152,49 +152,28 @@ malignant, potentially resulting in an increase of the number of unnecessary bio
 
 \section{Uncertainty in medicine}
 
-In medical diagnostics the {\em ground truth} are often unavailable, and uncertainty in diagnosis is common.
+In medical diagnostics the {\em ground truth} are often unavailable, and uncertainty in diagnosis is common. 
 
-\input{Arrhythmia}
-One approach for quantifying uncertainty in medical diagnosis is to use inter-rater studies, where multiple doctors produce diagnostics
-based on identical medical information without communicating with each other.
-Associating ground truth with these diagnostics whose inter-rater agreement is less than perfect is challenging.
- 
-In addition, diagnosis is not a simple 
-input-output mapping. Rather, it is an iterative process which reduces
-uncertainty over time. To illustrate this, consider the diagnostics of
-a patient that is treated in a clinic.  When a patient
-arrives at the clinic for the first time, all diagnostics are
-possible. After a physical exam and an interview with a doctor, many
-possibilities are eliminated.
-\input{InterRaterAgreement}
+{\color{blue}One way to confirm a diagnosis, or obtain the ground truth, is to collect more information through additional examinations and tests. However, cases (patients) differ in their complexity, and the attending medic might judge additional tests to be unnecessary, in which case the outcome of these tests will not appear in the observational study. 
+In {\em simple} cases, the initial exam is enough for the doctor to confidently choose a treatment. In a more complex case, the doctor might ask for multiple tests and visits, refer the patient to a specialist, consult colleagues, journals and books, etc, to narrow the set of likely diagnostics and choose a treatment plan. 
+%
+In addition, diagnosis is not a simple input-output mapping. Rather, it is an iterative process which reduces uncertainty over time. To illustrate this, consider the diagnostics of a patient that is treated in a clinic.  When a patient arrives at the clinic for the first time, all diagnostics are possible. After a physical exam and an interview with a doctor, many possibilities are eliminated.
+%
+Another way is following up on the treatment plan. However, correct diagnosis is only one of many factors that influence the long term health of the patient. Others include choice of treatment, medication adherence, changes in living and working environments, diet, stress, etc.
 
-Cases (patients) differ in their complexity. In {\em simple} cases, the initial exam is enough
-for the doctor to confidently choose a treatment. In a more complex
-case, the doctor might ask for multiple tests and visits, refer the
-patient to a specialist, consult colleagues, journals and books,
-etc, to narrow the set of likely diagnostics and choose a treatment plan. 
-However, it does not have to be reduced to a {\em  single} diagnosis before treatment can be started.
-In order for IA to aid the HP in the diagnostic process it has to have a way to express both what is knows and what it {\em does not} know.
 
-Currently, most of
-the data available for machine learning is {\em observational or
-retrospective}.
-One way to confirm a diagnosis is to collect more information through
-additional examinations and tests. However the attending medic might
-judge additional tests to be unnecessary, in which case the outcome of these tests will not
-appear in the observational study.
-Another way is following up on the treatment plan. However, correct
-diagnosis is only one of many factors that influence the long term
-health of the patient. Others include choice of treatment, medication
-adherence, changes in living and working environments, diet, stress, etc.
 
-Given the difficulties in measuring an undisputed "ground truth" for diagnostics, we suggest that the goal of learning be set not to 
-predicting a single "true" diagnostic, but rather to taking the actual diagnostics given by the HP as the ground truth. In other words, we change the goal from performing better than the human to that of performing almost as well as the humans. Which means that uncertainty or disagreement among the HP should be reflected as uncertainty in the output of the IA helper, or, in other words, by IDK. This conforms to the goals of AI vs IA, while AI's goal is to replace the HP, the goal of IA is to aid the HP and make him/her more efficient and more accurate.
 
-\input{SignalQuality}
-There are many causes for uncertainty in human medical diagnosis. We briefly
-describe three categories of problems: {\em signal quality}, the {\em
-  knowledge gap} and the limitations of {\em diagnostic protocols}.
+
+Given the difficulties in measuring an undisputed "ground truth" for diagnostics, we suggest that the goal of learning be set not to predicting a {single} "true" diagnostic, but rather to {taking} the actual diagnostics given by the HP as the ground truth. In other words, we change the goal from performing better than the human to that of performing almost as well as the humans. Which means that in order for IA to aid the HP in the diagnostic process, uncertainty or disagreement among the HP should be reflected as uncertainty in the output of the IAH, and 
+ it has to have a way to express both what is knows and what it {\em does not} know.
+%
+This conforms to the goals of AI vs IA, while AI's goal is to replace the HP, the goal of IA is to aid the HP and make him/her more efficient and more accurate.
+
+
+
+There are many causes for uncertainty in human medical diagnosis. One approach for quantifying uncertainty in medical diagnosis is to use inter-rater studies, {where} multiple doctors produce diagnostics based on identical medical information without communicating with each other. Associating ground truth with these diagnostics whose inter-rater agreement is less than perfect is challenging.
+We briefly describe three categories of problems: {\em signal quality}, the {\em knowledge gap} and the limitations of {\em diagnostic protocols}.}
 
 By {\em Signal Quality} refers to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
@@ -395,8 +374,8 @@ seniors perform tasks without taking away their agency.
 \subsection{IA and knowledge dissemination}
 
 Through machine learning, IA helpers can adapt, over time, to the
-medic using them. This is particularly true for \hautieng{\sout{pattern}} doctors \hautieng{that
-perform pattern} analysis of complex signals. Initially, the helper will
+medic using them. This is particularly true for  doctors that
+perform pattern analysis of complex signals. Initially, the helper will
 use some standard set of parameters which gives reasonable performance on
 typical signals. Over time, the helper will learn to imitate the
 doctor that is using it. This knowledge is captured in the  {\em learned model}.

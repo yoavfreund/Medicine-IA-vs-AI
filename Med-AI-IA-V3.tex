@@ -75,7 +75,7 @@ To Highlight a change use this macro: \change{old text}{new text}
 
 \section{Introduction}
 
-The meteoric rise of  Artificial Intelligence (AI) and Deep learning raises the possibility that
+The meteoric rise of  Artificial Intelligence (AI) and Deep learning (DNN) raises the possibility that
 doctors will be replaced by computers~\cite{Mukherjee2017}. Geoff Hinton,
 a famous deep learning researcher said in 2017: ``It's just completely
 obvious that in ten years deep learning is going to do better than
@@ -88,9 +88,9 @@ will not replace dermatologists and radiologists. They will {\em
   augment} professionals, offering the expertise and assistance''. 
   The term "Augmented Intelligence" appears frequently in recent 
   policy reports from medical associations~\cite{american2019augmented,AAD2019augmented}. Collaborations between computers and human care-givers are seen as a desirable goal.
-  In this article we suggest how such a collaboration between human and computer might unfold in practice. Central to our approach is to allow the computer to quantify it's own uncertainty and, when appropriate, output "I don't know" (which we will abbreviate as IDK).
+  In this article we suggest how such a collaboration between human and computer might work in practice. Central to our approach is to give the computer the ability to quantify it's own uncertainty. When the uncertaintyis high, the computer will output "I don't know" (which we will abbreviate as IDK).
  
-\input{AIIABox} The argument as to whether human healthcare providers (HP)~\footnote{Our discussion applies to all healthcare providers, including Doctors, Nurse Practitioners and Nurses. To simplify the references to this group of professionals we use the acronym HP, which stands for "Healthcare Provider"}  will be replaced or empowered by computers is part of a wider debate between AI, whose goal is to imitate human behaviour  and Intelligence Amplification (IA), whose goal is to extend human capabilities. Computers with AI are sometimes called "AI agents", we contrast computers with IA by referring to them as "IA Helpers" (IAH). Helpers are expected to help when they can, and say IDK when they cannot. In any case, they are not allowed to take actions regarding the patient.
+\input{AIIABox} The argument as to whether human healthcare providers (HP)~\footnote{Our discussion applies to all healthcare providers, including Doctors, Nurse Practitioners and Nurses. To simplify the references to this group of professionals we use the acronym HP, which stands for "Healthcare Provider"}  will be replaced or empowered by computers is part of a wider debate between AI, whose goal is to imitate human behaviour  and Intelligence Amplification (IA), whose goal is to extend human capabilities. Computers with AI are sometimes called "AI agents", we contrast computers with IA by referring to them as "IA Helpers" (IAH). Helpers are expected to help when they can, and output IDK when they cannot. 
 Of the many potential uses of AI/IA in medicine, we focus on diagnostics.
 AI-driven diagnosis are expected to become a reality much sooner than other medical activities such as surgery~\cite{topol2019deep}. 
 
@@ -99,10 +99,9 @@ Central to our argument is a quantification of {\em prediction
 diagnostic conclusions, and to decide which additional tests or
 consultations might be needed. Consider a doctor that is asked
 to diagnose a patient with complex or conflicting symptoms. A careful
-doctor will admit their uncertainty and perform additional tests or
-ask a specialist. A less careful, overly self confident doctor is
-more likely to give an incorrect diagnosis and choose an ineffective or even damaging
-treatment plan.
+doctor will acknowledge her uncertainty and order additional tests or
+consult a specialist. A less careful, more self confident doctor is
+more likely to give an incorrect diagnosis or choose an ineffective or even damaging treatment plan.
 
 An AI agent, expected to be better than the human HP, is more likely to 
 end up behaving like an overly confident doctor. An IAH, aware of
@@ -110,8 +109,7 @@ its own limitations, will give advice only when the evidence is
 strong and otherwise say IDK.
 
 In the following we explore these ideas. We
-start with a critique of one of the papers that claims that AI agents
-can outperform human diagnosticians.
+start with a critique of one of the papers claiming that AI agents can outperform human diagnosticians.
 
 \section{Black-box learning}
 \label{sec:ground-truth}
@@ -134,7 +132,7 @@ from single channel electrocardiogram \cite{hannun2019cardiologist}, diabetic re
 
 \input{SkinCancer}
 In a highly cited paper in the journal Science~\cite{esteva2017dermatologist} the authors 
-makes the claim that DNNs can perform diagnostics as well as, or better, than board certified dermatologists. 
+claim that DNNs can perform skin cancer diagnostics as well as, or better, than board certified dermatologists. 
 
 A fundamental problem with the experiments presented in the paper is that the test data used does not represent 
 a realistic deployment of the system.
@@ -142,7 +140,7 @@ The data used in the experiment was {\em retrospective},
 i.e., it was collected from the records of past patients for which both
 a skin image and a biopsy were available. Normally, patients get
 biopsied only if the dermatologist thinks there is a significant
-chance of {\bf malignancy}. As a result, a retrospective study that is
+chance of malignancy. As a result, a retrospective study that is
 based on patients for whom a biopsy was taken is likely to
 over-represent malignant patients and therefore be biased. If an image-based classifier
 is trained on the biased data, its performance on unbiased test data
@@ -152,37 +150,37 @@ malignant, potentially resulting in an increase of the number of unnecessary bio
 
 \section{Uncertainty in medicine}
 
-In medical diagnostics the {\em ground truth} are often unavailable, and uncertainty in diagnosis is common. 
+Uncertainty is prevalent in medical diagnostics 
+while  {\em ground truth} is often hard to find.
+Diagnosis is not a simple input-output mapping. Rather, it is an iterative process that reduces uncertainty over time. For "easy" cases, the process starts and ends within a single visit to an HP. 
+In harder cases, a referral is made to a specialist.  A small fraction of the cases are very hard, such cases require numerous  tests and consultations before a diagnostics and a treatment plan is chosen. Diagnosis is less like a single 
+classifier, it is more similar to a cascade of classifiers, each of which sometimes outputs IDK, leaving the decision to the next classifier.
 
-{\color{blue}One way to confirm a diagnosis, or obtain the ground truth, is to collect more information through additional examinations and tests. However, cases (patients) differ in their complexity, and the attending medic might judge additional tests to be unnecessary, in which case the outcome of these tests will not appear in the observational study. 
-In {\em simple} cases, the initial exam is enough for the doctor to confidently choose a treatment. In a more complex case, the doctor might ask for multiple tests and visits, refer the patient to a specialist, consult colleagues, journals and books, etc, to narrow the set of likely diagnostics and choose a treatment plan. 
+Consider the concept of "ground truth", can we determine whether or not a diagnosis was correct? The answer is "sometimes".
+Sometimes, for particular diseases and particular treatments, there are well known symptoms for particular disease/treatment pairs, such symptoms can be used to confirm or deny that the diagnosis was correct. 
+In many cases, However, correct diagnosis is only one of many 
+factors that influence the health and symptoms of the patient. Other factors include choice of treatment, medication adherence, changes in living and working environments, diet, stress, etc. In those cases it is hard to assign a diagnosis a label of correct or incorrect. We simply have no access to the ground truth.
+
+One way to measure the difficulty of a case is to ask multiple HP to give a diagnosis. If they all give the same diagnosis, then the case is easy, if there is significant differences, the case is hard.  
+We argue that the goal of learning should be to predict correctly on the easy cases and output IDK on the hard cases. In other words, we change the goal from performing better than the best HP to that of performing almost as well as the consensus among HPs. 
 %
-In addition, diagnosis is not a simple input-output mapping. Rather, it is an iterative process which reduces uncertainty over time. To illustrate this, consider the diagnostics of a patient that is treated in a clinic.  When a patient arrives at the clinic for the first time, all diagnostics are possible. After a physical exam and an interview with a doctor, many possibilities are eliminated.
-%
-Another way is following up on the treatment plan. However, correct diagnosis is only one of many factors that influence the long term health of the patient. Others include choice of treatment, medication adherence, changes in living and working environments, diet, stress, etc.
+This reflects the different goals of AI vs IA, while the goal of AI is replacing the HP, the goal of IA augmenting the HP
+by making him/her more efficient and more accurate.
+There is extensive research in quantifying uncertainty in medical diagnosis. One approach is inter-rater agreement tudies, 
+where multiple doctors produce diagnostics based on identical medical information and without communicating with each other. 
+One way to frame the goal of IA is to diagnose those cases on which the inter-rater agreement is high. 
 
-
-
-
-
-Given the difficulties in measuring an undisputed "ground truth" for diagnostics, we suggest that the goal of learning be set not to predicting a {single} "true" diagnostic, but rather to {taking} the actual diagnostics given by the HP as the ground truth. In other words, we change the goal from performing better than the human to that of performing almost as well as the humans. Which means that in order for IA to aid the HP in the diagnostic process, uncertainty or disagreement among the HP should be reflected as uncertainty in the output of the IAH, and 
- it has to have a way to express both what is knows and what it {\em does not} know.
-%
-This conforms to the goals of AI vs IA, while AI's goal is to replace the HP, the goal of IA is to aid the HP and make him/her more efficient and more accurate.
-
-
-
-There are many causes for uncertainty in human medical diagnosis. One approach for quantifying uncertainty in medical diagnosis is to use inter-rater studies, {where} multiple doctors produce diagnostics based on identical medical information without communicating with each other. Associating ground truth with these diagnostics whose inter-rater agreement is less than perfect is challenging.
-We briefly describe three categories of problems: {\em signal quality}, the {\em knowledge gap} and the limitations of {\em diagnostic protocols}.}
+Many problems hinder the human diagnostician.
+We briefly describe three categories of problems that are relevant to our discussion: {\em signal quality}, the {\em knowledge gap} and the limitations of {\em diagnostic protocols}.
 
 By {\em Signal Quality} refers to the quality of the raw data
 collected for medical diagnosis. Some diagnostic measures, such
 as heart rate, blood pressure and temperature can be measured more reliably
 and consistently than other
 measures such as camera images, X-ray and ultrasound, 
-some of which might produce vast and highly variable data. The quality of this data
+some of which might produce vast amounts of highly variable data. The quality of this data
 depends on many factors, including the quality of the instruments, the
-consistency of the human operator, the build of the patient, etc.
+consistency of the human operator, the body of the patient, etc.
 
 \input{AlarmFatigue}
 %Signal quality enhancement is already an important part of imaging
@@ -192,7 +190,7 @@ consistency of the human operator, the build of the patient, etc.
 
 One situation where signal quality and signal variability cannot be
 neglected is Patient Monitors.  The purpose of these devices is to
-continuously monitor patients vital signs and alert HP
+continuously monitor patients vital signs and alert the HP
 if a dangerous situation is detected. Unfortunately, the false alarm
 rate of these devices is often high, which leads to ``alarm fatigue'' where the medical staff ignores
 the generated alarms, significantly reducing their utility.
@@ -201,7 +199,8 @@ Signal quality and alarm fatigue can be thought of as ``bottom up''
 causes of uncertainty. The uncertainty originates in the medical
 devices and moves up to the HP.
 
-Other types of uncertainty are ``top down'' in that they originate in medical research percolates down to the HP. We briefly
+Other types of uncertainty are ``top down'' in that they originate in medical research and 
+percolates down to the HP. We briefly
 describe two types of top-down uncertainty: knowledge gaps and the
 limitation of medical protocols.
 
@@ -221,7 +220,7 @@ tool, they might not be available for all conditions.
 
 \section{Quantifying uncertainty}
 
-Medical cases vary in their complexity. When the human experts do not agree, it is unlikely that the IA helper will be able to resolve the disagreement. On the other hand, IA is likely to be more helpful on simple case, where doctors are likely to agree. However, the IA needs to {\em know} whether the case is easy or hard, so that it gives advice only when useful. How can the IA quantify it's own confidence?
+Medical cases vary in their complexity. When the human experts do not agree, it is unlikely that IAH will be able to resolve the disagreement. On the other hand, IA is likely to be more helpful on simple cases, where doctors are more likely to agree. However, IAH needs to {\em know} whether the case is easy or hard, so that it gives advice only when useful. How can IAH quantify its own confidence?
 
 Increasing confidence in a diagnosis by seeking consensus among
 several doctors is common sense. A similar approach has been used in
@@ -240,25 +239,20 @@ prediction.
 \section{Augmenting medicine}
 
 \input{ProtocolLimitations}
-Our focus so far was on 
-the {\em technology}, not on the {\em adoption} of the technology by humans and organizations. While technology can advance very quickly, the adoption of technology is can be slow and difficult.  
-We devote this section to discussing the adoption of AI and IA in medicine.
+Our focus so far was on IA/AI as {\em technologies}, we now turn our sights to  the {\em adoption} of IA/AI technology by people and organizations. While technology can advance very quickly, the adoption of technology can be slow and difficult.  
 
 Consider first an AI system developed with the goal of replacing the
-caregiver. Naturally, HP will prefer not to use the
-system. Will the patient prefer the human HP or the AI system?
+HP. 
+Will the patient prefer the human HP or the AI system?
 Some preliminary studies show that patients trust a human HP more than
 technology \cite{ongena2020patients}, and that trust requires a human
-to human connection \cite{nundy2019promoting}.
+to human connection \cite{nundy2019promoting}. Also, the HP might prefer not to collaborate with a system that threatens his/her livelihood.
 
-Unlike AI, IA systems do not aim to replace HP. Rather,
-they aim to assist HP by automating the simple
-cases, and deferring to the human for the more complex cases. In this way IA can 
+Unlike AI, IA systems do not aim to replace the HP. Rather,
+IA systems aim to help the HP make diagnoses. The IA interacts with the HP, not with the patient. In this way IA can 
 achieve the goal of ``computer and human work together'' \cite{verghese2018computer}. 
 This makes HP more efficient and effective, but does
-not take away the HP's agency or humanity. When the IA system outputs
-IDK it explicitly passes the responsibility for the
-patient to HP.
+not take away the HP's agency or humanity. 
 
 As discussed earlier, challenging medical cases often fall within gray areas, where
 HPs differ on the correct diagnosis or the best treatment. In such
@@ -268,9 +262,10 @@ legal and regulatory aspects of using AI in
 medicine.\cite{price2014black,ford2016privacy, price2017regulating}
 Their conclusion is that the ultimate responsibility for the patients
 well-being is {\em always} with the human HP. Even if the AI
-system is known to make fewer mistakes than the average doctor in some well-defined tasks,
-mistakes are unavoidable, and the question is who is responsible for
-the mistake, and who needs to explain their decisions and potentially lose their license to practice.
+system is known to make fewer mistakes than the average doctor in some well-defined diagnostic tasks.
+Some mistakes will happen, in which case the question is who bears the responsibility,
+who needs to explain their decisions in the court of law and who can potentially lose their license to practice. 
+Responsibility holds no meaning for a non-human AI or IA.
 
 \iffalse
 
@@ -290,7 +285,7 @@ medicine, and IA as a method for disseminating medical knowledge.
 \subsection{IA and the individual HP}
 
 \input{TechnicalVSAdaptive} 
-From the perspective of an individual medic, an IA helper is a
+From the perspective of an individual medic, IAH is a
 tool that augments their diagnostic abilities by increasing accuracy
 and by saving time.
 
@@ -304,8 +299,8 @@ medical diagnosis is a combination of two types of processes: {\em
 {\em Recognition} is an automatic mental process where one diagnosis
 presents itself in the doctors mind as truth. Pathologists,
 Radiologist's and other ``Pattern Doctors''~\cite{topol2019deep} make heavy use
-of recognition \yoav{\sout{when the task is about recognizing patterns}}. Their experience allows them to quickly sift through
-large amounts of data and detect complex patterns. Pattern Doctors \yoav{\sout{handling patterns}}
+of recognition. Their experience allows them to quickly sift through
+large amounts of data and detect complex patterns. Pattern Doctors 
 often work under great time pressure, which can cause them to miss
 important patterns. IA can help the doctor by performing a fast
 analysis of the signal and alerting the doctor to locations that might
@@ -347,7 +342,7 @@ a hospital and back in order to see a doctor for 5 minutes is highly
 inefficient. 
 
 Part of the solution is telemedicine. In these days of Covid-19,
-telemedicine has gained popularity. Medic and patient can meet in a
+telemedicine has gained popularity. HP and patient can meet in a
 virtual space without either leaving home. Moreover, diagnostic
 devices can be placed in the patient's home and provide the doctor with
 {a record of vital signs during and between meetings.}
@@ -367,13 +362,13 @@ Seniors are often pressured to move to institutions such as
 assisted living so that they are closer to a medical staff. This, in
 spite of significant medical, mental and financial cost of such a
 move. An approach to long term care called ``aging in
-place'' is gaining popularity around the world. IA helpers can help
+place'' is gaining popularity around the world. IAH can help
 seniors perform tasks without taking away their agency.
 
 
 \subsection{IA and knowledge dissemination}
 
-Through machine learning, IA helpers can adapt, over time, to the
+Through machine learning, IAH can adapt, over time, to the
 medic using them. This is particularly true for  doctors that
 perform pattern analysis of complex signals. Initially, the helper will
 use some standard set of parameters which gives reasonable performance on
@@ -381,8 +376,8 @@ typical signals. Over time, the helper will learn to imitate the
 doctor that is using it. This knowledge is captured in the  {\em learned model}.
 
 Learned models, especially those corresponding to experienced and
-successful doctors, are likely to be useful for other doctors,
-possibly at the beginning of their career. Models from many doctors,
+successful specialists, are likely to provide useful help other doctors,
+possibly at the beginning of their career or at a rural hospital. Models from many doctors,
 in many institutions, can be collected in repositories. Such models
 will have many uses, from initializing helpers for new doctors,
 through the integration of many models into a single better model.
@@ -393,8 +388,8 @@ which are often hard to describe in words. Training a pathologist by interacting
 
 These models are likely to agree with each other on the easy cases, but are likely to disagree on the harder cases. By comparing the outputs of models trained by multiple experts one can distinguish the easy cases, on which a confident prediction can be made, from the harder cases, on which the diagnosis is IDK, and the doctor needs to use additional tests to arrive at a reliable diagnosis.
 
-\section{About the Authors}
-\input{Authors}
+%\section{About the Authors}
+%\input{Authors}
 
 \section{References}
 % \bibliographystyle{alpha} 

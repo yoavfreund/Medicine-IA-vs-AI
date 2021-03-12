@@ -220,7 +220,7 @@ tool, they might not be available for all conditions.
 
 \section{Quantifying uncertainty}
 
-Medical cases vary in their complexity. When the human experts do not agree, it is unlikely that IAH will be able to resolve the disagreement. On the other hand, IA is likely to be more helpful on simple cases, where doctors are more likely to agree. However, IAH needs to {\em know} whether the case is easy or hard, so that it gives advice only when useful. How can IAH quantify its own confidence?
+Medical cases vary in their complexity. When the human experts do not agree, it is unlikely that IAH will be able to resolve the disagreement. On the other hand, IAH is likely to be more helpful on simple cases, where doctors are more likely to agree. However, IAH needs to {\em know} whether the case is easy or hard, so that it gives advice only when useful. How can IAH quantify its own confidence?
 
 Increasing confidence in a diagnosis by seeking consensus among
 several doctors is common sense. A similar approach has been used in
@@ -248,8 +248,8 @@ Some preliminary studies show that patients trust a human HP more than
 technology \cite{ongena2020patients}, and that trust requires a human
 to human connection \cite{nundy2019promoting}. Also, the HP might prefer not to collaborate with a system that threatens his/her livelihood.
 
-Unlike AI, IA systems do not aim to replace the HP. Rather,
-IA systems aim to help the HP make diagnoses. The IA interacts with the HP, not with the patient. In this way IA can 
+Unlike AI, the goal of IA is not to replace the HP. Rather,
+it aims to help the HP make diagnoses. IAH interacts with the HP, not with the patient. In this way IA can 
 achieve the goal of ``computer and human work together'' \cite{verghese2018computer}. 
 This makes HP more efficient and effective, but does
 not take away the HP's agency or humanity. 
@@ -290,7 +290,7 @@ tool that augments their diagnostic abilities by increasing accuracy
 and by saving time.
 
 To better understand the diagnostic process and the possibilities  of
-improving it using IA, we turn to the Kahaneman's~\cite{kahneman2011thinking}
+improving it using IAH, we turn to the Kahaneman's~\cite{kahneman2011thinking}
 ``Thinking Fast Thinking Slow'' and to Vordermark book on medical
 decision making~\cite{vordermark2019introduction}. According to these authorities,
 medical diagnosis is a combination of two types of processes: {\em
@@ -302,7 +302,7 @@ Radiologist's and other ``Pattern Doctors''~\cite{topol2019deep} make heavy use
 of recognition. Their experience allows them to quickly sift through
 large amounts of data and detect complex patterns. Pattern Doctors 
 often work under great time pressure, which can cause them to miss
-important patterns. IA can help the doctor by performing a fast
+important patterns. IAH can help the doctor by performing a fast
 analysis of the signal and alerting the doctor to locations that might
 indicate a pathology. This improves the accuracy and speed of the
 pathologist while maintaining the responsibility of the doctor to the
@@ -311,7 +311,7 @@ final diagnostics.
 As recognition is often a automatic mental process it can be difficult to explain verbally.
 This hinders documenting, critiquing and teaching pattern recognition. As
 recognition typically points to a single diagnosis, there is a danger
-of overlooking other possible diagnoses. IA can serve as a ``note
+of overlooking other possible diagnoses. IAH can serve as a ``note
 taker'' documenting the diagnostic process, and pointing out possible
 errors of omission. 
 
@@ -322,7 +322,7 @@ There is non-trivial inter-rater disagreement rate among experts.
 Existing systems, however, output the identified sleep stages, 
 without providing any measure of confidence. Providing a measure of confidence allows the HP to concentrate on the complex parts of the signal, while delegating the easy pars to IAHs. 
 Suppose 10\% of the cases result in IDK. HPs could spend only a short amount of time on the remaining 90\% of the cases, and focus on more complex ones.
-Such division of labor can increase the likelihood that a pattern HP will  the IA system.
+Such division of labor can increase the likelihood that a pattern HP uses the IAH.
 
 {\em Elimination}, unlike recognition, is a slow deliberative and
 verbal process which starts with all possible diagnoses and gradually
@@ -330,7 +330,7 @@ eliminates unlikely ones based on patient history, examination and
 test results. As Elimination is deliberative, it is easier to discuss,
 document and teach it.
 
-An IA system could help the elimination process carefully and
+IAH could help the elimination process carefully and
 systematically eliminate incorrect diagnoses. This can reduce the chance of overlooking possible diagnostics.
 
 \subsection{IA and Decentralized medicine}
@@ -348,14 +348,14 @@ devices can be placed in the patient's home and provide the doctor with
 {a record of vital signs during and between meetings.}
 
 
-IA can surrogate a nurse or technician in telemedicine in two ways. First,
+IAH can surrogate a nurse or technician in telemedicine in two ways. First,
 it can guide the patients in placing the sensors on his/her
 body so as to get a good signal or image. Second, it can perform an
 initial diagnosis. If the patterns are simple, output a diagnosis.
 Otherwise, output IDK and alert the remote healthcare provider. 
 
 One significant disadvantage of decentralized medicine is {limited} monitoring, especially when the patient is living alone. 
-Falls and other accidents can go undetected for hours, days, or weeks, endangering the patient. IAHs can monitor the patient's activity, detect critical events and alert HP when needed.
+Falls and other accidents can go undetected for hours, days, or weeks, endangering the patient. IAH can monitor the patient's activity, detect critical events and alert HP when needed.
 
 Over-centralization is particularly problematic in long-term care.
 Seniors are often pressured to move to institutions such as
@@ -382,7 +382,7 @@ in many institutions, can be collected in repositories. Such models
 will have many uses, from initializing helpers for new doctors,
 through the integration of many models into a single better model.
 
-IA models complement other methods of medical method dissemination
+IA complements other methods of medical method dissemination
 such as protocols, books, lectures and journal articles. Such models might have the advantage of capturing pattern recognition methods
 which are often hard to describe in words. Training a pathologist by interacting with a cancer detection model is likely to be more effective than following a tutorial that explains the same \cite{reid2000medical}.
 

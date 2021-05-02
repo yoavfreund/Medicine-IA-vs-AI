@@ -1,0 +1,65 @@
+\documentclass[11pt]{pnas-new}
+% \documentclass[10pt]{article}
+\templatetype{pnasresearcharticle} % Choose template 
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} %= Template for a one-column mathematics article
+% {pnasinvited} %= Template for a PNAS invited submission
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{xcolor,ulem}
+\usepackage{mdframed,ulem}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{lipsum}
+\newlength{\strutheight}
+%\usepackage{soul} % for strike-through (\st)
+
+\author[1]{Hau-Tieng Wu}
+\author[2]{Yoav Freund}
+
+\affil[1]{Duke, Mathematics and Statistical Science, Durham, 27708, USA}
+\affil[2]{UCSD, Computer Science, San Diego, 92093, United States. yfreund@eng.ucsd.edu}
+
+
+\title{AI devices should tell you when they don't know}
+
+\input{macros}
+
+\begin{document}
+\maketitle
+
+The idea that AI will soon revolutionize medicine has a long history.
+In 1959, Ledley and Lusted published an article in the journal
+Science~\cite{ledley1959reasoning} with the title ``Reasoning
+foundations of medical diagnosis'' and the subtitle ``Symbolic logic,
+probability and value theory aid our understanding of how physicians
+reason''. Note, while the methods proposed are different from the deep
+learning methods (DL) popular today, the goal is familiar: create a
+model of human thought process and replace the doctor with a computer.
+
+Little progress has been made towards this goal in the 60 years since
+the publication of the Ledley and Lusted paper. It makes one wonder
+whether better progress can be expected for the next 60
+years. Granted, deep learning is a powerful new tool. However, the
+problem might be with the goal, not with the tools used to achieve it.
+
+Let us focus on diagnosis, the goal of diagnostic AI is to develop an
+algorithm that produces a diagnosis that, when compared with ground
+truth, has equal or better accuracy than human diagnosticians. Several
+studies have claimed success in that regard~\cite{}. One controversy
+regarding these papers regards the definition of ground truth. In many
+cases there is no objective way to determine the correct diagnosis and
+the fall back solution is to use the concensus of board certified
+diagnosticians, a solution with many problems of its own.
+
+
+\section{References}
+% \bibliographystyle{alpha} 
+\bibliography{medbib}
+
+\end{document}
+

@@ -1,0 +1,99 @@
+\documentclass[11pt]{pnas-new}
+% \documentclass[10pt]{article}
+\templatetype{pnasresearcharticle} % Choose template 
+% {pnasresearcharticle} = Template for a two-column research article
+% {pnasmathematics} %= Template for a one-column mathematics article
+% {pnasinvited} %= Template for a PNAS invited submission
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+%\usepackage{xcolor,ulem}
+\usepackage{mdframed,ulem}
+\usepackage{wrapfig}
+\usepackage{multicol}
+\setlength{\columnsep}{1cm}
+\usepackage{graphicx}
+\usepackage{adjustbox}
+\usepackage{lipsum}
+\newlength{\strutheight}
+%\usepackage{soul} % for strike-through (\st)
+
+\author[1]{Hau-Tieng Wu}
+\author[2]{Yoav Freund}
+
+\affil[1]{Duke, Mathematics and Statistical Science, Durham, 27708, USA}
+\affil[2]{UCSD, Computer Science, San Diego, 92093, United States. yfreund@eng.ucsd.edu}
+
+
+\title{AI as a team player}
+
+\input{macros}
+
+\begin{document}
+\maketitle
+
+The idea that AI will soon revolutionize medicine has a long history.
+In 1959, Ledley and Lusted published an article in the journal
+Science~\cite{ledley1959reasoning} with the title ``Reasoning
+foundations of medical diagnosis'' and the subtitle ``Symbolic logic,
+probability and value theory aid our understanding of how physicians
+reason''. Note, while the methods proposed are different from the deep
+learning methods (DL) popular today, the goal is familiar: create a
+model of human thought process and replace the doctor with a computer.
+
+Little progress has been made towards this goal in the 60 years since
+the publication of the Ledley and Lusted paper. It makes one wonder
+whether better progress can be expected for the next 60
+years. Granted, deep learning is a powerful new tool. However, the
+problem might be with framing of the goal, not with the technology
+used to achieve it.
+
+We focus on diagnosis, the goal of diagnostic AI is to develop an
+algorithm that produces a diagnosis that, when compared with ground
+truth, has equal or better accuracy than human diagnosticians. Several
+studies have claimed success in that regard~\cite{}. Aside the
+question of whether or not the claims are true, one might ask whether
+comparison to ground truth is the relevant performance measure.
+
+Imagine a doctor of oncology, Dr. Ma, that is diagnosing patients in
+her clinic.  For most patients Dr. Ma gives a confident diagnosis
+after a brief checkup. Other onclogists, had they been asked, are
+likely to agree with Dr. Ma on this diagnosis. This does not imply
+that the diagnosis is correct. Indeed it is possible that Dr. Ma and
+all of the other oncologists are incorrect.
+
+In some cases Dr Ma will not be certain about the patient diagnosis
+the patient after a short visit. In such cases the doctor needs to gather
+additional information. The additional information can take many
+forms: lab tests, genetic tests, articles or books, consultation with
+other doctors etc.  As Dr. Ma accumulates information, she looks for a
+diagnostic that is consistent with the information. At some point
+most of the accumulated information points towards a particular
+diagnosis, which Dr. Ma uses to choose a treatment plan.
+
+Note that in both cases the final diagnosis is based on agreement. In
+the first case, it is an agreement among a putative set of alternative
+doctors, in the the second case, it is an agreement among the sources of
+additional information. The reason that Dr. Ma can be confident in her 
+diagnosis is because it is based on many sources of information. The
+confidence is based on the preponderance of evidence, rather than on a
+single logical argument.  
+
+Another aspect of this decision process is that, at the end of the
+day, it is Dr. Ma that decides on the treatment plan. By doing so she
+uses her own experience to decide which information to follow and
+which to ignore. The treatment decision is different from the
+diagnostic decision in that it is responsible for the final
+outcome. As such it requires that Dr. Ma take into account aspects
+outside diagnostic information such as finance, age, quality of life,
+and other ethical issue.
+
+
+{\em What computers can do in this context}
+
+\section{References}
+% \bibliographystyle{alpha} 
+\bibliography{medbib}
+
+\end{document}
+
